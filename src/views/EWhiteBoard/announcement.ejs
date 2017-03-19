@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../Common/head%>
+
+
+<body>
+    <% include ../Common/eBoardMarquee.ejs%>
+    <div class="container container_higher" id="out">
+        <h1><i class="fa fa-newspaper-o" aria-hidden="true"></i> 病房公告</h1>
+        <a href="#" id="refresh"><i class="fa fa-refresh" aria-hidden="true"></i> 重新整理</a>
+        <div class="clearfix"></div>
+        <table class="overflow-y">
+            <thead>
+                <tr>
+                    <th>起始日期</th>
+                    <th>迄止日期</th>
+                    <th>內容</th>
+                </tr>
+            </thead>
+            <tbody id="announcement_tbody">
+            </tbody>
+        </table>
+        <div class="clearfix"></div>
+    </div>
+    <%- include('../Common/eBoardMenu', {func: '9'}) %>
+</body>
+</html>
+
+<script type="text/javascript" src="../js/EWhiteBoard/announcement.js"></script>
+<script id="announcement_temp" type="text/x-handlebars-template">
+    {{#announcements}}
+    <tr>
+        <td class="date">{{formatTime start_datetime  "current"}}</td>
+        <td class="date">{{formatTime end_datetime  "current"}}</td>
+        <td><a href="{{link}}" target="_blank">{{content}}</a></td>
+    </tr>
+    {{/announcements}}
+</script>

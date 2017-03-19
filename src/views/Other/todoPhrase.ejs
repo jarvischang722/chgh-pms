@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<%- include ../Common/head.ejs %>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'other'}) %>
+<%- include('../Common/headerMenu',{moduleName:'other', func:'1' }) %>
+<div class="nurse_system">
+    <div class="container container_higher">
+        <div class="ope_list_search">
+
+            <div>
+                <label>待辦事項類別： </label>
+                <select id="todoclass_select">
+                </select>
+            </div>
+            <div>
+                <label>片語： </label>
+                <input type='text' id="new_todo_name"/>
+            </div>
+            <div class="btn_group">
+                <a href="#" class="btn" id="insert_todo_btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                <a href="#edit_modal" class="btn"><i class="fa fa-edit" aria-hidden="true"></i> 類別管理</a>
+                <a href="#" class="btn" id="delete_todo_btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+            </div>
+        </div>
+        <table class="overflow-y" id="todo_table">
+            <thead>
+            <tr>
+                <th>共 <span class="ban" id="todo_num"></span> 筆</th>
+                <th>編輯</th>
+                <th>片語 <span style="color: #31bc86;">片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語片語</span></th>
+            </tr>
+            </thead>
+            <tbody id="all_todo_body">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="remodal remodal_1" data-remodal-id="edit_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>片語類別管理</div>
+    </div>
+    <div class="remodal_body">
+        <div class="ope_list_search">
+
+            <div>
+                <label>類別名稱： </label>
+                <input type='text' id="new_todoclass_name"/>
+            </div>
+            <div class="btn_group">
+                <a href="#edit_modal" class="btn" id="insert_todoclass_btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+            </div>
+        </div>
+        <table class="overflow-y" id="todoclass_table">
+            <thead>
+            <tr>
+                <th>共 <span class="ban" id="todo_class_num"></span> 項</th>
+                <th>編輯</th>
+                <th>類別 <span style="color: #31bc86;">片語片語片語片語片語片語片語片語</span></th>
+            </tr>
+            </thead>
+            <tbody id="todo_class_body">
+            </tbody>
+        </table>
+    </div>
+    <div class="remodal_footer" style="margin-top: 0;">
+        <a href="#" class="btn" id="delete_todoclass_btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+        <a href="#" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+    </div>
+</div>
+<div class="remodal" data-remodal-id="edit_modal_2">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>編輯片語類別</div>
+    </div>
+    <div class="remodal_body">
+        <div id="edit_todoclass_div">
+        </div>
+    </div>
+    <div class="remodal_footer" style="margin-top: 0;">
+        <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+        <a href="#edit_modal" class="btn" id="update_todoclass_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+    </div>
+</div>
+<div class="remodal" data-remodal-id="edit_modal_3">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>編輯片語</div>
+    </div>
+    <div class="remodal_body">
+        <div id="edit_todo_div">
+        </div>
+    </div>
+    <div class="remodal_footer" style="margin-top: 0;">
+        <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+        <a href="#" class="btn" id="update_todo_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+    </div>
+</div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="../js/Other/todoPhrase.js"></script>
+<script id="todoclass_select_temp" type="text/x-handlebars-template">
+    <option value="">--</option>
+    {{#todoclasses}}
+    <option value="{{id}}">{{todo_class_name}}</option>
+    {{/todoclasses}}
+</script>
+<script id="todo_temp" type="text/x-handlebars-template">
+    {{#todos}}
+    <tr class="todo_row">
+        <td>
+            <input type="checkbox" value="{{id}}"/>
+
+        </td>
+        <td>
+            <a href="#edit_modal_3" class="btn edit_todo" data-id="{{id}}" data-name="{{todo_name}}" data-todo-class-id="{{todo_class_id}}"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+        </td>
+        <td>{{todo_name}}</td>
+    </tr>
+    {{/todos}}
+</script>
+<script id="todoclass_temp" type="text/x-handlebars-template">
+    {{#todoclasses}}
+    <tr>
+        <td>
+            <input type="checkbox" value="{{id}}"/>
+        </td>
+        <td>
+            <a href="#edit_modal_2" class="btn edit_todoclass" data-id="{{id}}" data-name="{{todo_class_name}}"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+        </td>
+        <td><span class="ban">{{todo_class_name}}</span></td>
+    </tr>
+    {{/todoclasses}}
+</script>
+<script id="edit_todo_temp" type="text/x-handlebars-template">
+    {{#todos}}
+    <label>片語： </label>
+    <input type='text' id="edit_todo_name" value="{{name}}"/>
+    {{/todos}}
+</script>
+<script id="edit_todoclass_temp" type="text/x-handlebars-template">
+    {{#todoclasses}}
+    <label>類別名稱： </label>
+    <input type='text' id="edit_todoclass_name" value="{{name}}"/>
+    {{/todoclasses}}
+</script>

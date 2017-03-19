@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<script type="text/javascript" src="../js/SystemMaintain/emergencyExternalDeviceManage.js"></script>
+<body>
+
+<%- include('../Common/left_navbar',{moduleName:'system'}) %>
+<%- include('../Common/headerMenu',{moduleName:'system', func:'1' }) %>
+
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="ope_list_search">
+
+                <div>
+                    <label>病房：</label>
+                    <input type="text" name="">
+                </div>
+                <div>
+                    <label>裝置種類：</label>
+                    <select id="select_da">
+                        <option>病房燈號</option>
+                        <option>走道LED看板</option>
+                    </select>
+                </div>
+                <div class="btn_group">
+                    <a href="#" class="btn"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>
+                    <a href="#add_modal" class="btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                    <a href="#" class="btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+                </div>
+            </div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th>共 <span class="ban">23</span> 筆</th>
+                        <th>編輯</th>
+                        <th>裝置對應IP</th>
+                        <th>裝置名稱</th>
+                        <th>裝置種類</th>
+                        <th>病房</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            <a href="#edit_modal" class="btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+                        </td>
+                        <td>xxx.xxx.xxx.xxx</td>
+                        <td>501 特等病房</td>
+                        <td>病房燈號</td>
+                        <td>501</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            <a href="#edit_modal" class="btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+                        </td>
+                        <td>xxx.xxx.xxx.xxx</td>
+                        <td>502 雙人病房</td>
+                        <td>病房燈號</td>
+                        <td>502</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            <a href="#edit_modal" class="btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+                        </td>
+                        <td>xxx.xxx.xxx.xxx</td>
+                        <td>503 一般病房</td>
+                        <td>病房燈號</td>
+                        <td>503</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            <a href="#edit_modal" class="btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+                        </td>
+                        <td>xxx.xxx.xxx.xxx</td>
+                        <td>LED 01</td>
+                        <td>走道LED看板</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<%-include ../Common/marquee.ejs%>
+    <div class="remodal" data-remodal-id="add_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>建立緊急外部裝置設定</div>
+        </div>
+        <div class="remodal_body">
+            <form>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置種類</label>
+                    <select  id="new_da">
+                    </select>
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置IP / 路徑名稱</label>
+                    <input type="text" name="">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置名稱</label>
+                    <input type="text" name="">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 病房名稱</label>
+                    <select>
+                        <option>--</option>
+                        <option>501</option>
+                        <option>502</option>
+                        <option>503</option>
+                        <option>504</option>
+                        <option>505</option>
+                    </select>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn"><i class="fa fa-plus" aria-hidden="true"></i> 加入</a>
+            <a href="#" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 完成</a>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="edit_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>編輯緊急外部裝置設定</div>
+        </div>
+        <div class="remodal_body">
+            <form>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置種類</label>
+                    <select id="edit_da">
+                    </select>
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置IP / 路徑名稱</label>
+                    <input type="text" name="" value="192.168.0.0">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置名稱</label>
+                    <input type="text" name="" value="502 雙人病房">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 病房名稱</label>
+                    <select>
+                        <option>--</option>
+                        <option>501</option>
+                        <option selected>502</option>
+                        <option>503</option>
+                        <option>504</option>
+                        <option>505</option>
+                    </select>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+            <a href="#" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+        </div>
+    </div>
+
+<!--外部裝置清單>-->
+<script id="device-list-template" type="text/x-handlebars-template">
+
+
+    {{#each result}}
+    {{#ifCond bed_id '!=' NULL}}
+
+    <tr class="bed_row">
+        <td>
+            <input type="checkbox" id="bed_ids" class="bed_ids" value="{{bed_id}}" />
+        </td>
+        <td>
+            <a href="#edit_modal" class="btn edit_bed_btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+        </td>
+        <td id="ward_name_temp">{{ward_name}}</td>
+        <td id="bed_name_temp">{{bed_name}}</td>
+    </tr>
+
+    {{/ifCond}}
+    {{/each}}
+
+</script>
+
+
+</body>
+
+</html>

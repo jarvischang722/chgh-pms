@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<%- include ../Common/head.ejs %>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'system'}) %>
+<%- include('../Common/headerMenu',{moduleName:'system', func:'4' }) %>
+<div class="nurse_system">
+    <div class="container container_higher">
+
+
+        <div class="his_tabs">
+
+            <!-- 點滴參數 -->
+            <% if(checkWardZoneHasModulePrivilege("Bit")){ %>
+            <div data-pws-tab="his_tabs_1" data-pws-tab-name="點滴計算參數">
+                <form id="bitForm">
+                    <input type="hidden" name="param_id" value="<%=bit_params.param_id%>">
+                    <div class="welcome">
+                        <h2>防呆機制設定參數</h2>
+                        <div class="welcome_content welcome_content_lower">
+                            <div>
+                                <label>重復偵測次數：</label>
+                                <input type="number" id="repeat_detect_count" name="repeat_detect_count" min="0"
+                                       value="<%= bit_params.repeat_detect_count || '' %>"> 次
+                            </div>
+                            <div>
+                                <label>流速次數：</label>
+                                <input type="number" id="rate_count" name="rate_count" min="0"
+                                       value="<%= bit_params.rate_count || '' %>"> 次
+                            </div>
+                        </div>
+                        <h2>近期近重設定參數</h2>
+                        <div class="welcome_content welcome_content_lower">
+                            <div>
+                                <label>初始剩餘液體淨重：</label>
+                                <input type="number"  min="0" style="width: 130px;" id="default_left_weight" name="default_left_weight"
+                                       value="<%= bit_params.default_left_weight || '' %>"> g
+                            </div>
+                            <div>
+                                <label>近期近重取樣天數：</label>
+                                <input type="number"  min="0"  id="sampling_day" name="sampling_day"
+                                       value="<%= bit_params.sampling_day || '' %>"> 次
+                            </div>
+                        </div>
+                        <div class="ope_list_search">
+                            <div>
+                                <span class="ban">註：系統參數建議由系統維護人員進行設定</span>
+                            </div>
+                            <div class="btn_group">
+                                <a href="#" onclick="doSaveBitParam()" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <% } %>
+            <!-- 點滴參數END -->
+
+
+            <!-- SIP參數 -->
+            <%
+            if (checkWardZoneHasModulePrivilege("SIP")){
+
+                var timeList = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00',
+                '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00',
+                '20:00', '21:00', '22:00', '23:00'];
+                var ringTypeList = ['0-循振', '1-共振'];
+            %>
+            <div data-pws-tab="his_tabs_2" data-pws-tab-name="SIP參數">
+                <div class="welcome">
+                    <form id="sipForm">
+                        <input type="hidden" name="param_id" value="<%=sip_params.param_id%>">
+                        <div>
+                            <label>響鈴時間：</label>
+                            <input type="number" id="ring_last_time" name="ring_last_time" min="0"
+                                   value="<%= sip_params.ring_last_time||'' %>"> 秒
+                        </div>
+                        <div>
+                            <label>響鈴型態：</label>
+                            <select id="ring_type" name="ring_type">
+                                <% ringTypeList.forEach(function(type, tIdx){ %>
+                                <option value="<%= tIdx %>" <%= sip_params.ring_type != undefined && sip_params.ring_type.indexOf(tIdx) > -1 ? 'selected':'' %>>
+                                    <%= type %>
+                                </option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div>
+                            <label>SIP裝置定時除錯偵測時間：</label>
+                            每隔
+                            <input type="number" id="debug_time" name="debug_time" min="0"
+                                   value="<%= sip_params.debug_time||'' %>"> 分鐘
+                        </div>
+                        <div>
+                            <label>定時抓取通聯紀錄時間： </label>
+                            每天
+                            <select id="get_call_record_time" name="get_call_record_time">
+                                <% timeList.forEach(function(time, tIdx){ %>
+                                <option value="<%= time %>" <%=sip_params.get_call_record_time != undefined && sip_params.get_call_record_time.indexOf(time) > -1 ? 'selected':'' %> >
+                                    <%= time %>
+                                </option>
+                                <% }) %>
+                            </select>
+                        </div>
+
+
+<!--
+                        NTP先關掉
+
+                        <div>
+                            <label>NTP校時：</label>
+                            每天
+                            <select id="ntp_adjust" name="ntp_adjust">
+                                <% timeList.forEach(function(time, tIdx){ %>
+                                <option value="<%= time %>" <%= sip_params.ntp_adjust != undefined && sip_params.ntp_adjust.indexOf(time) > -1 ? 'selected':'' %>>
+                                    <%= time %>
+                                </option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div>
+                            <label>NTP Server 路徑名稱：</label>
+                            <input type="text" id="ntp_server_path" name="ntp_server_path"
+                                   value="<%= sip_params.ntp_server_path||'' %>">
+                        </div>
+
+                        -->
+
+<!--
+                        <div>
+                            <label>SIP Server database IP：</label>
+                            <input type="text" id="sip_server_database_ip" name="sip_server_database_ip"
+                                   value="<%= sip_params.sip_server_database_ip||'' %>">
+                        </div>
+                        -->
+                    </form>
+                </div>
+                <div class="ope_list_search">
+                    <div>
+                        <span class="ban">註：系統參數建議由系統維護人員進行設定</span>
+                    </div>
+                    <div class="btn_group">
+                        <a href="#" onclick="doSaveSIPParam()" class="btn"><i class="fa fa-check" aria-hidden="true"></i>確定</a>
+                    </div>
+                </div>
+
+                <div id="sip-error-msg">
+                </div>
+
+
+            </div>
+
+            <!-- SIP參數END -->
+            <% } %>
+
+            <!-- HIS參數 -->
+<!--
+            原本的HIS參數，這個變數的應用情景不合邏輯，先移掉
+            <div data-pws-tab="his_tabs_3" data-pws-tab-name="HIS參數">
+                <form id="hisForm">
+                    <input type="hidden" name="param_id" value="<%=his_params.param_id%>">
+                    <div class="welcome">
+                        <div class="welcome_content welcome_content_lower" style="margin-top: 50px;">
+                            <div>
+                                <label style="width: 50%;">系統定時下傳HIS資料時間：</label>
+                                每隔
+                                <input type="number"  id="get_his_data_period" name="get_his_data_period" min="0"
+                                       value="<%= his_params.get_his_data_period || '' %>" style="width: 200px;"> 分鐘
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ope_list_search">
+                        <div>
+                            <span class="ban">註：系統參數建議由系統維護人員進行設定</span>
+                        </div>
+                        <div class="btn_group">
+                            <a href="#" onclick="doSaveHISParam()" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+-->
+
+
+        </div>
+        <!-- HIS參數END -->
+    </div>
+</div>
+<%- include ../Common/marquee.ejs %>
+<script type="text/javascript" src="/js/SystemMaintain/systemParamSet.js"></script>
+
+</body>
+
+</html>

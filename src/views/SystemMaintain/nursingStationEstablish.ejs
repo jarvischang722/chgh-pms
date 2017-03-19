@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<%- include ../Common/head.ejs %>
+<script type="text/javascript" src="../js/SystemMaintain/nursingStationEstablish.js"></script>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'system'}) %>
+<%- include('../Common/headerMenu',{moduleName:'system', func:'9' }) %>
+<div class="nurse_system">
+    <div class="container container_higher">
+        <div class="ope_list_search">
+
+            <div>
+                <label>護理站名稱：</label>
+                <input type="text" name="" id="select_ward_zone">
+            </div>
+            <div class="btn_group">
+                <a href="#" class="btn" id="select_ward_zone_btn"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>
+                <!-- <a href="#add_modal" class="btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a> -->
+                <a href="#" class="btn" id="delete_wardzone_btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+            </div>
+        </div>
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>共 <span class="ban" id="ward_zone_count"></span> 筆</th>
+                <th>編輯</th>
+                <th>護理站名稱</th>
+                <th>說明</th>
+                <th>已授權病房數</th>
+                <th>已開放模組</th>
+            </tr>
+            </thead>
+            <tbody id="ward-zone-list-container">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include ../Common/marquee.ejs %>
+<div class="remodal" data-remodal-id="edit_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>編輯護理站</div>
+    </div>
+    <div class="remodal_body">
+        <form>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 護理站名稱</label>
+                <input type="text" name="" value="" id="edit_ward_zone_name">
+                <input type="hidden" id="edit_ward_zone_id" value="" />
+
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 說明</label>
+                <input type="text" name="" value="" id="edit_ward_zone_description">
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+    <div class="remodal_footer">
+        <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+        <a href="#" class="btn" id="edit_save_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+    </div>
+</div>
+
+<!--護理站清單>-->
+<script id="ward-zone-list-template" type="text/x-handlebars-template">
+
+    {{#each result}}
+
+    <tr class="ward-zone-row">
+        <td>
+            <input type="checkbox" class="ward_zone_ids" value="{{ward_zone_id}}" />
+        </td>
+        <td>
+            <a href="#edit_modal" class="btn edit_btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+        </td>
+        <td class="ward_zone_names">{{ward_zone_name}}</td>
+        <td class="ward_zone_descriptions">{{ward_zone_description}}</td>
+        <td>{{ward_zone_bed_max}}</td>
+        <td>{{system_module_list}}</td>
+    </tr>
+
+    {{/each}}
+
+</script>
+
+</body>
+
+</html>

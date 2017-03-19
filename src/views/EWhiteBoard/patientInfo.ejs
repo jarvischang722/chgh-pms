@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../Common/head%>
+<script type="text/javascript" src="../js/EWhiteBoard/Patient.js"></script>
+
+<body>
+
+<% include ../Common/eBoardMarquee %>
+
+
+<div class="container" id="information_container">
+
+
+</div>
+
+
+<%- include('../Common/eBoardMenu', {func: '2'}) %>
+
+<div class="remodal" data-remodal-id="rooms_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div id="profileHeaderBed">05-01</div>
+        <div id="profileHeaderName"><span class="female">鄭秀文(36)</span></div>
+    </div>
+    <div class="remodal_body">
+        <div class="rooms_tabs">
+
+            <div data-pws-tab="rooms_tabs_1" data-pws-tab-name="基本資料" id="patientProfile">
+
+            </div>
+
+            <div data-pws-tab="rooms_tabs_2" data-pws-tab-name="過敏資料" id="patientAllergy">
+
+            </div>
+
+            <div data-pws-tab="rooms_tabs_3" data-pws-tab-name="醫囑資料" id="patientMedicalInformation">
+
+            </div>
+
+            <div data-pws-tab="rooms_tabs_4" data-pws-tab-name="待辦資料" id="patientTodoInformation">
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<!--病患資料的格子-->
+<script id="rooms-template" type="text/x-handlebars-template">
+    <div class="room_des">
+        <div class="room_des_inner">
+            <div class="room_des_left">
+                <span class="room_des_square light"></span>一般<small class="doctor" id="light_count"> 29</small>
+                <span class="room_des_square medium"></span>DNR<small class="doctor" id="medium_count"> 1</small>
+                <span class="room_des_square hard"></span>不確定<small class="doctor" id="hard_count"> 0</small>
+            </div>
+            <div class="room_des_right">
+                <span class="cond_dot cond_red"></span>檢查異常
+                <span class="cond_dot cond_yellow"></span>過敏
+                <span class="cond_dot cond_green"></span>跌倒
+                <span class="cond_dot cond_blue"></span>隔離
+                <a href="#" id="refresh" class="refresh_2"><i class="fa fa-refresh" aria-hidden="true"></i> 重新整理</a>
+            </div>
+        </div>
+    </div>
+
+
+    {{#each result}}
+    <div class="rooms" data-patient_person_id="{{patient_person_id}}">
+
+        <!--有病患名稱，才能顯示病患的詳細資訊-->
+        <!--病人病歷也要存在才會顯示該部份-->
+        <a data-remodal-target="{{#ifCond medical_record_id '!=' null}}rooms_modal{{/ifCond}}"
+           href="#" class="rooms_inner">
+
+            {{#ifCond medical_record_id '!=' null}}
+            <!--有病患，就填資料-->
+            <p>
+
+                <span class="label">姓名：</span>
+                {{#ifCond patient_sex '==' 0}}
+                <span class="female">{{patient_name}}({{patient_age}})</span>
+                {{else}}
+                <span class="male">{{patient_name}}({{patient_age}})</span>
+                {{/ifCond}}
+
+            </p>
+            <p><span class="label">主治：</span><span class="doctor">{{main_doctor_name}}</span></p>
+
+
+
+            {{#each doctors}}
+
+            {{#ifCond doctor_class_name '==' '住院醫師'}}
+            <p><span class="label">住院：</span><span>{{scheduling_doctor_name}}</span></p>
+            {{/ifCond}}
+
+            {{/each}}
+
+
+
+
+
+            <p><span class="label">護理師：</span><span>{{scheduling_nurse_name}}</span></p>
+            {{else}}
+            <!--沒有病患，就留空白欄-->
+            <p><span class="label"></span></p>
+            <p><span class="label"></span></p>
+            <p><span class="label"></span></p>
+            <p><span class="label"></span></p>
+
+            {{/ifCond}}
+
+
+
+            <div class="room_cond {{#ifCond medical_record_id '!=' null}}{{patient_sick_level}}{{/ifCond}}">
+
+                {{ward_name}}-{{bed_name}}
+
+
+                <div class="cond_dots_list">
+
+                    <!--病人病歷也要存在才會顯示該部份-->
+                    {{#ifCond medical_record_id '!=' null}}
+
+                    {{#contains patient_status "檢查異常"}}
+                    <div class="cond_dot cond_red"></div>
+                    {{/contains}}
+
+
+                    {{#contains patient_status "過敏"}}
+                    <div class="cond_dot cond_yellow"></div>
+                    {{/contains}}
+
+
+                    {{#contains patient_status "跌倒"}}
+                    <div class="cond_dot cond_green"></div>
+                    {{/contains}}
+
+
+                    {{#contains patient_status "隔離"}}
+                    <div class="cond_dot cond_blue"></div>
+                    {{/contains}}
+
+
+                    {{/ifCond}}
+                </div>
+
+
+            </div>
+        </a>
+    </div>
+    {{/each}}
+    <div class="clearfix"></div>
+</script>
+
+
+<!--病患基本資料的格子-->
+<script id="patient-profile-template" type="text/x-handlebars-template">
+    {{#each result}}
+
+    <table>
+        <tbody>
+
+
+        <tr>
+            <td class="text-right">主治醫師</td>
+            <td><span class="doctor">{{main_doctor_name}}</span></td>
+        </tr>
+
+
+        {{#each doctors}}
+
+        <!--主治醫生資料不列-->
+        {{#ifCond doctor_class_name '!=' '主治醫師'}}
+        <tr>
+            <td class="text-right">{{doctor_class_name}}</td>
+            <td><span class="doctor">{{scheduling_doctor_name}}</span></td>
+        </tr>
+        {{/ifCond}}
+
+        {{/each}}
+
+
+        <tr>
+            <td class="text-right">護理師</td>
+            <td><span class="doctor">{{scheduling_nurse_name}}</span></td>
+        </tr>
+        <tr>
+            <td class="text-right">手術</td>
+            <td><span class="doctor">{{surgery_name}}</span></td>
+        </tr>
+        <tr>
+            <td class="text-right">狀態</td>
+
+            <td class="doctor_cond">
+
+                {{#contains patient_status "檢查異常"}}
+                <div class="cond_dot cond_red"></div>檢查異常
+                {{/contains}}
+
+
+                {{#contains patient_status "過敏"}}
+                <div class="cond_dot cond_yellow"></div>過敏
+                {{/contains}}
+
+
+                {{#contains patient_status "跌倒"}}
+                <span class="cond_dot cond_green"></span>跌倒
+                {{/contains}}
+
+
+                {{#contains patient_status "隔離"}}
+                <span class="cond_dot cond_blue"></span>隔離
+                {{/contains}}
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    {{/each}}
+</script>
+
+
+<!--病患過敏資料的格子-->
+<script id="patient-allergy-template" type="text/x-handlebars-template">
+    {{#each result}}
+    <table>
+        <tbody>
+
+        <tr>
+            <td class="text-right">藥品過敏</td>
+            <td><span class="doctor">{{drug_allergy}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">食物過敏</td>
+            <td><span class="doctor">{{food_allergy}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">材料過敏</td>
+            <td><span class="doctor">{{material_allergy}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">其他過敏</td>
+            <td><span class="doctor">{{other_allergy}}</span></td>
+        </tr>
+
+        </tbody>
+    </table>
+    {{/each}}
+</script>
+
+<!--病患醫囑資料的格子-->
+<script id="patient-MedicalInformation-template" type="text/x-handlebars-template">
+    {{#each result}}
+    <table>
+        <tbody>
+
+        <tr>
+            <td class="text-right">醫令碼</td>
+            <td><span class="doctor">{{medical_code}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">醫令名稱</td>
+            <td><span class="doctor">{{medical_name}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">預計執行日</td>
+            <td><span class="doctor">{{expected_start_date}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">生命徵象</td>
+            <td><span class="doctor">{{life_signs}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">治療處置</td>
+            <td><span class="doctor">{{treatment}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">護理照護</td>
+            <td><span class="doctor">{{nursing_care}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">管路</td>
+            <td><span class="doctor">{{piping}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">換藥</td>
+            <td><span class="doctor">{{change_drug}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">其他醫囑</td>
+            <td><span class="doctor">{{other_medical_advice}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">CT, MRI</td>
+            <td><span class="doctor">{{ct_mri}}</span></td>
+        </tr>
+
+        <tr>
+            <td class="text-right">緊急 Lab</td>
+            <td><span class="doctor">{{emergency_lab}}</span></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    {{/each}}
+</script>
+
+
+<!--病患待辦資料的格子-->
+<script id="patient-todo-template" type="text/x-handlebars-template">
+    {{#each result}}
+    {{todo_content}}
+    {{/each}}
+</script>
+
+
+</body>
+
+</html>

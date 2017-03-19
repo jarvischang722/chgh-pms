@@ -1,0 +1,24 @@
+<header>
+    <div id="head">
+        <img id="logo" src="../images/logo.png">
+        <h4 id="head_current_datetime">2016/11/11 PM 12:12:12</h4>
+        <div class="head_right_nav">
+            <h4><span class="room_number"><%=session.user.ward_zone_name%></span></h4>
+        </div>
+    </div>
+</header>
+
+<div id="footer">
+    <div id="footer_inner">
+    </div>
+</div>
+<a href="#" id="setting"><i class="fa fa-cog" aria-hidden="true"></i></a>
+
+<script type="text/javascript" src="../js/Common/eBoardMarquee.js"></script>
+<script id="marquee_temp" type="text/x-handlebars-template">
+    <div class="footer_inner_text">
+        {{#marquees}}
+        <span style="color:{{font_color_hex}}">{{content}}</span>
+        {{/marquees}}
+    </div>
+</script>

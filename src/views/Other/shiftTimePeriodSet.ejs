@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<%- include ../Common/head.ejs %>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'other'}) %>
+<%- include('../Common/headerMenu',{moduleName:'other', func:'4' }) %>
+<div class="nurse_system">
+    <div class="container container_higher">
+        <div class="ope_list_search">
+
+<!--            <div class="btn_group">
+                <a href="#add_modal" class="btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                <a href="#" class="btn" id="delete_btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+            </div>-->
+        </div>
+        <table class="overflow-y" id="period_table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>編輯</th>
+                <th>班別名稱</th>
+                <th>時段</th>
+            </tr>
+            </thead>
+            <tbody id="all_periods_body">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="remodal" data-remodal-id="add_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>新增班別</div>
+    </div>
+    <div class="remodal_body">
+        <form id="insert_form">
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 班別編號</label>
+                <small class="doctor"> (由系統自動編號)</small>
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 班別名稱</label>
+                <input type="text" name="class_name">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 時段</label>
+                <select name="start_hour" id="start_hour_select">
+                </select>
+                <span> : </span>
+                <select name="start_min" id="start_min_select">
+                </select>
+            </div>
+            <div>
+                <label></label>
+                <div class="text-center">至</div>
+            </div>
+            <div>
+                <label></label>
+                <select name="end_hour" id="end_hour_select">
+                </select>
+                <span> : </span>
+                <select name="end_min" id="end_min_select">
+                </select>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+    <div class="remodal_footer">
+        <a href="#" class="btn" id="insert_btn"><i class="fa fa-check" aria-hidden="true"></i> 儲存</a>
+        <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+    </div>
+</div>
+<div class="remodal" data-remodal-id="edit_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>編輯班別</div>
+    </div>
+    <div class="remodal_body" id="edit_period_div">
+    </div>
+    <div class="remodal_footer">
+        <a href="#" class="btn" id="update_btn"><i class="fa fa-check" aria-hidden="true"></i> 儲存</a>
+        <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+    </div>
+</div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="../js/Other/shiftTimePeriodSet.js"></script>
+<script id="timeperiods_temp" type="text/x-handlebars-template">
+    {{#periods}}
+    <tr>
+        <td>
+            <input type="checkbox" value="{{id}}"/>
+        </td>
+        <td>
+            <a href="#edit_modal" class="btn edit_period"  data-id="{{id}}"  data-class_id="{{class_id}}" data-class_name="{{class_name}}"
+               data-start_time="{{start_time}}"  data-end_time="{{end_time}}"
+               data-start_hour="{{start_hour}}"  data-start_min="{{start_min}}"
+               data-end_hour="{{end_hour}}"  data-end_min="{{end_min}}"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+        </td>
+        <td><i class='fa fa-star' aria-hidden='true'></i> {{class_name}}</td>
+        <td>{{start_time}} ~ {{end_time}}</td>
+    </tr>
+    {{/periods}}
+</script>
+<script id="edit_period_temp" type="text/x-handlebars-template">
+    {{#period}}
+    <form id="update_form">
+        <input type="hidden" name="id" value="{{id}}">
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 班別編號</label>
+            <small class="doctor" name="class_id"> {{class_id}}</small>
+        </div>
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 班別名稱</label>
+            <input type="text" name="class_name" value="{{class_name}}">
+        </div>
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 時段</label>
+            <select name="start_hour">
+                {{#AllHour}}
+                <option value="{{key}}" {{#ifCond key '==' ../start_hour}} selected {{/ifCond}}>{{value}}</option>
+                {{/AllHour}}
+            </select>
+            <span> : </span>
+            <select name="start_min">
+                {{#AllMin}}
+                <option value="{{key}}" {{#ifCond key '==' ../start_min}} selected {{/ifCond}}>{{value}}</option>
+                {{/AllMin}}
+            </select>
+        </div>
+        <div>
+            <label></label>
+            <div class="text-center">至</div>
+        </div>
+        <div>
+            <label></label>
+            <select name="end_hour">
+                {{#AllHour}}
+                <option value="{{key}}" {{#ifCond key '==' ../end_hour}} selected {{/ifCond}}>{{value}}</option>
+                {{/AllHour}}
+            </select>
+            <span> : </span>
+            <select name="end_min">
+                {{#AllMin}}
+                <option value="{{key}}" {{#ifCond key '==' ../end_min}} selected {{/ifCond}}>{{value}}</option>
+                {{/AllMin}}
+            </select>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+    {{/period}}
+</script>
+<script id="hour_temp" type="text/x-handlebars-template">
+    {{#hours}}
+    <option value="{{key}}">{{value}}</option>
+    {{/hours}}
+</script>
+<script id="min_temp" type="text/x-handlebars-template">
+    {{#mins}}
+    <option value="{{key}}">{{value}}</option>
+    {{/mins}}
+</script>

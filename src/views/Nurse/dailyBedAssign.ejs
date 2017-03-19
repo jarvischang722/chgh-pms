@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'nurse'}) %>
+<%- include('../Common/headerMenu',{moduleName:'nurse', func:'3' }) %>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="welcome">
+                <div id="day_room_select" class="datepicker-here" data-language='zh'></div>
+                <div class="month_des_list">
+                    <span class="room_des_square date_before"></span> 過去日期
+                    <span class="room_des_square date_now"></span> 目前日期
+                    <span class="room_des_square date_after"></span> 未來日期
+                    <span class="room_des_square date_others"></span> 其它日期
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="day_room_select_modal" style="min-width: 1500px;">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header" id="remodal_header">
+        </div>
+    <div class="remodal_body">
+        <div class="work_tabs">
+            <div data-pws-tab="work_tabs_1" data-pws-tab-name="<i class='fa fa-sun-o' scheclass='01' schename='日班' aria-hidden='true'></i> 日班">
+                <div class="grid_sixty_2 text-20">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>護理師</th>
+                            <th>床數</th>
+                            <th>行動分機</th>
+                            <th><i class="fa fa-asterisk must red" aria-hidden="true"></i> 代理人 1</th>
+                            <th>代理人 2</th>
+                            <th>代理人 3</th>
+                            <th>任務編組</th>
+                            <th>消防編組</th>
+                        </tr>
+                        </thead>
+                        <tbody id="nurse_tbody01">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grid_fourth text-20" style="padding-left: 10px;">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>病房</th>
+                            <th>病床 - 病患姓名 - 護理師</th>
+                        </tr>
+                        </thead>
+                        <tbody id="all_ward_tbody1">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div data-pws-tab="work_tabs_2" data-pws-tab-name="<i class='fa fa-moon-o' scheclass='02' schename='小夜' aria-hidden='true'></i> 小夜">
+                <div class="grid_sixty_2 text-20">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>護理師</th>
+                            <th>床數</th>
+                            <th>行動分機</th>
+                            <th><i class="fa fa-asterisk must red" aria-hidden="true"></i> 代理人 1</th>
+                            <th>代理人 2</th>
+                            <th>代理人 3</th>
+                            <th>任務編組</th>
+                            <th>消防編組</th>
+                        </tr>
+                        </thead>
+                        <tbody id="nurse_tbody02">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grid_fourth text-20" style="padding-left: 10px;">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>病房</th>
+                            <th>病床 - 病患姓名 - 護理師</th>
+                        </tr>
+                        </thead>
+                        <tbody id="all_ward_tbody2">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div data-pws-tab="work_tabs_3" data-pws-tab-name="<i class='fa fa-star' scheclass='03' schename='大夜' aria-hidden='true'></i> 大夜">
+                <div class="grid_sixty_2 text-20">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>護理師</th>
+                            <th>床數</th>
+                            <th>行動分機</th>
+                            <th><i class="fa fa-asterisk must red" aria-hidden="true"></i> 代理人 1</th>
+                            <th>代理人 2</th>
+                            <th>代理人 3</th>
+                            <th>任務編組</th>
+                            <th>消防編組</th>
+                        </tr>
+                        </thead>
+                        <tbody id="nurse_tbody03">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grid_fourth text-20" style="padding-left: 10px;">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>病房</th>
+                            <th>病床 - 病患姓名 - 護理師</th>
+                        </tr>
+                        </thead>
+                        <tbody id="all_ward_tbody3">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="remodal_footer">
+        <a href="#add_others" class="btn" id="addnurse_btn"><i class="fa fa-user-plus" aria-hidden="true"></i> 加入其它護理師</a>
+        <a href="#" class="btn" id="submit_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+    </div>
+</div>
+    <div class="remodal" data-remodal-id="add_others">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>加入其它護理師</div>
+        </div>
+        <div class="remodal_body">
+            <table class="overflow-y">
+                <tbody id="all_nurse_tbody">
+                </tbody>
+            </table>
+            <div class="modal_pure_text">
+                <form>
+                    <div>
+                        <label>其它護理師編號：</label>
+                        <input type="text" name="">
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        <div class="remodal_footer">
+            <a href="#day_room_select_modal" class="btn"><i class="fa fa-plus" aria-hidden="true"></i> 加入</a>
+            <a href="#day_room_select_modal" class="btn" id="check_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+            <a href="#day_room_select_modal" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="../js/Nurse/dailyBedAssign.js"></script>
+<script id="remodal_header_temp" type="text/x-handlebars-template">
+    {{#results}}
+    <div>護理師每日病房分派</div>
+    <div>{{year}}/{{month}}/{{date}}</div>
+    {{/results}}
+</script>
+<script id="all_nurse_tbody_temp" type="text/x-handlebars-template">
+    {{#nurses}}
+    {{#ifCond selected '==' 'Y'}}
+        <tr class="active select_nurse" data-nurse_no="{{employee_no}}" data-nurse_name="{{name}}" data-bed_num="0"
+            data-tel="{{tel}}" data-mission_group_id="{{mission_group_id}}" data-fire_control_group_id="{{fire_control_group_id}}">
+    {{else}}
+        <tr class="select_nurse" data-nurse_no="{{employee_no}}" data-nurse_name="{{name}}" data-bed_num="0"
+            data-tel="{{tel}}" data-mission_group_id="{{mission_group_id}}" data-fire_control_group_id="{{fire_control_group_id}}">
+    {{/ifCond}}
+        <td><span class="doctor">{{../class_name}}</span></td>
+        <td>{{employee_no}}</td>
+        <td>{{name}}</td>
+        <td>{{../thisdate}}</td>
+    </tr>
+    {{/nurses}}
+</script>
+<script id="all_ward_tbody_temp" type="text/x-handlebars-template">
+    {{#wards}}
+    <tr>
+        <th>{{ward_name}}</th>
+        <td>
+            {{#bed_list}}
+            <label id="label-{{ward_id}}-{{bed_id}}-{{../../class_id}}">
+                <a id="a-{{ward_id}}-{{bed_id}}-{{../../class_id}}" href="#set_nurse" class="btn bed_btn" data-bed_id="{{bed_id}}" >{{bed_name}}</a>-
+                {{#ifCond sex '==' '1'}}
+                <span class="male">{{patient_name}}</span>
+                {{/ifCond}}
+                {{#ifCond sex '==' '0'}}
+                <span class="female">{{patient_name}}</span>
+                {{/ifCond}}
+                -<span class="doctor" name="nurse_name"></span></label>
+            {{/bed_list}}
+        </td>
+    </tr>
+    {{/wards}}
+</script>
+<script id="nurse_insche_temp" type="text/x-handlebars-template">
+    {{#nurses}}
+    <tr class="nurse_tr" data-nurse_no="{{nurse_no}}" data-nurse_name="{{nurse_name}}">
+        <td>{{nurse_name}}</td>
+        <td id="bed_num_{{nurse_no}}">{{bed_num}}</td>
+        <td>{{tel}}</td>
+        <td>
+            <select class="agent_select1">
+                <option value="">--</option>
+                {{#agents}}
+                <option value="{{id}}" {{#ifCond id '==' ../agent1_nurse_id}} selected {{/ifCond}}>{{name}}</option>
+                {{/agents}}
+            </select>
+        </td>
+        <td>
+            <select class="agent_select2">
+                <option value="">--</option>
+                {{#agents}}
+                <option value="{{id}}" {{#ifCond id '==' ../agent2_nurse_id}} selected {{/ifCond}}>{{name}}</option>
+                {{/agents}}
+            </select>
+        </td>
+        <td>
+            <select class="agent_select3">
+                <option value="">--</option>
+                {{#agents}}
+                <option value="{{id}}" {{#ifCond id '==' ../agent3_nurse_id}} selected {{/ifCond}}>{{name}}</option>
+                {{/agents}}
+            </select>
+        </td>
+        <td>
+            <select class="mission_select">
+                <option>--</option>
+                {{#mission_group}}
+                <option value="{{id}}" {{#ifCond id '==' ../mission_group_id}} selected {{/ifCond}}>{{group_sname}}</option>
+                {{/mission_group}}
+            </select>
+        </td>
+        <td>
+            <select class="fire_select">
+                <option>--</option>
+                {{#fire_group}}
+                <option value="{{id}}" {{#ifCond id '==' ../fire_control_group_id}} selected {{/ifCond}}>{{group_sname}}</option>
+                {{/fire_group}}
+            </select>
+        </td>
+    </tr>
+    {{/nurses}}
+</script>

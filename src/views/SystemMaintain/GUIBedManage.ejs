@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+
+<link rel="stylesheet" href="../lib/jQuery-File-Upload/css/jquery.fileupload.css">
+
+
+<style>
+    .unsaved {
+        background-color: #EE7777 !important;
+    }
+
+</style>
+
+<body>
+<%- include('../Common/left_navbar',{moduleName:'system'}) %>
+<%- include('../Common/headerMenu',{moduleName:'system', func:'7' }) %>
+
+    <div class="nurse_system">
+        <div class="container container_higher">
+
+            <div class="ope_list_search">
+                <!-- <div class="checkbox_list">
+                    <label>
+                        <input type="checkbox" class="option-input checkbox select_all" /> 全選
+                    </label>
+                </div> -->
+                <div class="btn_group">
+                    <!--<a href="#" class="btn"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>-->
+                    <!-- <a href="#add_modal" class="btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                    <a href="#" class="btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a> -->
+
+                    <a href="#" class="btn" id="saveAllBtn"><i class="fa fa-save" aria-hidden="true"></i>儲存所有修改</a>
+
+
+                    <span class="btn btn-success fileinput-button">
+                        <i class="fa fa-refresh"></i>
+                        <span>更新平面圖</span>
+                        <!-- The file input field used as target for the file upload widget -->
+                        <input class="ward_zone_gui_floor_plan" type="file" name="ward_zone_gui_floor_plan">
+                    </span>
+
+
+
+                </div>
+
+            </div>
+
+
+            <!--如果沒有平面圖，顯示上傳的form-->
+            <div id="add-floor-plan-div" class="col_two" style="display: none">
+                <div class="col_one css">
+                    該護理站尚無平面圖，請上傳新的平面圖
+                </div>
+
+                    <span class="btn btn-success fileinput-button">
+                        <i class="fa fa-plus"></i>
+                        <span>選擇平面圖</span>
+                        <!-- The file input field used as target for the file upload widget -->
+                        <input class="ward_zone_gui_floor_plan" type="file" name="ward_zone_gui_floor_plan">
+                    </span>
+
+            </div>
+
+
+            <!--平面圖顯示的部份-->
+            <div id="show-floor-plan-div" class="zone col_two" style="display: none;background-repeat: no-repeat;">
+                <div class="col_one css">
+                    <div class="inner_col_one"></div>
+                </div>
+                <div class="col_two">
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+<%-include ../Common/marquee.ejs%>
+    <div class="remodal" data-remodal-id="add_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>編輯病房</div>
+        </div>
+        <div class="remodal_body">
+            <form>
+
+                <div>
+
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 病房名稱</label>
+                    <input type="text"  name="add_ward_name" id="add_ward_name"  >
+                    <input type="hidden" name="add_bed_id" id="add_bed_id" value="">
+
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 病床名稱</label>
+                    <input type="text" name="add_bed_name" id="add_bed_name"  >
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 寬度</label>
+                    <input type="text" name="add_bed_gui_width" id="add_bed_gui_width"  >
+                </div>
+
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 高度</label>
+                    <input type="text" name="add_bed_gui_height" id="add_bed_gui_height"  >
+                </div>
+
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> x座標</label>
+                    <input type="text" name="add_bed_gui_pos_x" id="add_bed_gui_pos_x"  >
+                </div>
+
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> y座標</label>
+                    <input type="text" name="add_bed_gui_pos_y" id="add_bed_gui_pos_y"  >
+                </div>
+
+
+                <div class="clearfix"></div>
+            </form>
+        </div>
+
+        <div class="remodal_footer">
+            <a href="#" class="btn" id="deleteBtn"><i class="fa fa-times" aria-hidden="true"></i> 刪除</a>
+            <a href="#" class="btn"><i class="fa fa-spinner" aria-hidden="true"></i> 取消</a>
+            <a href="#" class="btn" id="addBtn"><i class="fa fa-check" aria-hidden="true"></i> 儲存</a>
+        </div>
+
+    </div>
+
+
+
+<!--病床gui格子>-->
+<script id="gui-bed-template" type="text/x-handlebars-template">
+
+
+    <a href="#add_modal"  data-bed-id="{{bed_id}}" class="gen_box zone_item gen_box_{{index}} ui-draggable ui-draggable-handle ui-resizable ui-selectee"
+       style="width: {{gui_width}}px; height: {{gui_height}}px; position: absolute; left: {{gui_pos_x}}px; top: {{gui_pos_y}}px;">
+
+        <div class="room_cond ui-selectee"><span id="ward_name" class="ui-selectee">{{ward_name}}</span>-<span id="bed_name" class="ui-selectee">{{bed_name}}</span></div>
+
+    </a>
+
+
+</script>
+
+
+<script type="text/javascript" src="../js/bed/GUIBed.js"></script>
+
+
+<script src="../lib/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../lib/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
+<script src="../lib/jQuery-File-Upload/js/jquery.fileupload.js"></script>
+
+
+
+</body>
+
+</html>

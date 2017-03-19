@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+  <meta charset="UTF-8">
+  <%include ../common/extendFiles%>
+  <title>跑馬燈測試</title>
+</head>
+<body>
+<h1>跑馬燈測試</h1>
+
+<div id="tabs">
+  <marquee behavior="scroll" scrollamount="10" direction="left" width="350" id="cuttent_marquee"></marquee>
+  <!-- component template -->
+  <script type="text/x-template" id="grid-template">
+    <table>
+      <thead>
+      <tr>
+        <th v-for="key in columns"
+            @click="sortBy(key)"
+            :class="{active: sortKey == key}">
+          {{key | capitalize}}
+          <span class="arrow"
+                :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+          </span>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="
+        entry in data
+        | filterBy filterKey
+        | orderBy sortKey sortOrders[sortKey]">
+        <td v-for="key in columns">
+          {{entry[key]}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </script>
+
+  <!-- demo root element -->
+  <div id="demo">
+    <form id="search">
+      Search <input name="query" v-model="searchQuery">
+    </form>
+    <demo-grid
+            :data="gridData"
+            :columns="gridColumns"
+            :filter-key="searchQuery">
+    </demo-grid>
+  </div>
+</div>
+</body>
+<script src="/js/marquee.js"></script>
+<script src="/js/gistfile1.js"></script>
+</html>
+
+

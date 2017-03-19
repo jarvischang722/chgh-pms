@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<%-include Common/head%>
+
+<body>
+<%- include('Common/left_navbar',{moduleName:'nurse'}) %>
+<%- include('Common/headerMenu',{moduleName:'nurse', func:'0' }) %>
+
+<div class="nurse_system">
+    <div class="container container_higher">
+        <div class="welcome">
+            <h1>Welcome</h1>
+            <div class="welcome_content">
+                <div>
+                    <label>使用者帳號：</label>
+                    <span>Tanya</span>
+                </div>
+                <div>
+                    <label>姓名：</label>
+                    <span>劉雅莉</span>
+                </div>
+                <div>
+                    <label>使用者角色：</label>
+                    <span>一般使用者</span>
+                </div>
+                <div>
+                    <label>病房區：</label>
+                    <span>05A</span>
+                </div>
+                <div>
+                    <label>登入時間：</label>
+                    <span>2017.11.11 上午 09:19:04</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%-include Common/marquee%>
+
+
+</body>
+
+</html>

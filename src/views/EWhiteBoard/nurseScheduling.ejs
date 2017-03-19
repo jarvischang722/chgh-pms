@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../Common/head%>
+
+<body>
+    <% include ../Common/eBoardMarquee%>
+    <div class="container container_higher" id="beds">
+        <a href="#" id="refresh"><i class="fa fa-refresh" aria-hidden="true"></i> 重新整理</a>
+        <div class="nurse_tabs">
+            <div data-pws-tab="nurse_tabs_1" data-pws-tab-name="依病床">
+                <div class="nurse_tabs_nested nurse_tabs_nested_1">
+                    <div id="nurse_tabs_nested_1_1_div" data-pws-tab="nurse_tabs_nested_1_1" data-pws-tab-name="<i class='fa fa-sun-o' aria-hidden='true'></i>日班">
+                    </div>
+                    <div id="nurse_tabs_nested_1_2_div" data-pws-tab="nurse_tabs_nested_1_2" data-pws-tab-name="<i class='fa fa-moon-o' aria-hidden='true'></i>小夜">
+                    </div>
+                    <div id="nurse_tabs_nested_1_3_div" data-pws-tab="nurse_tabs_nested_1_3" data-pws-tab-name="<i class='fa fa-star' aria-hidden='true'></i>大夜">
+                    </div>
+                </div>
+            </div>
+            <div data-pws-tab="nurse_tabs_2" data-pws-tab-name="依護理師">
+                <div class="nurse_tabs_nested nurse_tabs_nested_2">
+                    <div data-pws-tab="nurse_tabs_nested_2_1" data-pws-tab-name="<i class='fa fa-sun-o' aria-hidden='true'></i>日班">
+                        <table class="overflow-y" id="nurse_tabs_nested_2_1_table">
+                        </table>
+                    </div>
+                    <div data-pws-tab="nurse_tabs_nested_2_2" data-pws-tab="nurse_tabs_nested_2_2" data-pws-tab-name="<i class='fa fa-moon-o' aria-hidden='true'></i>小夜">
+                        <table class="overflow-y" id="nurse_tabs_nested_2_2_table">
+                        </table>
+                    </div>
+                    <div data-pws-tab="nurse_tabs_nested_2_3" data-pws-tab-name="<i class='fa fa-star' aria-hidden='true'></i>大夜">
+                        <table class="overflow-y" id="nurse_tabs_nested_2_3_table">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <%- include('../Common/eBoardMenu', {func: '7'}) %>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="../js/EWhiteBoard/nurseScheduling.js"></script>
+<script id="nurse_tabs_nested_1_1_temp" type="text/x-handlebars-template">
+    <div class="grid_fifty">
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>病房</th>
+                <th>病床 - 護理師</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#wardList01}}
+            <tr>
+                <th>{{ward_name}}</th>
+                <td>
+                    {{#this_wardList}}
+                    <label>{{bed_name}} - <span class="doctor">{{nurse_name}}</span></label>
+                    {{/this_wardList}}
+                </td>
+            </tr>
+            {{/wardList01}}
+            </tbody>
+        </table>
+    </div>
+    <div class="grid_fifty">
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>病房</th>
+                <th>病床 - 護理師</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#wardList02}}
+            <tr>
+                <th>{{ward_name}}</th>
+                <td>
+                    {{#this_wardList}}
+                    <label>{{bed_name}} - <span class="doctor">{{nurse_name}}</span>{{#ifCond fire_control_group_name '!=' null}}<span class="badge badge_1">{{fire_control_group_name}}</span>{{/ifCond}}{{#ifCond mission_group_name '!=' null}}<span class="badge badge_2">{{mission_group_name}}</span>{{/ifCond}}</label>
+                    {{/this_wardList}}
+                </td>
+            </tr>
+            {{/wardList02}}
+            </tbody>
+        </table>
+    </div>
+</script>
+<script id="nurse_tabs_nested_2_1_temp" type="text/x-handlebars-template">
+    <thead>
+    <tr>
+        <th>護理師</th>
+        <th>負責病床</th>
+        <th>負責編組</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#nurses}}
+    <tr>
+        <td>{{nurse_name}}</td>
+        <td>
+            {{#each this_bedList}}
+            {{#ifCond (divide (inc @index '3') '3') '==' '0'}}
+            <div class="bed_label hard new">{{ward-bed}}</div>
+            {{/ifCond}}
+            {{#ifCond (divide (inc @index '2') '3') '==' '0'}}
+            <div class="bed_label medium new">{{ward-bed}}</div>
+            {{/ifCond}}
+            {{#ifCond (divide (inc @index '1') '3') '==' '0'}}
+            <div class="bed_label light new">{{ward-bed}}</div>
+            {{/ifCond}}
+            {{/each}}
+        </td>
+        <td>
+            {{#ifCond fire_control_group_name '!=' null}}<span class="badge badge_1">{{fire_control_group_name}}</span>{{/ifCond}} {{#ifCond mission_group_name '!=' null}}<span class="badge badge_2">{{mission_group_name}}</span>{{/ifCond}}
+        </td>
+    </tr>
+    {{/nurses}}
+    </tbody>
+</script>

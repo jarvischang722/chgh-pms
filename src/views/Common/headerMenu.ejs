@@ -1,0 +1,125 @@
+
+<header>
+    <div id="head">
+        <img id="logo" src="../images/logo.png">
+        <a href="/"><h4>生理醫護監測管理系統</h4></a>
+        <div class="head_right_nav">
+            <h4>
+
+                <% if(session.user !=null){%>
+
+                <span>護理站：<%= session.user.ward_zone_name %></span>
+                <span>使用者：<%= session.user.account %><%= session.user.user_role_name%></span>
+                <% }else{ %>
+                <span>尚未登入</span>
+                <% }%>
+
+            </h4>
+        </div>
+
+        <div class="dropdown">
+            <div><i class="fa fa-cog" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+                <a href="/changeWardZone"><i class="fa fa-h-square" aria-hidden="true"></i> 選擇護理站</a>
+                <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 登出</a>
+            </div>
+        </div>
+
+
+
+
+        <!--<a href="#" id="setting"><i class="fa fa-cog" aria-hidden="true"></i></a>-->
+
+
+    </div>
+    <nav id="navbar" class="nurse_system">
+        <!-- 護理師模組 -->
+        <% if(moduleName == 'nurse'){%>
+        <ul>
+            <li><a href="/nurse/nurseInfoMaintain" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 護理師資料維護</a></li>
+            <li><a href="/nurse/batchBedAssign" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 批次病房分派</a></li>
+            <li><a href="/nurse/dailyBedAssign" class="<%= func == '3'? 'active' :  '' %>"><i class="fa fa-cubes" aria-hidden="true"></i> 每日病房分派</a></li>
+            <li><a href="/nurse/schedulingQuery" class="<%= func == '4'? 'active' :  '' %>"><i class="fa fa-table" aria-hidden="true"></i> 班表資料査詢</a></li>
+        </ul>
+        <% }else if(moduleName == 'patient'){ %>
+        <!-- 病患模組 -->
+        <ul>
+            <li><a href="/patient/patientTodoItem" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 待辦事項設定</a></li>
+            <li><a href="/patient/patientDischargedNoteSet" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 出院備註設定</a></li>
+        </ul>
+        <% }else if(moduleName == 'doctor'){ %>
+        <!-- 醫師模組 -->
+        <ul>
+            <li><a href="/doctor/doctorInfoMaintain" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-folder-open-o" aria-hidden="true"></i> 醫師資料維護</a></li>
+            <li><a href="/doctor/doctorSchedulingSet" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 醫師排班資料設定</a></li>
+            <li><a href="/doctor/doctorSchedulingQuery" class="<%= func == '3'? 'active' :  '' %>"><i class="fa fa-table" aria-hidden="true"></i> 醫師排班資料查詢</a></li>
+        </ul>
+        <% }else if(moduleName == 'monitor'){ %>
+        <!-- 監控模組 -->
+        <ul>
+            <li><a href="/monitor/bitParamSet" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-eyedropper" aria-hidden="true"></i> 點滴參數設定</a></li>
+            <li><a href="/monitor/bitDeviceAssign" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-share-alt" aria-hidden="true"></i> 點滴裝置分派</a></li>
+            <li><a href="/monitor/immediateBitData" class="<%= func == '3'? 'active' :  '' %>"><i class="fa fa-search" aria-hidden="true"></i> 即時點滴數據查詢</a></li>
+            <li><a href="/monitor/statisticalReport" class="<%= func == '4'? 'active' :  '' %>"><i class="fa fa-file-text-o" aria-hidden="true"></i> 統計報表查詢</a></li>
+        </ul>
+        <% }else if(moduleName == 'other'){ %>
+        <!-- 其他模組 -->
+        <ul>
+            <li><a href="/other/todoPhrase" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 代辦事項片語管理　</a></li>
+            <li><a href="/other/bedAnnounceMaintain" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 病房公告維護</a></li>
+            <li><a href="/other/marqueeMsgMaintain" class="<%= func == '3'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 跑馬燈訊息維護</a></li>
+            <li><a href="/other/shiftTimePeriodSet" class="<%= func == '4'? 'active' :  '' %>"><i class="fa fa-cogs" aria-hidden="true"></i> 班別時段設定</a></li>
+            <li><a href="/other/doctorClassMaintain" class="<%= func == '5'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 醫師別維護</a></li>
+            <li><a href="/other/firemissionMaintain" class="<%= func == '7'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 消防任務維護</a></li>
+
+            <% if(checkWardZoneHasModulePrivilege("SIP")){%>
+            <li><a href="/other/communiRecord" class="<%= func == '6'? 'active' :  '' %>"><i class="fa fa-search" aria-hidden="true"></i> 通聯記錄查詢</a></li>
+            <% } %>
+
+        </ul>
+        <% }else if(moduleName == 'system'){ %>
+        <!-- 系統維護模組 -->
+        <ul class="navbar_longer">
+
+            <li><a href="/systemMaintain/employeeManage"  class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-address-card-o" aria-hidden="true"></i> 人員基本資料管理</a></li>
+
+
+
+            <li><a href="/systemMaintain/privilegeSet" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-user-secret" aria-hidden="true"></i> 權限設定</a></li>
+
+
+
+            <li><a href="/systemMaintain/systemParamSet" class="<%= func == '4'? 'active' :  '' %>"><i class="fa fa-cogs" aria-hidden="true"></i> 系統參數設定</a></li>
+
+
+            <% if(checkWardZoneHasModulePrivilege("Bit")){%>
+            <li><a href="/systemMaintain/statisticalReportPrint" class="<%= func == '5'? 'active' :  '' %>"><i class="fa fa-bar-chart" aria-hidden="true"></i> 統計報表列印</a></li>
+            <% } %>
+
+            <% if(checkWardZoneHasModulePrivilege("SIP")){%>
+            <li><a href="/systemMaintain/SIPSet" class="<%= func == '6'? 'active' :  '' %>"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> SIP裝置分派</a></li>
+            <% } %>
+
+
+            <li><a href="/systemMaintain/bedSet" class="<%= func == '7'? 'active' :  '' %>"><i class="fa fa-h-square" aria-hidden="true"></i> 病房建立</a></li>
+
+
+            <% if(checkWardZoneHasModulePrivilege("SIP")){%>
+            <li><a href="/systemMaintain/emergencyExternalSet" class="<%= func == '8'? 'active' :  '' %>"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 緊急外部裝置設定</a></li>
+            <% } %>
+
+
+            <li><a href="/systemMaintain/nursingStationEstablish" class="<%= func == '9'? 'active' :  '' %>"><i class="fa fa-h-square" aria-hidden="true"></i> 護理站建立</a></li>
+
+
+            <% if(checkWardZoneHasModulePrivilege("SIP")){%>
+            <li><a href="/systemMaintain/sipEstablish" class="<%= func == '10'? 'active' :  '' %>"><i class="fa fa-link" aria-hidden="true"></i> SIP IP 建立</a></li>
+            <% } %>
+
+
+            <li><a href="/systemMaintain/loginInfo" class="<%= func == '3'? 'active' :  '' %>"><i class="fa fa-sign-in" aria-hidden="true"></i> 版本資訊</a></li>
+        </ul>
+
+        <%}%>
+    </nav>
+</header>

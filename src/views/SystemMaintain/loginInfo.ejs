@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<%- include ../Common/head.ejs %>
+<script type="text/javascript" src="../js/SystemMaintain/loginInfo.js"></script>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'system'}) %>
+<%- include('../Common/headerMenu',{moduleName:'system', func:'3' }) %>
+<div class="nurse_system">
+    <div class="container container_higher">
+        <div class="welcome">
+            <h1>生理監控醫護管理系統</h1>
+            <div class="welcome_content">
+                <div>
+                    <label>版本：</label>
+                    <span class="doctor" id="version"></span>
+                </div>
+                <div>
+                    <label>產品識別碼：</label>
+                    <span class="doctor" id="userKey">00150-20000-11322-AA345</span>
+                </div>
+            </div>
+            <div class="welcome_content_bottom">
+                <div class="text-center">
+                    <small class="doctor">2016 MiKo Tek Corporation 著作權所有，並保留一切權利。</small>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn"><i class="fa fa-refresh" aria-hidden="true"></i> 備份 / 還原設定值</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ../Common/marquee.ejs %>
+<div class="remodal" data-remodal-id="add_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>新增醫師別</div>
+    </div>
+    <div class="remodal_body">
+        <form>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 醫師別名稱</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 姓名</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 使用者帳號</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 登入密碼</label>
+                <input type="password" name="">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 姓別</label>
+                <div class="checkbox_list text-left radio_list">
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="gender_add"/> 男
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="gender_add"/> 女
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 使用者角色</label>
+                <select>
+                    <option>--</option>
+                    <option>Admin</option>
+                    <option>角色一</option>
+                    <option>角色二</option>
+                    <option>角色三</option>
+                </select>
+            </div>
+            <div>
+                <label>主管角色</label>
+                <select>
+                    <option>--</option>
+                    <option>Admin</option>
+                    <option>角色一</option>
+                    <option>角色二</option>
+                    <option>角色三</option>
+                </select>
+            </div>
+            <div class="date_select">
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 到職日期</label>
+                <input id="date_select" type='text' class="datepicker-here" data-range="false" data-language='zh'
+                       data-position="top right" placeholder=""/>
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 是否啟用</label>
+                <div class="checkbox_list text-left radio_list">
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="enabled_add"/> 是
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="enabled_add"/> 否
+                    </label>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+    <div class="remodal_footer">
+        <a href="#" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+    </div>
+</div>
+<div class="remodal" data-remodal-id="edit_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>編輯醫師別</div>
+    </div>
+    <div class="remodal_body">
+        <form>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 醫師別名稱</label>
+                <input type="text" name="" value="主治醫師">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 姓名</label>
+                <input type="text" name="" value="賴筱菁">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 使用者帳號</label>
+                <input type="text" name="" value="Jasmine Lai">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 登入密碼</label>
+                <input type="password" name="" value="ABCDEFG">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 姓別</label>
+                <div class="checkbox_list text-left radio_list">
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="gender_edit"/> 男
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="gender_edit" checked/> 女
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 使用者角色</label>
+                <select>
+                    <option>--</option>
+                    <option selected>Admin</option>
+                    <option>角色一</option>
+                    <option>角色二</option>
+                    <option>角色三</option>
+                </select>
+            </div>
+            <div>
+                <label>主管角色</label>
+                <select>
+                    <option>--</option>
+                    <option selected>Admin</option>
+                    <option>角色一</option>
+                    <option>角色二</option>
+                    <option>角色三</option>
+                </select>
+            </div>
+            <div class="date_select">
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 到職日期</label>
+                <input id="date_select" type='text' class="datepicker-here" data-range="false" data-language='zh'
+                       data-position="top right" placeholder="2016-11-11"/>
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 是否啟用</label>
+                <div class="checkbox_list text-left radio_list">
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="enabled_edit" checked/> 是
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="enabled_edit"/> 否
+                    </label>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+    <div class="remodal_footer">
+        <a href="#" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+    </div>
+</div>
+</body>
+
+</html>

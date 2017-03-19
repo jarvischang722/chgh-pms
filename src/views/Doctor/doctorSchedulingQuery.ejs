@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'doctor'}) %>
+<%- include('../Common/headerMenu',{moduleName:'doctor', func:'3' }) %>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="ope_list_search">
+                <div>
+                    <label>醫師別： </label>
+                    <select id="doctor_class">
+                        <option value="0">--</option>
+                    </select>
+                </div>
+                <div class="date_range">
+                    <label>時間區間： </label>
+                    <input id="ope_range" type="text" class="datepicker-here" data-range="true" data-multiple-dates-separator=" ~ " data-language="zh" data-position="bottom right" placeholder="2016-11-11 ~ 2016-11-11">
+                </div>
+                <div>
+                    <label>醫師姓名： </label>
+                    <input type="text" id="doctor_name" name="">
+                </div>
+                <div class="btn_group">
+                    <a href="#" class="btn" id="search"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>
+                </div>
+            </div>
+            <table class="overflow-y" id="doctorSchedulingTable">
+                <thead>
+                    <tr>
+                        <th>值班日期</th>
+                        <th>醫師別</th>
+                        <th>醫師姓名 / 員工編號</th>
+                        <th>值班床位數</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <!-- doctor_show_scheduling_list_tbody_template 排班清單版模  -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <%-include ../Common/marquee.ejs%>
+    <div class="remodal" id="bed_list_modal" data-remodal-id="day_room_select_modal">
+        <!-- doctor_bed_list_template 彈出視窗版模  -->
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="/js/Doctor/doctorSchedulingQuery.js"></script>
+<%-include ../HandlebarTemplates/doctor/scheduling_list_tbody.ejs%>
+<%-include ../HandlebarTemplates/doctor/bed_list_template.ejs%>

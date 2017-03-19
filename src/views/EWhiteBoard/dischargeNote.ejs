@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../Common/head%>
+
+<script type="text/javascript" src="../js/EWhiteBoard/dischargeNote.js"></script>
+
+
+
+<body>
+    <% include ../Common/eBoardMarquee%>
+    <div class="container container_higher" id="out">
+        <h1><i class="fa fa-check-square-o" aria-hidden="true"></i> 出院</h1>
+        <a href="#" id="refresh" onclick="loadTodayDischargeNote()"><i class="fa fa-refresh" aria-hidden="true"></i> 重新整理</a>
+        <div class="clearfix"></div>
+        <table class="overflow-y">
+            <thead>
+                <tr>
+                    <th>病床</th>
+                    <th>病患</th>
+                    <th>備註</th>
+                </tr>
+            </thead>
+            <tbody id="dischargeNote_container">
+
+            </tbody>
+        </table>
+        <div class="clearfix"></div>
+    </div>
+    <%- include('../Common/eBoardMenu', {func: '6'}) %>
+
+
+
+    <!--病患的格子-->
+    <script id="patient-dischargeNote-template" type="text/x-handlebars-template">
+        {{#each result}}
+
+        <tr>
+            <td>{{ward_name}}-{{bed_name}}</td>
+            {{#ifCond patient_sex '==' 0}}
+            <td><span class="female">{{patient_name}}({{patient_age}})</span></td>
+            {{else}}
+            <td><span class="male">{{patient_name}}({{patient_age}})</span></td>
+            {{/ifCond}}
+            <td>{{discharged_remark}}</td>
+        </tr>
+
+
+        {{/each}}
+    </script>
+
+
+
+    <!--病患的格子-->
+    <script id="patient-dischargeNote-template" type="text/x-handlebars-template">
+        {{#each result}}
+
+        <tr>
+            <td>{{ward_name}}-{{bed_name}}</td>
+            {{#ifCond patient_sex '==' 0}}
+            <td><span class="female">{{patient_name}}({{patient_age}})</span></td>
+            {{else}}
+            <td><span class="male">{{patient_name}}({{patient_age}})</span></td>
+            {{/ifCond}}
+            <td>{{discharged_remark}}</td>
+        </tr>
+
+
+        {{/each}}
+    </script>
+
+
+</body>
+
+</html>

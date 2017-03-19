@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'monitor'}) %>
+<%- include('../Common/headerMenu',{moduleName:'monitor', func:'2' }) %>
+<%- include ../HandlebarTemplates/monitor/bit_assign_record_template.ejs  %>
+    <div class="nurse_system">
+        <div class="container container_higher bit_assign_container">
+                <!-- bit_assign_record_template  -->
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="edit_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>編輯個別點滴參數</div>
+        </div>
+        <div class="remodal_body">
+            <form>
+                <div>
+                    <label>病床號碼</label>
+                    <span id="ward_bed_name_span">01-01</span>
+                </div>
+                <div>
+                    <label>點滴監測器編號 1</label>
+                    <input type="text" id="bit_no1">
+                </div>
+                <div>
+                    <label>點滴監測器編號 2</label>
+                    <input type="text" id="bit_no2">
+                </div>
+                <div>
+                    <label>點滴監測器編號 3</label>
+                    <input type="text" id="bit_no3">
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="remodal_footer">
+            <a href="#"  data-remodal-action="cancel" class="btn remodal-cancel"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+            <a href="#" id="editBitDevice" class="btn remodal-confirm"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="/js/MonitorDevice/bitDeviceAssign.js"></script>

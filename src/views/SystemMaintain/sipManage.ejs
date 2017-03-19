@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<script type="text/javascript" src="../js/SystemMaintain/sipManage.js"></script>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'system'}) %>
+<%- include('../Common/headerMenu',{moduleName:'system', func:'6' }) %>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="ope_list_search">
+
+                <div>
+                    <label>裝置型態：</label>
+                    <select id="select_da" onchange="selectDA()">
+                    </select>
+                </div>
+                <div class="btn_group">
+                    <a href="#" class="btn"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>
+                    <a href="#add_modal" class="btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                    <a href="#" class="btn" onclick="deleteSIP()"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+                </div>
+            </div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th>共 <span class="ban" id="sip_count"></span> 筆</th>
+                        <th>編輯</th>
+                        <th>裝置分機</th>
+                        <th>裝置型態</th>
+                        <th>病房歸屬</th>
+                        <th>類比緊急系統代碼</th>
+                    </tr>
+                </thead>
+                <tbody id="sip-list-container">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+<%-include ../Common/marquee.ejs%>
+    <div class="remodal" data-remodal-id="add_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>建立SIP裝置分派</div>
+        </div>
+        <div class="remodal_body">
+            <form  id="new_form">
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置分機</label>
+                    <select id="new_phoneno">
+                    </select>
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置型態</label>
+                    <input type="hidden" id="new_phoneno" value="">
+                    <select id="new_da" onchange="updateFormStatus('new')">
+                    </select>
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置來電顯示內容</label>
+                    <input type="text" name="" id="new_realname">
+                </div>
+                <div>
+                    <label>病房歸屬</label>
+                    <select  id="new_comments">
+                    </select>
+                    <span>房</span>
+                </div>
+                <div>
+                    <label>類比緊急系統代碼</label>
+                    <input type="text" name="" value=""   id="new_transno">
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn"  onclick="addSIP()"><i class="fa fa-plus" aria-hidden="true"></i> 加入</a>
+            <a href="#" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 完成</a>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="edit_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>編輯SIP裝置分派</div>
+        </div>
+        <div class="remodal_body">
+            <form  id="edit_form">
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置分機</label>
+                    <span class="doctor" id="edit_phoneno_text">
+                        50101
+                    </span>
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置型態</label>
+                    <input type="hidden" id="edit_phoneno" value="">
+                    <select id="edit_da" onchange="updateFormStatus('edit')">
+                    </select>
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 裝置來電顯示內容</label>
+                    <input type="text" name="" id="edit_realname">
+                </div>
+                <div>
+                    <label>病房歸屬</label>
+                    <select  id="edit_comments">
+                    </select>
+                    <span>房</span>
+                </div>
+                <div>
+                    <label>類比緊急系統代碼</label>
+                    <input type="text" name="" value=""   id="edit_transno">
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+            <a href="#" class="btn"  onclick="updateSIP()"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+        </div>
+    </div>
+
+<!--SIP清單>-->
+<script id="sip-list-template" type="text/x-handlebars-template">
+
+    {{#each result}}
+
+    <tr class="sip_row">
+        <td>
+            <input type="checkbox" class="sip_phonenos" value="{{phoneno}}" />
+            <input type="hidden" id="realname_temp" value="{{realname}}" />
+        </td>
+
+        <td>
+            <a href="#edit_modal" class="btn edit_sip_btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+        </td>
+
+        <td id="phoneno_temp" >{{phoneno}}</td>
+
+        <td>
+            <input type="hidden" id="da_temp" value="{{da}}" />
+            {{daName}}
+        </td>
+
+
+        <td id="comments_temp" >
+            {{#ifCond comments '!=' 0}}
+
+            {{comments}}
+
+            {{/ifCond}}
+
+
+
+        </td>
+
+        <td id="transno_temp" >{{transno}}</td>
+    </tr>
+
+    {{/each}}
+
+</script>
+
+</body>
+
+</html>

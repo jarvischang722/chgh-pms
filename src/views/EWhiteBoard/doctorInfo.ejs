@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../Common/head %>
+
+<body>
+
+<% include ../Common/eBoardMarquee %>
+<div class="container container_higher" id="out">
+    <h1><i class="fa fa-user-md" aria-hidden="true"></i> 醫師資訊</h1>
+    <a href="javascript:void(0)" id="refresh" @click="updateDoctorInfo">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+        重新整理
+    </a>
+    <div class="clearfix"></div>
+    <table class="overflow-y">
+        <thead>
+            <tr>
+                <th>醫師別</th>
+                <th>姓名</th>
+                <th>手機號碼</th>
+                <th>院內電話</th>
+                <th>病床</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr v-for="doctor in DoctorList">
+            <td>{{doctor.doctor_class_name}}</td>
+            <td>{{doctor.doctor_name}}</td>
+            <td>{{doctor.doctor_phone}}</td>
+            <td>{{doctor.doctor_ext}}</td>
+            <td>
+                <div v-for="bed in doctor.bed_list" class="bed_label {{ bed.schedule_date | checkToday}}">
+                    {{bed.bedInfo}}
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<%- include('../Common/eBoardMenu', {func: '8'}) %>
+</body>
+
+</html>
+
+
+<script type="text/javascript" src="/js/EWhiteBoard/doctorInfo.js"></script>

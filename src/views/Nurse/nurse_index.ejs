@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'nurse'}) %>
+<%- include('../Common/headerMenu',{moduleName:'nurse', func:'0' }) %>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="welcome">
+                <h1>Welcome</h1>
+
+
+                <% if(session.user !=null){%>
+
+                <div class="welcome_content">
+                    <div>
+                        <label>使用者帳號：</label>
+                        <span><%= session.user.account %></span>
+                    </div>
+                    <div>
+                        <label>姓名：</label>
+                        <span><%= session.user.name %></span>
+                    </div>
+                    <div>
+                        <label>使用者角色：</label>
+                        <span><%= session.user.user_role_name %></span>
+                    </div>
+                    <div>
+                        <label>病房區：</label>
+                        <span><%= session.user.ward_zone_name %></span>
+                    </div>
+                    <div>
+                        <label>登入時間：</label>
+                        <span><%= session.user.login_time %></span>
+                    </div>
+                </div>
+
+                <% }else{ %>
+
+                <div class="welcome_content">
+                    <div>
+                        尚未登入
+                    </div>
+                </div>
+
+                <% }%>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

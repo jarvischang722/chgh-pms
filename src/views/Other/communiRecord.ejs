@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<%- include ../Common/head.ejs %>
+<script type="text/javascript" src="../js/Other/communiRecord.js"></script>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'other'}) %>
+<%- include('../Common/headerMenu',{moduleName:'other', func:'6' }) %>
+<div class="nurse_system">
+    <div class="container container_higher">
+        <div class="ope_list_search">
+            <div class="date_range">
+                <label>通話日期：</label>
+                <input id="date_range" type='text' class="datepicker-here"
+                       data-range="true" data-time-format='hh:ii aa' data-multiple-dates-separator=" ~ "
+                       data-language='zh' data-position="bottom right"
+                       placeholder=""
+                       value=""/>
+            </div>
+            <div>
+                <label>通話類型： </label>
+                <select id="select_da">
+                </select>
+            </div>
+            <div class="time_range">
+                <label>通話時間：</label>
+
+                <select  id="time_range_1">
+                </select>
+                <label>分 ~ </label>
+
+                <select  id="time_range_2">
+
+                </select>
+                <label>分</label>
+
+
+            </div>
+
+
+            <div class="ope_list_search ope_list_search_bottom">
+                <div class="btn_group">
+                    <a href="#choose_room_stop" class="btn" id="showAllWardZone"><i class="fa fa-h-square" aria-hidden="true"></i> 選擇護理站</a>
+                    <a href="#" class="btn" id="search_btn"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>
+                </div>
+            </div>
+
+
+        </div>
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>通話日期</th>
+                <th>發話端</th>
+                <th>受話端</th>
+                <th>通話類型</th>
+                <th>通話起始時間</th>
+                <th>通話結束時間</th>
+                <th>通話時間</th>
+            </tr>
+            </thead>
+            <tbody id="sip-record-list-container">
+            </tbody>
+        </table>
+    </div>
+</div>
+<%-include ../Common/marquee.ejs%>
+
+
+
+<div class="remodal remodal_3" data-remodal-id="choose_room_stop">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>選擇護理站</div>
+    </div>
+    <div class="remodal_body">
+        <div class="ope_list_search ope_list_search_left">
+
+            <hr>
+            <div class="checkbox_list"  id="wardZone-list-container">
+
+            </div>
+        </div>
+    </div>
+    <div class="remodal_footer">
+        <a href="#" class="btn"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>
+    </div>
+</div>
+
+<!--SIP清單>-->
+<script id="sip-record-list-template" type="text/x-handlebars-template">
+
+    {{#each result}}
+
+    <tr class="sip_record_row">
+        <td>{{{subString start 0 10}}}</td>
+        <td>{{src}}</td>
+        <td>{{dst}}</td>
+        <td>{{typeName}}</td>
+        <td>{{{subString start 11 19}}}</td>
+        <td>{{{subString end 11 19}}}</td>
+        <td>{{duration_str}}</td>
+    </tr>
+
+    {{/each}}
+
+</script>
+
+
+
+<!--病房區清單>-->
+<script id="wardZone-list-template" type="text/x-handlebars-template">
+
+    {{#each result}}
+
+    <label>
+        <input id="ward_zone_ids" type="checkbox" class="ward_zone_ids option-input checkbox choose_room_stop_check_check" value="{{id}}" />
+        {{ward_zone_name}}
+    </label>
+
+    {{/each}}
+
+</script>
+
+</body>
+
+</html>
