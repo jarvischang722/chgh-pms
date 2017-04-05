@@ -1,124 +1,1331 @@
 <!DOCTYPE html>
 <html>
 
-<% include ../Common/head%>
+<%- include ../Common/eBoardHead.ejs %>
 
 <body>
-    <% include ../Common/eBoardMarquee%>
-    <div class="container container_higher" id="beds">
-        <a href="#" id="refresh"><i class="fa fa-refresh" aria-hidden="true"></i> 重新整理</a>
-        <div class="nurse_tabs">
-            <div data-pws-tab="nurse_tabs_1" data-pws-tab-name="依病床">
-                <div class="nurse_tabs_nested nurse_tabs_nested_1">
-                    <div id="nurse_tabs_nested_1_1_div" data-pws-tab="nurse_tabs_nested_1_1" data-pws-tab-name="<i class='fa fa-sun-o' aria-hidden='true'></i>日班">
+
+<%- include ../Common/eBoardHeader.ejs %>
+
+<%- include ../Common/eBoardMarquee.ejs %>
+
+<div class="container container_higher" id="beds">
+    <div class="nurse_tabs">
+        <div data-pws-tab="nurse_tabs_1" data-pws-tab-name="依病床">
+            <div class="nurse_tabs_nested nurse_tabs_nested_1">
+                <div data-pws-tab="nurse_tabs_nested_1_1"
+                     data-pws-tab-name="<i class='fa fa-sun-o' aria-hidden='true'></i> 日班">
+                    <div class="grid_fifty">
+                        <table class="overflow-y">
+                            <thead>
+                            <tr>
+                                <th>病房</th>
+                                <th>病床 - 護理師</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>01</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>02</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>03</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>05</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>06</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>07</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>08</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>09</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div id="nurse_tabs_nested_1_2_div" data-pws-tab="nurse_tabs_nested_1_2" data-pws-tab-name="<i class='fa fa-moon-o' aria-hidden='true'></i>小夜">
-                    </div>
-                    <div id="nurse_tabs_nested_1_3_div" data-pws-tab="nurse_tabs_nested_1_3" data-pws-tab-name="<i class='fa fa-star' aria-hidden='true'></i>大夜">
+                    <div class="grid_fifty">
+                        <table class="overflow-y">
+                            <thead>
+                            <tr>
+                                <th>病房</th>
+                                <th>病床 - 護理師</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>01</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>02</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>03</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>05</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>06</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>07</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>08</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>09</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-            <div data-pws-tab="nurse_tabs_2" data-pws-tab-name="依護理師">
-                <div class="nurse_tabs_nested nurse_tabs_nested_2">
-                    <div data-pws-tab="nurse_tabs_nested_2_1" data-pws-tab-name="<i class='fa fa-sun-o' aria-hidden='true'></i>日班">
-                        <table class="overflow-y" id="nurse_tabs_nested_2_1_table">
+                <div data-pws-tab="nurse_tabs_nested_1_2"
+                     data-pws-tab-name="<i class='fa fa-moon-o' aria-hidden='true'></i> 小夜">
+                    <div class="grid_fifty">
+                        <table class="overflow-y">
+                            <thead>
+                            <tr>
+                                <th>病房</th>
+                                <th>病床 - 護理師</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>01</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>02</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>03</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>05</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>06</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>07</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>08</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>09</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            </tbody>
                         </table>
                     </div>
-                    <div data-pws-tab="nurse_tabs_nested_2_2" data-pws-tab="nurse_tabs_nested_2_2" data-pws-tab-name="<i class='fa fa-moon-o' aria-hidden='true'></i>小夜">
-                        <table class="overflow-y" id="nurse_tabs_nested_2_2_table">
+                    <div class="grid_fifty">
+                        <table class="overflow-y">
+                            <thead>
+                            <tr>
+                                <th>病房</th>
+                                <th>病床 - 護理師</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>01</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>02</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>03</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>05</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>06</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>07</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>08</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>09</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            </tbody>
                         </table>
                     </div>
-                    <div data-pws-tab="nurse_tabs_nested_2_3" data-pws-tab-name="<i class='fa fa-star' aria-hidden='true'></i>大夜">
-                        <table class="overflow-y" id="nurse_tabs_nested_2_3_table">
+                </div>
+                <div data-pws-tab="nurse_tabs_nested_1_3"
+                     data-pws-tab-name="<i class='fa fa-star' aria-hidden='true'></i> 大夜">
+                    <div class="grid_fifty">
+                        <table class="overflow-y">
+                            <thead>
+                            <tr>
+                                <th>病房</th>
+                                <th>病床 - 護理師</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>01</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>02</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>03</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>05</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>06</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>07</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>08</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>09</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="grid_fifty">
+                        <table class="overflow-y">
+                            <thead>
+                            <tr>
+                                <th>病房</th>
+                                <th>病床 - 護理師</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>01</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>02</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>03</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>05</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>06</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>07</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>08</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>09</th>
+                                <td>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                    <label>01 - <span class="doctor">楊乃文</span></label>
+                                </td>
+                            </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="clearfix"></div>
+        <div data-pws-tab="nurse_tabs_2" data-pws-tab-name="依護理師">
+            <div class="nurse_tabs_nested nurse_tabs_nested_2">
+                <div data-pws-tab="nurse_tabs_nested_2_1"
+                     data-pws-tab-name="<i class='fa fa-sun-o' aria-hidden='true'></i>日班">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>護理師</th>
+                            <th>負責病床</th>
+                            <th>負責編組</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label new">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label new">07-05</a>
+                                <a href="#rooms_modal" class="bed_label">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label new">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label new">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label new">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label new">07-05</a>
+                                <a href="#rooms_modal" class="bed_label">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label new">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label new">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-pws-tab="nurse_tabs_nested_2_2"
+                     data-pws-tab-name="<i class='fa fa-moon-o' aria-hidden='true'></i>小夜">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>護理師</th>
+                            <th>負責病床</th>
+                            <th>負責編組</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label new">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label new">07-05</a>
+                                <a href="#rooms_modal" class="bed_label">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label new">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label new">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label new">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label new">07-05</a>
+                                <a href="#rooms_modal" class="bed_label">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label new">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label new">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <a href="#rooms_modal" class="bed_label">03-01</a>
+                                <a href="#rooms_modal" class="bed_label new">07-01</a>
+                                <a href="#rooms_modal" class="bed_label">07-02</a>
+                                <a href="#rooms_modal" class="bed_label">07-03</a>
+                                <a href="#rooms_modal" class="bed_label">07-05</a>
+                                <a href="#rooms_modal" class="bed_label new">10-01</a>
+                                <a href="#rooms_modal" class="bed_label">13-02</a>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-pws-tab="nurse_tabs_nested_2_3"
+                     data-pws-tab-name="<i class='fa fa-star' aria-hidden='true'></i>大夜">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>護理師</th>
+                            <th>負責病床</th>
+                            <th>負責編組</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>楊乃文</td>
+                            <td>
+                                <!-- 增加編組badge 20161110 START -->
+                                <div class="bed_label hard new">03-01</div>
+                                <div class="bed_label medium">07-01</div>
+                                <div class="bed_label light">07-02</div>
+                                <div class="bed_label hard">07-03</div>
+                                <div class="bed_label medium new">07-05</div>
+                                <div class="bed_label light new">10-01</div>
+                                <div class="bed_label hard">13-02</div>
+                                <!-- 增加編組badge 20161110 END -->
+                            </td>
+                            <td>
+                                <span class="badge badge_1">消1</span> <span class="badge badge_2">任1</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <%- include('../Common/eBoardMenu', {func: '7'}) %>
+    <div class="clearfix"></div>
+</div>
+
+<%- include('../Common/eBoardFooter', {func: 'nurseScheduling'}) %>
+
+<%- include ../Common/importJSFiles.ejs %>
+
+<div class="remodal" data-remodal-id="rooms_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>05-01</div>
+        <div><span class="female">鄭秀文(36)</span></div>
+    </div>
+    <div class="remodal_body">
+        <div class="rooms_tabs">
+            <div data-pws-tab="rooms_tabs_1" data-pws-tab-name="基本資料">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="text-right">主治醫師</td>
+                        <td><span class="doctor">陳益祥</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">住院醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">實習醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">專科護理師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">見習醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">護理師</td>
+                        <td><span class="doctor">李靜宜</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">手術</td>
+                        <td><span class="doctor">XXXX手術</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">狀態</td>
+                        <td class="doctor_cond">
+                            <span class="cond_dot cond_green"></span>跌倒
+                            <span class="cond_dot cond_blue"></span>隔離
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-pws-tab="rooms_tabs_2" data-pws-tab-name="過敏資料">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="text-right">主治醫師</td>
+                        <td><span class="doctor">陳益祥</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">住院醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">實習醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">專科護理師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">見習醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">手術</td>
+                        <td><span class="doctor">XXXX手術</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">狀態</td>
+                        <td class="doctor_cond">
+                            <span class="cond_dot cond_green"></span>跌倒
+                            <span class="cond_dot cond_blue"></span>隔離
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-pws-tab="rooms_tabs_3" data-pws-tab-name="醫囑資料">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="text-right">主治醫師</td>
+                        <td><span class="doctor">陳益祥</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">住院醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">實習醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">專科護理師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">手術</td>
+                        <td><span class="doctor">XXXX手術</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">狀態</td>
+                        <td class="doctor_cond">
+                            <span class="cond_dot cond_green"></span>跌倒
+                            <span class="cond_dot cond_blue"></span>隔離
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-pws-tab="rooms_tabs_4" data-pws-tab-name="待辦資料">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="text-right">主治醫師</td>
+                        <td><span class="doctor">陳益祥</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">住院醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">實習醫師</td>
+                        <td><span class="doctor"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">手術</td>
+                        <td><span class="doctor">XXXX手術</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">狀態</td>
+                        <td class="doctor_cond">
+                            <span class="cond_dot cond_green"></span>跌倒
+                            <span class="cond_dot cond_blue"></span>隔離
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
 </html>
-
-<script type="text/javascript" src="../js/EWhiteBoard/nurseScheduling.js"></script>
-<script id="nurse_tabs_nested_1_1_temp" type="text/x-handlebars-template">
-    <div class="grid_fifty">
-        <table class="overflow-y">
-            <thead>
-            <tr>
-                <th>病房</th>
-                <th>病床 - 護理師</th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#wardList01}}
-            <tr>
-                <th>{{ward_name}}</th>
-                <td>
-                    {{#this_wardList}}
-                    <label>{{bed_name}} - <span class="doctor">{{nurse_name}}</span></label>
-                    {{/this_wardList}}
-                </td>
-            </tr>
-            {{/wardList01}}
-            </tbody>
-        </table>
-    </div>
-    <div class="grid_fifty">
-        <table class="overflow-y">
-            <thead>
-            <tr>
-                <th>病房</th>
-                <th>病床 - 護理師</th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#wardList02}}
-            <tr>
-                <th>{{ward_name}}</th>
-                <td>
-                    {{#this_wardList}}
-                    <label>{{bed_name}} - <span class="doctor">{{nurse_name}}</span>{{#ifCond fire_control_group_name '!=' null}}<span class="badge badge_1">{{fire_control_group_name}}</span>{{/ifCond}}{{#ifCond mission_group_name '!=' null}}<span class="badge badge_2">{{mission_group_name}}</span>{{/ifCond}}</label>
-                    {{/this_wardList}}
-                </td>
-            </tr>
-            {{/wardList02}}
-            </tbody>
-        </table>
-    </div>
-</script>
-<script id="nurse_tabs_nested_2_1_temp" type="text/x-handlebars-template">
-    <thead>
-    <tr>
-        <th>護理師</th>
-        <th>負責病床</th>
-        <th>負責編組</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#nurses}}
-    <tr>
-        <td>{{nurse_name}}</td>
-        <td>
-            {{#each this_bedList}}
-            {{#ifCond (divide (inc @index '3') '3') '==' '0'}}
-            <div class="bed_label hard new">{{ward-bed}}</div>
-            {{/ifCond}}
-            {{#ifCond (divide (inc @index '2') '3') '==' '0'}}
-            <div class="bed_label medium new">{{ward-bed}}</div>
-            {{/ifCond}}
-            {{#ifCond (divide (inc @index '1') '3') '==' '0'}}
-            <div class="bed_label light new">{{ward-bed}}</div>
-            {{/ifCond}}
-            {{/each}}
-        </td>
-        <td>
-            {{#ifCond fire_control_group_name '!=' null}}<span class="badge badge_1">{{fire_control_group_name}}</span>{{/ifCond}} {{#ifCond mission_group_name '!=' null}}<span class="badge badge_2">{{mission_group_name}}</span>{{/ifCond}}
-        </td>
-    </tr>
-    {{/nurses}}
-    </tbody>
-</script>

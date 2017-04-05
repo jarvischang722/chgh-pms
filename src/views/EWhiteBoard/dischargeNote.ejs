@@ -1,74 +1,134 @@
 <!DOCTYPE html>
 <html>
 
-<% include ../Common/head%>
-
-<script type="text/javascript" src="../js/EWhiteBoard/dischargeNote.js"></script>
-
-
+<%- include ../Common/eBoardHead.ejs %>
 
 <body>
-    <% include ../Common/eBoardMarquee%>
-    <div class="container container_higher" id="out">
-        <h1><i class="fa fa-check-square-o" aria-hidden="true"></i> 出院</h1>
-        <a href="#" id="refresh" onclick="loadTodayDischargeNote()"><i class="fa fa-refresh" aria-hidden="true"></i> 重新整理</a>
-        <div class="clearfix"></div>
-        <table class="overflow-y">
-            <thead>
-                <tr>
-                    <th>病床</th>
-                    <th>病患</th>
-                    <th>備註</th>
-                </tr>
-            </thead>
-            <tbody id="dischargeNote_container">
 
-            </tbody>
-        </table>
-        <div class="clearfix"></div>
-    </div>
-    <%- include('../Common/eBoardMenu', {func: '6'}) %>
+<%- include ../Common/eBoardHeader.ejs %>
 
+<%- include ../Common/eBoardMarquee.ejs %>
 
-
-    <!--病患的格子-->
-    <script id="patient-dischargeNote-template" type="text/x-handlebars-template">
-        {{#each result}}
-
+<div class="container container_higher" id="out">
+    <h1><span><i class="fa fa-check-square-o" aria-hidden="true"></i> 出院</span></h1>
+    <div class="clearfix"></div>
+    <table class="overflow-y">
+        <thead>
         <tr>
-            <td>{{ward_name}}-{{bed_name}}</td>
-            {{#ifCond patient_sex '==' 0}}
-            <td><span class="female">{{patient_name}}({{patient_age}})</span></td>
-            {{else}}
-            <td><span class="male">{{patient_name}}({{patient_age}})</span></td>
-            {{/ifCond}}
-            <td>{{discharged_remark}}</td>
+            <th>病床</th>
+            <th>病患</th>
+            <th>備註</th>
         </tr>
-
-
-        {{/each}}
-    </script>
-
-
-
-    <!--病患的格子-->
-    <script id="patient-dischargeNote-template" type="text/x-handlebars-template">
-        {{#each result}}
-
+        </thead>
+        <tbody>
         <tr>
-            <td>{{ward_name}}-{{bed_name}}</td>
-            {{#ifCond patient_sex '==' 0}}
-            <td><span class="female">{{patient_name}}({{patient_age}})</span></td>
-            {{else}}
-            <td><span class="male">{{patient_name}}({{patient_age}})</span></td>
-            {{/ifCond}}
-            <td>{{discharged_remark}}</td>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
         </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="female">鄭秀文(36)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        <tr>
+            <td>07-03</td>
+            <td><span class="male">古天樂(41)</span></td>
+            <td>出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一出美強天建媽開問元地花流太不一</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="clearfix"></div>
+</div>
 
+<%- include('../Common/eBoardFooter', {func: 'dischargeNote'}) %>
 
-        {{/each}}
-    </script>
-
+<%- include ../Common/importJSFiles.ejs %>
 
 </body>
 

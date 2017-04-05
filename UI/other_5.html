@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>生理醫護監測管理系統</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/remodal.css">
+    <link rel="stylesheet" type="text/css" href="css/remodal-default-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.pwstabs.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.popSelect.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div id="left_vertical_navbar">
+        <ul>
+            <li><a href="nurse_index.html"><i class="fa fa-plus" aria-hidden="true"></i> 護理師</a></li>
+            <li><a href="patient_1.html"><i class="fa fa-male" aria-hidden="true"></i> 病患</a></li>
+            <li><a href="doctor_1.html"><i class="fa fa-user-md" aria-hidden="true"></i> 醫師</a></li>
+            <li><a href="device_1.html"><i class="fa fa-laptop" aria-hidden="true"></i> 監測裝置</a></li>
+            <li><a href="other_1.html" class="active"><i class="fa fa-ellipsis-h" aria-hidden="true"></i> 其它</a></li>
+            <li><a href="system_1.html"><i class="fa fa-cogs" aria-hidden="true"></i> 系統設定</a></li>
+        </ul>
+    </div>
+    <header>
+        <div id="head">
+            <img id="logo" src="images/logo.png">
+            <h4><a href="nurse_index.html">生理醫護監測管理系統</a></h4>
+            <div class="head_right_nav">
+                <h4><span>病房：05A</span><span>使用者：Tanya一般使用者</span></h4>
+            </div>
+            <!-- <a href="#" id="setting"><i class="fa fa-cog" aria-hidden="true"></i></a> -->
+            <div class="dropdown">
+                <div><i class="fa fa-cog" aria-hidden="true"></i></div>
+                <div class="dropdown-content">
+                    <a href="room_select.html"><i class="fa fa-h-square" aria-hidden="true"></i> 選擇護理站</a>
+                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> 登出</a>
+                </div>
+            </div>
+        </div>
+        <nav id="navbar" class="nurse_system">
+            <ul>
+                <li><a href="other_1.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 待辦事項片語管理</a></li>
+                <li><a href="other_2.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 病房公告維護</a></li>
+                <li><a href="other_3.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 跑馬燈訊息維護</a></li>
+                <li><a href="other_4.html"><i class="fa fa-cogs" aria-hidden="true"></i> 班別時段設定</a></li>
+                <li><a href="other_5.html" class="active"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 醫師別維護</a></li>
+                <li><a href="other_7.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 消防任務維護</a></li>
+                <li><a href="other_6.html"><i class="fa fa-search" aria-hidden="true"></i> 通聯紀錄查訊</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="ope_list_search">
+                <!-- <div class="checkbox_list">
+                    <label>
+                        <input type="checkbox" class="option-input checkbox select_all" /> 全選
+                    </label>
+                </div> -->
+                <div>
+                    <label>醫師別名稱： </label>
+                    <input type='text' />
+                </div>
+                <div class="btn_group">
+                    <a href="#" class="btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                    <a href="#" class="btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+                </div>
+            </div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>編輯</th>
+                        <th>醫師別名稱</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            <a href="#edit_modal" class="btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+                        </td>
+                        <td>見習醫師</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            <a href="#edit_modal" class="btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+                        </td>
+                        <td>見習醫師</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            <a href="#edit_modal" class="btn"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+                        </td>
+                        <td>見習醫師</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <footer id="footer_bottom">
+        <div id="footer_inner">
+            <div class="footer_inner_text">
+                送裡形後呢車立位檢理國到養著，何沒東們文才先指選臺古南用資死者現名木畫。爸德未每校孩高法談路業切別，因出美強天建媽開問元地花流太不一，口寶或子花國城真環注孩。汽有外告門治提裡情夫，很一西通公實包叫試音前了內示列！球計談兒，著收一國完自。方出我力次是唱品到不理片！加候能院離全，常邊來入量價！
+            </div>
+        </div>
+    </footer> -->
+    <div class="remodal" data-remodal-id="edit_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>編輯醫師別</div>
+        </div>
+        <div class="remodal_body">
+            <form>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 醫師別名稱</label>
+                    <input type="text" name="" value="見習醫師">
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 儲存</a>
+            <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="js/jquery.stickyheader.js"></script>
+    <script type="text/javascript" src="js/remodal.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.zh.js"></script>
+    <script type="text/javascript" src="js/jquery.pwstabs.min.js"></script>
+    <script type="text/javascript" src="js/jquery.popSelect.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+</body>
+
+</html>

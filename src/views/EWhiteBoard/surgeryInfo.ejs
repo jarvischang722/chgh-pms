@@ -1,54 +1,308 @@
 <!DOCTYPE html>
 <html>
-<% include ../Common/head%>
-<body>
-<% include ../Common/eBoardMarquee%>
-<div id="ope_list" class="container container_higher">
-    <a href="#" id="refresh"><i class="fa fa-refresh" aria-hidden="true"></i> 重新整理</a>
-    <!-- 調整搜尋欄位變成日期前後 20161109 START -->
-    <!-- 調整搜尋欄位變成日期前後 20161109 END -->
-    <table class="overflow-y">
-        <thead>
-        <tr>
-            <th>日期</th>
-            <th>刀房</th>
-            <th>刀次</th>
-            <th>病床</th>
-            <th>病歷號碼</th>
-            <th>病患</th>
-            <th>術式 / 診斷</th>
-            <th>主治醫師</th>
-            <th>刀別</th>
-            <th>狀態</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr v-for="sgy in surgeryList" class="{{sgy.surgery_status | checkStatus}}">
-                <td>{{sgy.surgery_date | ymDateFormat}}</td>
-                <td>{{sgy.surgery_room}}</td>
-                <td>{{sgy.surgery_number}}</td>
-                <td>{{sgy.ward_zone_name}} {{sgy.ward_name}}-{{sgy.bed_name}}</td>
-                <td>{{sgy.medical_number}}</td>
-                <td><span class="{{sgy.sex == '1' ? 'male' : 'female'}}">{{sgy.name}}({{sgy.age}})</span></td>
-                <td>{{sgy.surgery_name}}</td>
-                <td>{{sgy.doctor_name}}</td>
-                <td>{{sgy.surgery_type}}</td>
-                <td>{{sgy.surgery_status}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="clearfix"></div>
-    <div class="btn_group btn_group_bottom">
-        <a href="#" class="btn" @click="preDaySurgery"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> 前一天</a>
-        <span class="btn" @click="updateSurgeryInfo">{{surgeryDate}}</span>
-        <a href="#" class="btn" @click="nextDaySurgery"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
-    </div>
-</div>
 
-<%- include('../Common/eBoardMenu', {func: '3'}) %>
+<%- include ../Common/eBoardHead.ejs %>
+
+<body>
+
+<%- include ../Common/eBoardHeader.ejs %>
+
+<%- include ../Common/eBoardMarquee.ejs %>
+
+
+<div id="ope_list" class="container container_higher">
+        <!-- 調整搜尋欄位變成日期前後 20161109 START -->
+        <!-- 調整搜尋欄位變成日期前後 20161109 END -->
+        <table class="overflow-y">
+            <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>刀房</th>
+                    <th>刀次</th>
+                    <th>病床</th>
+                    <th>病歷號碼</th>
+                    <th>病患</th>
+                    <th>術式 / 診斷</th>
+                    <th>主治醫師</th>
+                    <th>刀別</th>
+                    <th>狀態</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table_hard_1">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>送加護病房</td>
+                </tr>
+                <tr class="table_hard_2">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td class="err">系統錯誤</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="male">古天樂(41)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>開刀前</td>
+                </tr>
+                <tr class="table_hard_3">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td class="err">系統錯誤</td>
+                    <td>開刀後</td>
+                </tr>
+                <tr class="table_hard_4">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="male">古天樂(41)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>化療</td>
+                </tr>
+                <tr class="table_hard_5">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>觀察中</td>
+                </tr>
+                <tr class="table_hard_1">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>送加護病房</td>
+                </tr>
+                <tr class="table_hard_2">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td class="err">系統錯誤</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="male">古天樂(41)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>開刀前</td>
+                </tr>
+                <tr class="table_hard_3">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td class="err">系統錯誤</td>
+                    <td>開刀後</td>
+                </tr>
+                <tr class="table_hard_4">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="male">古天樂(41)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>化療</td>
+                </tr>
+                <tr class="table_hard_5">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>觀察中</td>
+                </tr>
+                <tr class="table_hard_1">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>送加護病房</td>
+                </tr>
+                <tr class="table_hard_2">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td class="err">系統錯誤</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="male">古天樂(41)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>開刀前</td>
+                </tr>
+                <tr class="table_hard_3">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td class="err">系統錯誤</td>
+                    <td>開刀後</td>
+                </tr>
+                <tr class="table_hard_4">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="male">古天樂(41)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>化療</td>
+                </tr>
+                <tr class="table_hard_5">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>觀察中</td>
+                </tr>
+                <tr class="table_hard_1">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>送加護病房</td>
+                </tr>
+                <tr class="table_hard_2">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td class="err">系統錯誤</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="male">古天樂(41)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>開刀前</td>
+                </tr>
+                <tr class="table_hard_3">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td class="err">系統錯誤</td>
+                    <td>開刀後</td>
+                </tr>
+                <tr class="table_hard_4">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="male">古天樂(41)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>化療</td>
+                </tr>
+                <tr class="table_hard_5">
+                    <td>10 / 01</td>
+                    <td>056</td>
+                    <td>02</td>
+                    <td>05B 09-05</td>
+                    <td>3021410</td>
+                    <td><span class="female">鄭秀文(36)</span></td>
+                    <td>(09:30)主動脈辦或二尖瓣或三尖瓣之置換
+                        <br>Other dyspnea and resporaroty abnormalities</td>
+                    <td>陳益祥</td>
+                    <td>A</td>
+                    <td>觀察中</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="clearfix"></div>
+        <div class="btn_group btn_group_bottom">
+            <a href="#" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> 前一天</a>
+            <span>2016-11-11</span>
+            <a href="#" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
+        </div>
+    </div>
+
+<%- include('../Common/eBoardFooter', {func: 'surgeryInfo'}) %>
+
+<%- include ../Common/importJSFiles.ejs %>
 
 </body>
 
 </html>
-
-<script type="text/javascript" src="/js/EWhiteBoard/surgeryInfo.js"></script>

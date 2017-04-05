@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>生理醫護監測管理系統</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/remodal.css">
+    <link rel="stylesheet" type="text/css" href="css/remodal-default-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.pwstabs.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.popSelect.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div id="left_vertical_navbar">
+        <ul>
+            <li><a href="nurse_index.html"><i class="fa fa-plus" aria-hidden="true"></i> 護理師</a></li>
+            <li><a href="patient_1.html"><i class="fa fa-male" aria-hidden="true"></i> 病患</a></li>
+            <li><a href="doctor_1.html"><i class="fa fa-user-md" aria-hidden="true"></i> 醫師</a></li>
+            <li><a href="device_1.html" class="active"><i class="fa fa-laptop" aria-hidden="true"></i> 監測裝置</a></li>
+            <li><a href="other_1.html"><i class="fa fa-ellipsis-h" aria-hidden="true"></i> 其它</a></li>
+            <li><a href="system_1.html"><i class="fa fa-cogs" aria-hidden="true"></i> 系統設定</a></li>
+        </ul>
+    </div>
+    <header>
+        <div id="head">
+            <img id="logo" src="images/logo.png">
+            <h4><a href="nurse_index.html">生理醫護監測管理系統</a></h4>
+            <div class="head_right_nav">
+                <h4><span>病房：05A</span><span>使用者：Tanya一般使用者</span></h4>
+            </div>
+            <!-- <a href="#" id="setting"><i class="fa fa-cog" aria-hidden="true"></i></a> -->
+            <div class="dropdown">
+                <div><i class="fa fa-cog" aria-hidden="true"></i></div>
+                <div class="dropdown-content">
+                    <a href="room_select.html"><i class="fa fa-h-square" aria-hidden="true"></i> 選擇護理站</a>
+                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> 登出</a>
+                </div>
+            </div>
+        </div>
+        <nav id="navbar" class="nurse_system">
+            <ul>
+                <li><a href="device_1.html"><i class="fa fa-eyedropper" aria-hidden="true"></i> 點滴參數設定</a></li>
+                <li><a href="device_2.html"><i class="fa fa-share-alt" aria-hidden="true"></i> 點滴裝置分派</a></li>
+                <li><a href="device_3.html"><i class="fa fa-search" aria-hidden="true"></i> 即時點滴數據查詢</a></li>
+                <li><a href="device_4.html" class="active"><i class="fa fa-file-text-o" aria-hidden="true"></i> 統計報表查詢</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="ope_list_search">
+                <div class="date_range">
+                    <label>查詢時間：</label>
+                    <input id="ope_range" type="text" class="datepicker-here" data-range="true" data-multiple-dates-separator=" ~ " data-language="zh" data-position="bottom right" placeholder="2016-11-11 ~ 2016-11-11">
+                </div>
+                <div>
+                    <label>病患名稱：</label>
+                    <input type="text" name="">
+                </div>
+                <div>
+                    <label>床位：</label>
+                    <input type="text" name="">
+                </div>
+            </div>
+            <div class="ope_list_search ope_list_search_bottom">
+                <div>
+                    <label>點滴種類：</label>
+                    <select>
+                        <option>--</option>
+                        <option>食鹽水</option>
+                        <option>葡萄醣</option>
+                    </select>
+                </div>
+                <div>
+                    <label>點滴 ID：</label>
+                    <input type="text" name="">
+                </div>
+                <div>
+                    <label>專責護理師：</label>
+                    <input type="text" name="">
+                </div>
+                <a href="#choose_room_stop" class="btn"><i class="fa fa-h-square" aria-hidden="true"></i> 選擇護理站</a>
+                <a href="#" class="btn"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>
+            </div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th>監測日期</th>
+                        <th>點滴<br>ID</th>
+                        <th>病患<br>名稱</th>
+                        <th>床位</th>
+                        <th>專責<br>護理師</th>
+                        <th>開始時間</th>
+                        <th>結束時間</th>
+                        <th>點滴種類</th>
+                        <th>點滴容量</th>
+                        <th>輸液管<br>種類</th>
+                        <th>輸液<br>時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                    <tr>
+                        <td>2016/11/15</td>
+                        <td>001</td>
+                        <td>張xx</td>
+                        <td class="date">01-01</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>食鹽水</td>
+                        <td>500 ml</td>
+                        <td>大管</td>
+                        <td>1.30</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- <footer id="footer_bottom">
+        <div id="footer_inner">
+            <div class="footer_inner_text">
+                送裡形後呢車立位檢理國到養著，何沒東們文才先指選臺古南用資死者現名木畫。爸德未每校孩高法談路業切別，因出美強天建媽開問元地花流太不一，口寶或子花國城真環注孩。汽有外告門治提裡情夫，很一西通公實包叫試音前了內示列！球計談兒，著收一國完自。方出我力次是唱品到不理片！加候能院離全，常邊來入量價！
+            </div>
+        </div>
+    </footer> -->
+    <div class="remodal remodal_3" data-remodal-id="choose_room_stop">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>選擇護理站</div>
+        </div>
+        <div class="remodal_body">
+            <div class="ope_list_search ope_list_search_left">
+                <!-- <div class="checkbox_list">
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check" /> 全選
+                    </label>
+                </div>
+                <hr> -->
+                <div class="checkbox_list">
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 5A
+                    </label>
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 5B
+                    </label>
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 5C
+                    </label>
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 6A
+                    </label>
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 6B
+                    </label>
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 5A
+                    </label>
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 5B
+                    </label>
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 5C
+                    </label>
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 6A
+                    </label>
+                    <label>
+                        <input type="checkbox" class="option-input checkbox choose_room_stop_check_check" /> 6B
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="js/jquery.stickyheader.js"></script>
+    <script type="text/javascript" src="js/remodal.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.zh.js"></script>
+    <script type="text/javascript" src="js/jquery.pwstabs.min.js"></script>
+    <script type="text/javascript" src="js/jquery.popSelect.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+</body>
+
+</html>

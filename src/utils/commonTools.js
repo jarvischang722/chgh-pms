@@ -14,55 +14,8 @@ var ErrorCodeMap = require('../configs/ErrorCode');
 var Logger = require("../plugins/Log4js").Logger();
 var DBAgent = require("../plugins/mysql/DBAgent");
 var spawn = require('child_process').spawn;
-
 var _this = this;
 
-//jar的位置
-var jarPath=path.dirname(require.main.filename)+"/bin/aes.jar";
-
-
-
-
-/*
- 確認護理站是否有該模組的權限
- */
-exports.checkWardZoneHasModulePrivilege=function(req,moduleName){
-
-    //console.log("可用模組:");
-    //console.log(req.session.user.module_eng_name);
-
-    if(moduleName!="EWhiteBoard" && moduleName!="Bit" && moduleName!="SIP"){
-
-        return false;
-
-    }else{
-
-        if ((req.session.user.module_eng_name).indexOf(moduleName) > -1) {
-            //In the array!
-            return true;
-        } else {
-            //Not in the array
-            return false;
-        }
-
-    }
-
-
-}
-
-
-/**
- * 合併兩個json object
- * @param obj1 : 第1個json
- * @param obj2 : 第2個json
- * @return mergeObj  : 合併後的JSON
- * **/
-exports.mergeObject = function(obj1, obj2){
-    var mergeObj = {};
-    for (var attrname in obj1) { mergeObj[attrname] = obj1[attrname]; }
-    for (var attrname in obj2) { mergeObj[attrname] = obj2[attrname]; }
-    return mergeObj;
-};
 
 
 /**
