@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<%- include ../Common/eBoardHead.ejs %>
+
+<body>
+
+<%- include ../Common/eBoardHeader.ejs %>
+
+<%- include ../Common/eBoardMarquee.ejs %>
+
+<div class="container container_higher" id="in_and_out">
+    <div class="grid_eighty no_data no_data_in">
+        <h1><i class="fa fa-plus-square-o" aria-hidden="true"></i> 入院</h1>
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>病床</th>
+                <th>病患</th>
+                <th>入院帳號</th>
+                <th>診斷</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="grid_twenty">
+        <!-- 增加日期前後按鈕 20161109 START -->
+        <div class="btn_group">
+            <a href="#" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> 前一天</a>
+            <a href="#" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
+        </div>
+        <!-- 增加日期前後按鈕 20161109 END -->
+    </div>
+    <div class="clearfix"></div>
+    <div class="grid_fifty no_data no_data_out">
+        <h1><i class="fa fa-check-square-o" aria-hidden="true"></i> 出院</h1>
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>病床</th>
+                <th>病患</th>
+                <th>備註</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="grid_fifty no_data no_data_change">
+        <h1><i class="fa fa-random" aria-hidden="true"></i> 預約轉床</h1>
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>登錄日期</th>
+                <th>病床</th>
+                <th>病患</th>
+                <th>床位</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<%- include('../Common/eBoardFooter', {func: 'in_out_info'}) %>
+
+<%- include ../Common/importJSFiles.ejs %>
+
+</body>
+
+</html>

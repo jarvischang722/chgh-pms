@@ -1,0 +1,60 @@
+<footer>
+    <nav id="navbar">
+        <ul>
+            <!--<li><a href="board_1.html"><i class="fa fa-cubes" aria-hidden="true"></i> 病床狀態</a></li>-->
+            <li>
+                <a href="patientInfo" class="<%= func == 'patientInfo' ? 'active' : '' %>">
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i> 病患資訊
+                </a>
+            </li>
+
+            <li>
+                <a href="surgeryInfo" class="<%= func == 'surgeryInfo' ? 'active' : '' %>">
+                    <i class="fa fa-clipboard" aria-hidden="true"></i> 手術資訊
+                </a>
+            </li>
+
+            <li>
+                <a href="todoItem" class="<%= func == 'todoItem' ? 'active' : '' %>">
+                    <i class="fa fa-list-ul" aria-hidden="true"></i> 代辦事項
+                </a>
+            </li>
+
+            <li>
+                <a href="in_out_info" class="<%= func == 'in_out_info' ? 'active' : '' %>">
+                    <i class="fa fa-taxi" aria-hidden="true"></i> 入出院
+                </a>
+            </li>
+
+            <li>
+                <a href="dischargeNote" class="<%= func == 'dischargeNote' ? 'active' : '' %>">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 出院備註
+                </a>
+            </li>
+
+            <li>
+                <a href="nurseScheduling" class="<%= func == 'nurseScheduling' ? 'active' : '' %>">
+                    <i class="fa fa-table" aria-hidden="true"></i> 護理師排班
+                </a>
+            </li>
+
+            <li>
+                <a href="doctorInfo" class="<%= func == 'doctorInfo' ? 'active' : '' %>">
+                    <i class="fa fa-user-md " aria-hidden="true"></i> 醫師資訊
+                </a>
+            </li>
+
+            <li>
+                <a href="announcement" class="<%= func == 'announcement' ? 'active' : '' %>">
+                    <i class="fa fa-volume-off" aria-hidden="true"></i> 病床公告
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="nav_refresh">
+                    <i class="fa fa-refresh" aria-hidden="true"></i>重新整理
+                </a>
+            </li>
+        </ul>
+    </nav>
+</footer>
