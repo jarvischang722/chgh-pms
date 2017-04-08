@@ -1,0 +1,6 @@
+api url:
+http://appsrv3/Dashboard/DashBoard_webservice.asmx/nur_bed_info
+
+response:
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="http://tempuri.org/">[{"nur_id":"93","bed_num":"46","empty_bed_num":"2"}]</string>

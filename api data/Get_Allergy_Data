@@ -1,0 +1,9 @@
+api url:
+http://appsrv3/Dashboard/DashBoard_webservice.asmx/Get_Allergy_Data
+
+input:
+PatientID:1
+
+response:
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="http://tempuri.org/">[]</string>
