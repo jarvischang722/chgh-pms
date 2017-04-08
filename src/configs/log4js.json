@@ -8,14 +8,14 @@
     {
       "category":"access",
       "type": "dateFile",
-      "filename": "/Users/Jun/log/pms_access",
+      "filename": "C:/log/pms_access",
       "pattern": "-yyyy-MM-dd.log",
       "alwaysIncludePattern": true
     },
-    { 
+    {
       "category":"error",
       "type": "dateFile",
-      "filename": "/Users/Jun/log/pms_error",
+      "filename": "C:/log/pms_error",
       "pattern": "-yyyy-MM-dd.log",
       "alwaysIncludePattern": true
     }
