@@ -13,6 +13,7 @@ var svc  = require("../services/DashBoardWebService");
 //     });
 //
 // });
-svc.getShiftCollectList({},function (err,data) {
+svc.getAllergyData({},function (err,data) {
+    console.error(err);
     console.dir(data);
 })

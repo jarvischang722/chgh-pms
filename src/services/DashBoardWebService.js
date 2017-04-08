@@ -5,7 +5,7 @@
 var fs = require("fs");
 var _ = require("underscore");
 var parseString = require('xml2js').parseString;
-
+var commonTools = require("../utils/commonTools");
 
 /**
  * 取得病房所有病床資訊
@@ -57,6 +57,11 @@ exports.getDayBeforeInfo = function (params,callback) {
  *        }
  */
 exports.getInTranInData = function (params,callback) {
+    var checkValError = commonTools.checkParamsExist(['Query_date'], params);
+    if (checkValError) {
+        return callback(checkValError, []);
+    }
+
     fs.readFile('../testData/InTranInData.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
@@ -77,6 +82,11 @@ exports.getInTranInData = function (params,callback) {
  *        }
  */
 exports.getOutTranOutData = function (params,callback) {
+    var checkValError = commonTools.checkParamsExist(['Query_date'], params);
+    if (checkValError) {
+        return callback(checkValError, []);
+    }
+
     fs.readFile('../testData/OutTranOutData.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
@@ -117,6 +127,11 @@ exports.getNurBedInfo = function (params,callback) {
  *        }
  */
 exports.getOpScheduleInfo = function (params,callback) {
+    var checkValError = commonTools.checkParamsExist(['StratDate','EndDate'], params);
+    if (checkValError) {
+        return callback(checkValError, []);
+    }
+
     fs.readFile('../testData/OpScheduleInfo.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
@@ -137,14 +152,20 @@ exports.getOpScheduleInfo = function (params,callback) {
  *        }
  */
 exports.getExamScheduleInfo = function (params,callback) {
-    fs.readFile('../testData/ExamScheduleInfo.xml', 'utf8', function(err, apiResult) {
+    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate'], params);
+    if (checkValError) {
+        return callback(checkValError, []);
+    }
 
-        parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
+    fs.readFile('../testData/ExamScheduleInfo.xml', 'utf8', function (err, apiResult) {
+
+        parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var examScheduleInfo = JSON.parse(result.string);
-            callback(err , examScheduleInfo);
+            callback(err, examScheduleInfo);
         });
 
     });
+
 };
 
 /**
@@ -157,6 +178,12 @@ exports.getExamScheduleInfo = function (params,callback) {
  *        }
  */
 exports.getNisDutySchedule = function (params,callback) {
+
+    var checkValError = commonTools.checkParamsExist(['Query_date'], params);
+    if (checkValError) {
+        return callback(checkValError, []);
+    }
+
     fs.readFile('../testData/NisDutySchedule.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
@@ -177,6 +204,11 @@ exports.getNisDutySchedule = function (params,callback) {
  *        }
  */
 exports.getAllergyData = function (params,callback) {
+    var checkValError = commonTools.checkParamsExist(['PatientID'], params);
+    if (checkValError) {
+        return callback(checkValError, []);
+    }
+
     fs.readFile('../testData/AllergyData.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
@@ -206,6 +238,10 @@ exports.getRetrieveVS = function (params,callback) {
  *        }
  */
 exports.getShiftCollectList = function (params,callback) {
+    var checkValError = commonTools.checkParamsExist(['_id','_pwd','_nurid','_ShiftDate'], params);
+    if (checkValError) {
+        return  callback(checkValError, []);
+    }
     fs.readFile('../testData/ShiftCollectList.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
