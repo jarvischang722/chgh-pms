@@ -13,6 +13,6 @@ var svc  = require("../services/DashBoardWebService");
 //     });
 //
 // });
-svc.getNurPatient({},function (err,data) {
+svc.getShiftCollectList({},function (err,data) {
     console.dir(data);
 })

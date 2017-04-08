@@ -195,3 +195,23 @@ exports.getAllergyData = function (params,callback) {
 exports.getRetrieveVS = function (params,callback) {
     //TODO
 };
+
+/**
+ * 各科值班表
+ * @param params{Object} : 搜尋條件
+ * @param callback{Function}:
+ *        {
+ *            err {String} : 錯誤
+ *            ShiftCollectList{Array} : 排程資訊
+ *        }
+ */
+exports.getShiftCollectList = function (params,callback) {
+    fs.readFile('../testData/ShiftCollectList.xml', 'utf8', function(err, apiResult) {
+
+        parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
+            var shiftCollectList = JSON.parse(result.string).ShiftCollect;
+            callback(err , shiftCollectList);
+        });
+
+    });
+};
