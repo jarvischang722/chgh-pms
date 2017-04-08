@@ -12,7 +12,7 @@
       "pattern": "-yyyy-MM-dd.log",
       "alwaysIncludePattern": true
     },
-    {
+    { 
       "category":"error",
       "type": "dateFile",
       "filename": "/Users/Jun/log/pms_error",
