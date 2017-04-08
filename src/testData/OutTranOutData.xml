@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="http://tempuri.org/">
+    [{"nur_id":"93","Kind_type":"0","patient_id":"2958835","inhospital_num":"1572096","patient_name":"林O梅","birthday":"19640516","sex":"女","bed_no":"93 40L","physician_id":"6398","employee_name":"陳思齊","data_mode":"已出院","data_note":"20170405"},{"nur_id":"93","Kind_type":"0","patient_id":"1916305","inhospital_num":"1571769","patient_name":"郭O華","birthday":"19540702","sex":"男","bed_no":"93 47M","physician_id":"A104008","employee_name":"吳孟庭","data_mode":"已出院","data_note":"20170405"},{"nur_id":"93","Kind_type":"0","patient_id":"6963828","inhospital_num":"1570442","patient_name":"邱O隆","birthday":"19541207","sex":"男","bed_no":"93 49N","physician_id":"6352","employee_name":"李鴻福","data_mode":"已出院","data_note":"20170405"}]
+</string>
