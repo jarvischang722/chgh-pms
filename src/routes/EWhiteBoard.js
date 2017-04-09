@@ -22,7 +22,6 @@ router.get('/announcement', middleWares ,EWhiteBoard.announcement);
 /* Setting api */
 //出院備註
 router.get('/api/getDischargeNote/', middleWares ,EWhiteBoard.getDischargeNote);
-router.post('/api/getDischargeNote_test/', middleWares ,EWhiteBoard.getDischargeNote_test);
 
 
 
