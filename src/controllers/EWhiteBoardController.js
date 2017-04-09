@@ -109,27 +109,6 @@ exports.getDischargeNote = function (req, res) {
             res.json(tools.getReturnJSON(false, [], [], errorCode))
         }
     })
-
-    // request.post(
-    //     'http://localhost:8889/EWhiteBoard/api/Out_TranOut_Data_api',
-    //     {json: {Query_date: expect_discharged_date}},
-    //     function (error, response, body) {
-    //         if (!error && response.statusCode == 200) {
-    //             parseString(body, function (err, result) {
-    //                 var nowyear = moment().format("YYYY");
-    //                 var array = JSON.parse(result.string._);
-    //                 for (var i = 0; i < array.length; i++) {
-    //                     var age = array[i].birthday.substr(0, 4);
-    //                     age = nowyear - age;
-    //                     array[i].age = age;
-    //                 }
-    //                 res.json(tools.getReturnJSON(true, array));
-    //             });
-    //         } else {
-    //             res.json(tools.getReturnJSON(false, [], 9999, error))
-    //         }
-    //     }
-    // );
 };
 
 /**
