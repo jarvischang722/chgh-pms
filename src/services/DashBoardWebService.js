@@ -87,8 +87,7 @@ exports.getOutTranOutData = function (params,callback) {
         return callback(checkValError, []);
     }
 
-    fs.readFile('../testData/OutTranOutData.xml', 'utf8', function(err, apiResult) {
-
+    fs.readFile('./src/testData/OutTranOutData.xml', 'utf8', function(err, apiResult) {
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var outTranOutData = JSON.parse(result.string);
             callback(err , outTranOutData);
@@ -184,7 +183,7 @@ exports.getNisDutySchedule = function (params,callback) {
         return callback(checkValError, []);
     }
 
-    fs.readFile('../testData/NisDutySchedule.xml', 'utf8', function(err, apiResult) {
+    fs.readFile('./src/testData/NisDutySchedule.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var nisDutySchedule = JSON.parse(result.string);

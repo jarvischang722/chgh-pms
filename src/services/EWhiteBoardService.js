@@ -16,13 +16,7 @@ var parseString = require('xml2js').parseString;
  * nurse 護士
  * */
 exports.getNurseSche = function(req,callback){
-    //預設今日
-    var expect_discharged_date =
-        req.query.expect_discharged_date
-        || req.body["expect_discharged_date"]
-        || moment().format("YYYYMMDD"); //moment().format("YYYY/MM/DD")
 
-    expect_discharged_date = "20170405";
     request.post(
         'http://localhost:8889/EWhiteBoard/api/nis_duty_schedule_api',
         { json: { Query_date: expect_discharged_date } },
