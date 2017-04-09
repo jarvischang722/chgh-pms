@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="http://hrweb.chgh.org.tw/">
+    {
+    "ShiftCollect": [
+    {
+    "ShiftDataID": "0001",
+    "DeptID": "6690",
+    "ShiftDataName": "大內科",
+    "UseFlag": true,
+    "Sorting": 1,
+    "DataDT": "2015-12-24T09:57:59",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0002",
+    "DeptID": "6690",
+    "ShiftDataName": "大外科",
+    "UseFlag": true,
+    "Sorting": 2,
+    "DataDT": "2015-12-24T09:58:05",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0003",
+    "DeptID": "6690",
+    "ShiftDataName": "ENT",
+    "UseFlag": true,
+    "Sorting": 3,
+    "DataDT": "2015-12-03T14:22:29",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0004",
+    "DeptID": "6690",
+    "ShiftDataName": "OPH",
+    "UseFlag": true,
+    "Sorting": 4,
+    "DataDT": "2015-12-03T14:22:29",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0231",
+    "DeptID": "6690",
+    "ShiftDataName": "大內科主治",
+    "UseFlag": true,
+    "Sorting": 5,
+    "DataDT": "2016-10-31T12:54:24",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0230",
+    "DeptID": "6690",
+    "ShiftDataName": "大外科主治",
+    "UseFlag": true,
+    "Sorting": 6,
+    "DataDT": "2016-10-31T12:53:20",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0232",
+    "DeptID": "6690",
+    "ShiftDataName": "ENT主治",
+    "UseFlag": true,
+    "Sorting": 7,
+    "DataDT": "2016-10-31T12:54:33",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0233",
+    "DeptID": "6690",
+    "ShiftDataName": "OPH主治",
+    "UseFlag": true,
+    "Sorting": 8,
+    "DataDT": "2016-10-31T12:54:40",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0005",
+    "DeptID": "6690",
+    "ShiftDataName": "內科PA白班",
+    "UseFlag": true,
+    "Sorting": 9,
+    "DataDT": "2015-12-03T14:22:29",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0007",
+    "DeptID": "6690",
+    "ShiftDataName": "外科PA白班",
+    "UseFlag": true,
+    "Sorting": 10,
+    "DataDT": "2015-12-03T14:22:29",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "X001",
+    "DeptID": "6690",
+    "ShiftDataName": " ",
+    "UseFlag": true,
+    "Sorting": 11,
+    "DataDT": "2015-12-03T14:22:29",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0114",
+    "DeptID": "6690",
+    "ShiftDataName": " ",
+    "UseFlag": true,
+    "Sorting": 12,
+    "DataDT": "2015-12-22T14:55:03",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0006",
+    "DeptID": "6690",
+    "ShiftDataName": "內科PA夜班",
+    "UseFlag": true,
+    "Sorting": 13,
+    "DataDT": "2015-12-03T14:22:29",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0008",
+    "DeptID": "6690",
+    "ShiftDataName": "外科PA夜班",
+    "UseFlag": true,
+    "Sorting": 14,
+    "DataDT": "2015-12-03T14:22:29",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0109",
+    "DeptID": "6690",
+    "ShiftDataName": " ",
+    "UseFlag": true,
+    "Sorting": 15,
+    "DataDT": "2015-12-22T14:41:23",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0235",
+    "DeptID": "6690",
+    "ShiftDataName": "神經外科主治",
+    "UseFlag": true,
+    "Sorting": 16,
+    "DataDT": "2017-02-03T15:08:54",
+    "DataOP": "7816   "
+    },
+    {
+    "ShiftDataID": "0108",
+    "DeptID": "6690",
+    "ShiftDataName": " ",
+    "UseFlag": true,
+    "Sorting": 17,
+    "DataDT": "2015-12-22T14:41:20",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0099",
+    "DeptID": "6690",
+    "ShiftDataName": "骨科",
+    "UseFlag": true,
+    "Sorting": 18,
+    "DataDT": "2015-12-22T08:39:26",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0100",
+    "DeptID": "6690",
+    "ShiftDataName": "復健科",
+    "UseFlag": true,
+    "Sorting": 19,
+    "DataDT": "2015-12-22T10:23:39",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0101",
+    "DeptID": "6690",
+    "ShiftDataName": "小兒科",
+    "UseFlag": true,
+    "Sorting": 20,
+    "DataDT": "2015-12-22T13:56:58",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0102",
+    "DeptID": "6690",
+    "ShiftDataName": "婦產科",
+    "UseFlag": true,
+    "Sorting": 21,
+    "DataDT": "2015-12-22T13:57:11",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0106",
+    "DeptID": "6690",
+    "ShiftDataName": "骨科PA白班",
+    "UseFlag": true,
+    "Sorting": 22,
+    "DataDT": "2015-12-22T14:39:59",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0110",
+    "DeptID": "6690",
+    "ShiftDataName": "復健科PA",
+    "UseFlag": true,
+    "Sorting": 23,
+    "DataDT": "2015-12-22T14:47:45",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0115",
+    "DeptID": "6690",
+    "ShiftDataName": " ",
+    "UseFlag": true,
+    "Sorting": 24,
+    "DataDT": "2015-12-22T14:55:06",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0112",
+    "DeptID": "6690",
+    "ShiftDataName": "婦產科PA",
+    "UseFlag": true,
+    "Sorting": 25,
+    "DataDT": "2015-12-22T14:48:37",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0107",
+    "DeptID": "6690",
+    "ShiftDataName": "骨科PA夜班",
+    "UseFlag": true,
+    "Sorting": 26,
+    "DataDT": "2015-12-22T14:40:11",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0113",
+    "DeptID": "6690",
+    "ShiftDataName": " ",
+    "UseFlag": true,
+    "Sorting": 27,
+    "DataDT": "2015-12-22T14:55:00",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0111",
+    "DeptID": "6690",
+    "ShiftDataName": " ",
+    "UseFlag": true,
+    "Sorting": 28,
+    "DataDT": "2015-12-22T14:48:25",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "X002",
+    "DeptID": "6690",
+    "ShiftDataName": " ",
+    "UseFlag": true,
+    "Sorting": 29,
+    "DataDT": "2015-12-03T14:22:29",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0103",
+    "DeptID": "6690",
+    "ShiftDataName": "精神科",
+    "UseFlag": true,
+    "Sorting": 30,
+    "DataDT": "2015-12-22T13:57:20",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0104",
+    "DeptID": "6690",
+    "ShiftDataName": "心臟內科",
+    "UseFlag": true,
+    "Sorting": 31,
+    "DataDT": "2015-12-22T13:57:33",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0105",
+    "DeptID": "6690",
+    "ShiftDataName": "心臟外科",
+    "UseFlag": true,
+    "Sorting": 32,
+    "DataDT": "2015-12-22T13:57:42",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0117",
+    "DeptID": "6690",
+    "ShiftDataName": " ",
+    "UseFlag": true,
+    "Sorting": 33,
+    "DataDT": "2015-12-22T15:02:08",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0116",
+    "DeptID": "6690",
+    "ShiftDataName": "精神科PA",
+    "UseFlag": true,
+    "Sorting": 34,
+    "DataDT": "2015-12-22T15:01:47",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0118",
+    "DeptID": "6690",
+    "ShiftDataName": "心臟內科PA",
+    "UseFlag": true,
+    "Sorting": 35,
+    "DataDT": "2015-12-22T15:15:24",
+    "DataOP": "6972   "
+    },
+    {
+    "ShiftDataID": "0119",
+    "DeptID": "6690",
+    "ShiftDataName": "心臟外科PA",
+    "UseFlag": true,
+    "Sorting": 36,
+    "DataDT": "2015-12-22T15:16:34",
+    "DataOP": "6972   "
+    }
+    ],
+    "NusBoard": [
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0002",
+    "ShiftDataName": "大外科",
+    "Sorting": "1",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "A104013",
+    "EmpName": "李文祺",
+    "EmpType": "Ｒ",
+    "GSMBrevity": "(21519)"
+    },
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0003",
+    "ShiftDataName": "ENT",
+    "Sorting": "1",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9282",
+    "EmpName": "胡皓淳",
+    "EmpType": "ＶＳ",
+    "GSMBrevity": "(21377)"
+    },
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0004",
+    "ShiftDataName": "OPH",
+    "Sorting": "1",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9355",
+    "EmpName": "陳臻",
+    "EmpType": "Ｒ",
+    "GSMBrevity": "(21663)"
+    },
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0101",
+    "ShiftDataName": "小兒科",
+    "Sorting": "1",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9403",
+    "EmpName": "周經浩",
+    "EmpType": "Ｒ",
+    "GSMBrevity": "(21320)"
+    },
+    {
+    "Title": "08:00~08:00",
+    "ShiftDataID": "0102",
+    "ShiftDataName": "婦產科",
+    "Sorting": "1",
+    "WorkStart": "08:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9051",
+    "EmpName": "陳宏輝",
+    "EmpType": "ＶＳ",
+    "GSMBrevity": "(21305)"
+    },
+    {
+    "Title": "08:00~08:00",
+    "ShiftDataID": "0103",
+    "ShiftDataName": "精神科",
+    "Sorting": "1",
+    "WorkStart": "08:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9183",
+    "EmpName": "袁瑋",
+    "EmpType": "ＶＳ",
+    "GSMBrevity": "(21330)"
+    },
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0104",
+    "ShiftDataName": "心臟內科",
+    "Sorting": "1",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9285",
+    "EmpName": "蕭卜源",
+    "EmpType": "ＶＳ",
+    "GSMBrevity": "(21811)"
+    },
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0105",
+    "ShiftDataName": "心臟外科",
+    "Sorting": "1",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "A293",
+    "EmpName": "吳奕曉",
+    "EmpType": "Ｒ",
+    "GSMBrevity": null
+    },
+    {
+    "Title": "08:00~20:00",
+    "ShiftDataID": "0106",
+    "ShiftDataName": "骨科PA白班",
+    "Sorting": "1",
+    "WorkStart": "08:00",
+    "WorkEnd": "20:00",
+    "EmpID": "8463",
+    "EmpName": "黃詩涵",
+    "EmpType": "",
+    "GSMBrevity": "(22259)"
+    },
+    {
+    "Title": "20:00~08:00",
+    "ShiftDataID": "0107",
+    "ShiftDataName": "骨科PA夜班",
+    "Sorting": "1",
+    "WorkStart": "20:00",
+    "WorkEnd": "08:00",
+    "EmpID": "6335",
+    "EmpName": "黃琦",
+    "EmpType": "",
+    "GSMBrevity": "(22233)"
+    },
+    {
+    "Title": "17:00~20:00",
+    "ShiftDataID": "0110",
+    "ShiftDataName": "復健科PA",
+    "Sorting": "1",
+    "WorkStart": "17:00",
+    "WorkEnd": "20:00",
+    "EmpID": "3879",
+    "EmpName": "莊芳琬",
+    "EmpType": "",
+    "GSMBrevity": "(22340)"
+    },
+    {
+    "Title": "17:00~20:00",
+    "ShiftDataID": "0118",
+    "ShiftDataName": "心臟內科PA",
+    "Sorting": "1",
+    "WorkStart": "17:00",
+    "WorkEnd": "20:00",
+    "EmpID": "4287",
+    "EmpName": "黃瑀茜",
+    "EmpType": "",
+    "GSMBrevity": "(22820)"
+    },
+    {
+    "Title": "08:00~20:00",
+    "ShiftDataID": "0119",
+    "ShiftDataName": "心臟外科PA",
+    "Sorting": "1",
+    "WorkStart": "08:00",
+    "WorkEnd": "20:00",
+    "EmpID": "F104021",
+    "EmpName": "張寧",
+    "EmpType": "",
+    "GSMBrevity": "(22850)"
+    },
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0232",
+    "ShiftDataName": "ENT主治",
+    "Sorting": "1",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9142",
+    "EmpName": "力博宏",
+    "EmpType": "ＶＳ",
+    "GSMBrevity": "(21368)"
+    },
+    {
+    "Title": "08:00~08:00",
+    "ShiftDataID": "0235",
+    "ShiftDataName": "神經外科主治",
+    "Sorting": "1",
+    "WorkStart": "08:00",
+    "WorkEnd": "08:00",
+    "EmpID": "6332",
+    "EmpName": "宋文鑫",
+    "EmpType": "ＶＳ",
+    "GSMBrevity": "(21206)"
+    },
+    {
+    "Title": "08:00~17:00",
+    "ShiftDataID": "0116",
+    "ShiftDataName": "精神科PA",
+    "Sorting": "2",
+    "WorkStart": "08:00",
+    "WorkEnd": "17:00",
+    "EmpID": "3801",
+    "EmpName": "謝馨慧",
+    "EmpType": "",
+    "GSMBrevity": "(22334)"
+    },
+    {
+    "Title": "08:00~17:00",
+    "ShiftDataID": "0116",
+    "ShiftDataName": "精神科PA",
+    "Sorting": "2",
+    "WorkStart": "08:00",
+    "WorkEnd": "17:00",
+    "EmpID": "1149",
+    "EmpName": "陳佩怡",
+    "EmpType": "",
+    "GSMBrevity": "(22335)"
+    },
+    {
+    "Title": "08:00~17:00",
+    "ShiftDataID": "0116",
+    "ShiftDataName": "精神科PA",
+    "Sorting": "2",
+    "WorkStart": "08:00",
+    "WorkEnd": "17:00",
+    "EmpID": "7786",
+    "EmpName": "蔡淑子",
+    "EmpType": "",
+    "GSMBrevity": "(22333)"
+    },
+    {
+    "Title": "20:00~08:00",
+    "ShiftDataID": "0118",
+    "ShiftDataName": "心臟內科PA",
+    "Sorting": "2",
+    "WorkStart": "20:00",
+    "WorkEnd": "08:00",
+    "EmpID": "4935",
+    "EmpName": "王裕民",
+    "EmpType": "",
+    "GSMBrevity": "(22652)"
+    },
+    {
+    "Title": "20:00~08:00",
+    "ShiftDataID": "0119",
+    "ShiftDataName": "心臟外科PA",
+    "Sorting": "2",
+    "WorkStart": "20:00",
+    "WorkEnd": "08:00",
+    "EmpID": "8206",
+    "EmpName": "林姵妏",
+    "EmpType": "",
+    "GSMBrevity": "(22855)"
+    },
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0100",
+    "ShiftDataName": "復健科",
+    "Sorting": "3",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9401",
+    "EmpName": "林柔妤",
+    "EmpType": "Ｒ",
+    "GSMBrevity": "(21344)"
+    },
+    {
+    "Title": "08:00~08:00",
+    "ShiftDataID": "0099",
+    "ShiftDataName": "骨科",
+    "Sorting": "4",
+    "WorkStart": "08:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9227",
+    "EmpName": "孫施盛",
+    "EmpType": "ＶＳ",
+    "GSMBrevity": "(21253)"
+    },
+    {
+    "Title": "12:00~20:00",
+    "ShiftDataID": "0116",
+    "ShiftDataName": "精神科PA",
+    "Sorting": "4",
+    "WorkStart": "12:00",
+    "WorkEnd": "20:00",
+    "EmpID": "2847",
+    "EmpName": "楊安榆",
+    "EmpType": "",
+    "GSMBrevity": "(22338)"
+    },
+    {
+    "Title": "20:00~08:00",
+    "ShiftDataID": "0116",
+    "ShiftDataName": "精神科PA",
+    "Sorting": "6",
+    "WorkStart": "20:00",
+    "WorkEnd": "08:00",
+    "EmpID": "2180",
+    "EmpName": "陳韋",
+    "EmpType": "",
+    "GSMBrevity": "(22332)"
+    },
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0004",
+    "ShiftDataName": "OPH",
+    "Sorting": "8",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9287",
+    "EmpName": "許粹剛",
+    "EmpType": "ＶＳ",
+    "GSMBrevity": "(21391)"
+    },
+    {
+    "Title": "17:00~08:00",
+    "ShiftDataID": "0001",
+    "ShiftDataName": "大內科",
+    "Sorting": "10",
+    "WorkStart": "17:00",
+    "WorkEnd": "08:00",
+    "EmpID": "9326",
+    "EmpName": "鄭明哲",
+    "EmpType": "Ｒ",
+    "GSMBrevity": null
+    },
+    {
+    "Title": "16:00~20:00",
+    "ShiftDataID": "0005",
+    "ShiftDataName": "內科PA白班",
+    "Sorting": "50",
+    "WorkStart": "16:00",
+    "WorkEnd": "20:00",
+    "EmpID": "3357",
+    "EmpName": "王瑋琪",
+    "EmpType": "",
+    "GSMBrevity": "(22160)"
+    },
+    {
+    "Title": "20:00~08:00",
+    "ShiftDataID": "0006",
+    "ShiftDataName": "內科PA夜班",
+    "Sorting": "60",
+    "WorkStart": "20:00",
+    "WorkEnd": "08:00",
+    "EmpID": "3903",
+    "EmpName": "王韞涵",
+    "EmpType": "",
+    "GSMBrevity": "(22153)"
+    },
+    {
+    "Title": "16:00~20:00",
+    "ShiftDataID": "0007",
+    "ShiftDataName": "外科PA白班",
+    "Sorting": "70",
+    "WorkStart": "16:00",
+    "WorkEnd": "20:00",
+    "EmpID": "4816",
+    "EmpName": "張智淵",
+    "EmpType": "",
+    "GSMBrevity": "(22268)"
+    },
+    {
+    "Title": "20:00~08:00",
+    "ShiftDataID": "0008",
+    "ShiftDataName": "外科PA夜班",
+    "Sorting": "80",
+    "WorkStart": "20:00",
+    "WorkEnd": "08:00",
+    "EmpID": "6544",
+    "EmpName": "魏倩雯",
+    "EmpType": "",
+    "GSMBrevity": "(22279)"
+    }
+    ],
+    "PrevDate": "2015/09/06",
+    "Today": "2015/09/07",
+    "NextDate": "2015/09/08"
+    }
+</string>
