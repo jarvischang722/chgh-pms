@@ -126,6 +126,19 @@ exports.getDischargeNote = function(req, res){
     */
 };
 
+/**
+ * 依病床取得所有護理師-病床排班資料(電子白板系統)
+ * **/
+exports.getNurseSche = function(req, res){
+    EWhiteBoardService.getNurseSche(req,function(result,errorCode){
+        if(result){
+            res.json(tools.getReturnJSON(true,result))
+        }else{
+            res.json(tools.getReturnJSON(false,[],errorCode))
+        }
+    })
+};
+
 /*
 api test
  */
