@@ -10,6 +10,11 @@ var request = require('request');
 var parseString = require('xml2js').parseString;
 
 
+/**
+ * 取得手術資料
+ * @param postData
+ * @param callback
+ */
 exports.handleSurgeryInfo  = function(postData,callback){
 
     async.parallel({
@@ -34,6 +39,7 @@ exports.handleSurgeryInfo  = function(postData,callback){
     });
 
 };
+
 /**
  * 取得所有護理師-病床排班資料
  * ward 病房{id, district_id, ward_name}
