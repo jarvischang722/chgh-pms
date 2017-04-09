@@ -17,7 +17,7 @@ var commonTools = require("../utils/commonTools");
  *        }
  */
 exports.getNurPatient = function (params,callback) {
-    fs.readFile('../testData/InTranInData.xml', 'utf8', function(err, apiResult) {
+    fs.readFile(__dirname+'/../testData/InTranInData.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var NurPatient = JSON.parse(result.string);
@@ -37,7 +37,7 @@ exports.getNurPatient = function (params,callback) {
  *        }
  */
 exports.getDayBeforeInfo = function (params,callback) {
-    fs.readFile('../testData/DayBeforeInfo.xml', 'utf8', function(err, apiResult) {
+    fs.readFile(__dirname+'/../testData/DayBeforeInfo.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var dayBeforeInfo = JSON.parse(result.string);
@@ -62,7 +62,7 @@ exports.getInTranInData = function (params,callback) {
         return callback(checkValError, []);
     }
 
-    fs.readFile('../testData/InTranInData.xml', 'utf8', function(err, apiResult) {
+    fs.readFile(__dirname+'/../testData/InTranInData.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var inTranInData = JSON.parse(result.string);
@@ -87,7 +87,8 @@ exports.getOutTranOutData = function (params,callback) {
         return callback(checkValError, []);
     }
 
-    fs.readFile('./src/testData/OutTranOutData.xml', 'utf8', function(err, apiResult) {
+    fs.readFile(__dirname+'/../testData/OutTranOutData.xml', 'utf8', function(err, apiResult) {
+
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var outTranOutData = JSON.parse(result.string);
             callback(err , outTranOutData);
@@ -106,7 +107,7 @@ exports.getOutTranOutData = function (params,callback) {
  *        }
  */
 exports.getNurBedInfo = function (params,callback) {
-    fs.readFile('../testData/NurBedInfo.xml', 'utf8', function(err, apiResult) {
+    fs.readFile(__dirname+'/../testData/NurBedInfo.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var nurBedInfo = JSON.parse(result.string);
@@ -131,7 +132,7 @@ exports.getOpScheduleInfo = function (params,callback) {
         return callback(checkValError, []);
     }
 
-    fs.readFile('../testData/OpScheduleInfo.xml', 'utf8', function(err, apiResult) {
+    fs.readFile(__dirname+'/../testData/OpScheduleInfo.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var opScheduleInfo = JSON.parse(result.string);
@@ -156,7 +157,7 @@ exports.getExamScheduleInfo = function (params,callback) {
         return callback(checkValError, []);
     }
 
-    fs.readFile('../testData/ExamScheduleInfo.xml', 'utf8', function (err, apiResult) {
+    fs.readFile(__dirname+'/../testData/ExamScheduleInfo.xml', 'utf8', function (err, apiResult) {
 
         parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var examScheduleInfo = JSON.parse(result.string);
@@ -183,7 +184,7 @@ exports.getNisDutySchedule = function (params,callback) {
         return callback(checkValError, []);
     }
 
-    fs.readFile('./src/testData/NisDutySchedule.xml', 'utf8', function(err, apiResult) {
+    fs.readFile(__dirname+'/../testData/NisDutySchedule.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var nisDutySchedule = JSON.parse(result.string);
@@ -208,7 +209,7 @@ exports.getAllergyData = function (params,callback) {
         return callback(checkValError, []);
     }
 
-    fs.readFile('../testData/AllergyData.xml', 'utf8', function(err, apiResult) {
+    fs.readFile(__dirname+'/../testData/AllergyData.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var allergyData = JSON.parse(result.string);
@@ -241,7 +242,7 @@ exports.getShiftCollectList = function (params,callback) {
     if (checkValError) {
         return  callback(checkValError, []);
     }
-    fs.readFile('../testData/ShiftCollectList.xml', 'utf8', function(err, apiResult) {
+    fs.readFile(__dirname+'/../testData/ShiftCollectList.xml', 'utf8', function(err, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var shiftCollectList = JSON.parse(result.string).ShiftCollect;

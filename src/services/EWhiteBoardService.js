@@ -1,12 +1,44 @@
 /**
  * Created by Jun on 2017/4/5.
  */
-var Logger = require("../plugins/Log4js").Logger();
 var _ = require("underscore");
-var moment = require("moment");
 var async = require("async");
+var DashBoardWebSvc = require("./DashBoardWebService");
+var Logger = require("../plugins/Log4js").Logger();
+var moment = require("moment");
 var request = require('request');
 var parseString = require('xml2js').parseString;
+
+
+/**
+ * 取得手術資料
+ * @param postData
+ * @param callback
+ */
+exports.handleSurgeryInfo  = function(postData,callback){
+
+    async.parallel({
+        surgeryInfo: function(callback) {
+            DashBoardWebSvc.getOpScheduleInfo(postData,function(err , opScheduleInfo){
+                callback(err, opScheduleInfo);
+            })
+        },
+        patientInfo: function(callback) {
+            DashBoardWebSvc.getNurPatient(postData,function(err,NurPatient){
+                callback(err, NurPatient);
+            })
+        }
+    }, function(err, results) {
+        if(err){
+            return callback(err,[]);
+        }
+        var  surgeryInfo = results.surgeryInfo;
+        var  patientInfo = results.patientInfo;
+
+        callback(null,surgeryInfo);
+    });
+
+};
 
 /**
  * 取得所有護理師-病床排班資料

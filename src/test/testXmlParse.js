@@ -13,7 +13,11 @@ var svc  = require("../services/DashBoardWebService");
 //     });
 //
 // });
-svc.getAllergyData({},function (err,data) {
+var params = {
+    StratDate: '20170301',
+    EndDate:'20170301'
+};
+svc.getOpScheduleInfo(params,function (err,data) {
     console.error(err);
     console.dir(data);
 })
