@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<%- include ../Common/eBoardHead.ejs %>
+
+<body>
+
+<%- include ../Common/eBoardHeader.ejs %>
+
+<%- include ../Common/eBoardMarquee.ejs %>
+
+<div class="container container_higher no_data" id="out">
+    <h1><i class="fa fa-check-square-o" aria-hidden="true"></i> 出院</h1>
+    <div class="clearfix"></div>
+    <table class="overflow-y">
+        <thead>
+        <tr>
+            <th>病床</th>
+            <th>病患</th>
+            <th>備註</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="clearfix"></div>
+</div>
+
+<%- include('../Common/eBoardFooter', {func: 'dischargeNote'}) %>
+
+<%- include ../Common/importJSFiles.ejs %>
+
+</body>
+
+</html>

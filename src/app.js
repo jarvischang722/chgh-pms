@@ -13,38 +13,6 @@ var systemConfig = require('./configs/SystemConfig');
 var port = 8889;
 var app = express();
 
-/** Routes include **/
-var DoctorRoute = require('./routes/Doctor');
-var EWhiteBoard = require('./routes/EWhiteBoard');
-var MonitorDevice = require('./routes/MonitorDevice');
-var Patient = require('./routes/Patient');
-var OtherFunc = require('./routes/OtherFunc');
-var SystemMaintain = require('./routes/SystemMaintain');
-var Marquee = require('./routes/Marquee');
-var Announcement = require('./routes/Announcement');
-var Todo = require('./routes/Todo');
-var Nurse = require('./routes/Nurse');
-var Surgery = require('./routes/Surgery');
-var IndexRoute = require('./routes/Index');
-
-var Bed = require('./routes/bed');
-
-//SIP，定時排程抓資料的LIB
-var sipSchedule = require('node-schedule');
-//定時抓排程資料的主程式
-var cronSchedule =require('./services/cronService');
-
-
-//安裝精靈
-var Installer = require('./routes/Installer');
-
-//與HIS溝通的中繼API
-var MiddleAPI = require('./routes/MiddleAPI');
-
-var os =require("os"); console.log("os is :"+ os.platform());
-
-/** open sql pool **/
-require("./plugins/mysql/DB").create();
 
 /** i18n configure **/
 i18n.configure({
@@ -89,29 +57,7 @@ app.use(function(req, res, next){
 });
 
 /** routers **/
-app.use('/Bed', Bed);
-app.use('/doctor', DoctorRoute);
-app.use('/eWhiteBoard', EWhiteBoard);
-app.use('/monitor', MonitorDevice);
-app.use('/patient', Patient);
-app.use('/nurse', Nurse);
-app.use('/other', OtherFunc);
-app.use('/systemMaintain', SystemMaintain);
-app.use('/marquee', Marquee);
-app.use('/announcement', Announcement);
-app.use('/todo', Todo);
-app.use('/nurse', Nurse);
-app.use('/surgery', Surgery);
-
-//安裝精靈路徑
-app.use('/installer', Installer);
-
-
-//與HIS的中繼API路徑
-app.use('/middleAPI', MiddleAPI);
-
-//網站首頁
-app.use('/', IndexRoute);
+app.use('/eWhiteBoard', require('./routes/EWhiteBoard'));  //電子白板
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -143,13 +89,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
-//定時抓取sip的通聯紀錄
-cronSchedule.SIPRecordStart();
-
-
-
 
 
 http.createServer(app).listen(port, function () {

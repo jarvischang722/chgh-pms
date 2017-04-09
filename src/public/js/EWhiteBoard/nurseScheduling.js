@@ -11,68 +11,77 @@ function initialize(){
     $.ajax({
         method: "GET",
         url: "api/getNurseSche"
-        //data: $( "#form1" ).serialize()
-        //data: {}
     })
         .done(function( result_obj ) {
             console.log(result_obj);
+
             var sche = result_obj.result;
             //依病房排班顯示
-            createTemp01(sche,"01","nurse_tabs_nested_1_1_div");
-            createTemp01(sche,"02","nurse_tabs_nested_1_2_div");
-            createTemp01(sche,"03","nurse_tabs_nested_1_3_div");
-            //依護理師排班顯示
-            createTemp02(sche,"01","nurse_tabs_nested_2_1_table");
-            createTemp02(sche,"02","nurse_tabs_nested_2_2_table");
-            createTemp02(sche,"03","nurse_tabs_nested_2_3_table");
+            createTemp01(sche,"A","nurse_tabs_nested_A");
+            createTemp01(sche,"B","nurse_tabs_nested_B");
+            createTemp01(sche,"C","nurse_tabs_nested_C");
 
-            e_resetTable();
+            //依護理師排班顯示
+            createTemp02(sche,"A","nurse_tabs_nested_D");
+            createTemp02(sche,"B","nurse_tabs_nested_E");
+            createTemp02(sche,"C","nurse_tabs_nested_F");
         });
 }
 
 //產生班表by病房
 function createTemp01(sche,thisclass,divid){
     var classobj = sche[thisclass];
-    if(!classobj || !classobj['ward']){
-        return;
-    }
-
-    classobj = classobj['ward'];
-
-    var wardList01 = classobj.wardList;
+    var wardList01;
     var wardList02;
-    var count = wardList01.length;
-    if(count>=18){
-        wardList02 = wardList01.slice(count/2);
-        wardList01 = wardList01.slice(0,count/2);
-    }else if(count>=9){
-        wardList02 = wardList01.slice(9);
-        wardList01 = wardList01.slice(0,9);
-    }else{
+    if(!classobj || !classobj['ward']){
+        wardList01=[];
         wardList02=[];
+    }else{
+        classobj = classobj['ward'];
+
+        wardList01 = classobj.wardList;
+        wardList02;
+        var count = wardList01.length;
+        if(count>=18){
+            wardList02 = wardList01.slice(count/2);
+            wardList01 = wardList01.slice(0,count/2);
+        }else if(count>=9){
+            wardList02 = wardList01.slice(9);
+            wardList01 = wardList01.slice(0,9);
+        }else{
+            wardList02=[];
+        }
     }
-    var results = {
-        wardList01: wardList01,
-        wardList02: wardList02
-    };
-    var tmp = Handlebars.compile($("#nurse_tabs_nested_1_1_temp").html());
-    $('#'+divid).html("");
-    $('#'+divid).append(tmp(results));
+
+    var result_tbody1 = new Vue({
+        el: '#'+divid+'_1',
+        data: {
+            results: wardList01
+        }
+    });
+    var result_tbody2 = new Vue({
+        el: '#'+divid+'_2',
+        data: {
+            results: wardList02
+        }
+    });
 }
 
 //產生班表by護理師
 function createTemp02(sche,thisclass,tableid){
     var classobj = sche[thisclass];
+    var nurseList;
     if(!classobj || !classobj['nurse']){
-        return;
+        nurseList=[];
+    }else{
+        classobj = classobj['nurse'];
+        nurseList = classobj.nurseList;
     }
 
-    classobj = classobj['nurse'];
-
-    var results = {
-        nurses: classobj.nurseList
-    };
-    var tmp = Handlebars.compile($("#nurse_tabs_nested_2_1_temp").html());
-    $('#'+tableid).html("");
-    $('#'+tableid).append(tmp(results));
+    var result_tbody1 = new Vue({
+        el: '#'+tableid+'_1',
+        data: {
+            results: nurseList
+        }
+    });
 }

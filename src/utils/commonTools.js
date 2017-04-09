@@ -14,56 +14,33 @@ var ErrorCodeMap = require('../configs/ErrorCode');
 var Logger = require("../plugins/Log4js").Logger();
 var DBAgent = require("../plugins/mysql/DBAgent");
 var spawn = require('child_process').spawn;
-
 var _this = this;
-
-//jar的位置
-var jarPath=path.dirname(require.main.filename)+"/bin/aes.jar";
-
-
-
-
-/*
- 確認護理站是否有該模組的權限
- */
-exports.checkWardZoneHasModulePrivilege=function(req,moduleName){
-
-    //console.log("可用模組:");
-    //console.log(req.session.user.module_eng_name);
-
-    if(moduleName!="EWhiteBoard" && moduleName!="Bit" && moduleName!="SIP"){
-
-        return false;
-
-    }else{
-
-        if ((req.session.user.module_eng_name).indexOf(moduleName) > -1) {
-            //In the array!
-            return true;
-        } else {
-            //Not in the array
-            return false;
-        }
-
-    }
-
-
-}
 
 
 /**
- * 合併兩個json object
- * @param obj1 : 第1個json
- * @param obj2 : 第2個json
- * @return mergeObj  : 合併後的JSON
- * **/
-exports.mergeObject = function(obj1, obj2){
-    var mergeObj = {};
-    for (var attrname in obj1) { mergeObj[attrname] = obj1[attrname]; }
-    for (var attrname in obj2) { mergeObj[attrname] = obj2[attrname]; }
-    return mergeObj;
-};
+ * 驗證必填欄位是否有效
+ * @param vaildNameList{Array[String]}: 要驗證的Object key
+ * @param params{Object} : 搜尋的參數條件
+ */
+exports.checkParamsExist = function (vaildNameList, params) {
+    var errorMsg = null;
+    if (_.isArray(vaildNameList) && _.isObject(params) && _.size(params) > 0) {
+        return errorMsg;
+    }
 
+    _.each(vaildNameList, function (objectKey) {
+        if (_.isNull(errorMsg)) {
+            if (_.isUndefined(params[objectKey])
+                || (!_.isUndefined(params[objectKey]) && _.isEmpty(params[objectKey]))) {
+
+                errorMsg = "parameter [" + objectKey + "] is invalid";
+
+            }
+        }
+    })
+
+    return errorMsg;
+}
 
 /**
  * 產生回傳用的json物件
@@ -73,47 +50,47 @@ exports.mergeObject = function(obj1, obj2){
  * @param error_message
  * @returns {{}}
  */
-exports.getReturnJSON = function(success, result,errorCode, error_message){
+exports.getReturnJSON = function (success, result, errorCode, error_message) {
 
-    var jsonObject={};
+    var jsonObject = {};
 
-    if(success){
+    if (success) {
 
-        jsonObject.success=true;
-        jsonObject.result=result;
+        jsonObject.success = true;
+        jsonObject.result = result;
 
-    }else{
+    } else {
 
-        if(ErrorCodeMap[errorCode]!=null){
+        if (ErrorCodeMap[errorCode] != null) {
 
-            jsonObject.success=false;
-            jsonObject.result=[];
-            jsonObject.errorCode=errorCode;
-            jsonObject.errorMsg=ErrorCodeMap[errorCode];
+            jsonObject.success = false;
+            jsonObject.result = [];
+            jsonObject.errorCode = errorCode;
+            jsonObject.errorMsg = ErrorCodeMap[errorCode];
 
             //若有自定錯誤訊息，加入errorMsg中
-            if(error_message){
-                if (_.isArray(error_message)){
-                    for(var i=0;i<error_message.length;i++){
-                        jsonObject.errorMsg = jsonObject.errorMsg+ "\n" + error_message[i];
+            if (error_message) {
+                if (_.isArray(error_message)) {
+                    for (var i = 0; i < error_message.length; i++) {
+                        jsonObject.errorMsg = jsonObject.errorMsg + "\n" + error_message[i];
                     }
-                }else if(_.isObject(error_message)){
-                    Object.keys(error_message).forEach(function(key) {
+                } else if (_.isObject(error_message)) {
+                    Object.keys(error_message).forEach(function (key) {
                         var val = error_message[key];
                         jsonObject.errorMsg = jsonObject.errorMsg + "\n" + val;
                     });
-                }else{
-                    jsonObject.errorMsg = jsonObject.errorMsg+ "\n" + error_message;
+                } else {
+                    jsonObject.errorMsg = jsonObject.errorMsg + "\n" + error_message;
                 }
             }
 
-        }else{
+        } else {
             //如果該errorcode沒有被定義的話，一律傳系統錯誤
 
-            jsonObject.success=false;
-            jsonObject.result=[];
-            jsonObject.errorCode=-9999;
-            jsonObject.errorMsg="系統錯誤"
+            jsonObject.success = false;
+            jsonObject.result = [];
+            jsonObject.errorCode = -9999;
+            jsonObject.errorMsg = "系統錯誤"
 
         }
 
@@ -124,16 +101,15 @@ exports.getReturnJSON = function(success, result,errorCode, error_message){
 };
 
 
-
 /**
  * 加密字串
  * @param key : 要被加密的字串
  * @return encryptKEY  : 加密後的字串
  * **/
-exports.encryptKEY = function(key,callback){
+exports.encryptKEY = function (key, callback) {
 
     //加解密的bin
-    exe(["-jar",jarPath,"encrypt",key], function(encryptKEY){
+    exe(["-jar", jarPath, "encrypt", key], function (encryptKEY) {
 
         callback(encryptKEY);
 
@@ -146,15 +122,15 @@ exports.encryptKEY = function(key,callback){
  * @param key : 要被解密的字串
  * @return encryptKEY  : 解密後的字串
  * **/
-exports.decryptKEY = function(key,callback){
+exports.decryptKEY = function (key, callback) {
 
     //加解密的bin
 
-            exe(["-jar",jarPath,"decrypt",key], function(decryptKEY){
+    exe(["-jar", jarPath, "decrypt", key], function (decryptKEY) {
 
-            callback(decryptKEY);
+        callback(decryptKEY);
 
-        });
+    });
 
 
 };
@@ -165,42 +141,41 @@ exports.decryptKEY = function(key,callback){
  * @param key : key
  * @return result  : true/false
  * **/
-exports.checkKey = function(key,callback){
+exports.checkKey = function (key, callback) {
 
 
-        this.decryptKEY(key,function(decryptKEY){
+    this.decryptKEY(key, function (decryptKEY) {
 
-            try{
+        try {
 
-                decryptKEY = unquoted(decryptKEY);
+            decryptKEY = unquoted(decryptKEY);
 
-                var jsonObjectTmp=JSON.parse(decryptKEY);
+            var jsonObjectTmp = JSON.parse(decryptKEY);
 
-                jsonObjectTmp=jsonObjectTmp["result"];
+            jsonObjectTmp = jsonObjectTmp["result"];
 
-                if ('function_list' in jsonObjectTmp
-                    && 'max_user_number' in jsonObjectTmp
-                    && (typeof jsonObjectTmp.max_user_number == 'number')
-                    && (Array.isArray(jsonObjectTmp.function_list))) {
+            if ('function_list' in jsonObjectTmp
+                && 'max_user_number' in jsonObjectTmp
+                && (typeof jsonObjectTmp.max_user_number == 'number')
+                && (Array.isArray(jsonObjectTmp.function_list))) {
 
-                    callback(true);
+                callback(true);
 
-                }else{
+            } else {
 
-                    callback(false);
-                }
-
-            }catch(err){
-
-                console.log(err);
-                Logger.error("checkKey failed with:"+err);
                 callback(false);
-
             }
 
+        } catch (err) {
 
-        });
+            console.log(err);
+            Logger.error("checkKey failed with:" + err);
+            callback(false);
 
+        }
+
+
+    });
 
 
 };
@@ -211,27 +186,27 @@ exports.checkKey = function(key,callback){
  * @param key : key
  * @return jsonObject  : 功能清單及最大系統使用人數, JSON format
  * **/
-exports.getInfoFromKey = function(key,callback){
+exports.getInfoFromKey = function (key, callback) {
 
 
-    this.decryptKEY(key,function(decryptKEY){
+    this.decryptKEY(key, function (decryptKEY) {
 
 
-        var jsonObject={function_list:[], max_user_number:0};
+        var jsonObject = {function_list: [], max_user_number: 0};
 
-        try{
+        try {
 
             decryptKEY = unquoted(decryptKEY);
 
 
-            var jsonObjectTmp=JSON.parse(decryptKEY);
+            var jsonObjectTmp = JSON.parse(decryptKEY);
 
-            jsonObjectTmp=jsonObjectTmp["result"];
+            jsonObjectTmp = jsonObjectTmp["result"];
 
 
             callback(jsonObjectTmp);
 
-        }catch(err){
+        } catch (err) {
 
             console.log(err);
             callback(jsonObject);
@@ -239,43 +214,38 @@ exports.getInfoFromKey = function(key,callback){
         }
 
 
-
-
     });
 
 
-
 };
-
-
 
 
 /**
  * 從資料庫取得key，並得到系統人數上限
  * @return key  : 產品序號
  * **/
-exports.getKey = function(callback){
+exports.getKey = function (callback) {
 
-    var key="";
+    var key = "";
 
     //1.從資料庫取得key
-    DBAgent.query("QRY_KEY" , function(err , rows){
+    DBAgent.query("QRY_KEY", function (err, rows) {
 
-        if(err){
+        if (err) {
 
             Logger.error(err);
-            callback(false,-9999);
+            callback(false, -9999);
 
-        }else{
+        } else {
 
-            if(rows.length==1){
+            if (rows.length == 1) {
                 //有取得資料的話
-                var row=rows[0];
+                var row = rows[0];
 
-                key=row.key;
+                key = row.key;
                 callback(key);
 
-            }else{
+            } else {
 
                 callback("");
 
@@ -292,30 +262,30 @@ exports.getKey = function(callback){
  * 從資料庫取得key，並得到系統人數上限
  * @return maxUser  : 系統人數上限
  * **/
-exports.getMaxUser = function(callback){
+exports.getMaxUser = function (callback) {
 
-    var maxUser=0;
+    var maxUser = 0;
 
     async.waterfall([
-        function(callback){
+        function (callback) {
 
             //1.從資料庫取得key
-            DBAgent.query("QRY_KEY" , function(err , rows){
+            DBAgent.query("QRY_KEY", function (err, rows) {
 
-                if(err){
+                if (err) {
 
                     Logger.error(err);
 
-                }else{
-                    if(rows.length==1){
+                } else {
+                    if (rows.length == 1) {
                         //有取得資料的話
-                        var row=rows[0]
+                        var row = rows[0]
                         //console.log(row.key);
-                        callback(null,  _this.getInfoFromKey(row.key));
+                        callback(null, _this.getInfoFromKey(row.key));
 
-                    }else{
+                    } else {
 
-                        callback(null,  0);
+                        callback(null, 0);
 
                     }
                 }
@@ -325,22 +295,22 @@ exports.getMaxUser = function(callback){
         }
     ], function (err, result) {
 
-        if(err){
+        if (err) {
 
             console.log(err);
             callback(0);
 
-        }else{
+        } else {
 
-            var maxUser= result.max_user_number;
-            console.log("maxUser:"+maxUser);
+            var maxUser = result.max_user_number;
+            console.log("maxUser:" + maxUser);
 
-            if(maxUser>0){
+            if (maxUser > 0) {
 
                 callback(maxUser);
 
 
-            }else{
+            } else {
 
                 callback(0);
 
@@ -350,9 +320,7 @@ exports.getMaxUser = function(callback){
         }
 
 
-
     });
-
 
 
 };
@@ -362,28 +330,28 @@ exports.getMaxUser = function(callback){
  * 從資料庫取得key，並得到系統可用模組清單
  * @return function_list  : 系統可用模組清單
  * **/
-exports.getFunctionList = function(callback){
+exports.getFunctionList = function (callback) {
 
-    var maxUser=0;
+    var maxUser = 0;
 
 
     async.waterfall([
-        function(callback){
+        function (callback) {
 
             //1.從資料庫取得key
-            DBAgent.query("QRY_KEY" , function(err , rows){
+            DBAgent.query("QRY_KEY", function (err, rows) {
 
-                if(err){
+                if (err) {
 
                     Logger.error(err);
 
-                }else{
+                } else {
 
-                    if(rows.length==1){
+                    if (rows.length == 1) {
                         //有取得資料的話
-                        var row=rows[0]
+                        var row = rows[0]
                         console.log(row.key);
-                        callback(null,  _this.getInfoFromKey(row.key));
+                        callback(null, _this.getInfoFromKey(row.key));
 
                     }
 
@@ -395,17 +363,14 @@ exports.getFunctionList = function(callback){
         }
     ], function (err, result) {
 
-        var function_list= result.function_list;
-        console.log("function_list:"+function_list);
+        var function_list = result.function_list;
+        console.log("function_list:" + function_list);
         callback(function_list);
 
     });
 
 
-
 };
-
-
 
 
 /**
@@ -446,40 +411,39 @@ exports.getFunctionList = function(callback){
 //};
 
 
-
 //執行jar的function
-function exe(command,callback){
+function exe(command, callback) {
     // linux下，不用 cmd /c java -jar yuicompressor.jar test.js，这种形式，直接
     // java -jar yuicompressor.jar test.js 即可
-    var cmd = spawn("java",command);
+    var cmd = spawn("java", command);
 
-    var G_data="";
+    var G_data = "";
 
     cmd.stdout.setEncoding("UTF-8");
 
 
-    cmd.stdout.on("data",function(data){
+    cmd.stdout.on("data", function (data) {
 
         console.log("------------------------------");
-        console.log("從jar檔得到資料成功:"+data);
+        console.log("從jar檔得到資料成功:" + data);
         console.log("------------------------------");
 
-        G_data=data;
+        G_data = data;
 
     });
 
 
-    cmd.stderr.on("data",function(data){
+    cmd.stderr.on("data", function (data) {
         console.log("------------------------------");
-        console.log("從jar檔得到資料失敗:"+data);
+        console.log("從jar檔得到資料失敗:" + data);
         console.log("------------------------------");
 
-        G_data=data;
+        G_data = data;
 
     });
 
 
-    cmd.on("exit",function(code){
+    cmd.on("exit", function (code) {
         //console.log("從jar檔得到資料結束");
         //console.log("------------------------------");
         callback(G_data);
@@ -488,9 +452,7 @@ function exe(command,callback){
 };
 
 
-
-
-exports.unquoted = function(quotedStr){
+exports.unquoted = function (quotedStr) {
 
     return unquoted(quotedStr);
 
@@ -502,10 +464,11 @@ exports.unquoted = function(quotedStr){
  * @param quotedStr
  * @returns {string|*|XML|void|String}
  */
-function unquoted(quotedStr){
+function unquoted(quotedStr) {
 
     quotedStr = quotedStr.replace("\":\"{\"", "\":{\"");
     quotedStr = quotedStr.replace("}\",\"", "},\"");
 
-  return quotedStr.replace (/(^")|("$)/g, '');
+    return quotedStr.replace(/(^")|("$)/g, '');
 }
+

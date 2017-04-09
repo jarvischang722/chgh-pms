@@ -1,119 +1,176 @@
 <!DOCTYPE html>
 <html>
 
-<% include ../Common/head %>
-<script type="text/javascript" src="../js/EWhiteBoard/todoItem.js"></script>
-
-
-
+<%- include ../Common/eBoardHead.ejs %>
 
 <body>
 
-<% include ../Common/eBoardMarquee %>
+<%- include ../Common/eBoardHeader.ejs %>
+
+<%- include ../Common/eBoardMarquee.ejs %>
+
+
 <div class="container container_higher" id="beds">
-    <a href="#" id="refresh"><i class="fa fa-refresh" aria-hidden="true" ></i> 重新整理</a>
-
-    <div class="nurse_tabs">
-        <div data-pws-tab="nurse_tabs_1" data-pws-tab-name="依病床">
-            <div class="grid_fifty">
-                <table class="overflow-y">
-                    <thead>
-                    <tr>
-                        <th>病床</th>
-                        <th>病患</th>
-                        <th>入院帳號</th>
-                        <th>待辦事項件數</th>
-                    </tr>
-                    </thead>
-                    <tbody id="patient-todoItem-byBed-container">
-
-                    </tbody>
-                </table>
-            </div>
-            <div class="grid_fifty">
-                <div class="todo_list">
-
-                    <ul id="todoList-byBed-container">
-                        <li>抽血</li>
-                        <li>量血壓</li>
-                    </ul>
-
+        <div class="nurse_tabs">
+            <div data-pws-tab="nurse_tabs_1" data-pws-tab-name="依病床">
+                <div class="grid_fifty">
+                    <table class="overflow-y">
+                        <thead>
+                            <tr>
+                                <th>病床</th>
+                                <th>病患</th>
+                                <th>入院帳號</th>
+                                <th>待辦事項件數</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="active">
+                                <td>05-01</td>
+                                <td><span class="male">古天樂(41)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="male">古天樂(41)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="male">古天樂(41)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="male">古天樂(41)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="male">古天樂(41)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="male">古天樂(41)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="male">古天樂(41)</span></td>
+                                <td>12T08125840</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-
-
-        <div data-pws-tab="nurse_tabs_2" data-pws-tab-name="依類別">
-            <div class="grid_fifty">
-                <div class="todo_list todo_list_left">
-                    <ul id="patient-todoItem-byItem-container">
-                    </ul>
+                <div class="grid_fifty">
+                    <div class="todo_list">
+                        <ul>
+                            <li>抽血</li>
+                            <li>量血壓</li>
+                        </ul>
+                    </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="grid_fifty">
-                <table class="overflow-y">
-                    <thead>
-                    <tr>
-                        <th>病床</th>
-                        <th>病患</th>
-                    </tr>
-                    </thead>
-                    <tbody id="todoList-byItem-container">
-
-
-                    </tbody>
-                </table>
+            <div data-pws-tab="nurse_tabs_2" data-pws-tab-name="依類別">
+                <div class="grid_fifty">
+                    <div class="todo_list todo_list_left">
+                        <ul>
+                            <li class="active"><a href="#">抽血</a></li>
+                            <li><a href="#">量血壓</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid_fifty">
+                    <table class="overflow-y">
+                        <thead>
+                            <tr>
+                                <th>病床</th>
+                                <th>病患</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="male">古天樂(41)</span></td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="male">古天樂(41)</span></td>
+                            </tr>
+                            <tr>
+                                <td>05-01</td>
+                                <td><span class="female">鄭秀文(36)</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="clearfix"></div>
         </div>
+        <div class="clearfix"></div>
     </div>
-    <div class="clearfix"></div>
 
+<%- include('../Common/eBoardFooter', {func: 'todoItem'}) %>
 
-
-</div>
-
-<%- include('../Common/eBoardMenu', {func: '4'}) %>
-
-
-<!--病患的格子-->
-<script id="patient-todoPatientRow-template" type="text/x-handlebars-template">
-    {{#each result}}
-        <tr data-patient_id="{{patient_id}}">
-            <td>{{ward_name}}-{{bed_name}}</td>
-
-            {{#ifCond patient_sex '==' 0}}
-            <td><span class="female">{{patient_name}}({{patient_age}})</span></td>
-            {{else}}
-            <td><span class="male">{{patient_name}}({{patient_age}})</span></td>
-            {{/ifCond}}
-
-
-            <td>{{patient_record_no}}</td>
-            <td>{{count_todo_list todo_list}}</td>
-
-        </tr>
-    {{/each}}
-</script>
-
-
-<!--待辦事項的格子-->
-<script id="patient-todoItemRow-template" type="text/x-handlebars-template">
-    {{#each result}}
-    <tr data-patient_id="{{patient_id}}">
-        <td>{{ward_name}}-{{bed_name}}</td>
-
-        {{#ifCond patient_sex '==' 0}}
-        <td><span class="female">{{patient_name}}({{patient_age}})</span></td>
-        {{else}}
-        <td><span class="male">{{patient_name}}({{patient_age}})</span></td>
-        {{/ifCond}}
-
-    </tr>
-    {{/each}}
-</script>
-
+<%- include ../Common/importJSFiles.ejs %>
 
 </body>
 
