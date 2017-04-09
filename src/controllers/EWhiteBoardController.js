@@ -116,3 +116,17 @@ exports.getDischargeNote = function(req, res){
 
 };
 
+
+/**
+ * 取得手術資訊
+ */
+exports.qrySurgeryInfo = function(req, res){
+    EWhiteBoardService.handleSurgeryInfo(req.body,function(err,surgeryInfoList){
+        if(err){
+            res.json(tools.getReturnJSON(false,{surgeryInfoList:[]},9999,err));
+        }else{
+            res.json(tools.getReturnJSON(true,{surgeryInfoList:surgeryInfoList}));
+        }
+
+    })
+};
