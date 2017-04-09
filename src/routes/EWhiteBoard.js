@@ -22,8 +22,13 @@ router.get('/announcement', middleWares ,EWhiteBoard.announcement);
 /* Setting api */
 //出院備註
 router.get('/api/getDischargeNote/', middleWares ,EWhiteBoard.getDischargeNote);
+
 //手術資訊
 router.post('/api/qrySurgeryInfo/', middleWares ,EWhiteBoard.qrySurgeryInfo);
+
+//護理師排班
+router.get('/api/getNurseSche/', middleWares ,EWhiteBoard.getNurseSche);
+
 
 
 
