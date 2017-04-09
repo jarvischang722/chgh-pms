@@ -82,40 +82,34 @@ exports.announcement = function(req, res, next){
 /**
  * 電子白板模組->出院備註畫面API
  * **/
-exports.getDischargeNote = function(req, res){
+exports.getDischargeNote = function (req, res) {
     //用get
-    var ward_id = req.query.ward_id || 0;
+    // var ward_id = req.query.ward_id || 0;
+    // console.log("ward_id-->" + ward_id);
     //預設今日
     var expect_discharged_date =
         req.query.expect_discharged_date
         || req.body["expect_discharged_date"]
         || moment().format("YYYYMMDD"); //moment().format("YYYY/MM/DD")
 
-    expect_discharged_date = "20170405";
-    console.log("ward_id-->"+ward_id);
-    console.log("expect_discharged_date-->"+expect_discharged_date);
+    //expect_discharged_date = "20170405";
+    console.log("expect_discharged_date-->" + expect_discharged_date);
 
-    request.post(
-        'http://localhost:8889/EWhiteBoard/api/Out_TranOut_Data_api',
-        { json: { Query_date: expect_discharged_date } },
-        function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                parseString(body, function (err, result) {
-                    var nowyear = moment().format("YYYY");
-                    var array = JSON.parse(result.string._);
-                    for(var i=0;i<array.length;i++){
-                        var age = array[i].birthday.substr(0,4);
-                        age = nowyear - age;
-                        array[i].age = age;
-                    }
-                    res.json(tools.getReturnJSON(true,array));
-                });
-            }else{
-                res.json(tools.getReturnJSON(false,[],9999,error))
+    var data = {"Query_date": expect_discharged_date};
+
+    DashBoardWebService.getOutTranOutData(data, function (errorCode, result) {
+        if (result) {
+            var nowyear = moment().format("YYYY");
+            for (var i = 0; i < result.length; i++) {
+                var age = result[i].birthday.substr(0, 4);
+                age = nowyear - age;
+                result[i].age = age;
             }
+            res.json(tools.getReturnJSON(true, result))
+        } else {
+            res.json(tools.getReturnJSON(false, [], [], errorCode))
         }
-    );
-
+    })
 };
 
 
