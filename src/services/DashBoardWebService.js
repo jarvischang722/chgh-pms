@@ -6,19 +6,21 @@ var fs = require("fs");
 var _ = require("underscore");
 var parseString = require('xml2js').parseString;
 var commonTools = require("../utils/commonTools");
+var request= require("request");
+var SystemConfig = require("../configs/SystemConfig");
 
 /**
  * 取得病房所有病床資訊
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            NurPatient{Array} : 所有病床資訊
  *        }
  */
-exports.getNurPatient = function (params,callback) {
-    fs.readFile(__dirname+'/../testData/InTranInData.xml', 'utf8', function(err, apiResult) {
-
+exports.getNurPatient = function (formData,callback) {
+    request.post({url:SystemConfig.web_service_url+"Get_nur_Patient",form:formData},function (error, response, apiResult) {
+      
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var NurPatient = JSON.parse(result.string);
             callback(err , NurPatient);
@@ -29,15 +31,15 @@ exports.getNurPatient = function (params,callback) {
 
 /**
  * 取得前一日動態表資料
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            dayBeforeInfo{Array} : 前一日動態表資料
  *        }
  */
-exports.getDayBeforeInfo = function (params,callback) {
-    fs.readFile(__dirname+'/../testData/DayBeforeInfo.xml', 'utf8', function(err, apiResult) {
+exports.getDayBeforeInfo = function (formData,callback) {
+    request.post({url:SystemConfig.web_service_url+"day_before_info",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var dayBeforeInfo = JSON.parse(result.string);
@@ -49,20 +51,20 @@ exports.getDayBeforeInfo = function (params,callback) {
 
 /**
  * 取得入院、轉入院資料
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            inTranInData{Array} : 入院、轉入院資料
  *        }
  */
-exports.getInTranInData = function (params,callback) {
-    var checkValError = commonTools.checkParamsExist(['Query_date'], params);
+exports.getInTranInData = function (formData,callback) {
+    var checkValError = commonTools.checkParamsExist(['Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
 
-    fs.readFile(__dirname+'/../testData/InTranInData.xml', 'utf8', function(err, apiResult) {
+    request.post({url:SystemConfig.web_service_url+"In_TranIn_Data",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var inTranInData = JSON.parse(result.string);
@@ -74,20 +76,20 @@ exports.getInTranInData = function (params,callback) {
 
 /**
  * 取得出院、轉出資料
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            outTranOutData{Array} : 出院轉出資料
  *        }
  */
-exports.getOutTranOutData = function (params,callback) {
-    var checkValError = commonTools.checkParamsExist(['Query_date'], params);
+exports.getOutTranOutData = function (formData,callback) {
+    var checkValError = commonTools.checkParamsExist(['Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
 
-    fs.readFile(__dirname+'/../testData/OutTranOutData.xml', 'utf8', function(err, apiResult) {
+    request.post({url:SystemConfig.web_service_url+"Out_TranOut_Data",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var outTranOutData = JSON.parse(result.string);
@@ -99,15 +101,15 @@ exports.getOutTranOutData = function (params,callback) {
 
 /**
  * 取得床位數資訊
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            nurBedInfo{Array} : 床位數資訊
  *        }
  */
-exports.getNurBedInfo = function (params,callback) {
-    fs.readFile(__dirname+'/../testData/NurBedInfo.xml', 'utf8', function(err, apiResult) {
+exports.getNurBedInfo = function (formData,callback) {
+    request.post({url:SystemConfig.web_service_url+"nur_bed_info",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var nurBedInfo = JSON.parse(result.string);
@@ -119,20 +121,20 @@ exports.getNurBedInfo = function (params,callback) {
 
 /**
  * 手術排程資訊
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            opScheduleInfo{Array} : 手術排程資訊
  *        }
  */
-exports.getOpScheduleInfo = function (params,callback) {
-    var checkValError = commonTools.checkParamsExist(['StratDate','EndDate'], params);
+exports.getOpScheduleInfo = function (formData,callback) {
+    var checkValError = commonTools.checkParamsExist(['StratDate','EndDate'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
 
-    fs.readFile(__dirname+'/../testData/OpScheduleInfo.xml', 'utf8', function(err, apiResult) {
+    request.post({url:SystemConfig.web_service_url+"op_schedule_info",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var opScheduleInfo = JSON.parse(result.string);
@@ -144,20 +146,20 @@ exports.getOpScheduleInfo = function (params,callback) {
 
 /**
  * 檢查排程資訊
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            examScheduleInfo{Array} : 排程資訊
  *        }
  */
-exports.getExamScheduleInfo = function (params,callback) {
-    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate'], params);
+exports.getExamScheduleInfo = function (formData,callback) {
+    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
 
-    fs.readFile(__dirname+'/../testData/ExamScheduleInfo.xml', 'utf8', function (err, apiResult) {
+    request.post({url:SystemConfig.web_service_url+"exam_schedule_info",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var examScheduleInfo = JSON.parse(result.string);
@@ -170,21 +172,21 @@ exports.getExamScheduleInfo = function (params,callback) {
 
 /**
  * 護理排班資訊
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            NisDutySchedule{Array} : 排程資訊
  *        }
  */
-exports.getNisDutySchedule = function (params,callback) {
+exports.getNisDutySchedule = function (formData,callback) {
 
-    var checkValError = commonTools.checkParamsExist(['Query_date'], params);
+    var checkValError = commonTools.checkParamsExist(['Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
 
-    fs.readFile(__dirname+'/../testData/NisDutySchedule.xml', 'utf8', function(err, apiResult) {
+    request.post({url:SystemConfig.web_service_url+"nis_duty_schedule",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var nisDutySchedule = JSON.parse(result.string);
@@ -196,20 +198,20 @@ exports.getNisDutySchedule = function (params,callback) {
 
 /**
  * 病患過敏資訊
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            AllergyData{Array} : 排程資訊
  *        }
  */
-exports.getAllergyData = function (params,callback) {
-    var checkValError = commonTools.checkParamsExist(['PatientID'], params);
+exports.getAllergyData = function (formData,callback) {
+    var checkValError = commonTools.checkParamsExist(['PatientID'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
 
-    fs.readFile(__dirname+'/../testData/AllergyData.xml', 'utf8', function(err, apiResult) {
+    request.post({url:SystemConfig.web_service_url+"Get_Allergy_Data",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var allergyData = JSON.parse(result.string);
@@ -221,28 +223,36 @@ exports.getAllergyData = function (params,callback) {
 
 /**
  * 醫師與PA資訊
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  */
-exports.getRetrieveVS = function (params,callback) {
-    //TODO
+exports.getRetrieveVS = function (formData,callback) {
+    var checkValError = commonTools.checkParamsExist(['_id','_pwd','_nurid'], formData);
+    if (checkValError) {
+        return  callback(checkValError, []);
+    }
+    request.post({url:SystemConfig.web_service_url+"RetrieveVS",form:formData,json:true},function (error, response, RetrieveVS) {
+
+        callback(error , RetrieveVS);
+
+    });
 };
 
 /**
  * 各科值班表
- * @param params{Object} : 搜尋條件
+ * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
  *            err {String} : 錯誤
  *            ShiftCollectList{Array} : 排程資訊
  *        }
  */
-exports.getShiftCollectList = function (params,callback) {
-    var checkValError = commonTools.checkParamsExist(['_id','_pwd','_nurid','_ShiftDate'], params);
+exports.getShiftCollectList = function (formData,callback) {
+    var checkValError = commonTools.checkParamsExist(['_id','_pwd','_nurid','_ShiftDate'], formData);
     if (checkValError) {
         return  callback(checkValError, []);
     }
-    fs.readFile(__dirname+'/../testData/ShiftCollectList.xml', 'utf8', function(err, apiResult) {
+    request.post({url:SystemConfig.web_service_url+"ShiftCollectList",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
             var shiftCollectList = JSON.parse(result.string).ShiftCollect;
