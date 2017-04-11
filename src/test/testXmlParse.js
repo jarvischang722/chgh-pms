@@ -25,7 +25,7 @@ var formData = {
 
 
 
-svc.getRetrieveVS(formData,function (err,data) {
+svc.getOpScheduleInfo(formData,function (err,data) {
     if(err)
         console.error(err);
 

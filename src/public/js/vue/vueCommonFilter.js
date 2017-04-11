@@ -5,8 +5,8 @@
 /**
  * 格式化日期
  */
-Vue.filter("fmtDate",function(val){
-    return moment(val).format("YYYY/MM/DD");
+Vue.filter("fmtDateMMDD",function(val){
+    return moment(val).format("MM/DD");
 });
 
 /**

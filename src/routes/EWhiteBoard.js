@@ -12,11 +12,13 @@ var middleWares = [  ];
 router.get('/bedStatus', middleWares ,EWhiteBoard.bedStatus);
 router.get('/patientInfo', middleWares ,EWhiteBoard.patientInfo);
 router.get('/surgeryInfo', middleWares ,EWhiteBoard.surgeryInfo);
+router.get('/checkTreatment', middleWares ,EWhiteBoard.checkTreatment);
 router.get('/todoItem', middleWares ,EWhiteBoard.todoItem);
 router.get('/in_out_info', middleWares ,EWhiteBoard.in_out_info);
 router.get('/dischargeNote', middleWares ,EWhiteBoard.dischargeNote);
 router.get('/nurseScheduling', middleWares ,EWhiteBoard.nurseScheduling);
 router.get('/doctorInfo', middleWares ,EWhiteBoard.doctorInfo);
+router.get('/doctorOnDuty', middleWares ,EWhiteBoard.doctorOnDuty);
 router.get('/announcement', middleWares ,EWhiteBoard.announcement);
 
 /* Setting api */

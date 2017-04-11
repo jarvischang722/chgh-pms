@@ -95,9 +95,8 @@ exports.Get_Allergy_Data = function(req, res){
  *醫師與PA資訊
  */
 exports.RetrieveVS = function(req, res){
-    fs.readFile(__dirname+'/../testData/RetrieveVS.json', 'json', function(err, apiResult) {
-        res.json(apiResult);
-    });
+    var RetrieveVSObj = JSON.parse(fs.readFileSync(__dirname+'/../testData/RetrieveVS.json', 'utf8'));
+    res.json(RetrieveVSObj);
 };
 
 /**

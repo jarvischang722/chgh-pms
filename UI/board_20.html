@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>生理醫護監測管理系統</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/remodal.css">
+    <link rel="stylesheet" type="text/css" href="css/remodal-default-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.pwstabs.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.popSelect.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style type="text/css">
+    table,
+    tr {
+        background-color: #ffffff !important;
+        border: 2px solid lightblue !important;
+        border-collapse: collapse !important;
+        text-align: center !important;
+    }
+    
+    td {
+        border: 2px solid lightblue !important;
+    }
+    
+    td.table_hard_1 {
+        background-color: rgba(255, 171, 171, .5) !important;
+    }
+    
+    td.table_hard_2 {
+        background-color: rgba(255, 219, 171, .5) !important;
+    }
+    
+    td.table_hard_3 {
+        background-color: rgba(221, 255, 171, .5) !important;
+    }
+    
+    td.table_hard_4 {
+        background-color: rgba(171, 228, 255, .5) !important;
+    }
+    
+    td.table_hard_5 {
+        background-color: rgba(216, 171, 254, .5) !important;
+    }
+
+    tr:hover {
+        color: #535353 !important;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="ope_list" class="container container_higher iframe_inner_table" style="padding-top: 20px;">
+        <!-- 調整搜尋欄位變成日期前後 20161109 START -->
+        <!-- 調整搜尋欄位變成日期前後 20161109 END -->
+        <table style="text-align: center;">
+            <tr>
+                <td class="table_hard_3">科別</td>
+                <td class="table_hard_4">值班時段</td>
+                <td>住院醫師</td>
+                <td>主治醫師</td>
+                <td class="table_hard_1">值班時段</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_3" rowspan="2">大內科</td>
+                <td class="table_hard_4" rowspan="2">08:00 ~ 08:00</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">蔡信宏 (21107)</td>
+                <td class="table_hard_1">08:00 ~ 20:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_1">20:00 ~ 08:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_3" rowspan="2">大外科</td>
+                <td class="table_hard_4" rowspan="2">08:00 ~ 08:00</td>
+                <td rowspan="2">蔡信宏 (21107)</td>
+                <td rowspan="2"></td>
+                <td class="table_hard_1">08:00 ~ 20:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_1">20:00 ~ 08:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_3">大外科</td>
+                <td class="table_hard_4">08:00 ~ 08:00</td>
+                <td>蔡信宏 (21107)</td>
+                <td></td>
+                <td class="table_hard_1"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table_hard_3">大外科</td>
+                <td class="table_hard_4">08:00 ~ 08:00</td>
+                <td></td>
+                <td>蔡信宏 (21107)</td>
+                <td class="table_hard_1">08:00 ~ 08:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_3" rowspan="2">大內科</td>
+                <td class="table_hard_4" rowspan="2">08:00 ~ 08:00</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">蔡信宏 (21107)</td>
+                <td class="table_hard_1">08:00 ~ 20:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_1">20:00 ~ 08:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_3" rowspan="2">大內科</td>
+                <td class="table_hard_4" rowspan="2">08:00 ~ 08:00</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">蔡信宏 (21107)</td>
+                <td class="table_hard_1">08:00 ~ 20:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_1">20:00 ~ 08:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_3" rowspan="2">大內科</td>
+                <td class="table_hard_4" rowspan="2">08:00 ~ 08:00</td>
+                <td rowspan="2">蔡信宏 (21107)</td>
+                <td rowspan="2"></td>
+                <td class="table_hard_1">08:00 ~ 20:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_1">20:00 ~ 08:00</td>
+                <td>專科護理師</td>
+            </tr>
+            <tr>
+                <td class="table_hard_3">大外科</td>
+                <td class="table_hard_4">08:00 ~ 08:00</td>
+                <td>蔡信宏 (21107)</td>
+                <td></td>
+                <td class="table_hard_1"></td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="clearfix"></div>
+        <div class="btn_group btn_group_bottom">
+            <a href="#" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> 前一天</a>
+            <span>2016-11-11</span>
+            <a href="#" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="js/jquery.stickyheader.js"></script>
+    <script type="text/javascript" src="js/remodal.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.zh.js"></script>
+    <script type="text/javascript" src="js/jquery.pwstabs.min.js"></script>
+    <script type="text/javascript" src="js/jquery.popSelect.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+</body>
+
+</html>

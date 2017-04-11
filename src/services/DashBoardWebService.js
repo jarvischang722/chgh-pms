@@ -231,7 +231,7 @@ exports.getRetrieveVS = function (formData,callback) {
     if (checkValError) {
         return  callback(checkValError, []);
     }
-    request.post({url:SystemConfig.web_service_url+"RetrieveVS",form:formData},function (error, response, RetrieveVS) {
+    request.post({url:SystemConfig.web_service_url+"RetrieveVS",form:formData,json:true},function (error, response, RetrieveVS) {
 
         callback(error , RetrieveVS);
 

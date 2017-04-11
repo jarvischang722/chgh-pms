@@ -18,35 +18,36 @@
                 <tr>
                     <th>日期</th>
                     <th>刀房</th>
-                    <th>刀次</th>
+                    <th>預約時間</th>
                     <th>病床</th>
-                    <th>病歷號碼</th>
                     <th>病患</th>
-                    <th>術式 / 診斷</th>
+                    <th>手術名稱</th>
+                    <th>診斷</th>
+                    <th>麻醉方式</th>
                     <th>主治醫師</th>
-                    <th>刀別</th>
                     <th>狀態</th>
                 </tr>
             </thead>
             <tbody>
             <!--
-                table_hard_1 :送加護病房
+                table_hard_white : 恢復中
+                table_hard_1 :手術中
                 table_hard_2 :開刀前
-                table_hard_3 :開刀後
-                table_hard_4 :化療
+                table_hard_3 :已返室
+                table_hard_4 :準備中
                 table_hard_5 :觀察中
             -->
-                <tr  v-for="surgery in surgeryInfoList" class="table_hard_1">
-                    <td>{{surgery.operate_date | fmtDate }}</td>
-                    <td>{{surgery.op_room}}</td>
-                    <td></td>
-                    <td>05B 09-05</td>
-                    <td>{{surgery.patient_id}}</td>
-                    <td><span :class="surgery.sex | convSexStringToParma">{{surgery.patient_name}}({{surgery.age}})</span></td>
-                    <td>{{surgery.diagnosis_ENG_name}}
-                    <td>{{surgery.opnotemdr}}</td>
-                    <td></td>
-                    <td>{{surgery.Patient_status | test}}</td>
+                <tr  v-for="surgery in surgeryInfoList" class="table_hard_white">
+                    <td class="date">{{surgery.operate_date | fmtDateMMDD }}</td>
+                    <td class="date">{{surgery.op_room}}</td>
+                    <td class="date">{{surgery.operate_time}}</td>
+                    <td class="date">{{surgery.bed_num}}</td>
+                    <td class="date"><span :class="surgery.sex | convSexStringToParma">{{surgery.patient_name}}({{surgery.patient_age}})</span></td>
+                    <td >{{surgery.operate_name}}</td>
+                    <td >{{surgery.diagnosis_ENG_name}}</td>
+                    <td class="date">{{surgery.Narcotization}}</td>
+                    <td class="date">{{surgery.opnotemdr}}</td>
+                    <td class="date">{{surgery.Patient_status }}</td>
                 </tr>
             </tbody>
         </table>
