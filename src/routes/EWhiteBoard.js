@@ -31,6 +31,15 @@ router.post('/api/qrySurgeryInfo/', middleWares ,EWhiteBoard.qrySurgeryInfo);
 //護理師排班
 router.get('/api/getNurseSche/', middleWares ,EWhiteBoard.getNurseSche);
 
+//病患資訊
+router.post('/api/fetchAllPatientInfo/', middleWares ,EWhiteBoard.fetchAllPatientInfo);
+
+//取得單一病患資訊
+router.post('/api/fetchSinglePatientInfo/', middleWares ,EWhiteBoard.fetchSinglePatientInfo);
+
+//取得前一日動態表資料
+router.post('/api/fetchDayBeforeInfo/', middleWares ,EWhiteBoard.fetchDayBeforeInfo);
+
 
 
 

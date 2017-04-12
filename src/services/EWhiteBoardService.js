@@ -131,3 +131,69 @@ exports.getNurseSche = function(req,callback){
         }
     );
 };
+
+
+/**
+ * 取得病患資訊
+ * @param postData
+ * @param callback
+ */
+exports.handlePatientInfo  = function(postData,callback){
+
+    async.parallel({
+        patientInfo: function(callback) {
+            DashBoardWebSvc.getNurPatient(postData,function(err,NurPatient){
+                callback(err, NurPatient);
+            })
+        }
+    }, function(err, results) {
+        if(err){
+            return callback(err,[]);
+        }
+        var  allpatientInfo = results.patientInfo;
+
+        callback(null,allpatientInfo);
+    });
+
+};
+
+
+/**
+ * 取得單一病患資訊
+ * @param postData
+ * @param callback
+ */
+exports.handleSinglePatientInfo  = function(postData,callback){
+    var nur_id = postData.nur_id || "";
+    var patient_id = postData.patient_id || "";
+    var patientInfo  = {};
+    async.parallel({
+        patientInfo: function(callback) {
+            DashBoardWebSvc.getNurPatient(postData,function(err,NurPatient){
+                patientInfo = _.findWhere(NurPatient,{nur_id:nur_id,patient_id:patient_id}) || {};
+                callback(err, patientInfo);
+            })
+        }
+    }, function(err, results) {
+        if(err){
+            return callback(err,[]);
+        }
+
+        callback(null,patientInfo);
+    });
+
+};
+
+/**
+ * 取得前一日動態表資料
+ * @param postData
+ * @param callback
+ */
+exports.handleDayBeforeInfo  = function(postData,callback){
+
+    DashBoardWebSvc.getDayBeforeInfo(postData,function(err,DayBeforeInfo){
+        DayBeforeInfo  = DayBeforeInfo.length > 0 ? DayBeforeInfo[0] : {};
+        callback(err, DayBeforeInfo);
+    })
+
+};

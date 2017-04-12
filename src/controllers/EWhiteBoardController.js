@@ -239,3 +239,22 @@ exports.getNurseSche = function (req, res) {
 
 
 
+exports.fetchAllPatientInfo = function(req, res){
+
+    EWhiteBoardService.handlePatientInfo(req.body,function (err,allPatientInfo) {
+        res.json({success:_.isNull(err) , errorMsg:err,allPatientInfo:allPatientInfo});
+    })
+};
+
+
+exports.fetchSinglePatientInfo = function(req, res){
+    EWhiteBoardService.handleSinglePatientInfo(req.body,function (err,patientInfo) {
+        res.json({success:_.isNull(err) , errorMsg:err,patientInfo:patientInfo});
+    })
+};
+
+exports.fetchDayBeforeInfo = function(req, res){
+    EWhiteBoardService.handleDayBeforeInfo(req.body,function (err,DayBeforeInfo) {
+        res.json({success:_.isNull(err) , errorMsg:err,dayBeforeInfo:DayBeforeInfo});
+    })
+};
