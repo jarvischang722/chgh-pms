@@ -58,6 +58,7 @@ app.use(function(req, res, next){
 
 /** routers **/
 app.use('/eWhiteBoard', require('./routes/EWhiteBoard'));  //電子白板
+app.use('/dashboardAPI', require('./routes/DashBoardAPI'));  //模擬API
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

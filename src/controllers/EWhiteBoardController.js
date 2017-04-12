@@ -34,6 +34,13 @@ exports.surgeryInfo = function(req, res, next){
 };
 
 /**
+ * 檢查治療
+ * **/
+exports.checkTreatment = function(req, res, next){
+    res.render('EWhiteBoard/checkTreatment' );
+};
+
+/**
  * 代辦事項
  * **/
 exports.todoItem = function(req, res, next){
@@ -63,10 +70,17 @@ exports.nurseScheduling = function(req, res, next){
 
 
 /**
- * 醫師資訊
+ * 醫師收治
  * **/
 exports.doctorInfo = function(req, res, next){
     res.render('EWhiteBoard/doctorInfo' );
+};
+
+/**
+ * 醫師值班
+ * **/
+exports.doctorOnDuty = function(req, res, next){
+    res.render('EWhiteBoard/doctorOnDuty' );
 };
 
 /**
