@@ -10,8 +10,8 @@
 <%- include ../Common/eBoardMarquee.ejs %>
 
 <div class="container container_higher" id="in_and_out">
-    <div>
-        <h1><span><i class="fa fa-plus-square-o" aria-hidden="true"></i> 入院 / 轉入</span></h1>
+    <div >
+        <h1><span><i class="fa fa-plus-square-o" aria-hidden="true"></i> 入院 / 轉入  </span></h1>
         <table class="overflow-y">
             <thead>
             <tr>
@@ -25,83 +25,24 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td class="date"><span class="female">瑪莉亞○莉(36)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td>(780.4 眩暈)<span style="opacity: 0">鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文鄭○文</span></td>
-                <td>急診</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td><span class="male">古○樂(41)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td>(780.4 眩暈)工和學母產：時爭中館叫人青，大也到兩仍現銷爾……學車二大有作得一支天爸美精些行河認全：了可中告現運人，下法角日是，找藝體快。工和學母產：時爭中館叫人青，大也到兩仍現銷爾……學車二大有作得一支天爸美精些行河認全：了可中告現運人，下法角日是，找藝體快。</td>
-                <td>急診</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td class="date"><span class="female">鄭○文(36)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td>(780.4 眩暈)</td>
-                <td>急診</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td><span class="male">古○樂(41)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td>(780.4 眩暈)</td>
-                <td>急診</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td class="date"><span class="female">鄭○文(36)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td>(780.4 眩暈)</td>
-                <td>急診</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td><span class="male">古○樂(41)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td>(780.4 眩暈)</td>
-                <td>急診</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td class="date"><span class="female">鄭○文(36)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td>(780.4 眩暈)</td>
-                <td>急診</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td><span class="male">古○樂(41)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td>(780.4 眩暈)</td>
-                <td>急診</td>
+            <tr v-for="data in inTranList">
+                <td class="date">{{data.bed_no}}</td>
+                <td class="date">{{data.patient_id}}</td>
+                <td class="date">
+                    <span :class="data.sex | convSexStringToParma">
+                        {{data.paitent_name}}({{data.birthday | convBirthdayToAge}})
+                    </span>
+                </td>
+                <td class="date">{{data.employee_name}}</td>
+                <td class="date">{{data.nurse_name}}</td>
+                <td>({{data.major_assess_id}})<span style="opacity: 0">{{data.icd_desc}}</span></td>
+                <td class="date">{{data.data_note}}</td>
             </tr>
             </tbody>
         </table>
     </div>
     <div class="clearfix"></div>
-    <div>
+    <div class="">
         <h1><span><i class="fa fa-check-square-o" aria-hidden="true"></i> 出院 / 轉出</span></h1>
         <table class="overflow-y">
             <thead>
@@ -116,92 +57,35 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td class="date"><span class="female">瑪莉亞○莉(36)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td class="date">已出院</td>
-                <td class="date">20151002</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td><span class="male">古○樂(41)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td class="date">已出院</td>
-                <td class="date">20151002</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td class="date"><span class="female">鄭○文(36)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td class="date">已出院</td>
-                <td class="date">20151002</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td><span class="male">古○樂(41)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td class="date">已出院</td>
-                <td class="date">20151002</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td class="date"><span class="female">鄭○文(36)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td class="date">已出院</td>
-                <td class="date">20151002</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td><span class="male">古○樂(41)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td class="date">已出院</td>
-                <td class="date">20151002</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td class="date"><span class="female">鄭○文(36)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td class="date">已出院</td>
-                <td class="date">20151002</td>
-            </tr>
-            <tr>
-                <td class="date">07-03</td>
-                <td class="date">12T08125840</td>
-                <td><span class="male">古○樂(41)</span></td>
-                <td class="date">廖駿</td>
-                <td class="date">楊銹惠</td>
-                <td class="date">已出院</td>
-                <td class="date">20151002</td>
+            <tr v-for="data in outTranList">
+                <td class="date">{{data.bed_no}}</td>
+                <td class="date">{{data.patient_id}}</td>
+                <td class="date">
+                    <span :class="data.sex | convSexStringToParma">
+                        {{data.paitent_name}}({{data.birthday | convBirthdayToAge}})
+                    </span>
+                </td>
+                <td class="date">{{data.employee_name}}</td>
+                <td class="date">{{data.nurse_name}}</td>
+                <td class="date">{{data.data_mode}}</td>
+                <td class="date">{{data.data_note}}</td>
             </tr>
             </tbody>
         </table>
     </div>
     <div class="clearfix"></div>
     <div class="btn_group btn_group_bottom">
-        <a href="#" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> 前一天</a>
-        <span>2016-11-11</span>
-        <a href="#" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
+        <a @click="fetchPreDay" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> 前一天</a>
+        <span>{{queryDate}}</span>
+        <a @click="fetchNextDay" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
     </div>
 </div>
 
 <%- include('../Common/eBoardFooter', {func: 'in_out_info'}) %>
 
 <%- include ../Common/importJSFiles.ejs %>
+
+<script src="/js/EWhiteBoard/in_out_info.js"></script>
 
 </body>
 

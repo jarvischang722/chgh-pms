@@ -8,6 +8,7 @@ var parseString = require('xml2js').parseString;
 var commonTools = require("../utils/commonTools");
 var request= require("request");
 var SystemConfig = require("../configs/SystemConfig");
+var alasql = require('alasql');
 
 /**
  * 取得病房所有病床資訊

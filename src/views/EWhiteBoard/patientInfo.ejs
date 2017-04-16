@@ -25,7 +25,7 @@
                 死亡：<span class="red">{{dayBeforeInfo.death_num}}</span>
                 <div class="room_des_right_2">
                     全部<a href="#" class="btn" style="background-color: #404040; color: #ffffff !important;"><small>{{allPatientInfo.length}}</small></a>
-                   空床<a href="#" class="btn empty" style="background: none; box-sizing: border-box;"><small style="height: 21px; line-height: 21px;">3</small></a>
+                   空床<a href="#" class="btn empty" style="background: none; box-sizing: border-box;"><small style="height: 21px; line-height: 21px;">{{50 - allPatientInfo.length}}</small></a>
                 </div>
             </div>
             <div class="room_des_right">
@@ -59,7 +59,7 @@
                     <!-- <span class="cond_dot cond_blue"></span> -->
                 </div>
             </div>
-            <p><span class="label">姓名：</span><span>{{patient.patient_name}}(41)</span></p>
+            <p><span class="label">姓名：</span><span>{{patient.patient_name}}({{patient.birthday | convBirthdayToAge}})</span></p>
             <p><span class="label">主治：</span><span class="doctor">{{patient.employee_name}}</span></p>
             <p><span class="label">專科護理師：</span><span>{{patient.nurse_name}}</span><small class="red">{{patient.nurse_id}}</small></p>
             <p><span class="label">護理師：</span><span></span></p>

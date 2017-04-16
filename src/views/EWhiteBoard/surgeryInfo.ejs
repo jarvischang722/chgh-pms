@@ -42,7 +42,7 @@
                     <td class="date">{{surgery.op_room}}</td>
                     <td class="date">{{surgery.operate_time}}</td>
                     <td class="date">{{surgery.bed_num}}</td>
-                    <td class="date"><span :class="surgery.sex | convSexStringToParma">{{surgery.patient_name}}({{surgery.patient_age}})</span></td>
+                    <td class="date"><span :class="surgery.sex | convSexStringToParma">{{surgery.patient_name}}({{surgery.birthday | convBirthdayToAge}})</span></td>
                     <td >{{surgery.operate_name}}</td>
                     <td >{{surgery.diagnosis_ENG_name}}</td>
                     <td class="date">{{surgery.Narcotization}}</td>
