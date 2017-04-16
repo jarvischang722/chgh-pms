@@ -46,6 +46,9 @@ router.post('/api/fetchInTranInfo/', middleWares ,EWhiteBoard.fetchInTranInfo);
 router.post('/api/fetchOutTranInfo/', middleWares ,EWhiteBoard.fetchOutTranInfo);
 
 //檢查治療
+router.post('/api/fetchExamScheduleInfo/', middleWares ,EWhiteBoard.fetchExamScheduleInfo);
+
+//檢查治療
 router.post('/api/examScheduleInfo/', middleWares ,EWhiteBoard.fetchExamScheduleInfo);
 
 

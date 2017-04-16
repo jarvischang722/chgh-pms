@@ -243,7 +243,6 @@ exports.getNurseSche = function (req, res) {
  * 取得全部病患資訊
  */
 exports.fetchAllPatientInfo = function(req, res){
-
     EWhiteBoardService.handlePatientInfo(req.body,function (err,allPatientInfo) {
         res.json({success:_.isNull(err) , errorMsg:err,allPatientInfo:allPatientInfo});
     })

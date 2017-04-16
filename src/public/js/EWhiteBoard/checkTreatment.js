@@ -25,7 +25,7 @@ var vmMain = new Vue({
                 StratDate :this.queryDateString,
                 EndDate :this.queryDateString
             };
-            $.post("/eWhiteBoard/api/examScheduleInfo/",params,function (result) {
+            $.post("/eWhiteBoard/api/fetchExamScheduleInfo/",params,function (result) {
                 vmMain.isReady = true;
                 vmMain.checkTreatmentList = result.examScheduleInfo;
             });
