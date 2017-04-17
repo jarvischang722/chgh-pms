@@ -13,11 +13,12 @@ var EWhiteBoardService = require("../services/EWhiteBoardService");
 var DashBoardWebService  = require("../services/DashBoardWebService");
 
 /**
- * 病床狀態
+ * 病患資訊
  * **/
-exports.bedStatus = function(req, res, next){
-    res.render('EWhiteBoard/bedStatus' );
+exports.index = function(req, res, next){
+    res.redirect('/eWhiteBoard/patientInfo' );
 };
+
 
 /**
  * 病患資訊
@@ -238,4 +239,57 @@ exports.getNurseSche = function (req, res) {
 };
 
 
+/**
+ * 取得全部病患資訊
+ */
+exports.fetchAllPatientInfo = function(req, res){
+    EWhiteBoardService.handlePatientInfo(req.body,function (err,allPatientInfo) {
+        res.json({success:_.isNull(err) , errorMsg:err,allPatientInfo:allPatientInfo});
+    })
+};
 
+/**
+ * 取得單一病患資訊
+ */
+exports.fetchSinglePatientInfo = function(req, res){
+    EWhiteBoardService.handleSinglePatientInfo(req.body,function (err,patientInfo) {
+        res.json({success:_.isNull(err) , errorMsg:err,patientInfo:patientInfo});
+    })
+};
+
+/**
+ * 取得前一天動態資訊
+ */
+exports.fetchDayBeforeInfo = function(req, res){
+    EWhiteBoardService.handleDayBeforeInfo(req.body,function (err,DayBeforeInfo) {
+        res.json({success:_.isNull(err) , errorMsg:err,dayBeforeInfo:DayBeforeInfo});
+    })
+};
+
+
+/**
+ * 取得入院轉入資料
+ */
+exports.fetchInTranInfo = function(req, res){
+    EWhiteBoardService.handleInTranInfo(req.body,function (err,InTranInfo) {
+        res.json({success:_.isNull(err) , errorMsg:err,inTranInfo:InTranInfo});
+    })
+};
+
+/**
+ * 取得出院轉出資料
+ */
+exports.fetchOutTranInfo = function(req, res){
+    EWhiteBoardService.handleOutTranInfo(req.body,function (err,OutTranInfo) {
+        res.json({success:_.isNull(err) , errorMsg:err,outTranInfo:OutTranInfo});
+    })
+};
+
+/**
+ *  檢查排程資訊
+ */
+exports.fetchExamScheduleInfo = function (req, res) {
+    EWhiteBoardService.handleExamScheduleInfo(req.body,function (err,ExamScheduleInfo) {
+        res.json({success:_.isNull(err) , errorMsg:err,examScheduleInfo:ExamScheduleInfo});
+    })
+};
