@@ -31,7 +31,8 @@ router.post('/api/qrySurgeryInfo/', middleWares ,EWhiteBoard.qrySurgeryInfo);
 //護理師排班
 router.get('/api/getNurseSche/', middleWares ,EWhiteBoard.getNurseSche);
 
-
+//醫師值班
+router.post('/api/getDoctorOnDuty/', middleWares ,EWhiteBoard.getDoctorOnDuty);
 
 
 module.exports = router;

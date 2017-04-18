@@ -148,10 +148,10 @@
                         <tr v-for="result in results">
                             <td>{{ result.nurse_name}}</td>
                             <td>
-                                <!-- 增加編組badge 20161110 START -->
-                                <a v-for="this_bed in result.this_bedList" href="#rooms_modal" class="bed_label">{{ this_bed.wardbed}}</a> <!-- class="bed_label new" -->
-                                <!-- <a href="#rooms_modal" class="bed_label new">07-05</a>-->
-                                <!-- 增加編組badge 20161110 END -->
+                                <template v-for="this_bed in result.this_bedList">
+                                    <a v-if="this_bed.isNew==true" href="#rooms_modal" class="bed_label new">{{ this_bed.wardbed}}</a>
+                                    <a v-if="this_bed.isNew==false" href="#rooms_modal" class="bed_label">{{ this_bed.wardbed}}</a>
+                                </template>
                             </td>
                             <td>
                                 <span class="badge badge_1">{{ result.mission_group_name}}</span>
@@ -175,10 +175,10 @@
                         <tr v-for="result in results">
                             <td>{{ result.nurse_name}}</td>
                             <td>
-                                <!-- 增加編組badge 20161110 START -->
-                                <a v-for="this_bed in result.this_bedList" href="#rooms_modal" class="bed_label">{{ this_bed.wardbed}}</a> <!-- class="bed_label new" -->
-                                <!-- <a href="#rooms_modal" class="bed_label new">07-05</a>-->
-                                <!-- 增加編組badge 20161110 END -->
+                                <template v-for="this_bed in result.this_bedList">
+                                    <a v-if="this_bed.isNew==true" href="#rooms_modal" class="bed_label new">{{ this_bed.wardbed}}</a>
+                                    <a v-if="this_bed.isNew==false" href="#rooms_modal" class="bed_label">{{ this_bed.wardbed}}</a>
+                                </template>
                             </td>
                             <td>
                                 <span class="badge badge_1">{{ result.mission_group_name}}</span>
@@ -202,10 +202,10 @@
                         <tr v-for="result in results">
                             <td>{{ result.nurse_name}}</td>
                             <td>
-                                <!-- 增加編組badge 20161110 START -->
-                                <a v-for="this_bed in result.this_bedList" href="#rooms_modal" class="bed_label">{{ this_bed.wardbed}}</a> <!-- class="bed_label new" -->
-                                <!-- <a href="#rooms_modal" class="bed_label new">07-05</a>-->
-                                <!-- 增加編組badge 20161110 END -->
+                                <template v-for="this_bed in result.this_bedList">
+                                    <a v-if="this_bed.isNew==true" href="#rooms_modal" class="bed_label new">{{ this_bed.wardbed}}</a>
+                                    <a v-if="this_bed.isNew==false" href="#rooms_modal" class="bed_label">{{ this_bed.wardbed}}</a>
+                                </template>
                             </td>
                             <td>
                                 <span class="badge badge_1">{{ result.mission_group_name}}</span>

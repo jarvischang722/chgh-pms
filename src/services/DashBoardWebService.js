@@ -4,10 +4,13 @@
  */
 var fs = require("fs");
 var _ = require("underscore");
+var alasql = require("alasql");
 var parseString = require('xml2js').parseString;
 var commonTools = require("../utils/commonTools");
 var request= require("request");
 var SystemConfig = require("../configs/SystemConfig");
+var async = require('async');
+var moment = require("moment");
 
 /**
  * 取得病房所有病床資訊
@@ -19,6 +22,15 @@ var SystemConfig = require("../configs/SystemConfig");
  *        }
  */
 exports.getNurPatient = function (formData,callback) {
+    fs.readFile(__dirname+'/../testData/NurPatient.xml', 'utf8', function(err, apiResult) {
+
+        parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
+            var NurPatient = JSON.parse(result.string);
+            callback(err , NurPatient);
+        });
+
+    });
+    /*
     request.post({url:SystemConfig.web_service_url+"Get_nur_Patient",form:formData},function (error, response, apiResult) {
       
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
@@ -27,6 +39,7 @@ exports.getNurPatient = function (formData,callback) {
         });
 
     });
+    */
 };
 
 /**
@@ -179,8 +192,22 @@ exports.getExamScheduleInfo = function (formData,callback) {
  *            NisDutySchedule{Array} : 排程資訊
  *        }
  */
-exports.getNisDutySchedule = function (formData,callback) {
+exports.getNisDutySchedule = function (formData, callback) {
 
+    var checkValError = commonTools.checkParamsExist(['Query_date'], formData);
+    if (checkValError) {
+        return callback(checkValError, []);
+    }
+
+    fs.readFile(__dirname+'/../testData/NisDutySchedule.xml', 'utf8', function(err, apiResult) {
+
+        parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
+            var nisDutySchedule = JSON.parse(result.string);
+            callback(err , nisDutySchedule);
+        });
+
+    });
+    /*
     var checkValError = commonTools.checkParamsExist(['Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
@@ -194,6 +221,111 @@ exports.getNisDutySchedule = function (formData,callback) {
         });
 
     });
+    */
+};
+
+exports.processNurseSche = function (data,callback) {
+
+    async.parallel({
+        scheduleData: function (callback) {
+            exports.getNisDutySchedule(data, function (err, schedule) {
+                callback(err, schedule);
+            })
+        },
+        patientData: function (callback) {
+            exports.getNurPatient(data, function (err, patient) {
+                callback(err, patient)
+            })
+        }
+    }, function (err, results) {
+        var result = alasql('SELECT schedule.*, patient.in_hospital_date ' +
+            'FROM ? schedule LEFT JOIN ? patient USING bed_no ',
+            [results.scheduleData, results.patientData]);
+
+        var classBedObj = {};
+        var today = moment().format("YYYYMMDD");
+        for (var i = 0; i < result.length; i++) {
+            var nurse_no = result[i].employee_id;
+            var nurse_name = result[i].employee_name;
+            var ward_id = result[i].bed_no; //病房
+            var bed_name = result[i].bed_no; //病床
+            var fire_control_group_name = result[i].group_name;
+            var mission_group_name = result[i].group_name;
+            var class_id = result[i].schedule_type; //早班 中班 晚班
+            var in_hospital_date = result[i].in_hospital_date; //入院日
+
+            var thisClassObjByWard; //依班別->病房顯示
+            var wardObj;
+            var wardList;
+            var thisClassObjByNurse; //依班別->護理師顯示
+            var nurseObj;
+            var nurseList;
+            if (class_id in classBedObj) {
+                //依班別->病房顯示
+                thisClassObjByNurse = classBedObj[class_id]['ward'];
+                wardObj = thisClassObjByNurse['wardObj'];
+                wardList = thisClassObjByNurse['wardList'];
+                //依班別->護理師顯示
+                thisClassObjByNurse = classBedObj[class_id]['nurse'];
+                nurseObj = thisClassObjByNurse['nurseObj'];
+                nurseList = thisClassObjByNurse['nurseList'];
+            } else {
+                //依班別->病房顯示
+                wardObj = {};
+                wardList = [];
+                thisClassObjByWard = {'class_id': class_id, 'wardObj': wardObj, 'wardList': wardList};
+                //依班別->護理師顯示
+                nurseObj = {};
+                nurseList = [];
+                thisClassObjByNurse = {'class_id': class_id, 'nurseObj': nurseObj, 'nurseList': nurseList};
+                classBedObj[class_id] = {'ward': thisClassObjByWard, 'nurse': thisClassObjByNurse};
+            }
+            //依班別->病房顯示
+            if (ward_id in wardObj) {
+                var thisWardObj = wardObj[ward_id];
+                var this_wardList = thisWardObj['this_wardList'];
+            } else {
+                var this_wardList = [];
+                var thisWardObj = {'ward_id': ward_id, 'this_wardList': this_wardList};
+                wardList.push(thisWardObj);
+                wardObj[ward_id] = thisWardObj;
+            }
+            var tmpWardObj = {
+                'bed_name': bed_name, 'nurse_name': nurse_name,
+                'fire_control_group_name': fire_control_group_name,
+                'mission_group_name': mission_group_name
+            };
+            this_wardList.push(tmpWardObj);
+            //依班別->護理師顯示
+            if (nurse_no in nurseObj) {
+                var thisNurseObj = nurseObj[nurse_no];
+                var this_bedList = thisNurseObj['this_bedList'];
+            } else {
+                var this_bedList = [];
+                var thisNurseObj = {
+                    'nurse_no': nurse_no,
+                    'nurse_name': nurse_name,
+                    'fire_control_group_name': fire_control_group_name
+                    ,
+                    'mission_group_name': mission_group_name,
+                    'this_bedList': this_bedList
+                };
+                nurseList.push(thisNurseObj);
+                nurseObj[nurse_no] = thisNurseObj;
+            }
+            //var tmpNurseObj = {'ward-bed': ward_id + "-" + bed_name};
+            var isNew;
+            if(today==in_hospital_date){
+                isNew = true;
+            }else{
+                isNew = false;
+            }
+            var tmpNurseObj = {'wardbed': bed_name,'in_hospital_date':in_hospital_date,'isNew':isNew};
+            this_bedList.push(tmpNurseObj);
+        }
+
+        callback(err, classBedObj);
+    })
 };
 
 /**
@@ -255,7 +387,8 @@ exports.getShiftCollectList = function (formData,callback) {
     request.post({url:SystemConfig.web_service_url+"ShiftCollectList",form:formData},function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
-            var shiftCollectList = JSON.parse(result.string).ShiftCollect;
+            //var shiftCollectList = JSON.parse(result.string).ShiftCollect;
+            var shiftCollectList = JSON.parse(result.string);
             callback(err , shiftCollectList);
         });
 
