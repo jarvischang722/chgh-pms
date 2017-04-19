@@ -196,3 +196,6 @@ $('input[name=doctor_1]').click(function() {
     $('.doctor_radio_pool').html(this.value);
 });
 
+$('.color_picker').minicolors({
+    position: 'bottom right',
+});
