@@ -173,6 +173,13 @@ ul {
     padding-bottom: 80px;
 }
 
+.container_inner {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
 .container.container_1500 {
     width: 1500px;
     padding-right: 0;
@@ -1251,9 +1258,17 @@ header {
     padding: 0 30px;
 }
 
-#head .head_right_nav span.room_number {
+#head .room_number {
     font-size: 32px;
     color: #ff9900;
+}
+
+#head h4.head_time {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    right: 0;
 }
 
 #setting {
@@ -1563,11 +1578,20 @@ header {
     background: linear-gradient(to right, #e67781 0%, #e67781 50%, #fbbc05 50%, #fbbc05 100%);
 }
 
+.empty_bed {
+    color: #404040;
+    line-height: 100px;
+    text-align: center;
+    display: block;
+    margin: 0 0 15px;
+    font-weight: bold;
+}
+
 .cond_dots_list {
     position: absolute;
-    right: 5px;
-    top: 0px;
-    width: 52px;
+    right: 10px;
+    top: 4px;
+    width: 75px;
     line-height: 12px;
     text-align: right;
 }
@@ -1602,15 +1626,14 @@ header {
 }
 
 .cond_yellow:before {
-    content: "\f12d";
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-    /*--adjust as necessary--*/
-    color: #ea4335;
-    font-size: 18px;
+    content: "";
+    background-image: url(../images/scalpel.png);
     position: absolute;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    display: inline-block;
+    top: -3px;
 }
 
 .cond_green {
@@ -1713,7 +1736,7 @@ header {
     width: 100%;
     height: 30px;
     line-height: 30px;
-    background-color: #e2e7ed;
+    background-color: #ffffff;
     text-align: left;
     font-size: 18px;
     font-weight: bold;
@@ -1734,7 +1757,7 @@ header {
     width: 100%;
     height: 30px;
     line-height: 30px;
-    background-color: #e2e7ed;
+    background-color: #ffffff;
     text-align: left;
     font-size: 18px;
     font-weight: bold;
@@ -1789,6 +1812,18 @@ header {
     margin: 0 10px 0 20px;
 }
 
+.cond_dots_list  .cond_dot {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+.cond_dots_list  .cond_dot:before {
+    position: static;
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+}
 
 /* beds */
 
@@ -1978,7 +2013,7 @@ header {
 }
 
 #ope_list .sticky-wrap.overflow-y {
-    max-height: 74vh;
+    max-height: 69vh;
     margin: 0;
 }
 
@@ -1987,7 +2022,7 @@ header {
 
 .nurse_tabs .sticky-wrap {
     margin: 0;
-    max-height: 67vh;
+    max-height: 65vh;
 }
 
 .sticky-wrap .sticky-thead {
@@ -1996,7 +2031,7 @@ header {
 
 .nurse_tabs .nurse_tabs_nested .sticky-wrap {
     margin: 0;
-    max-height: 72vh;
+    max-height: 68vh;
 }
 
 .nurse_tabs .sticky-wrap tr {
@@ -2015,7 +2050,7 @@ table tr.active {
 
 .todo_list {
     width: 100%;
-    height: 67vh;
+    height: 65vh;
     padding: 20px;
     box-sizing: border-box;
     background-color: #e2e7ed;
@@ -2067,7 +2102,7 @@ table tr.active {
 #in_and_out .sticky-wrap {
     margin: 0;
     margin-bottom: 0px;
-    height: 33vh;
+    height: 30vh;
 }
 
 #in_and_out .no_data .sticky-wrap:after {
@@ -2126,9 +2161,9 @@ table tr.active {
 }
 
 #out .sticky-wrap.overflow-y {
-    max-height: 73vh;
-    height: 73vh;
-    margin: 15px 0;
+    max-height: 74vh;
+    height: 74vh;
+    margin: 0;
 }
 
 #out.no_data .sticky-wrap:after {
@@ -2154,6 +2189,7 @@ table tr.active {
 
 .pws_tabs_list {
     border: solid 1px #ccc;
+    border-radius: 10px 10px 0 10px;
 }
 
 .pws_tabs_container.pws_theme_grey ul.pws_tabs_controll li a {
@@ -2241,13 +2277,20 @@ table tr.active {
 
 .pws_tabs_list .pws_tabs_list {
     background-color: #f5f5f5;
-    padding: 0;
+    padding: 10px;
 }
 
 .has_nested_tabs .pws_tabs_list {
     padding: 0;
     border: none;
     background: none;
+    border-radius: 0;
+}
+
+.has_nested_tabs .pws_tabs_list .pws_tabs_list {
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    background-color: #ffffff;
 }
 
 .has_nested_tabs>.pws_tabs_container {
@@ -2847,4 +2890,12 @@ footer {
     white-space: nowrap;
     display: inline;
     width: auto;
+}
+
+.schedule_table tbody tr:nth-child(2n-1) {
+    background-color: #ffffff;
+}
+
+.schedule_table tbody tr.has_background_color {
+    background-color: rgba(255, 182, 148, 1);
 }

@@ -19,10 +19,10 @@
 <body>
     <header>
         <div id="head">
-            <img id="logo" src="images/logo.png">
-            <h4>2016/11/11 PM 12:12:12</h4>
+            <h4><span class="room_number">5A</span></h4>
+            <h4 class="head_time">2016/11/11 PM 12:12:12</h4>
             <div class="head_right_nav">
-                <h4><span class="room_number">5A</span></h4>
+                <img id="logo" src="images/logo.png">
             </div>
         </div>
     </header>
@@ -36,18 +36,19 @@
     </div>
     <!-- 原來的header區塊改成這樣了 20161109 END -->
     <div class="container container_higher" id="in_and_out">
+        <div class="container_inner">
         <div>
             <h1><span><i class="fa fa-plus-square-o" aria-hidden="true"></i> 入院 / 轉入</span></h1>
             <table class="overflow-y">
                 <thead>
                     <tr>
-                        <th>病床</th>
-                        <th>病例號碼</th>
-                        <th>病患</th>
-                        <th>主治醫師</th>
-                        <th>護理師</th>
+                        <th style="width: 200px;">病床</th>
+                        <th style="width: 200px;">病例號碼</th>
+                        <th style="width: 200px;">病患</th>
+                        <th style="width: 200px;">主治醫師</th>
+                        <th style="width: 200px;">護理師</th>
                         <th>診斷</th>
-                        <th>備註</th>
+                        <th style="width: 200px;">備註</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -132,13 +133,13 @@
             <table class="overflow-y">
                 <thead>
                     <tr>
-                        <th>病床</th>
-                        <th>病例號碼</th>
-                        <th>病患</th>
-                        <th>主治醫師</th>
-                        <th>護理師</th>
+                        <th style="width: 200px;">病床</th>
+                        <th style="width: 200px;">病例號碼</th>
+                        <th style="width: 200px;">病患</th>
+                        <th style="width: 200px;">主治醫師</th>
+                        <th style="width: 200px;">護理師</th>
                         <th>狀態</th>
-                        <th>備註</th>
+                        <th style="width: 200px;">備註</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -220,8 +221,9 @@
         <div class="clearfix"></div>
         <div class="btn_group btn_group_bottom">
             <a href="#" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> 前一天</a>
-            <span>2016-11-11</span>
+            <span style="color: #000000;">2016-11-11</span>
             <a href="#" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
+        </div>
         </div>
     </div>
     <!-- 原來的footer變這樣 20161109 START -->

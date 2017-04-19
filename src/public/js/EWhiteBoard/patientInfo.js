@@ -21,15 +21,17 @@ var vmMain = new Vue({
     mounted: function () {
         this.fetchPatientInfo();
         this.fetchDayBeforeInfo();
-
-    },
+        this.fetchBedInfo();
+    }
+    ,
     data: {
 
         allPatientInfo : [],  //全部病患
         patientInfo :{},      //單一病患資訊
         DNRCount :0,
         CriticalCount :0,
-        dayBeforeInfo :{}      //前一日動態訊息
+        dayBeforeInfo :{},      //前一日動態訊息
+        bedInfo :{}         //床位數資訊
     },
     watch:{
 
@@ -55,6 +57,12 @@ var vmMain = new Vue({
 
             })
          },
+        //抓取病患資訊
+        fetchBedInfo : function(){
+            $.post("/eWhiteBoard/api/fetchNurBedInfo/", function(result){
+                vmMain.bedInfo = result.bedInfo || {};
+            })
+        },
          //取一筆病患
          fetchSinglePatientInfo : function (nur_id,patient_id) {
 

@@ -23,3 +23,11 @@
 <!-- VUE JS 套件 -->
 <script type="text/javascript" src="/js/vue/vue.min.js"></script>
 <script type="text/javascript" src="/js/vue/vueCommonFilter.js"></script>
+
+<script>
+    update();
+    setInterval(update, 1000);
+    function update() {
+        $("#datetimeH4").html(moment().format('YYYY/MM/DD A hh:mm:ss'));
+    }
+</script>

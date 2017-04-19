@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<string
+xmlns="http://tempuri.org/">[{"nur_id":"93","employee_id":"6008","employee_n
+ame":"³\¤å·O","schedule_type":"A","on_time":"2017/3/26 ¤W¤
+ 08:00:00","off_time":"2017/3/26 ¤U¤È 03:59:59","bed_no":"93
+28H","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+29H","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+30I","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+31I","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+32J","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+33J","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+35K","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+36K","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+37K","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+38K","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+39L","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+40L","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"6008","employee_name":"³\¤å·O","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+41L","call_number":"0972700801","group_name":"²Ä¤T²Õ","leader_flag":"0","sch
+edule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+02A","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+03A","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+05A","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+06B","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+07B","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+08B","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+09B","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+10C","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+11C","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"7790","employee_name":"¼B¬î¼z","sch
+edule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+12C","call_number":"0963955439","group_name":"²Ä¤@²Õ,Á×Ãø¤Þ¾É¯Z","leader_fla
+g":"0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+42L","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+43M","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+45M","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+46M","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+47M","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+48N","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+49N","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+50N","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+51N","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+52O","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È
+12:00:00"},{"nur_id":"93","employee_id":"F105293","employee_name":"¾G¥ç¬Â","
+schedule_type":"A","on_time":"2017/3/26 ¤W¤È 08:00:00","off_time":"2017/3/26
+¤U¤È 03:59:59","bed_no":"93
+53O","call_number":"0975185022","group_name":"²Ä¥|²Õ,·À¤õ¯Z","leader_flag":"
+0","schedule_date":"2017/3/26 ¤W¤È 12:00:00"}]</string>

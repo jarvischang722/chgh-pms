@@ -1,3 +1,12 @@
+Vue.component('nurse-info-tmp', {
+    template: '#nurseInfoTmp',
+    props: [],
+    data: function () {
+        return {}
+    },
+    methods: {}
+});
+
 $(function () {
     initialize(); //初始執行
     //body dom event
@@ -13,8 +22,6 @@ function initialize(){
         url: "api/getNurseSche"
     })
         .done(function( result_obj ) {
-            console.log(result_obj);
-
             var sche = result_obj.result;
             //依病房排班顯示
             createTemp01(sche,"A","nurse_tabs_nested_A");
@@ -42,27 +49,55 @@ function createTemp01(sche,thisclass,divid){
         wardList01 = classobj.wardList;
         wardList02;
         var count = wardList01.length;
-        if(count>=18){
+
+        //排序
+        wardList01.sort(function(a, b){
+            return a["ward_id"]-b["ward_id"]
+        });
+
+        if(count>=80){
             wardList02 = wardList01.slice(count/2);
             wardList01 = wardList01.slice(0,count/2);
-        }else if(count>=9){
-            wardList02 = wardList01.slice(9);
-            wardList01 = wardList01.slice(0,9);
+        }else if(count>=40){
+            wardList02 = wardList01.slice(40);
+            wardList01 = wardList01.slice(0,40);
         }else{
             wardList02=[];
         }
     }
 
+    //每4個一組
+    var wardListA=[];
+    var tmpList=[];
+    for(var i=0;i<wardList01.length;i++){
+        if(i%4==0){
+            tmpList = new Array();
+            wardListA.push(tmpList);
+        }
+        tmpList.push(wardList01[i]);
+    }
+
+    var wardListB=[];
+    var tmpList=[];
+    for(var i=0;i<wardList02.length;i++){
+        if(i%4==0){
+            tmpList = new Array();
+            wardListB.push(tmpList);
+        }
+        tmpList.push(wardList02[i]);
+    }
+
+
     var result_tbody1 = new Vue({
         el: '#'+divid+'_1',
         data: {
-            results: wardList01
+            results: wardListA
         }
     });
     var result_tbody2 = new Vue({
         el: '#'+divid+'_2',
         data: {
-            results: wardList02
+            results: wardListB
         }
     });
 }
