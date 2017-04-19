@@ -8,34 +8,32 @@ var Logger = require("../plugins/Log4js").Logger();
 var moment = require("moment");
 var request = require('request');
 var parseString = require('xml2js').parseString;
-
+var alasql = require('alasql');
 
 /**
  * 取得手術資料
  * @param postData
  * @param callback
  */
-exports.handleSurgeryInfo  = function(postData,callback){
+exports.handleSurgeryInfo = function (postData, callback) {
 
     async.parallel({
-        surgeryInfo: function(callback) {
-            DashBoardWebSvc.getOpScheduleInfo(postData,function(err , opScheduleInfo){
+        surgeryInfo: function (callback) {
+            DashBoardWebSvc.getOpScheduleInfo(postData, function (err, opScheduleInfo) {
                 callback(err, opScheduleInfo);
             })
         },
-        patientInfo: function(callback) {
-            DashBoardWebSvc.getNurPatient(postData,function(err,NurPatient){
+        patientInfo: function (callback) {
+            DashBoardWebSvc.getNurPatient(postData, function (err, NurPatient) {
                 callback(err, NurPatient);
             })
         }
-    }, function(err, results) {
-        if(err){
-            return callback(err,[]);
+    }, function (err, results) {
+        if (err) {
+            return callback(err, []);
         }
-        var  surgeryInfo = results.surgeryInfo;
-        var  patientInfo = results.patientInfo;
-
-        callback(null,surgeryInfo);
+        var surgeryInfo = alasql('SELECT si.*, pi.*  FROM ? si INNER JOIN ? pi USING patient_id', [results.surgeryInfo, results.patientInfo]);
+        callback(null, surgeryInfo);
     });
 
 };
@@ -47,19 +45,19 @@ exports.handleSurgeryInfo  = function(postData,callback){
  * nurse_bed_assignment 護理師病床分派{id, nurse_id, bed_id, class, assign_date}
  * nurse 護士
  * */
-exports.getNurseSche = function(req,callback){
+exports.getNurseSche = function (req, callback) {
 
     request.post(
         'http://localhost:8889/EWhiteBoard/api/nis_duty_schedule_api',
-        { json: { Query_date: expect_discharged_date } },
+        {json: {Query_date: expect_discharged_date}},
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 parseString(body, function (err, result) {
                     var result = JSON.parse(result.string._);
-                    var classBedObj={};
+                    var classBedObj = {};
                     console.log(result);
-                    if(result!=null && result.length>0){
-                        for(var i=0;i<result.length;i++){
+                    if (result != null && result.length > 0) {
+                        for (var i = 0; i < result.length; i++) {
                             var nurse_no = result[i].employee_id;
                             var nurse_name = result[i].employee_name;
                             var ward_id = result[i].nur_id;
@@ -74,60 +72,205 @@ exports.getNurseSche = function(req,callback){
                             var thisClassObjByNurse; //依班別->護理師顯示
                             var nurseObj;
                             var nurseList;
-                            if(class_id in classBedObj){
+                            if (class_id in classBedObj) {
                                 //依班別->病房顯示
                                 thisClassObjByNurse = classBedObj[class_id]['ward'];
-                                wardObj=thisClassObjByNurse['wardObj'];
-                                wardList=thisClassObjByNurse['wardList'];
+                                wardObj = thisClassObjByNurse['wardObj'];
+                                wardList = thisClassObjByNurse['wardList'];
                                 //依班別->護理師顯示
                                 thisClassObjByNurse = classBedObj[class_id]['nurse'];
-                                nurseObj=thisClassObjByNurse['nurseObj'];
-                                nurseList=thisClassObjByNurse['nurseList'];
-                            }else{
+                                nurseObj = thisClassObjByNurse['nurseObj'];
+                                nurseList = thisClassObjByNurse['nurseList'];
+                            } else {
                                 //依班別->病房顯示
-                                wardObj={};
+                                wardObj = {};
                                 wardList = [];
-                                thisClassObjByWard = {'class_id':class_id,'wardObj':wardObj,'wardList':wardList};
+                                thisClassObjByWard = {'class_id': class_id, 'wardObj': wardObj, 'wardList': wardList};
                                 //依班別->護理師顯示
-                                nurseObj={};
+                                nurseObj = {};
                                 nurseList = [];
-                                thisClassObjByNurse = {'class_id':class_id,'nurseObj':nurseObj,'nurseList':nurseList};
-                                classBedObj[class_id] = {'ward':thisClassObjByWard,'nurse':thisClassObjByNurse};
+                                thisClassObjByNurse = {
+                                    'class_id': class_id,
+                                    'nurseObj': nurseObj,
+                                    'nurseList': nurseList
+                                };
+                                classBedObj[class_id] = {'ward': thisClassObjByWard, 'nurse': thisClassObjByNurse};
                             }
                             //依班別->病房顯示
-                            if(ward_id in wardObj){
+                            if (ward_id in wardObj) {
                                 var thisWardObj = wardObj[ward_id];
                                 var this_wardList = thisWardObj['this_wardList'];
-                            }else{
+                            } else {
                                 var this_wardList = [];
-                                var thisWardObj = {'ward_id':ward_id,'this_wardList':this_wardList};
+                                var thisWardObj = {'ward_id': ward_id, 'this_wardList': this_wardList};
                                 wardList.push(thisWardObj);
                                 wardObj[ward_id] = thisWardObj;
                             }
-                            var tmpWardObj={'bed_name':bed_name,'nurse_name':nurse_name,
-                                'fire_control_group_name':fire_control_group_name,
-                                'mission_group_name':mission_group_name};
+                            var tmpWardObj = {
+                                'bed_name': bed_name, 'nurse_name': nurse_name,
+                                'fire_control_group_name': fire_control_group_name,
+                                'mission_group_name': mission_group_name
+                            };
                             this_wardList.push(tmpWardObj);
                             //依班別->護理師顯示
-                            if(nurse_no in nurseObj){
+                            if (nurse_no in nurseObj) {
                                 var thisNurseObj = nurseObj[nurse_no];
                                 var this_bedList = thisNurseObj['this_bedList'];
-                            }else{
+                            } else {
                                 var this_bedList = [];
-                                var thisNurseObj = {'nurse_no':nurse_no,'nurse_name':nurse_name,'fire_control_group_name':fire_control_group_name
-                                    ,'mission_group_name':mission_group_name,'this_bedList':this_bedList};
+                                var thisNurseObj = {
+                                    'nurse_no': nurse_no,
+                                    'nurse_name': nurse_name,
+                                    'fire_control_group_name': fire_control_group_name
+                                    ,
+                                    'mission_group_name': mission_group_name,
+                                    'this_bedList': this_bedList
+                                };
                                 nurseList.push(thisNurseObj);
                                 nurseObj[nurse_no] = thisNurseObj;
                             }
-                            var tmpNurseObj={'ward-bed':ward_id+"-"+bed_name};
+                            var tmpNurseObj = {'ward-bed': ward_id + "-" + bed_name};
                             this_bedList.push(tmpNurseObj);
                         }
                     }
                     callback(classBedObj);
                 });
-            }else{
-                callback(false,"9999");
+            } else {
+                callback(false, "9999");
             }
         }
     );
+};
+
+
+/**
+ * 取得病患資訊
+ * @param postData
+ * @param callback
+ */
+exports.handlePatientInfo = function (postData, callback) {
+
+    async.parallel({
+        patientInfo: function (callback) {
+            DashBoardWebSvc.getNurPatient(postData, function (err, NurPatient) {
+                callback(err, NurPatient);
+            })
+        }
+    }, function (err, results) {
+        if (err) {
+            return callback(err, []);
+        }
+        var allpatientInfo = results.patientInfo;
+
+        callback(null, allpatientInfo);
+    });
+
+};
+
+
+/**
+ * 取得單一病患資訊
+ * @param postData
+ * @param callback
+ */
+exports.handleSinglePatientInfo = function (postData, callback) {
+    var nur_id = postData.nur_id || "";
+    var patient_id = postData.patient_id || "";
+    var patientInfo = {};
+    async.parallel({
+        patientInfo: function (callback) {
+            DashBoardWebSvc.getNurPatient(postData, function (err, NurPatient) {
+                patientInfo = _.findWhere(NurPatient, {nur_id: nur_id, patient_id: patient_id}) || {};
+                callback(err, patientInfo);
+            })
+        }
+    }, function (err, results) {
+        if (err) {
+            return callback(err, []);
+        }
+
+        callback(null, patientInfo);
+    });
+
+};
+
+/**
+ * 取得前一日動態表資料
+ * @param postData
+ * @param callback
+ */
+exports.handleDayBeforeInfo = function (postData, callback) {
+
+    DashBoardWebSvc.getDayBeforeInfo(postData, function (err, DayBeforeInfo) {
+        DayBeforeInfo = DayBeforeInfo.length > 0 ? DayBeforeInfo[0] : {};
+        callback(err, DayBeforeInfo);
+    })
+
+};
+
+/**
+ * 取得入院資料
+ * @param postData
+ * @param callback
+ */
+exports.handleInTranInfo = function (postData, callback) {
+    async.parallel({
+        inTranData: function (callback) {
+            DashBoardWebSvc.getInTranInData(postData, function (err, Intran) {
+                callback(err, Intran);
+            })
+        },
+        allPatient: function (callback) {
+            DashBoardWebSvc.getNurPatient(postData, function (err, patients) {
+                callback(err, patients)
+            })
+        }
+    }, function (err, results) {
+        var resResult = alasql('SELECT inTran.*, patient.major_assess_id,patient.icd_desc,patient.nurse_name  ' +
+            'FROM ? inTran LEFT JOIN ? patient USING patient_id ',
+            [results.inTranData, results.allPatient]);
+        callback(err, resResult);
+    })
+
+
+};
+
+
+/**
+ * 取得出院資料
+ * @param postData
+ * @param callback
+ */
+exports.handleOutTranInfo = function (postData, callback) {
+
+    async.parallel({
+        outTranData: function (callback) {
+            DashBoardWebSvc.getOutTranOutData(postData, function (err, outtran) {
+                callback(err, outtran);
+            })
+        },
+        allPatient: function (callback) {
+            DashBoardWebSvc.getNurPatient(postData, function (err, patients) {
+                callback(err, patients)
+            })
+        }
+    }, function (err, results) {
+        var resResult = alasql('SELECT outTran.*, patient.major_assess_id,patient.icd_desc,patient.nurse_name  ' +
+            'FROM ? outTran LEFT JOIN ? patient USING patient_id ',
+            [results.outTranData, results.allPatient]);
+        callback(err, resResult);
+    })
+
+};
+
+/**
+ * 檢查排程資訊
+ * @param postData
+ * @param callback
+ */
+exports.handleExamScheduleInfo = function (postData, callback) {
+    DashBoardWebSvc.getExamScheduleInfo(postData, function (err, ExamScheduleInfo) {
+        callback(err, ExamScheduleInfo);
+    })
+
 };

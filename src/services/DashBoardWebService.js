@@ -4,11 +4,11 @@
  */
 var fs = require("fs");
 var _ = require("underscore");
-var alasql = require("alasql");
 var parseString = require('xml2js').parseString;
 var commonTools = require("../utils/commonTools");
 var request= require("request");
 var SystemConfig = require("../configs/SystemConfig");
+var alasql = require('alasql');
 var async = require('async');
 var moment = require("moment");
 
@@ -22,24 +22,14 @@ var moment = require("moment");
  *        }
  */
 exports.getNurPatient = function (formData,callback) {
-    fs.readFile(__dirname+'/../testData/NurPatient.xml', 'utf8', function(err, apiResult) {
+     request.post({url:SystemConfig.web_service_url+"Get_nur_Patient",form:formData},function (error, response, apiResult) {
 
-        parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
-            var NurPatient = JSON.parse(result.string);
-            callback(err , NurPatient);
-        });
+     parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
+     var NurPatient = JSON.parse(result.string);
+     callback(err , NurPatient);
+     });
 
-    });
-    /*
-    request.post({url:SystemConfig.web_service_url+"Get_nur_Patient",form:formData},function (error, response, apiResult) {
-      
-        parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
-            var NurPatient = JSON.parse(result.string);
-            callback(err , NurPatient);
-        });
-
-    });
-    */
+     });
 };
 
 /**
@@ -192,36 +182,26 @@ exports.getExamScheduleInfo = function (formData,callback) {
  *            NisDutySchedule{Array} : 排程資訊
  *        }
  */
-exports.getNisDutySchedule = function (formData, callback) {
+exports.getNisDutySchedule = function (formData,callback) {
 
     var checkValError = commonTools.checkParamsExist(['Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
 
-    fs.readFile(__dirname+'/../testData/NisDutySchedule.xml', 'utf8', function(err, apiResult) {
+     var checkValError = commonTools.checkParamsExist(['Query_date'], formData);
+     if (checkValError) {
+     return callback(checkValError, []);
+     }
 
-        parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
-            var nisDutySchedule = JSON.parse(result.string);
-            callback(err , nisDutySchedule);
-        });
+     request.post({url:SystemConfig.web_service_url+"nis_duty_schedule",form:formData},function (error, response, apiResult) {
 
-    });
-    /*
-    var checkValError = commonTools.checkParamsExist(['Query_date'], formData);
-    if (checkValError) {
-        return callback(checkValError, []);
-    }
+     parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
+     var nisDutySchedule = JSON.parse(result.string);
+     callback(err , nisDutySchedule);
+     });
 
-    request.post({url:SystemConfig.web_service_url+"nis_duty_schedule",form:formData},function (error, response, apiResult) {
-
-        parseString(apiResult, {trim: true,ignoreAttrs:true}, function (err, result) {
-            var nisDutySchedule = JSON.parse(result.string);
-            callback(err , nisDutySchedule);
-        });
-
-    });
-    */
+     });
 };
 
 exports.processNurseSche = function (data,callback) {
@@ -338,7 +318,6 @@ exports.processNurseSche = function (data,callback) {
         callback(err, classBedObj);
     })
 };
-
 /**
  * 病患過敏資訊
  * @param formData{Object} : 搜尋條件

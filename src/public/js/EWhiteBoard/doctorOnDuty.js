@@ -43,6 +43,12 @@ function getDuty(date){
     }).done(function( response ) {
         showAjaxResponeMsg(this.url,response);
         if(response.success){
+            var result_table = new Vue({
+                el: '#result_table',
+                data: {
+                    results: response.result
+                }
+            });
             /*
             var exist_datas = response.result;
             if(exist_datas && exist_datas.length > 0){

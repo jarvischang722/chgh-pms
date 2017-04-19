@@ -1,3 +1,12 @@
+Vue.component('nurse-info-tmp', {
+    template: '#nurseInfoTmp',
+    props: [],
+    data: function () {
+        return {}
+    },
+    methods: {}
+});
+
 $(function () {
     initialize(); //初始執行
     //body dom event
