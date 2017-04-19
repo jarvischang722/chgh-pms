@@ -18,10 +18,10 @@
 <body>
     <header>
         <div id="head">
-            <img id="logo" src="images/logo.png">
-            <h4>2016/11/11 PM 12:12:12</h4>
+            <h4><span class="room_number">5A</span></h4>
+            <h4 class="head_time">2016/11/11 PM 12:12:12</h4>
             <div class="head_right_nav">
-                <h4><span class="room_number">5A</span></h4>
+                <img id="logo" src="images/logo.png">
             </div>
         </div>
     </header>
@@ -35,843 +35,838 @@
     </div>
     <!-- 原來的header區塊改成這樣了 20161109 END -->
     <div class="container">
-        <div class="room_des">
-            <div class="room_des_inner">
-                <div class="room_des_left">
-                    <span class="doctor">前一日病人動態：</span>在院：<span class="red">37</span> 入院：<span class="red">6</span> 出院：<span class="red">7</span> 轉入：<span class="red">0</span> 轉出：<span class="red">0</span> 手術：<span class="red">7</span> 死亡：<span class="red">0</span>
-                    <div class="room_des_right_2">
-                        <!-- <span class="room_des_square"></span> -->全部<a href="#" class="btn" style="background-color: #404040; color: #ffffff !important;"><small>50</small></a>
-                        <!-- <span class="room_des_square empty"></span> -->空床<a href="#" class="btn empty" style="background: none; box-sizing: border-box;"><small style="height: 21px; line-height: 21px;">3</small></a>
+        <div class="container_inner">
+            <div class="room_des">
+                <div class="room_des_inner">
+                    <div class="room_des_left">
+                        <span class="doctor">前一日病人動態：</span>在院：<span class="red">37</span> 入院：<span class="red">6</span> 出院：<span class="red">7</span> 轉入：<span class="red">0</span> 轉出：<span class="red">0</span> 手術：<span class="red">7</span> 死亡：<span class="red">0</span>
+                        <div class="room_des_right_2">
+                            <!-- <span class="room_des_square"></span> -->全部<a href="#" class="btn" style="background-color: #404040; color: #ffffff !important;"><small>50</small></a>
+                            <!-- <span class="room_des_square empty"></span> -->空床<a href="#" class="btn empty" style="background: none; box-sizing: border-box;"><small style="height: 21px; line-height: 21px;">3</small></a>
+                        </div>
                     </div>
-                </div>
-                <div class="room_des_right">
-                    <!-- <span class="room_des_square light"></span> -->
-                    <!-- 一般<a href="#" class="btn light"><small>44</small></a> -->
-                    <!-- <span class="room_des_square medium"></span> -->DNR<a href="#" class="btn medium"><small>3</small></a>
-                    <!-- <span class="room_des_square hard"></span> -->Critical<a href="#" class="btn hard"><small>3</small></a>
-                    <div class="room_des_right_2">
-                        <span class="cond_dot cond_red"></span>過敏
-                        <span class="cond_dot cond_yellow"></span>手術
-                        <span class="cond_dot cond_green"></span>待辦事項
-                        <span class="cond_dot cond_star"></span>MDRO
-                        <span class="cond_dot cond_give"></span>器官捐贈
-                        <!-- <span class="cond_dot cond_blue"></span>隔離 -->
+                    <div class="room_des_right">
+                        <!-- <span class="room_des_square light"></span> -->
+                        <!-- 一般<a href="#" class="btn light"><small>44</small></a> -->
+                        <!-- <span class="room_des_square medium"></span> -->DNR<a href="#" class="btn medium"><small>3</small></a>
+                        <!-- <span class="room_des_square hard"></span> -->Critical<a href="#" class="btn hard"><small>3</small></a>
+                        <div class="room_des_right_2">
+                            <span class="cond_dot cond_red"></span>過敏
+                            <span class="cond_dot cond_yellow"></span>手術
+                            <span class="cond_dot cond_green"></span>待辦事項
+                            <span class="cond_dot cond_star"></span>MDRO
+                            <span class="cond_dot cond_give"></span> 器官捐贈
+                            <!-- <span class="cond_dot cond_blue"></span>隔離 -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+            <div class="clearfix"></div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
-                        <!-- <span class="cond_dot cond_blue"></span> -->
+                        <div class="cond_dots_list">
+                            <!-- <span class="cond_dot cond_blue"></span> -->
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner empty">
-                <div class="room_cond">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner empty">
+                    <div class="room_cond">
+                        <span class="fa-stack fa-lg">
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span></span></p>
-                <p><span class="label">主治：</span><span class="doctor"></span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond hard">
-                    <span class="fa-stack fa-lg">
+                    <h3 class="empty_bed">空床</h3>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond hard">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
-                        <!-- <span class="cond_dot cond_red"></span>
-                        <span class="cond_dot cond_yellow"></span>
-                        <span class="cond_dot cond_green"></span>
-                        <span class="cond_dot cond_blue"></span>
-                        <span class="cond_dot cond_red"></span>
-                        <span class="cond_dot cond_yellow"></span>
-                        <span class="cond_dot cond_green"></span>
-                        <span class="cond_dot cond_blue"></span> -->
+                        <div class="cond_dots_list" style="top: 40px; width: 15px; right: 0;">
+                            <span class="cond_dot cond_red"></span>
+                            <span class="cond_dot cond_yellow"></span>
+                            <span class="cond_dot cond_green"></span>
+                            <span class="cond_dot cond_star"></span>
+                            <span class="cond_dot cond_give"></span>
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond both">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span>阿布斯．布妮</span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond both">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond medium">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond medium">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                            <span class="cond_dot cond_red"></span>
+                            <span class="cond_dot cond_yellow"></span>
+                            <span class="cond_dot cond_green"></span>
+                            <span class="cond_dot cond_star"></span>
+                            <span class="cond_dot cond_give"></span>
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond both">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond both">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond hard">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond hard">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner empty">
-                <div class="room_cond">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner empty">
+                    <div class="room_cond">
+                        <span class="fa-stack fa-lg">
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span></span></p>
-                <p><span class="label">主治：</span><span class="doctor"></span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <h3 class="empty_bed">空床</h3>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond medium">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond medium">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner empty">
-                <div class="room_cond">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner empty">
+                    <div class="room_cond">
+                        <span class="fa-stack fa-lg">
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span></span></p>
-                <p><span class="label">主治：</span><span class="doctor"></span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond medium">
-                    <span class="fa-stack fa-lg">
+                    <h3 class="empty_bed">空床</h3>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond medium">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond both">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond both">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
-                        <!-- <span class="cond_dot cond_yellow"></span> -->
+                        <div class="cond_dots_list">
+                            <!-- <span class="cond_dot cond_yellow"></span> -->
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
-                        <!-- <span class="cond_dot cond_red"></span> -->
+                        <div class="cond_dots_list">
+                            <!-- <span class="cond_dot cond_red"></span> -->
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond medium">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond medium">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
-                        <!-- <span class="cond_dot cond_green"></span> -->
+                        <div class="cond_dots_list">
+                            <!-- <span class="cond_dot cond_green"></span> -->
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond both">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond both">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
-                        <!-- <span class="cond_dot cond_blue"></span> -->
+                        <div class="cond_dots_list">
+                            <!-- <span class="cond_dot cond_blue"></span> -->
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
-                        <!-- <span class="cond_dot cond_red"></span> -->
+                        <div class="cond_dots_list">
+                            <!-- <span class="cond_dot cond_red"></span> -->
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond medium">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond medium">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond both">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond both">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond hard">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond hard">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond medium">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond medium">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-venus-out"></i>
                         <i class="fa fa-venus fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>鄭○文(39)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
-                        <!-- <span class="cond_dot cond_red"></span> -->
+                        <div class="cond_dots_list">
+                            <!-- <span class="cond_dot cond_red"></span> -->
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond both">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond both">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond medium">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond medium">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
+                        <div class="cond_dots_list">
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
-        </div>
-        <div class="rooms">
-            <a href="#rooms_modal" class="rooms_inner">
-                <div class="room_cond light">
-                    <span class="fa-stack fa-lg">
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="rooms">
+                <a href="#rooms_modal" class="rooms_inner">
+                    <div class="room_cond light">
+                        <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x fa-mars-out"></i>
                         <i class="fa fa-mars fa-stack-1x"></i>
                     </span>01-01
-                    <div class="cond_dots_list">
-                        <!-- <span class="cond_dot cond_red"></span> -->
+                        <div class="cond_dots_list">
+                            <!-- <span class="cond_dot cond_red"></span> -->
+                        </div>
                     </div>
-                </div>
-                <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
-                <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
-                <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
-                <p><span class="label">護理師：</span><span></span></p>
-            </a>
+                    <p><span class="label">姓名：</span><span>古○樂(41)</span></p>
+                    <p><span class="label">主治：</span><span class="doctor">陳益祥</span></p>
+                    <p><span class="label">專科護理師：</span><span>洪金寶</span><small class="red">12345</small></p>
+                    <p><span class="label">護理師：</span><span></span></p>
+                </a>
+            </div>
+            <div class="clearfix"></div>
         </div>
-        <div class="clearfix"></div>
     </div>
     <!-- <div class="room_des">
         <div class="room_des_inner">

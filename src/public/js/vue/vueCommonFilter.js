@@ -36,3 +36,12 @@ Vue.filter("convBirthdayToAge", function (birth_str) {
         return "";
     }
 });
+
+//判斷是否為今日
+Vue.filter("chkIsTodayByString",function (date) {
+    var isToday = true;
+    if(_.isEqual(date,moment().format("YYYYMMDD"))){
+        isToday = true;
+    }
+    return isToday;
+})

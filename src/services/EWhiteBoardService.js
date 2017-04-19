@@ -274,3 +274,48 @@ exports.handleExamScheduleInfo = function (postData, callback) {
     })
 
 };
+
+/**
+ * 醫師資訊
+ * @param postData
+ * @param callback
+ */
+exports.handleDoctorInfo = function (postData, callback) {
+    async.parallel({
+        doctorList: function (callback) {
+            DashBoardWebSvc.getRetrieveVS(postData, function (err, doctorList) {
+                callback(err, doctorList);
+            })
+        },
+        allPatient: function (callback) {
+            DashBoardWebSvc.getNurPatient(postData, function (err, patientList) {
+                callback(err, patientList);
+            })
+        }
+    }, function (err, results) {
+        var resResult = alasql('SELECT dct.*, patient.*  ' +
+            'FROM ? dct INNER JOIN ? patient USING bed_no ',
+            [results.doctorList, results.allPatient]);
+        var tmpList = _.groupBy(resResult, "employee_name");
+        var doctorList = [];
+        _.each(Object.keys(tmpList), function (doctor_name) {
+            doctorList.push({
+                doctor_name: doctor_name,
+                bedList: tmpList[doctor_name]
+            });
+        })
+        callback(err, doctorList);
+    })
+};
+
+/**
+ * 床位數資訊
+ * @param postData
+ * @param callback
+ */
+exports.handleNurBedInfo = function (postData, callback) {
+    DashBoardWebSvc.getNurBedInfo(postData, function (err, bedInfo) {
+        bedInfo = bedInfo.length > 0 ? bedInfo[0] : {};
+        callback(err, bedInfo);
+    })
+};

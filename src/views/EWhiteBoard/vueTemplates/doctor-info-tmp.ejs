@@ -1,9 +1,9 @@
 <script type="text/x-template" id="doctorInfoTmp">
-    <div class="remodal" data-remodal-id="rooms_modal">
+    <div class="remodal" data-remodal-id="bed_modal">
         <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
         <div class="remodal_header">
-            <div>05-01</div>
-            <div><span class="female">鄭秀文(36)</span></div>
+            <div>{{bedInfo.bed_no}}</div>
+            <div><span :class="{male: bedInfo.sex == '男' , 'female':bedInfo.sex == '女'}">{{bedInfo.patient_name}}({{bedInfo.birthday | convBirthdayToAge}})</span></div>
         </div>
         <div class="remodal_body">
             <div class="rooms_tabs">
@@ -12,7 +12,7 @@
                         <tbody>
                         <tr>
                             <td class="text-right">主治醫師</td>
-                            <td><span class="doctor">陳益祥</span></td>
+                            <td><span class="doctor">{{bedInfo.employee_name}}</span></td>
                         </tr>
                         <tr>
                             <td class="text-right">住院醫師</td>
@@ -32,7 +32,7 @@
                         </tr>
                         <tr>
                             <td class="text-right">護理師</td>
-                            <td><span class="doctor">李靜宜</span></td>
+                            <td><span class="doctor">{{bedInfo.nurse_name}}</span></td>
                         </tr>
                         <tr>
                             <td class="text-right">手術</td>
