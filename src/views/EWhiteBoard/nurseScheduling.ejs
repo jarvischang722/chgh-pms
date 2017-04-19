@@ -11,7 +11,7 @@
 
 <%- include ./vueTemplates/nurse-info-tmp.ejs %>
 
-<div class="container container_higher has_nested_tabs">
+<div id="app" class="container container_higher has_nested_tabs">
     <div class="nurse_tabs out_has_big_table">
         <div data-pws-tab="nurse_tabs_1" data-pws-tab-name="依護理師">
             <div class="nurse_tabs_nested nurse_tabs_nested_2">
@@ -26,12 +26,12 @@
                         </tr>
                         </thead>
                         <tbody id="nurse_tabs_nested_D_1">
-                        <tr v-for="result in results">
+                        <tr v-for="result in nurseListA">
                             <td class="date">{{ result.nurse_name}}<br><small class="red">{{ result.call_number}}</small></td>
                             <td>
                                 <template v-for="this_bed in result.this_bedList">
-                                    <a v-if="this_bed.isNew==true" href="#rooms_modal" class="bed_label bed_label_bed new">{{ this_bed.wardbed}}</a>
-                                    <a v-if="this_bed.isNew==false" href="#rooms_modal" class="bed_label bed_label_bed">{{ this_bed.wardbed}}</a>
+                                    <a v-if="this_bed.isNew==true" @click="fetchSinglePatientInfo(this_bed.nur_id,this_bed.patient_id)" href="#rooms_modal" class="bed_label bed_label_bed new">{{ this_bed.wardbed}}</a>
+                                    <a v-if="this_bed.isNew==false" @click="fetchSinglePatientInfo(this_bed.nur_id,this_bed.patient_id)" href="#rooms_modal" class="bed_label bed_label_bed">{{ this_bed.wardbed}}</a>
                                 </template>
                             </td>
                             <td class="date">
@@ -55,7 +55,7 @@
                         </tr>
                         </thead>
                         <tbody id="nurse_tabs_nested_E_1">
-                        <tr v-for="result in results">
+                        <tr v-for="result in nurseListB">
                             <td class="date">{{ result.nurse_name}}<br><small class="red">{{ result.call_number}}</small></td>
                             <td>
                                 <template v-for="this_bed in result.this_bedList">
@@ -84,7 +84,7 @@
                         </tr>
                         </thead>
                         <tbody id="nurse_tabs_nested_F_1">
-                        <tr v-for="result in results">
+                        <tr v-for="result in nurseListC">
                             <td class="date">{{ result.nurse_name}}<br><small class="red">{{ result.call_number}}</small></td>
                             <td >
                                 <template v-for="this_bed in result.this_bedList">
@@ -122,7 +122,7 @@
                             </tr>
                             </thead>
                             <tbody id="nurse_tabs_nested_A_1">
-                            <tr v-for="result in results">
+                            <tr v-for="result in wardListA1">
                                 <template v-for="item in result">
                                 <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
                                 <td>
@@ -148,7 +148,7 @@
                             </tr>
                             </thead>
                             <tbody id="nurse_tabs_nested_A_2">
-                            <tr v-for="result in results">
+                            <tr v-for="result in wardListA2">
                                 <template v-for="item in result">
                                     <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
                                     <td>
@@ -176,7 +176,7 @@
                             </tr>
                             </thead>
                             <tbody id="nurse_tabs_nested_B_1">
-                            <tr v-for="result in results">
+                            <tr v-for="result in wardListB1">
                                 <template v-for="item in result">
                                     <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
                                     <td>
@@ -202,7 +202,7 @@
                             </tr>
                             </thead>
                             <tbody id="nurse_tabs_nested_B_2">
-                            <tr v-for="result in results">
+                            <tr v-for="result in wardListB2">
                                 <template v-for="item in result">
                                     <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
                                     <td>
@@ -230,7 +230,7 @@
                             </tr>
                             </thead>
                             <tbody id="nurse_tabs_nested_C_1">
-                            <tr v-for="result in results">
+                            <tr v-for="result in wardListC1">
                                 <template v-for="item in result">
                                     <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
                                     <td>
@@ -256,7 +256,7 @@
                             </tr>
                             </thead>
                             <tbody id="nurse_tabs_nested_C_2">
-                            <tr v-for="result in results">
+                            <tr v-for="result in wardListC2">
                                 <template v-for="item in result">
                                     <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
                                     <td>
@@ -272,15 +272,16 @@
         </div>
     </div>
     <div class="clearfix"></div>
+    <nurse-info-tmp
+            :patient-info = 'patientInfo'
+    ></nurse-info-tmp>
 </div>
 
 <%- include('../Common/eBoardFooter', {func: 'nurseScheduling'}) %>
 
 <%- include ../Common/importJSFiles.ejs %>
 
-<!--<nurse-info-tmp></nurse-info-tmp>-->
-
-
+<!--
 <div class="remodal" data-remodal-id="rooms_modal">
     <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
     <div class="remodal_header">
@@ -432,6 +433,7 @@
         </div>
     </div>
 </div>
+-->
 
 <script src="/js/EWhiteBoard/nurseScheduling.js"></script>
 
