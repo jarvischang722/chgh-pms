@@ -10,19 +10,19 @@
 <%- include ../Common/eBoardMarquee.ejs %>
 
 <div id="ope_list" class="container container_higher">
-
-    <table class="overflow-y">
-        <thead>
-        <tr>
-            <th>病床</th>
-            <th>病患姓名</th>
-            <th>醫令名稱</th>
-            <th>預計執行日期</th>
-            <th>時段</th>
-            <th>主治醫師</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="container_inner">
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>病床</th>
+                <th>病患姓名</th>
+                <th>醫令名稱</th>
+                <th>預計執行日期</th>
+                <th>時段</th>
+                <th>主治醫師</th>
+            </tr>
+            </thead>
+            <tbody>
             <tr v-for="data in checkTreatmentList">
                 <td>{{data.bed_no}}</td>
                 <td>{{data.patient_name}}</td>
@@ -31,14 +31,16 @@
                 <td>{{data.examine_time}}</td>
                 <td>{{data.employee_name}}</td>
             </tr>
-        </tbody>
-    </table>
-    <div class="clearfix"></div>
-    <div class="btn_group btn_group_bottom">
-        <a href="#" @click="fetchPreDay" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
-            前一天</a>
-        <span>{{queryDate}}</span>
-        <a href="#" @click="fetchNextDay" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
+            </tbody>
+        </table>
+        <div class="clearfix"></div>
+        <div class="btn_group btn_group_bottom">
+            <a href="#" @click="fetchPreDay" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                前一天</a>
+            <span style="color:#000000 ">{{queryDate}}</span>
+            <a href="#" @click="fetchNextDay" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                後一天</a>
+        </div>
     </div>
 </div>
 
