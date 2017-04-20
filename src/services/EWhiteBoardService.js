@@ -167,6 +167,16 @@ exports.handlePatientInfo = function (postData, callback) {
 
 };
 
+/**
+ * 取得過敏資訊
+ * @param postData
+ * @param callback
+ */
+exports.handleAllergyData = function (postData, callback) {
+    DashBoardWebSvc.getAllergyData(postData,function(err, AllergyData){
+        callback(err, AllergyData);
+    })
+};
 
 /**
  * 取得單一病患資訊

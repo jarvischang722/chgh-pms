@@ -31,7 +31,8 @@ var vmMain = new Vue({
         DNRCount :0,
         CriticalCount :0,
         dayBeforeInfo :{},      //前一日動態訊息
-        bedInfo :{}         //床位數資訊
+        bedInfo :{} ,        //床位數資訊
+        patientAllergyData : [] //單病患過敏資料
     },
     watch:{
 
@@ -61,7 +62,11 @@ var vmMain = new Vue({
         fetchBedInfo : function(){
             $.post("/eWhiteBoard/api/fetchNurBedInfo/", function(result){
                 vmMain.bedInfo = result.bedInfo || {};
-            })
+            });
+            //抓取過敏資料
+            $.post("/eWhiteBoard/api/fetchAllergyData/", function(result){
+                vmMain.patientAllergyData = result.allergyData || [];
+            });
         },
          //取一筆病患
          fetchSinglePatientInfo : function (nur_id,patient_id) {

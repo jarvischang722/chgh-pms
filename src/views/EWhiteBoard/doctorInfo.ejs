@@ -9,19 +9,19 @@
 
 <%- include ../Common/eBoardMarquee.ejs %>
 
-<%-include ./vueTemplates/doctor-info-tmp.ejs%>
+<%- include ./vueTemplates/doctor-info-tmp.ejs %>
 
 <div class="container container_higher" id="out">
-    <div class="clearfix"></div>
-
-    <table class="overflow-y">
-        <thead>
-        <tr>
-            <th>姓名</th>
-            <th>病床</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="container_inner">
+        <div class="clearfix"></div>
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>病床</th>
+            </tr>
+            </thead>
+            <tbody>
             <tr v-for="doctor in doctorList">
                 <td>{{doctor.doctor_name}}</td>
                 <td>
@@ -34,13 +34,12 @@
                     </a>
                 </td>
             </tr>
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    </div>
     <doctor-info-tmp :bed-info="bedInfo"></doctor-info-tmp>
 
 </div>
-
 
 
 <%- include('../Common/eBoardFooter', {func: 'doctorInfo'}) %>
