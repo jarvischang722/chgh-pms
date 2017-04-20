@@ -37,6 +37,9 @@ router.post('/api/getDoctorOnDuty/', middleWares ,EWhiteBoard.getDoctorOnDuty);
 //病患資訊
 router.post('/api/fetchAllPatientInfo/', middleWares ,EWhiteBoard.fetchAllPatientInfo);
 
+//取得過敏資料
+router.post('/api/fetchAllergyData/', middleWares ,EWhiteBoard.fetchAllergyData);
+
 //取得單一病患資訊
 router.post('/api/fetchSinglePatientInfo/', middleWares ,EWhiteBoard.fetchSinglePatientInfo);
 

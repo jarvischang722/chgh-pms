@@ -315,6 +315,15 @@ exports.fetchAllPatientInfo = function (req, res) {
 };
 
 /**
+ * 取得過敏資料
+ */
+exports.fetchAllergyData = function (req, res) {
+    EWhiteBoardService.handleAllergyData(req.body, function (err, allergyData) {
+        res.json({success: _.isNull(err), errorMsg: err, allergyData: allergyData});
+    })
+};
+
+/**
  * 取得單一病患資訊
  */
 exports.fetchSinglePatientInfo = function (req, res) {
