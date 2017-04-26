@@ -19,10 +19,10 @@
 <body>
     <header>
         <div id="head">
-            <h4><span class="room_number">5A</span></h4>
-            <h4 class="head_time">2016/11/11 PM 12:12:12</h4>
+            <img id="logo" src="images/logo.png">
+            <h4>2016/11/11 PM 12:12:12</h4>
             <div class="head_right_nav">
-                <img id="logo" src="images/logo.png">
+                <h4><span class="room_number">5A</span></h4>
             </div>
         </div>
     </header>
@@ -35,60 +35,10 @@
         </div>
     </div>
     <!-- 原來的header區塊改成這樣了 20161109 END -->
-    <div class="container container_higher" id="in_and_out">
-        <div class="grid_eighty no_data no_data_in">
-            <h1><i class="fa fa-plus-square-o" aria-hidden="true"></i> 入院</h1>
-            <table class="overflow-y">
-                <thead>
-                    <tr>
-                        <th>病床</th>
-                        <th>病患</th>
-                        <th>入院帳號</th>
-                        <th>診斷</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div class="grid_twenty">
-            <!-- 增加日期前後按鈕 20161109 START -->
-            <div class="btn_group">
-                <a href="#" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> 前一天</a>
-                <a href="#" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
-            </div>
-            <!-- 增加日期前後按鈕 20161109 END -->
-        </div>
-        <div class="clearfix"></div>
-        <div class="grid_fifty no_data no_data_out">
-            <h1><i class="fa fa-check-square-o" aria-hidden="true"></i> 出院</h1>
-            <table class="overflow-y">
-                <thead>
-                    <tr>
-                        <th>病床</th>
-                        <th>病患</th>
-                        <th>備註</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div class="grid_fifty no_data no_data_change">
-            <h1><i class="fa fa-random" aria-hidden="true"></i> 預約轉床</h1>
-            <table class="overflow-y">
-                <thead>
-                    <tr>
-                        <th>登錄日期</th>
-                        <th>病床</th>
-                        <th>病患</th>
-                        <th>床位</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+    <div id="ope_list" class="container container_higher">
+        <!-- 調整搜尋欄位變成日期前後 20161109 START -->
+        <!-- 調整搜尋欄位變成日期前後 20161109 END -->
+        <iframe src="board_20.html" style="border: none; background-color: #ffffff; border-radius: 10px;"></iframe>
         <div class="clearfix"></div>
     </div>
     <!-- 原來的footer變這樣 20161109 START -->
@@ -99,10 +49,10 @@
                 <li><a href="board_3.html"><i class="fa fa-clipboard" aria-hidden="true"></i> 手術資訊</a></li>
                 <li><a href="board_10.html"><i class="fa fa-eyedropper" aria-hidden="true"></i> 檢查治療</a></li>
                 <li><a href="board_4.html"><i class="fa fa-list-ul" aria-hidden="true"></i> 待辦事項</a></li>
-                <li><a href="board_5.html" class="active"><i class="fa fa-taxi" aria-hidden="true"></i> 入出院</a></li>
+                <li><a href="board_5.html"><i class="fa fa-taxi" aria-hidden="true"></i> 入出院</a></li>
                 <li><a href="board_7.html"><i class="fa fa-table" aria-hidden="true"></i> 護理師排班</a></li>
                 <li><a href="board_8.html"><i class="fa fa-user-md" aria-hidden="true"></i> 醫師收治</a></li>
-                <li><a href="board_11.html"><i class="fa fa-list-alt" aria-hidden="true"></i> 醫師值班</a></li>
+                <li><a href="board_11.html" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> 醫師值班</a></li>
                 <li><a href="board_9.html"><i class="fa fa-volume-off" aria-hidden="true"></i> 病床公告</a></li>
                 <li><a href="#" id="nav_refresh"><i class="fa fa-refresh" aria-hidden="true"></i>重新整理</a></li>
             </ul>

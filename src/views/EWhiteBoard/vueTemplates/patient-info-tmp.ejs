@@ -1,0 +1,98 @@
+<!-- 單筆資料 -->
+<script type="text/x-template" id="patientInfoTmp">
+    <div class="remodal" data-remodal-id="rooms_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>{{patientInfo.bed_no}} </div>
+            <div><span :class="{male: patientInfo.sex == '男' , 'female':patientInfo.sex == '女'}">{{patientInfo.patient_name}}({{patientInfo.birthday | convBirthdayToAge}})</span></div>
+        </div>
+        <div class="remodal_body">
+            <div class="rooms_tabs">
+                <div data-pws-tab="rooms_tabs_1" data-pws-tab-name="基本資料">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="text-right date">主治醫師</td>
+                            <td><span class="doctor">{{patientInfo.employee_name}}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right date">住院醫師</td>
+                            <td><span class="doctor"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right date">專科護理師</td>
+                            <td><span class="doctor"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right date">護理師</td>
+                            <td><span class="doctor">{{patientInfo.nurse_name}}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right date">診斷</td>
+                            <td><span class="doctor">{{patientInfo.icd_desc}}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right date">手術</td>
+                            <td><span class="doctor">{{patientInfo.surgery_name}}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right date">病歷號碼</td>
+                            <td><span class="doctor">{{patientInfo.patient_id}}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right date">註記</td>
+                            <td class="doctor_cond">
+                                <span v-if="patientInfo.llergy_flag == 'Y'" class="cond_dot cond_red"></span>
+                                <span v-if="patientInfo.llergy_flag == 'Y'">過敏</span>
+
+                                <span v-if="patientInfo.xxx == 'Y'" class="cond_dot cond_yellow"></span>
+                                <span v-if="patientInfo.xxx == 'Y'">手術</span>
+
+                                <span v-if="patientInfo.xxx == 'Y'" class="cond_dot cond_green"></span>
+                                <span v-if="patientInfo.xxx == 'Y'">待辦事項</span>
+
+                                <span v-if="patientInfo.MDRO == 'Y'" class="cond_dot cond_star"></span>
+                                <span v-if="patientInfo.MDRO == 'Y'">MDRO</span>
+
+                                <span v-if="patientInfo.organ_flag == 'Y'" class="cond_dot cond_give"></span>
+                                <span v-if="patientInfo.organ_flag == 'Y'">器官捐贈</span>
+
+                                <span v-if="patientInfo.SignDNRFlag == 'Y'" class="cond_dot cond_ban"></span>
+                                <span v-if="patientInfo.SignDNRFlag == 'Y'" >DNR</span>
+
+                                <span v-if="patientInfo.xxx == 'Y'" class="cond_dot cond_critical"></span>
+                                <span v-if="patientInfo.xxx == 'Y'">Critical</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-pws-tab="rooms_tabs_2" data-pws-tab-name="過敏資料">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="text-right">藥物</td>
+                            <td><span class="doctor">XXXXXXXXXXXXXX</span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">其他過敏</td>
+                            <td><span class="doctor">Y</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-pws-tab="rooms_tabs_3" data-pws-tab-name="DNR/器捐">
+                    <p class="text-left">
+                        {{patientInfo.signDNRCont}}
+                    </p>
+                </div>
+                <div data-pws-tab="rooms_tabs_4" data-pws-tab-name="待辦事項">
+                    <p class="text-left">
+                        爭麗用表畫達子初第驚，一子的高來度可滿一先是實據無幾片原業多出。出的高至：課向居有己站本，眼裝四易熱回果車；定管生上決同過作了人創嚴分山。文克事傳王其升病被行重消病母資岸日印復型生高的一中麼然如二必神軍上要，友產酒長，造作理意成發這能苦的上沒臺？
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>

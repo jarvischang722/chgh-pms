@@ -1,0 +1,454 @@
+{
+  "HR": [
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 01A",
+      "physician_id": "9081",
+      "employee_name": "薛智仁",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21364)",
+      "Rx": "張智惠(21521)  ",
+      "PA": "鄭顥君(22363)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 02A",
+      "physician_id": "6332",
+      "employee_name": "宋文鑫",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21206)",
+      "Rx": "",
+      "PA": "張仲偉(22240)<br>吳淑蓉(22225)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 03A",
+      "physician_id": "9081",
+      "employee_name": "薛智仁",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21364)",
+      "Rx": "張智惠(21521)  ",
+      "PA": "鄭顥君(22363)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 05A",
+      "physician_id": "9065",
+      "employee_name": "郭禎明",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21250)",
+      "Rx": "",
+      "PA": "林美蓮(22229)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 06B",
+      "physician_id": "A105008",
+      "employee_name": "陳仁浩",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21228)",
+      "Rx": "",
+      "PA": "熊曼均(22261)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 07B",
+      "physician_id": "6352",
+      "employee_name": "李鴻福",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21207)",
+      "Rx": "",
+      "PA": "陳柏志(22262)<br>黃淑禎(22223)<br>蕭淑萍(22245)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 08B",
+      "physician_id": "9033",
+      "employee_name": "黃啟栓",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21245)",
+      "Rx": "",
+      "PA": "柯秀慧(22232)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 09B",
+      "physician_id": "9083",
+      "employee_name": "黃家倫",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21209)",
+      "Rx": "",
+      "PA": "蔡佩君(22124)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 11C",
+      "physician_id": "9016",
+      "employee_name": "邱一洲",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21246)",
+      "Rx": "",
+      "PA": "陳秋華(22243) <br>李宏昌(22238)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 12C",
+      "physician_id": "9043",
+      "employee_name": "劉榮宏",
+      "official_gsm": " ",
+      "gsm_brevity_code": "1888",
+      "Rx": "",
+      "PA": ""
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 15C",
+      "physician_id": "9081",
+      "employee_name": "薛智仁",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21364)",
+      "Rx": "張智惠(21521)  ",
+      "PA": "鄭顥君(22363)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 16 ",
+      "physician_id": "1217",
+      "employee_name": "周明淵",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21115)",
+      "Rx": "",
+      "PA": "吳淑慧(22134)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 18 ",
+      "physician_id": "6632",
+      "employee_name": "陶啟偉",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21102)",
+      "Rx": "高晨育(21513) (Fix RT)",
+      "PA": "錢盈臻(22155)<br>吳筱筠(22150)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 19D",
+      "physician_id": "9142",
+      "employee_name": "力博宏",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21368)",
+      "Rx": "余任浩(21369)  ",
+      "PA": "楊淳惠(22365)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 20D",
+      "physician_id": "A104008",
+      "employee_name": "吳孟庭",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21279)",
+      "Rx": "",
+      "PA": "葉秀香(22224)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 21E",
+      "physician_id": "9296",
+      "employee_name": "許育弘",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21249)",
+      "Rx": "",
+      "PA": "吳佳蓉(22273)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 22E",
+      "physician_id": "9081",
+      "employee_name": "薛智仁",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21364)",
+      "Rx": "張智惠(21521)  ",
+      "PA": "鄭顥君(22363)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 23F",
+      "physician_id": "6332",
+      "employee_name": "宋文鑫",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21206)",
+      "Rx": "",
+      "PA": "張仲偉(22240)<br>吳淑蓉(22225)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 25F",
+      "physician_id": "9282",
+      "employee_name": "胡皓淳",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21377)",
+      "Rx": "余任浩(21369)  ",
+      "PA": "林瑋羚(22361)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 26G",
+      "physician_id": "9081",
+      "employee_name": "薛智仁",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21364)",
+      "Rx": "張智惠(21521)  ",
+      "PA": "鄭顥君(22363)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 27G",
+      "physician_id": "A105022",
+      "employee_name": "張士人",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21263)",
+      "Rx": "",
+      "PA": "廖秀惠(22246)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 28H",
+      "physician_id": "6332",
+      "employee_name": "宋文鑫",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21206)",
+      "Rx": "",
+      "PA": "張仲偉(22240)<br>吳淑蓉(22225)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 29H",
+      "physician_id": "9296",
+      "employee_name": "許育弘",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21249)",
+      "Rx": "",
+      "PA": "吳佳蓉(22273)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 30I",
+      "physician_id": "9309",
+      "employee_name": "邱昱勳",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21375)",
+      "Rx": "",
+      "PA": "林瑋羚(22361)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 31I",
+      "physician_id": "6352",
+      "employee_name": "李鴻福",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21207)",
+      "Rx": "",
+      "PA": "陳柏志(22262)<br>黃淑禎(22223)<br>蕭淑萍(22245)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 32J",
+      "physician_id": "9353",
+      "employee_name": "楊尚峰",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21140)",
+      "Rx": "",
+      "PA": "詹謦如(22128)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 33J",
+      "physician_id": "1217",
+      "employee_name": "周明淵",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21115)",
+      "Rx": "",
+      "PA": "吳淑慧(22134)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 35K",
+      "physician_id": "6332",
+      "employee_name": "宋文鑫",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21206)",
+      "Rx": "",
+      "PA": "張仲偉(22240)<br>吳淑蓉(22225)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 36K",
+      "physician_id": "6352",
+      "employee_name": "李鴻福",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21207)",
+      "Rx": "",
+      "PA": "陳柏志(22262)<br>黃淑禎(22223)<br>蕭淑萍(22245)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 37K",
+      "physician_id": "9043",
+      "employee_name": "劉榮宏",
+      "official_gsm": " ",
+      "gsm_brevity_code": "1888",
+      "Rx": "",
+      "PA": ""
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 38K",
+      "physician_id": "1200",
+      "employee_name": "薛樹清",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21104)",
+      "Rx": "杜美蘭(21168)  ",
+      "PA": "陳凱君(22127)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 39L",
+      "physician_id": "6332",
+      "employee_name": "宋文鑫",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21206)",
+      "Rx": "",
+      "PA": "張仲偉(22240)<br>吳淑蓉(22225)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 40L",
+      "physician_id": "9309",
+      "employee_name": "邱昱勳",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21375)",
+      "Rx": "",
+      "PA": "林瑋羚(22361)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 41L",
+      "physician_id": "9199",
+      "employee_name": "林信吉",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21177)",
+      "Rx": "",
+      "PA": "林信吉(21177)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 42L",
+      "physician_id": "9193",
+      "employee_name": "鄧鐘泉",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21125)",
+      "Rx": "",
+      "PA": "王瑋琪(22160)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 43M",
+      "physician_id": "1217",
+      "employee_name": "周明淵",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21115)",
+      "Rx": "",
+      "PA": "吳淑慧(22134)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 45M",
+      "physician_id": "9169",
+      "employee_name": "陳美音",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21176)",
+      "Rx": "",
+      "PA": "陳郁方(22167)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 46M",
+      "physician_id": "9087",
+      "employee_name": "蔡佳臻",
+      "official_gsm": " ",
+      "gsm_brevity_code": "1662",
+      "Rx": "",
+      "PA": ""
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 47M",
+      "physician_id": "6583",
+      "employee_name": "蔡信宏",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21107)",
+      "Rx": "",
+      "PA": "曹圓圓(22244)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 48N",
+      "physician_id": "6507",
+      "employee_name": "陳昭富",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21111)",
+      "Rx": "",
+      "PA": "林雅萍(22132)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 49N",
+      "physician_id": "A104008",
+      "employee_name": "吳孟庭",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21279)",
+      "Rx": "",
+      "PA": "葉秀香(22224)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 50N",
+      "physician_id": "6332",
+      "employee_name": "宋文鑫",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21206)",
+      "Rx": "",
+      "PA": "張仲偉(22240)<br>吳淑蓉(22225)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 51N",
+      "physician_id": "9296",
+      "employee_name": "許育弘",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21249)",
+      "Rx": "",
+      "PA": "吳佳蓉(22273)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 52O",
+      "physician_id": "A104008",
+      "employee_name": "吳孟庭",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21279)",
+      "Rx": "",
+      "PA": "葉秀香(22224)  "
+    },
+    {
+      "nur_id": "93  ",
+      "bed_no": "93 53O",
+      "physician_id": "6398",
+      "employee_name": "陳思齊",
+      "official_gsm": " ",
+      "gsm_brevity_code": "(21239)",
+      "Rx": "林柏毅(21504)  ",
+      "PA": ""
+    }
+  ]
+}
