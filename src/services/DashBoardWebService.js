@@ -242,13 +242,15 @@ exports.processNurseSche = function (data, callback) {
             })
         }
     }, function (err, results) {
-        var result = alasql('SELECT schedule.*, patient.in_hospital_date ' +
+        var result = alasql('SELECT schedule.*, patient.in_hospital_date, patient.patient_id ' +
             'FROM ? schedule LEFT JOIN ? patient USING bed_no ',
             [results.scheduleData, results.patientData]);
 
         var classBedObj = {};
         var today = moment().format("YYYYMMDD");
         for (var i = 0; i < result.length; i++) {
+            var nur_id = result[i].nur_id;
+            var patient_id = result[i].patient_id;
             var nurse_no = result[i].employee_id;
             var nurse_name = result[i].employee_name;
             var ward_id = result[i].bed_no; //病房
@@ -339,8 +341,9 @@ exports.processNurseSche = function (data, callback) {
                 isNew = false;
             }
 
-            bed_name = bed_name.substr(0, bed_name.length - 1).replace(" ", "-"); //病房名稱格式化
-            var tmpNurseObj = {'wardbed': bed_name, 'in_hospital_date': in_hospital_date, 'isNew': isNew};
+            bed_name = bed_name.substr(0,bed_name.length-1).replace(" ","-"); //病房名稱格式化
+            var tmpNurseObj = {'wardbed': bed_name,'in_hospital_date':in_hospital_date,'isNew':isNew,'nur_id':nur_id,'patient_id':patient_id};
+          
             this_bedList.push(tmpNurseObj);
         }
 
