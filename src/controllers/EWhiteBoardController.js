@@ -259,7 +259,7 @@ exports.getDoctorOnDuty = function (req, res) {
         || req.body["querydate"]
         || moment().format("YYYY/MM/DD"); //moment().format("YYYY/MM/DD")
 
-    querydate="2015/09/07"; //EASONTODO
+    //querydate="2015/09/07"; //EASONTODO
 
     var data = {"_ShiftDate": querydate, "_id": "Mikotek", "_pwd": "Dashboard", "_nurid": ""};
     DashBoardWebService.getShiftCollectList(data, function (errorCode, result) {
