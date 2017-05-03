@@ -242,13 +242,15 @@ exports.processNurseSche = function (data, callback) {
             })
         }
     }, function (err, results) {
-        var result = alasql('SELECT schedule.*, patient.in_hospital_date ' +
+        var result = alasql('SELECT schedule.*, patient.in_hospital_date, patient.patient_id ' +
             'FROM ? schedule LEFT JOIN ? patient USING bed_no ',
             [results.scheduleData, results.patientData]);
 
         var classBedObj = {};
         var today = moment().format("YYYYMMDD");
         for (var i = 0; i < result.length; i++) {
+            var nur_id = result[i].nur_id;
+            var patient_id = result[i].patient_id;
             var nurse_no = result[i].employee_id;
             var nurse_name = result[i].employee_name;
             var ward_id = result[i].bed_no; //病房
@@ -339,8 +341,9 @@ exports.processNurseSche = function (data, callback) {
                 isNew = false;
             }
 
-            bed_name = bed_name.substr(0, bed_name.length - 1).replace(" ", "-"); //病房名稱格式化
-            var tmpNurseObj = {'wardbed': bed_name, 'in_hospital_date': in_hospital_date, 'isNew': isNew};
+            bed_name = bed_name.substr(0,bed_name.length-1).replace(" ","-"); //病房名稱格式化
+            var tmpNurseObj = {'wardbed': bed_name,'in_hospital_date':in_hospital_date,'isNew':isNew,'nur_id':nur_id,'patient_id':patient_id};
+
             this_bedList.push(tmpNurseObj);
         }
 
@@ -376,6 +379,31 @@ exports.getAllergyData = function (formData, callback) {
 };
 
 /**
+ * 取得空床資訊
+ * @param formData{Object} : 搜尋條件
+ * @param callback{Function}:
+ *        {
+ *            err {String} : 錯誤
+ *            EmptyBedNoList{Array} : 排程資訊
+ *        }
+ */
+exports.getEmptyBedNo = function (formData, callback) {
+
+    request.post({
+        url: SystemConfig.web_service_url + "Get_empty_bedno",
+        form: formData
+    }, function (error, response, apiResult) {
+
+        parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
+            var EmptyBedNoList = JSON.parse(result.string);
+            callback(err, EmptyBedNoList);
+        });
+
+    });
+};
+
+
+/**
  * 醫師與PA資訊
  * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
@@ -388,9 +416,10 @@ exports.getRetrieveVS = function (formData, callback) {
 
     formData['_id'] = "Mikotek";
     formData['_pwd'] = "Dashboard";
+    formData['_nurid'] = "";
 
     request.post({
-        url: SystemConfig.web_service_url + "RetrieveVS",
+        url: SystemConfig.hrweb_chgh_url + "RetrieveVS",
         form: formData,
         json: true
     }, function (error, response, RetrieveVS) {
@@ -415,7 +444,7 @@ exports.getShiftCollectList = function (formData, callback) {
         return callback(checkValError, []);
     }
     request.post({
-        url: SystemConfig.web_service_url + "ShiftCollectList",
+        url: SystemConfig.hrweb_chgh_url + "ShiftCollectList",
         form: formData
     }, function (error, response, apiResult) {
 

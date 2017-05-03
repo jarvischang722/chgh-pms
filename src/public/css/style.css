@@ -2014,6 +2014,7 @@ header {
 
 #ope_list .sticky-wrap.overflow-y {
     max-height: 69vh;
+    height: 69vh;
     margin: 0;
 }
 
@@ -2023,6 +2024,7 @@ header {
 .nurse_tabs .sticky-wrap {
     margin: 0;
     max-height: 65vh;
+    height: 65vh;
 }
 
 .sticky-wrap .sticky-thead {
@@ -2032,6 +2034,7 @@ header {
 .nurse_tabs .nurse_tabs_nested .sticky-wrap {
     margin: 0;
     max-height: 68vh;
+    height: 68vh;
 }
 
 .nurse_tabs .sticky-wrap tr {

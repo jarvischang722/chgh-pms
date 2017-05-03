@@ -16,6 +16,7 @@ router.post('/op_schedule_info' ,dashboard.op_schedule_info);
 router.post('/Out_TranOut_Data' ,dashboard.Out_TranOut_Data);
 router.post('/RetrieveVS' ,dashboard.RetrieveVS);
 router.post('/ShiftCollectList' ,dashboard.ShiftCollectList);
+router.post('/Get_empty_bedno' ,dashboard.Get_empty_bedno);
 
 
 module.exports = router;
