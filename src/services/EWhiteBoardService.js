@@ -155,13 +155,27 @@ exports.handlePatientInfo = function (postData, callback) {
             DashBoardWebSvc.getNurPatient(postData, function (err, NurPatient) {
                 callback(err, NurPatient);
             })
+        },
+        emptyBedNoList : function(callback){
+            DashBoardWebSvc.getEmptyBedNo(postData, function (err, emptyBedNoList) {
+                    callback(err, emptyBedNoList);
+            })
         }
     }, function (err, results) {
         if (err) {
             return callback(err, []);
         }
-        var allpatientInfo = results.patientInfo;
 
+        var allpatientInfo = results.patientInfo;
+        var emptyBedNoList = results.emptyBedNoList;
+        var nur_id = results.patientInfo.length > 0 ? results.patientInfo[0].nur_id : '';
+            //塞入空房
+        _.each(emptyBedNoList , function(emptyBedInfo){
+            if(emptyBedInfo.nur_id == nur_id && _.findIndex(allpatientInfo,{bed_no:emptyBedInfo.bed_no}) == -1){
+                allpatientInfo.push(emptyBedInfo);
+            }
+        });
+        allpatientInfo = _.sortBy(allpatientInfo,"bed_no");
         callback(null, allpatientInfo);
     });
 
@@ -173,7 +187,7 @@ exports.handlePatientInfo = function (postData, callback) {
  * @param callback
  */
 exports.handleAllergyData = function (postData, callback) {
-    DashBoardWebSvc.getAllergyData(postData,function(err, AllergyData){
+    DashBoardWebSvc.getAllergyData(postData, function (err, AllergyData) {
         callback(err, AllergyData);
     })
 };
@@ -324,10 +338,12 @@ exports.handleDoctorInfo = function (postData, callback) {
  * @param callback
  */
 exports.handleNurBedInfo = function (postData, callback) {
+
     DashBoardWebSvc.getNurBedInfo(postData, function (err, bedInfo) {
         bedInfo = bedInfo.length > 0 ? bedInfo[0] : {};
         callback(err, bedInfo);
     })
+
 };
 
 exports.processNurseSche = function (data, callback) {
@@ -443,8 +459,14 @@ exports.processNurseSche = function (data, callback) {
                 isNew = false;
             }
 
-            bed_name = bed_name.substr(0,bed_name.length-1).replace(" ","-"); //病房名稱格式化
-            var tmpNurseObj = {'wardbed': bed_name,'in_hospital_date':in_hospital_date,'isNew':isNew,'nur_id':nur_id,'patient_id':patient_id};
+            bed_name = bed_name.substr(0, bed_name.length - 1).replace(" ", "-"); //病房名稱格式化
+            var tmpNurseObj = {
+                'wardbed': bed_name,
+                'in_hospital_date': in_hospital_date,
+                'isNew': isNew,
+                'nur_id': nur_id,
+                'patient_id': patient_id
+            };
 
             this_bedList.push(tmpNurseObj);
         }

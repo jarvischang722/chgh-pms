@@ -29,7 +29,6 @@ var vmMain = new Vue({
         fetchDoctorInfo :function(){
 
             $.post("/eWhiteBoard/api/fetchDoctorInfo/",{_nurid:"5A"},function(result){
-                console.log(result);
                 if(result.success){
                     vmMain.doctorList = result.doctorList;
                 }

@@ -24,13 +24,13 @@
                 手術：<span class="red">{{dayBeforeInfo.operation_num}}</span>
                 死亡：<span class="red">{{dayBeforeInfo.death_num}}</span>
                 <div class="room_des_right_2">
-                    全部<a href="#" class="btn" style="background-color: #404040; color: #ffffff !important;"><small>{{bedInfo.bed_num}}</small></a>
-                   空床<a href="#" class="btn empty" style="background: none; box-sizing: border-box;"><small style="height: 21px; line-height: 21px;">{{bedInfo.empty_bed_num}}</small></a>
+                    全部<a href="#" @click="filterPaitentInfo()" class="btn" style="background-color: #404040; color: #ffffff !important;"><small>{{bedInfo.bed_num}}</small></a>
+                   空床<a href="#"  @click="filterPaitentInfo('emptyBed')" class="btn empty" style="background: none; box-sizing: border-box;"><small style="height: 21px; line-height: 21px;">{{bedInfo.empty_bed_num}}</small></a>
                 </div>
             </div>
             <div class="room_des_right">
-              DNR<a href="#" class="btn medium"><small>{{DNRCount}}</small></a>
-              Critical<a href="#" class="btn hard"><small>{{CriticalCount}}</small></a>
+              DNR<a href="#" @click="filterPaitentInfo('DNR')" class="btn medium"><small>{{DNRCount}}</small></a>
+              Critical<a href="#" @click="filterPaitentInfo('Critical')" class="btn hard"><small>{{CriticalCount}}</small></a>
                 <div class="room_des_right_2">
                     <span class="cond_dot cond_red"></span>過敏
                     <span class="cond_dot cond_yellow"></span>手術
@@ -43,13 +43,13 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    <div class="rooms" v-for="patient in allPatientInfo">
-        <a href="javascript:void(0)" @click="fetchSinglePatientInfo(patient.nur_id,patient.patient_id)" class="rooms_inner">
+    <div class="rooms" v-for="patient in showPatientInfo">
+        <a v-if="patient.patient_name" href="javascript:void(0)" @click="fetchSinglePatientInfo(patient.nur_id,patient.patient_id)" class="rooms_inner">
             <div class="room_cond "
                   :class="{medium : patient.signDNRFlag == 'Y' ,
-                  hard : patient.signCriticalFlag == 'Y' && patient.signDNRFlag != 'Y' ,
-                  both : patient.signCriticalFlag == 'Y' && patient.signDNRFlag == 'Y' ,
-                  light :  patient.signCriticalFlag != 'Y' && patient.signDNRFlag != 'Y' }"  >
+                  hard : patient.critical != '' && patient.signDNRFlag != 'Y' ,
+                  both : patient.critical != '' && patient.signDNRFlag == 'Y' ,
+                  light :  patient.critical == '' && patient.signDNRFlag != 'Y' }"  >
 
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x" :class="{'fa-mars-out': patient.sex == '男' , 'fa-venus-out': patient.sex == '女' }"></i>
@@ -64,6 +64,16 @@
             <p><span class="label">專科護理師：</span><span>{{patient.nurse_name}}</span><small class="red">{{patient.nurse_id}}</small></p>
             <p><span class="label">護理師：</span><span></span></p>
         </a>
+
+        <a v-else href="javascript:void(0)" class="rooms_inner empty">
+            <div class="room_cond">
+                        <span class="fa-stack fa-lg">
+                    </span>{{patient.bed_no}}
+                <div class="cond_dots_list">
+                </div>
+            </div>
+            <h3 class="empty_bed">空床</h3>
+        </a>
     </div>
     <div class="clearfix"></div>
     <patient-info-tmp
@@ -74,10 +84,6 @@
 <%- include('../Common/eBoardFooter', {func: 'patientInfo'}) %>
 
 <%- include ../Common/importJSFiles.ejs %>
-
-
-
-
 
 
 </body>

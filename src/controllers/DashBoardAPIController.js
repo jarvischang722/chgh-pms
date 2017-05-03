@@ -107,3 +107,12 @@ exports.ShiftCollectList = function(req, res){
         res.header('Content-Type', 'text/xml').send(apiResult);
     });
 };
+
+/**
+ *取得空床資訊
+ */
+exports.Get_empty_bedno = function(req, res){
+    fs.readFile(__dirname+'/../testData/Get_empty_bedno.xml', 'utf8', function(err, apiResult) {
+        res.header('Content-Type', 'text/xml').send(apiResult);
+    });
+};
