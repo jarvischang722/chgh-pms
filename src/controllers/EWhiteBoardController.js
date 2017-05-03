@@ -155,7 +155,7 @@ exports.getNurseSche = function (req, res) {
 
     var data = {"Query_date": expect_discharged_date};
 
-    DashBoardWebService.processNurseSche(data,function(err,result){
+    EWhiteBoardService.processNurseSche(data,function(err,result){
         if(result){
             //res.json(tools.getReturnJSON(false,{surgeryInfoList:[]},9999,err));
             res.json(tools.getReturnJSON(true, result));
@@ -164,89 +164,6 @@ exports.getNurseSche = function (req, res) {
             res.json(tools.getReturnJSON(false, [], [], err));
         }
     })
-
-
-    // DashBoardWebService.getNisDutySchedule(data, function (errorCode, result) {
-    //     if (result) {
-    //         var classBedObj = {};
-    //         for (var i = 0; i < result.length; i++) {
-    //             var nurse_no = result[i].employee_id;
-    //             var nurse_name = result[i].employee_name;
-    //             var ward_id = result[i].bed_no; //病房
-    //             var bed_name = result[i].bed_no; //病床
-    //             var fire_control_group_name = result[i].group_name;
-    //             var mission_group_name = result[i].group_name;
-    //             var class_id = result[i].schedule_type; //早班 中班 晚班
-    //
-    //             var thisClassObjByWard; //依班別->病房顯示
-    //             var wardObj;
-    //             var wardList;
-    //             var thisClassObjByNurse; //依班別->護理師顯示
-    //             var nurseObj;
-    //             var nurseList;
-    //             if (class_id in classBedObj) {
-    //                 //依班別->病房顯示
-    //                 thisClassObjByNurse = classBedObj[class_id]['ward'];
-    //                 wardObj = thisClassObjByNurse['wardObj'];
-    //                 wardList = thisClassObjByNurse['wardList'];
-    //                 //依班別->護理師顯示
-    //                 thisClassObjByNurse = classBedObj[class_id]['nurse'];
-    //                 nurseObj = thisClassObjByNurse['nurseObj'];
-    //                 nurseList = thisClassObjByNurse['nurseList'];
-    //             } else {
-    //                 //依班別->病房顯示
-    //                 wardObj = {};
-    //                 wardList = [];
-    //                 thisClassObjByWard = {'class_id': class_id, 'wardObj': wardObj, 'wardList': wardList};
-    //                 //依班別->護理師顯示
-    //                 nurseObj = {};
-    //                 nurseList = [];
-    //                 thisClassObjByNurse = {'class_id': class_id, 'nurseObj': nurseObj, 'nurseList': nurseList};
-    //                 classBedObj[class_id] = {'ward': thisClassObjByWard, 'nurse': thisClassObjByNurse};
-    //             }
-    //             //依班別->病房顯示
-    //             if (ward_id in wardObj) {
-    //                 var thisWardObj = wardObj[ward_id];
-    //                 var this_wardList = thisWardObj['this_wardList'];
-    //             } else {
-    //                 var this_wardList = [];
-    //                 var thisWardObj = {'ward_id': ward_id, 'this_wardList': this_wardList};
-    //                 wardList.push(thisWardObj);
-    //                 wardObj[ward_id] = thisWardObj;
-    //             }
-    //             var tmpWardObj = {
-    //                 'bed_name': bed_name, 'nurse_name': nurse_name,
-    //                 'fire_control_group_name': fire_control_group_name,
-    //                 'mission_group_name': mission_group_name
-    //             };
-    //             this_wardList.push(tmpWardObj);
-    //             //依班別->護理師顯示
-    //             if (nurse_no in nurseObj) {
-    //                 var thisNurseObj = nurseObj[nurse_no];
-    //                 var this_bedList = thisNurseObj['this_bedList'];
-    //             } else {
-    //                 var this_bedList = [];
-    //                 var thisNurseObj = {
-    //                     'nurse_no': nurse_no,
-    //                     'nurse_name': nurse_name,
-    //                     'fire_control_group_name': fire_control_group_name
-    //                     ,
-    //                     'mission_group_name': mission_group_name,
-    //                     'this_bedList': this_bedList
-    //                 };
-    //                 nurseList.push(thisNurseObj);
-    //                 nurseObj[nurse_no] = thisNurseObj;
-    //             }
-    //             //var tmpNurseObj = {'ward-bed': ward_id + "-" + bed_name};
-    //             var tmpNurseObj = {'wardbed': bed_name};
-    //             this_bedList.push(tmpNurseObj);
-    //         }
-    //         res.json(tools.getReturnJSON(true, classBedObj))
-    //     } else {
-    //         res.json(tools.getReturnJSON(false, [], [], errorCode))
-    //     }
-    // })
-
 };
 
 /**

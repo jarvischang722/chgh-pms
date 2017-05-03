@@ -329,3 +329,126 @@ exports.handleNurBedInfo = function (postData, callback) {
         callback(err, bedInfo);
     })
 };
+
+exports.processNurseSche = function (data, callback) {
+
+    async.parallel({
+        scheduleData: function (callback) {
+            DashBoardWebSvc.getNisDutySchedule(data, function (err, schedule) {
+                callback(err, schedule);
+            })
+        },
+        patientData: function (callback) {
+            DashBoardWebSvc.getNurPatient(data, function (err, patient) {
+                callback(err, patient)
+            })
+        }
+    }, function (err, results) {
+        var result = alasql('SELECT schedule.*, patient.in_hospital_date, patient.patient_id ' +
+            'FROM ? schedule LEFT JOIN ? patient USING bed_no ',
+            [results.scheduleData, results.patientData]);
+
+        var classBedObj = {};
+        var today = moment().format("YYYYMMDD");
+        for (var i = 0; i < result.length; i++) {
+            var nur_id = result[i].nur_id;
+            var patient_id = result[i].patient_id;
+            var nurse_no = result[i].employee_id;
+            var nurse_name = result[i].employee_name;
+            var ward_id = result[i].bed_no; //病房
+            var bed_name = result[i].bed_no; //病床
+            var fire_control_group_name = result[i].group_name;
+            var group_name_array = result[i].group_name.split(",");
+            var subgroup_name_array = group_name_array.slice(1);
+            subgroup_name_array = ["1", "2"];
+            var class_id = result[i].schedule_type; //早班 中班 晚班
+            var in_hospital_date = result[i].in_hospital_date; //入院日
+            var call_number = result[i].call_number; //分機號碼
+
+            var thisClassObjByWard; //依班別->病房顯示
+            var wardObj;
+            var wardList;
+            var thisClassObjByNurse; //依班別->護理師顯示
+            var nurseObj;
+            var nurseList;
+            if (class_id in classBedObj) {
+                //依班別->病房顯示
+                thisClassObjByNurse = classBedObj[class_id]['ward'];
+                wardObj = thisClassObjByNurse['wardObj'];
+                wardList = thisClassObjByNurse['wardList'];
+                //依班別->護理師顯示
+                thisClassObjByNurse = classBedObj[class_id]['nurse'];
+                nurseObj = thisClassObjByNurse['nurseObj'];
+                nurseList = thisClassObjByNurse['nurseList'];
+            } else {
+                //依班別->病房顯示
+                wardObj = {};
+                wardList = [];
+                thisClassObjByWard = {'class_id': class_id, 'wardObj': wardObj, 'wardList': wardList};
+                //依班別->護理師顯示
+                nurseObj = {};
+                nurseList = [];
+                thisClassObjByNurse = {'class_id': class_id, 'nurseObj': nurseObj, 'nurseList': nurseList};
+                classBedObj[class_id] = {'ward': thisClassObjByWard, 'nurse': thisClassObjByNurse};
+            }
+            //依班別->病房顯示
+            var tmpchar = ward_id.slice(-1);
+            if (!Number.isInteger(tmpchar)) {
+                ward_id = ward_id.substr(0, ward_id.length - 1).split(" ")[1]; //病房名稱格式化
+            } else {
+                ward_id = ward_id.split(" ")[1]; //病房名稱格式化
+            }
+            if (ward_id in wardObj) {
+                var thisWardObj = wardObj[ward_id];
+                var this_wardList = thisWardObj['this_wardList'];
+            } else {
+                var this_wardList = [];
+                var thisWardObj = {
+                    'ward_id': ward_id,
+                    'this_wardList': this_wardList,
+                    'nurse_name': nurse_name,
+                    'call_number': call_number
+                };
+                wardList.push(thisWardObj);
+                wardObj[ward_id] = thisWardObj;
+            }
+            var tmpWardObj = {
+                'bed_name': bed_name, 'nurse_name': nurse_name,
+                'subgroup_name_array': subgroup_name_array,
+                'mission_group_name': group_name_array[0]
+            };
+            this_wardList.push(tmpWardObj);
+            //依班別->護理師顯示
+            if (nurse_no in nurseObj) {
+                var thisNurseObj = nurseObj[nurse_no];
+                var this_bedList = thisNurseObj['this_bedList'];
+            } else {
+                var this_bedList = [];
+                var thisNurseObj = {
+                    'nurse_no': nurse_no,
+                    'nurse_name': nurse_name,
+                    'mission_group_name': group_name_array[0],
+                    'subgroup_name_array': subgroup_name_array,
+                    'call_number': call_number,
+                    'this_bedList': this_bedList
+                };
+                nurseList.push(thisNurseObj);
+                nurseObj[nurse_no] = thisNurseObj;
+            }
+            //var tmpNurseObj = {'ward-bed': ward_id + "-" + bed_name};
+            var isNew;
+            if (today == in_hospital_date) {
+                isNew = true;
+            } else {
+                isNew = false;
+            }
+
+            bed_name = bed_name.substr(0,bed_name.length-1).replace(" ","-"); //病房名稱格式化
+            var tmpNurseObj = {'wardbed': bed_name,'in_hospital_date':in_hospital_date,'isNew':isNew,'nur_id':nur_id,'patient_id':patient_id};
+
+            this_bedList.push(tmpNurseObj);
+        }
+
+        callback(err, classBedObj);
+    })
+};
