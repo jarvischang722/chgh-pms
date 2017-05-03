@@ -13,12 +13,9 @@ var vmMain = new Vue({
         this.initialize();
     },
     data: {
-        wardListA1:[],
-        wardListA2:[],
-        wardListB1:[],
-        wardListB2:[],
-        wardListC1:[],
-        wardListC2:[],
+        wardListA:[],
+        wardListB:[],
+        wardListC:[],
         nurseListA:[],
         nurseListB:[],
         nurseListC:[],
@@ -50,63 +47,30 @@ var vmMain = new Vue({
         createTemp01 : function(sche,thisclass){ //產生班表by病房
             var classobj = sche[thisclass];
             var wardList01;
-            var wardList02;
             if(!classobj || !classobj['ward']){
                 wardList01=[];
-                wardList02=[];
             }else{
                 classobj = classobj['ward'];
-
                 wardList01 = classobj.wardList;
-                wardList02;
-                var count = wardList01.length;
-
-                //排序
-                wardList01.sort(function(a, b){
-                    return a["ward_id"]-b["ward_id"]
-                });
-
-                if(count>=80){
-                    wardList02 = wardList01.slice(count/2);
-                    wardList01 = wardList01.slice(0,count/2);
-                }else if(count>=40){
-                    wardList02 = wardList01.slice(40);
-                    wardList01 = wardList01.slice(0,40);
-                }else{
-                    wardList02=[];
-                }
             }
 
             //每4個一組
             var wardListA=[];
             var tmpList=[];
             for(var i=0;i<wardList01.length;i++){
-                if(i%4==0){
+                if(i%8==0){
                     tmpList = new Array();
                     wardListA.push(tmpList);
                 }
                 tmpList.push(wardList01[i]);
             }
 
-            var wardListB=[];
-            var tmpList=[];
-            for(var i=0;i<wardList02.length;i++){
-                if(i%4==0){
-                    tmpList = new Array();
-                    wardListB.push(tmpList);
-                }
-                tmpList.push(wardList02[i]);
-            }
-
             if(thisclass=="A"){
-                vmMain.wardListA1 = wardListA;
-                vmMain.wardListA2 = wardListB;
+                vmMain.wardListA = wardListA;
             }else if(thisclass=="B"){
-                vmMain.wardListB1 = wardListA;
-                vmMain.wardListB2 = wardListB;
+                vmMain.wardListB = wardListA;
             }else if(thisclass=="C"){
-                vmMain.wardListC1 = wardListA;
-                vmMain.wardListC2 = wardListB;
+                vmMain.wardListC = wardListA;
             }
         },
         createTemp02 : function(sche,thisclass){ //產生班表by護理師
