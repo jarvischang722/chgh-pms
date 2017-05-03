@@ -107,166 +107,106 @@
         <div data-pws-tab="nurse_tabs_2" data-pws-tab-name="依病床">
             <div class="nurse_tabs_nested nurse_tabs_nested_1">
                 <div data-pws-tab="nurse_tabs_nested_1_1" data-pws-tab-name="<i class='fa fa-sun-o' aria-hidden='true'></i> 日班">
-                    <div class="grid_fifty">
-                        <table class="overflow-y">
-                            <thead>
-                            <tr>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                            </tr>
-                            </thead>
-                            <tbody id="nurse_tabs_nested_A_1">
-                            <tr v-for="result in wardListA1">
-                                <template v-for="item in result">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                        </tr>
+                        </thead>
+                        <tbody id="nurse_tabs_nested_A_1">
+                        <tr v-for="result in wardListA">
+                            <template v-for="item in result">
+                            <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
+                            <td>
+                                <label>{{ item.nurse_name}}<br><small class="red">{{ item.call_number}}</small></label>
+                            </td>
+                            </template>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-pws-tab="nurse_tabs_nested_1_2" data-pws-tab-name="<i class='fa fa-moon-o' aria-hidden='true'></i> 小夜">
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                        </tr>
+                        </thead>
+                        <tbody id="nurse_tabs_nested_B_1">
+                        <tr v-for="result in wardListB">
+                            <template v-for="item in result">
                                 <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
                                 <td>
                                     <label>{{ item.nurse_name}}<br><small class="red">{{ item.call_number}}</small></label>
                                 </td>
-                                </template>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="grid_fifty">
-                        <table class="overflow-y">
-                            <thead>
-                            <tr>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                            </tr>
-                            </thead>
-                            <tbody id="nurse_tabs_nested_A_2">
-                            <tr v-for="result in wardListA2">
-                                <template v-for="item in result">
-                                    <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
-                                    <td>
-                                        <label>{{ item.nurse_name}}<br><small class="red">{{ item.call_number}}</small></label>
-                                    </td>
-                                </template>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div data-pws-tab="nurse_tabs_nested_1_2" data-pws-tab-name="<i class='fa fa-moon-o' aria-hidden='true'></i> 小夜">
-                    <div class="grid_fifty">
-                        <table class="overflow-y">
-                            <thead>
-                            <tr>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                            </tr>
-                            </thead>
-                            <tbody id="nurse_tabs_nested_B_1">
-                            <tr v-for="result in wardListB1">
-                                <template v-for="item in result">
-                                    <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
-                                    <td>
-                                        <label>{{ item.nurse_name}}<br><small class="red">{{ item.call_number}}</small></label>
-                                    </td>
-                                </template>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="grid_fifty">
-                        <table class="overflow-y">
-                            <thead>
-                            <tr>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                            </tr>
-                            </thead>
-                            <tbody id="nurse_tabs_nested_B_2">
-                            <tr v-for="result in wardListB2">
-                                <template v-for="item in result">
-                                    <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
-                                    <td>
-                                        <label>{{ item.nurse_name}}<br><small class="red">{{ item.call_number}}</small></label>
-                                    </td>
-                                </template>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            </template>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div data-pws-tab="nurse_tabs_nested_1_3" data-pws-tab-name="<i class='fa fa-star' aria-hidden='true'></i> 大夜">
-                    <div class="grid_fifty">
-                        <table class="overflow-y">
-                            <thead>
-                            <tr>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                            </tr>
-                            </thead>
-                            <tbody id="nurse_tabs_nested_C_1">
-                            <tr v-for="result in wardListC1">
-                                <template v-for="item in result">
-                                    <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
-                                    <td>
-                                        <label>{{ item.nurse_name}}<br><small class="red">{{ item.call_number}}</small></label>
-                                    </td>
-                                </template>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="grid_fifty">
-                        <table class="overflow-y">
-                            <thead>
-                            <tr>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                                <th>病床</th>
-                                <th>護理師</th>
-                            </tr>
-                            </thead>
-                            <tbody id="nurse_tabs_nested_C_2">
-                            <tr v-for="result in wardListC2">
-                                <template v-for="item in result">
-                                    <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
-                                    <td>
-                                        <label>{{ item.nurse_name}}<br><small class="red">{{ item.call_number}}</small></label>
-                                    </td>
-                                </template>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table class="overflow-y">
+                        <thead>
+                        <tr>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                            <th>病床</th>
+                            <th>護理師</th>
+                        </tr>
+                        </thead>
+                        <tbody id="nurse_tabs_nested_C_1">
+                        <tr v-for="result in wardListC">
+                            <template v-for="item in result">
+                                <td><div class="bed_number_label">{{ item.ward_id}}</div></td>
+                                <td>
+                                    <label>{{ item.nurse_name}}<br><small class="red">{{ item.call_number}}</small></label>
+                                </td>
+                            </template>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
