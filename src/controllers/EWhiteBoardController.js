@@ -152,6 +152,8 @@ exports.getNurseSche = function (req, res) {
         || moment().format("YYYYMMDD"); //moment().format("YYYY/MM/DD")
 
     //expect_discharged_date = "20170405";
+    console.log("expect_discharged_date--->"); //EASONTODO
+    console.log(expect_discharged_date); //EASONTODO
 
     var data = {"Query_date": expect_discharged_date};
 

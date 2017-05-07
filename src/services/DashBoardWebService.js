@@ -22,6 +22,9 @@ var moment = require("moment");
  *        }
  */
 exports.getNurPatient = function (formData, callback) {
+    console.log("IN getNurPatient--->"); //EASONTODO
+    console.log(formData); //EASONTODO
+
     request.post({
         url: SystemConfig.web_service_url + "Get_nur_Patient",
         form: formData
@@ -214,6 +217,9 @@ exports.getNisDutySchedule = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
+
+    console.log("IN getNisDutySchedule--->"); //EASONTODO
+    console.log(formData); //EASONTODO
 
     request.post({
         url: SystemConfig.web_service_url + "nis_duty_schedule",
