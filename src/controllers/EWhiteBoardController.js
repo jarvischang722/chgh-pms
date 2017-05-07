@@ -151,11 +151,7 @@ exports.getNurseSche = function (req, res) {
         || req.body["expect_discharged_date"]
         || moment().format("YYYYMMDD"); //moment().format("YYYY/MM/DD")
 
-    //expect_discharged_date = "20170405";
-    console.log("expect_discharged_date--->"); //EASONTODO
-    console.log(expect_discharged_date); //EASONTODO
-
-    var data = {"Query_date": expect_discharged_date};
+    var data = {"QueryDate": expect_discharged_date};
 
     EWhiteBoardService.processNurseSche(data,function(err,result){
         if(result){

@@ -364,9 +364,6 @@ exports.processNurseSche = function (data, callback) {
             'FROM ? schedule LEFT JOIN ? patient USING bed_no ',
             [results.scheduleData, results.patientData]);
 
-        console.log("IN processNurseSche result--->"); //EASONTODO
-        console.log(result); //EASONTODO
-
         var classBedObj = {};
         var today = moment().format("YYYYMMDD");
         for (var i = 0; i < result.length; i++) {
