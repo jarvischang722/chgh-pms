@@ -53,7 +53,7 @@ var vmMain = new Vue({
                 }).length;
                 vmMain.showPatient();
                 vmMain.filterPaitentInfo();
-
+                console.table(JSON.parse(JSON.stringify(vmMain.allPatientInfo)));
 
             })
         },
@@ -61,7 +61,6 @@ var vmMain = new Vue({
         fetchBedInfo: function () {
             $.post("/eWhiteBoard/api/fetchNurBedInfo/", function (result) {
                 vmMain.bedInfo = result.bedInfo || {};
-                console.log(vmMain.bedInfo);
             });
             //抓取過敏資料
             $.post("/eWhiteBoard/api/fetchAllergyData/", function (result) {

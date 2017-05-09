@@ -160,6 +160,11 @@ exports.handlePatientInfo = function (postData, callback) {
             DashBoardWebSvc.getEmptyBedNo(postData, function (err, emptyBedNoList) {
                     callback(err, emptyBedNoList);
             })
+        },
+        surgeryList : function(callback){
+            DashBoardWebSvc.getOpScheduleInfo(postData, function (err, surgeryList) {
+                callback(err, surgeryList);
+            })
         }
     }, function (err, results) {
         if (err) {
