@@ -56,7 +56,20 @@
                         <i class="fa fa-stack-1x"　:class="{'fa-mars': patient.sex == '男' , 'fa-venus': patient.sex == '女' }"></i>
                     </span>{{patient.bed_no}}
                 <div class="cond_dots_list">
-                    <!-- <span class="cond_dot cond_blue"></span> -->
+                    <!--過敏-->
+                    <span v-if="patient.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
+                    <!--手術-->
+                    <span v-if="patient.xxx == 'Y'" class="cond_dot cond_yellow"></span>
+                    <!--待辦事項-->
+                    <span v-if="patient.xxx == 'Y'" class="cond_dot cond_green"></span>
+                    <!--MDRO-->
+                    <span v-if="patient.MDRO == 'Y'" class="cond_dot cond_star"></span>
+                    <!--器官捐贈-->
+                    <span v-if="patient.organ_flag == 'Y'" class="cond_dot cond_give"></span>
+                    <!--DNR-->
+                    <span v-if="patient.signDNRFlag == 'Y'" class="cond_dot cond_ban"></span>
+                    <!--Critical-->
+                    <span v-if="patient.critical != ''" class="cond_dot cond_critical"></span>
                 </div>
             </div>
             <p><span class="label">姓名：</span><span>{{patient.patient_name}}({{patient.birthday | convBirthdayToAge}})</span></p>

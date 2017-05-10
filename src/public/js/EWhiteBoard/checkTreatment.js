@@ -11,7 +11,7 @@ var vmMain = new Vue({
     data: {
         checkTreatmentList: [],
         isReady: false,
-        queryDate: moment().format("YYYY/MM/DD"),
+        queryDate: moment().format("YYYY-MM-DD"),
         queryDateString: moment().format("YYYYMMDD")
     },
     watch: {
@@ -31,11 +31,11 @@ var vmMain = new Vue({
             });
         },
         fetchPreDay: function () {
-            this.queryDate = moment(this.queryDate).subtract(1, "day").format("YYYY/MM/DD");
+            this.queryDate = moment(this.queryDate).subtract(1, "day").format("YYYY-MM-DD");
             this.fetchCheckTreatment();
         },
         fetchNextDay: function () {
-            this.queryDate = moment(this.queryDate).add(1, "day").format("YYYY/MM/DD");
+            this.queryDate = moment(this.queryDate).add(1, "day").format("YYYY-MM-DD");
             this.fetchCheckTreatment();
         }
 

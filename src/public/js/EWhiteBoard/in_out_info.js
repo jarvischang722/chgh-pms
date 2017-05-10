@@ -24,7 +24,7 @@ var vmMain = new Vue({
         inTranList:[],
         outTranList:[],
         isReady:false,
-        queryDate :moment().format("YYYY/MM/DD"),
+        queryDate :moment().format("YYYY-MM-DD"),
         queryDateString :moment().format("YYYYMMDD")
     },
     watch:{
@@ -47,11 +47,11 @@ var vmMain = new Vue({
             });
         },
         fetchPreDay :function(){
-            this.queryDate = moment(this.queryDate).subtract(1,"day").format("YYYY/MM/DD");
+            this.queryDate = moment(this.queryDate).subtract(1,"day").format("YYYY-MM-DD");
             this.fetchInOutInfo();
         },
         fetchNextDay :function(){
-            this.queryDate = moment(this.queryDate).add(1,"day").format("YYYY/MM/DD");
+            this.queryDate = moment(this.queryDate).add(1,"day").format("YYYY-MM-DD");
             this.fetchInOutInfo();
         }
     }

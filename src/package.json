@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "alasql":"*",
+    "alasql": "*",
     "async": "^2.0.1",
     "body-parser": "~1.15.1",
     "connect-flash": "^0.1.1",
@@ -21,7 +21,6 @@
     "express-session": "^1.14.1",
     "formidable": "^1.1.1",
     "i18n": "^0.8.3",
-    "log4js": "^0.6.38",
     "moment": "^2.15.1",
     "morgan": "~1.7.0",
     "mysql": "^2.11.1",

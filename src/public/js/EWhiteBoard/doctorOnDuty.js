@@ -40,7 +40,7 @@ function getDuty(date){
                 }
             });
 
-            $('#thisdate').html(date);
+            $('#thisdate').html(moment(date, "YYYY-MM-DD").format("YYYY-MM-DD"));
         }else{
             e_alertMsg(response);
         }

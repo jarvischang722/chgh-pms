@@ -45,7 +45,6 @@ var vmMain = new Vue({
         //抓取病患資訊
         fetchPatientInfo: function () {
             $.post("/eWhiteBoard/api/fetchAllPatientInfo/", function (result) {
-
                 vmMain.allPatientInfo = result.allPatientInfo;
                 vmMain.DNRCount = _.where(vmMain.allPatientInfo, {signDNRFlag: 'Y'}).length;
                 vmMain.CriticalCount = _.filter(vmMain.allPatientInfo, function (data) {
@@ -53,7 +52,7 @@ var vmMain = new Vue({
                 }).length;
                 vmMain.showPatient();
                 vmMain.filterPaitentInfo();
-
+                // console.table(JSON.parse(JSON.stringify(vmMain.allPatientInfo)));
 
             })
         },
@@ -61,7 +60,6 @@ var vmMain = new Vue({
         fetchBedInfo: function () {
             $.post("/eWhiteBoard/api/fetchNurBedInfo/", function (result) {
                 vmMain.bedInfo = result.bedInfo || {};
-                console.log(vmMain.bedInfo);
             });
             //抓取過敏資料
             $.post("/eWhiteBoard/api/fetchAllergyData/", function (result) {
@@ -78,7 +76,7 @@ var vmMain = new Vue({
 
             $.post("/eWhiteBoard/api/fetchSinglePatientInfo/", formData, function (result) {
                 vmMain.patientInfo = result.patientInfo;
-                console.log(vmMain.patientInfo);
+                // console.log(vmMain.patientInfo);
                 $('[data-remodal-id=rooms_modal]').remodal().open();
             })
         },
@@ -95,7 +93,6 @@ var vmMain = new Vue({
                     this.showPatientInfo = _.filter(this.allPatientInfo, function (p_data) {
                         return p_data.signDNRFlag == 'Y';
                     });
-                    console.log(this.showPatientInfo);
                     break;
                 case 'Critical':
                     this.showPatientInfo = _.filter(this.allPatientInfo, function (p_data) {
