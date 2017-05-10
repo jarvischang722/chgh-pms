@@ -19,7 +19,7 @@ var vmMain = new Vue({
         nurseListA:[],
         nurseListB:[],
         nurseListC:[],
-        patientInfo :{},      //單一病患資訊
+        patientInfo :{},      //單一病患資訊1
     },
     watch: {
 
