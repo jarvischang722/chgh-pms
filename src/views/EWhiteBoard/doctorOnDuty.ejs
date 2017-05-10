@@ -63,26 +63,21 @@
             </tr>
             <template v-for="result in results">
             <tr>
-                <td class="table_hard_3" rowspan="2">{{result.ShiftDataName}}</td>
-                <td class="table_hard_4" rowspan="2">{{result.Title}}</td>
-                <td rowspan="2">{{result.R_NAME}} {{result.R_GSMBrevity}}</td>
-                <td rowspan="2">{{result.VS_NAME}} {{result.VS_GSMBrevity}}</td>
-                <td class="table_hard_1">08:00 ~ 20:00</td>
-                <td>專科護理師</td>
+                <td class="table_hard_3" rowspan="{{result.nurseNum}}">{{result.ShiftDataName}}</td>
+                <td class="table_hard_4" rowspan="{{result.nurseNum}}">{{result.Title}}</td>
+                <td rowspan="{{result.nurseNum}}">{{result.R_NAME}} {{result.R_GSMBrevity}}</td>
+                <td rowspan="{{result.nurseNum}}">{{result.VS_NAME}} {{result.VS_GSMBrevity}}</td>
+                <td class="table_hard_1">{{result.nurse1Title}}</td>
+                <td>{{result.nurse1Name}}</td>
             </tr>
-            <tr>
-                <td class="table_hard_1">20:00 ~ 08:00</td>
-                <td>專科護理師</td>
-            </tr>
+                <template v-for="nurse in result.nurseList">
+                    <tr>
+                        <td class="table_hard_1">{{nurse.Title}}</td>
+                        <td>{{nurse.E}}</td>
+                    </tr>
+                </template>
+
             </template>
-            <tr>
-                <td class="table_hard_3">大內科</td>
-                <td class="table_hard_4">08:00 ~ 08:00</td>
-                <td>蔡信宏 (21107)</td>
-                <td></td>
-                <td class="table_hard_1"></td>
-                <td></td>
-            </tr>
         </table>
         <div class="clearfix"></div>
         <div class="btn_group btn_group_bottom">
