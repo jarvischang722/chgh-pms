@@ -424,7 +424,7 @@ exports.getRetrieveVS = function (formData, callback) {
         json: true
     }, function (error, response, RetrieveVS) {
 
-        callback(error, RetrieveVS.HR);
+        callback(error, RetrieveVS);
 
     });
 };
