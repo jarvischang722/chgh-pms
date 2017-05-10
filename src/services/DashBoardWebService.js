@@ -341,8 +341,14 @@ exports.processNurseSche = function (data, callback) {
                 isNew = false;
             }
 
-            bed_name = bed_name.substr(0,bed_name.length-1).replace(" ","-"); //病房名稱格式化
-            var tmpNurseObj = {'wardbed': bed_name,'in_hospital_date':in_hospital_date,'isNew':isNew,'nur_id':nur_id,'patient_id':patient_id};
+            bed_name = bed_name.substr(0, bed_name.length - 1).replace(" ", "-"); //病房名稱格式化
+            var tmpNurseObj = {
+                'wardbed': bed_name,
+                'in_hospital_date': in_hospital_date,
+                'isNew': isNew,
+                'nur_id': nur_id,
+                'patient_id': patient_id
+            };
 
             this_bedList.push(tmpNurseObj);
         }
@@ -409,6 +415,7 @@ exports.getEmptyBedNo = function (formData, callback) {
  * @param callback{Function}:
  */
 exports.getRetrieveVS = function (formData, callback) {
+    formData['_nurid'] = "93"; //TODO 暫時寫死93
     var checkValError = commonTools.checkParamsExist(['_nurid'], formData);
     if (checkValError) {
         return callback(checkValError, []);
@@ -423,9 +430,9 @@ exports.getRetrieveVS = function (formData, callback) {
         json: true
     }, function (error, response, RetrieveVS) {
 
-        _.each(RetrieveVS,function(doctor,dIdx){
-            if(!_.isUndefined(doctor.AgentList)){
-                _.each(doctor.AgentList,function(agent){
+        _.each(RetrieveVS, function (doctor, dIdx) {
+            if (!_.isUndefined(doctor.AgentList)) {
+                _.each(doctor.AgentList, function (agent) {
                     RetrieveVS[dIdx][agent.C.trim()] = agent.E.trim()
                 })
             }
@@ -445,10 +452,13 @@ exports.getRetrieveVS = function (formData, callback) {
  *        }
  */
 exports.getShiftCollectList = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['_id', '_pwd', '_nurid'], formData);
+    formData['_nurid'] = "93"; //TODO 暫時寫死93
+    var checkValError = commonTools.checkParamsExist(['_nurid'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
+    formData["_id"] = SystemConfig.auth_api._id;
+    formData["_pwd"] = SystemConfig.auth_api._pwd;
     request.post({
         url: SystemConfig.hrweb_chgh_url + "ShiftCollectList",
         form: formData
