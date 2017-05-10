@@ -11,7 +11,6 @@ var async = require('async');
 var CryptoJS = require("crypto-js");
 var systemConfig = require('../configs/SystemConfig');
 var ErrorCodeMap = require('../configs/ErrorCode');
-var Logger = require("../plugins/Log4js").Logger();
 var DBAgent = require("../plugins/mysql/DBAgent");
 var spawn = require('child_process').spawn;
 var _this = this;

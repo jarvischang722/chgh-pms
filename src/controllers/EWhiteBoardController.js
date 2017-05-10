@@ -174,7 +174,7 @@ exports.getDoctorOnDuty = function (req, res) {
         || req.body["querydate"]
         || moment().format("YYYY/MM/DD"); //moment().format("YYYY/MM/DD")
 
-    var data = {"_ShiftDate": querydate, "_id": "Mikotek", "_pwd": "Dashboard", "_nurid": ""};
+    var data = {"_ShiftDate": querydate, "_nurid": "93"};
 
     EWhiteBoardService.processDoctorOnDuty(data,function(err,result){
         if(result){

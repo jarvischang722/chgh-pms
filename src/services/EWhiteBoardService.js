@@ -4,7 +4,6 @@
 var _ = require("underscore");
 var async = require("async");
 var DashBoardWebSvc = require("./DashBoardWebService");
-var Logger = require("../plugins/Log4js").Logger();
 var moment = require("moment");
 var request = require('request');
 var parseString = require('xml2js').parseString;
@@ -158,11 +157,6 @@ exports.handlePatientInfo = function (postData, callback) {
         emptyBedNoList : function(callback){
             DashBoardWebSvc.getEmptyBedNo(postData, function (err, emptyBedNoList) {
                     callback(err, emptyBedNoList);
-            })
-        },
-        surgeryList : function(callback){
-            DashBoardWebSvc.getOpScheduleInfo(postData, function (err, surgeryList) {
-                callback(err, surgeryList);
             })
         }
     }, function (err, results) {

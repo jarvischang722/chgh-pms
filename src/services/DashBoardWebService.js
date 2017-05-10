@@ -414,9 +414,8 @@ exports.getRetrieveVS = function (formData, callback) {
         return callback(checkValError, []);
     }
 
-    formData['_id'] = "Mikotek";
-    formData['_pwd'] = "Dashboard";
-    formData['_nurid'] = "";
+    formData["_id"] = SystemConfig.auth_api._id;
+    formData["_pwd"] = SystemConfig.auth_api._pwd;
 
     request.post({
         url: SystemConfig.hrweb_chgh_url + "RetrieveVS",
@@ -424,6 +423,13 @@ exports.getRetrieveVS = function (formData, callback) {
         json: true
     }, function (error, response, RetrieveVS) {
 
+        _.each(RetrieveVS,function(doctor,dIdx){
+            if(!_.isUndefined(doctor.AgentList)){
+                _.each(doctor.AgentList,function(agent){
+                    RetrieveVS[dIdx][agent.C.trim()] = agent.E.trim()
+                })
+            }
+        })
         callback(error, RetrieveVS);
 
     });
