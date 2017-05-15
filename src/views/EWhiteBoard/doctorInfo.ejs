@@ -31,7 +31,7 @@
                        :class="{new :  checkIsToday(bed.in_hospital_date )  }"
                        style="margin-right: 5px;"
                        @click="fetchOneBedInfo(doctor.doctor_name,bed.bed_no)">
-                        {{bed.bed_no}}
+                        {{bed.bed_no | appendHyphenForBedNo}}
                     </a>
                 </td>
             </tr>

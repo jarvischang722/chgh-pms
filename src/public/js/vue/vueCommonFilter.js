@@ -45,3 +45,8 @@ Vue.filter("chkIsTodayByString",function (date) {
     }
     return isToday;
 })
+
+//病房病床中間格式加一槓
+Vue.filter("appendHyphenForBedNo",function (val) {
+    return val.replace(" ","-");
+})

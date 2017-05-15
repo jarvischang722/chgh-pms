@@ -24,7 +24,7 @@
             </thead>
             <tbody>
             <tr v-for="data in checkTreatmentList">
-                <td>{{data.bed_no}}</td>
+                <td>{{data.bed_no | appendHyphenForBedNo}}</td>
                 <td>{{data.patient_name}}</td>
                 <td>{{data.examine_name}}</td>
                 <td>{{data.examine_date}}</td>
