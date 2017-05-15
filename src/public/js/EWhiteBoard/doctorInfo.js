@@ -32,12 +32,20 @@ var vmMain = new Vue({
                 if(result.success){
                     vmMain.doctorList = result.doctorList;
                 }
+                console.log(vmMain.doctorList );
             })
         },
         fetchOneBedInfo : function(doctor_name , bed_no){
             this.bedInfo = _.findWhere(_.findWhere(this.doctorList,{doctor_name:doctor_name}).bedList , {bed_no:bed_no})
            console.log( this.bedInfo);
             $('[data-remodal-id=bed_modal]').remodal().open();
+        },
+        checkIsToday:function(date){
+            var isToday = false;
+            if(moment().format("YYYYMMDD") == date){
+                isToday = true;
+            }
+            return isToday
         }
     }
 });

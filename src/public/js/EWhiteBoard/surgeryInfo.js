@@ -15,20 +15,18 @@ var vmMain = new Vue({
     el: '#ope_list',
     mounted: function () {
         this.fetchSurgeryInfo();
-        this.fetchWeekSurgeryInfo();
+
 
     },
     data: {
         isReady:false,
-        queryDate :moment().format("YYYY/MM/DD"),
+        queryDate :moment().format("YYYY-MM-DD"),
         queryDateString :moment().format("YYYYMMDD"),
         surgeryInfoList : [],
         weekSurgeryInfoList : []
     },
     watch:{
-        queryDate :function(newDate){
-            this.queryDateString = moment(newDate).format("YYYYMMDD");
-        }
+
     },
     methods:{
         //取得手術資訊
@@ -41,12 +39,13 @@ var vmMain = new Vue({
 
                 vmMain.isReady = true;
                 vmMain.surgeryInfoList  = surgeryInfoList ;
+                vmMain.fetchWeekSurgeryInfo();
             });
         },
         fetchWeekSurgeryInfo:function(){
             var params = {
-                StratDate :this.queryDateString,
-                EndDate :moment(this.queryDate).add(7,"day").format("YYYYMMDD")
+                StratDate :moment(this.queryDate).add(1,"day").format("YYYYMMDD"),
+                EndDate :moment(this.queryDate).add(8,"day").format("YYYYMMDD")
             };
             this.getSurgeryInfo(params,function(surgeryInfoList){
                 vmMain.weekSurgeryInfoList  = surgeryInfoList;
@@ -66,11 +65,13 @@ var vmMain = new Vue({
 
         },
         fetchPreDay :function(){
-            this.queryDate = moment(this.queryDate).subtract(1,"day").format("YYYY/MM/DD");
+            this.queryDate = moment(this.queryDate).subtract(1,"day").format("YYYY-MM-DD");
+            this.queryDateString = moment( this.queryDate).format("YYYYMMDD");
             this.fetchSurgeryInfo();
         },
         fetchNextDay :function(){
-            this.queryDate = moment(this.queryDate).add(1,"day").format("YYYY/MM/DD");
+            this.queryDate = moment(this.queryDate).add(1,"day").format("YYYY-MM-DD");
+            this.queryDateString = moment( this.queryDate).format("YYYYMMDD");
             this.fetchSurgeryInfo();
         }
     }

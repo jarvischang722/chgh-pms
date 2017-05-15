@@ -8,7 +8,6 @@
     {
       "category":"access",
       "type": "dateFile",
-      "filename": "/Users/Ian/Documents/work/chgh-PMS/log/pms_access",
       "pattern": "-yyyy-MM-dd.log",
       "alwaysIncludePattern": true
     },

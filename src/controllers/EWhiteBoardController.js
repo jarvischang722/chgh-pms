@@ -151,9 +151,7 @@ exports.getNurseSche = function (req, res) {
         || req.body["expect_discharged_date"]
         || moment().format("YYYYMMDD"); //moment().format("YYYY/MM/DD")
 
-    //expect_discharged_date = "20170405";
-
-    var data = {"Query_date": expect_discharged_date};
+    var data = {"QueryDate": expect_discharged_date};
 
     EWhiteBoardService.processNurseSche(data,function(err,result){
         if(result){
@@ -176,49 +174,15 @@ exports.getDoctorOnDuty = function (req, res) {
         || req.body["querydate"]
         || moment().format("YYYY/MM/DD"); //moment().format("YYYY/MM/DD")
 
-    //querydate="2015/09/07"; //EASONTODO
+    var data = {"_ShiftDate": querydate, "_nurid": "93"};
 
-    var data = {"_ShiftDate": querydate, "_id": "Mikotek", "_pwd": "Dashboard", "_nurid": ""};
-    DashBoardWebService.getShiftCollectList(data, function (errorCode, result) {
-        if (result) {
-            var NusBoard = result.NusBoard;
-            var rtnResult={};
-            for(var i=0;i<NusBoard.length;i++){
-                var ShiftDataID = NusBoard[i].ShiftDataID;
-                var ShiftDataName = NusBoard[i].ShiftDataName;
-                var Title = NusBoard[i].Title; //值班時段
-                var EmpType = NusBoard[i].EmpType;
-                var EmpName = NusBoard[i].EmpName;
-                var GSMBrevity = NusBoard[i].GSMBrevity;
-                var ShiftDataList;
-                var tmpObject = {};
-                if (ShiftDataID in rtnResult) {
-                    tmpObject = rtnResult[ShiftDataID];
-                    ShiftDataList = tmpObject["dataList"];
-                }else{
-                    ShiftDataList = [];
-                    tmpObject = {};
-                    tmpObject["ShiftDataID"] = ShiftDataID;
-                    tmpObject["ShiftDataName"] = ShiftDataName;
-                    tmpObject["dataList"] = ShiftDataList;
-                    tmpObject["Title"] = Title;
-                    rtnResult[ShiftDataID] = tmpObject;
-                }
-
-                //資料整理
-                if("ＶＳ"==EmpType){ //主治醫師
-                    tmpObject["VS_NAME"] =EmpName;
-                    tmpObject["VS_GSMBrevity"] =GSMBrevity;
-                }else if("Ｒ"==EmpType){ //住院醫師
-                    tmpObject["R_NAME"] =EmpName;
-                    tmpObject["R_GSMBrevity"] =GSMBrevity;
-                }else{ //護理師 TODO?
-                    ShiftDataList.push(NusBoard[i]);
-                }
-            }
-            res.json(tools.getReturnJSON(true, rtnResult))
-        } else {
-            res.json(tools.getReturnJSON(false, [], [], errorCode))
+    EWhiteBoardService.processDoctorOnDuty(data,function(err,result){
+        if(result){
+            //res.json(tools.getReturnJSON(false,{surgeryInfoList:[]},9999,err));
+            res.json(tools.getReturnJSON(true, result));
+        }else{
+            //res.json(tools.getReturnJSON(true,{surgeryInfoList:surgeryInfoList}));
+            res.json(tools.getReturnJSON(false, [], [], err));
         }
     })
 }

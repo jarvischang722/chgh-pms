@@ -42,8 +42,8 @@
                         <tr>
                             <td class="text-right date">註記</td>
                             <td class="doctor_cond">
-                                <span v-if="patientInfo.llergy_flag == 'Y'" class="cond_dot cond_red"></span>
-                                <span v-if="patientInfo.llergy_flag == 'Y'">過敏</span>
+                                <span v-if="patientInfo.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
+                                <span v-if="patientInfo.allergy_flag == 'Y'">過敏</span>
 
                                 <span v-if="patientInfo.xxx == 'Y'" class="cond_dot cond_yellow"></span>
                                 <span v-if="patientInfo.xxx == 'Y'">手術</span>
@@ -57,11 +57,11 @@
                                 <span v-if="patientInfo.organ_flag == 'Y'" class="cond_dot cond_give"></span>
                                 <span v-if="patientInfo.organ_flag == 'Y'">器官捐贈</span>
 
-                                <span v-if="patientInfo.SignDNRFlag == 'Y'" class="cond_dot cond_ban"></span>
-                                <span v-if="patientInfo.SignDNRFlag == 'Y'" >DNR</span>
+                                <span v-if="patientInfo.signDNRFlag == 'Y'" class="cond_dot cond_ban"></span>
+                                <span v-if="patientInfo.signDNRFlag == 'Y'" >DNR</span>
 
-                                <span v-if="patientInfo.xxx == 'Y'" class="cond_dot cond_critical"></span>
-                                <span v-if="patientInfo.xxx == 'Y'">Critical</span>
+                                <span v-if="patientInfo.critical != ''" class="cond_dot cond_critical"></span>
+                                <span v-if="patientInfo.critical != ''">Critical</span>
                             </td>
                         </tr>
                         </tbody>

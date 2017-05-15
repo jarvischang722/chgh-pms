@@ -4,7 +4,6 @@
 var _ = require("underscore");
 var async = require("async");
 var DashBoardWebSvc = require("./DashBoardWebService");
-var Logger = require("../plugins/Log4js").Logger();
 var moment = require("moment");
 var request = require('request');
 var parseString = require('xml2js').parseString;
@@ -55,7 +54,6 @@ exports.getNurseSche = function (req, callback) {
                 parseString(body, function (err, result) {
                     var result = JSON.parse(result.string._);
                     var classBedObj = {};
-                    console.log(result);
                     if (result != null && result.length > 0) {
                         for (var i = 0; i < result.length; i++) {
                             var nurse_no = result[i].employee_id;
@@ -472,5 +470,150 @@ exports.processNurseSche = function (data, callback) {
         }
 
         callback(err, classBedObj);
+    })
+};
+
+exports.processDoctorOnDuty = function (data, callback) {
+    async.parallel({
+        shiftCollectList: function (callback) {
+            DashBoardWebSvc.getShiftCollectList(data, function (err, collect) {
+                callback(err, collect);
+            })
+        },
+        retrieveVS: function (callback) {
+            DashBoardWebSvc.getRetrieveVS(data, function (err, patient) {
+                callback(err, patient)
+            })
+        }
+    }, function (err, results) {
+        /*
+        var result = alasql('SELECT schedule.*, patient.in_hospital_date, patient.patient_id ' +
+            'FROM ? schedule LEFT JOIN ? patient USING bed_no ',
+            [results.scheduleData, results.patientData]);
+        */
+        var shiftCollectList = results.shiftCollectList;
+        var retrieveVS = results.retrieveVS;
+
+        //整理retrieveVS
+        retrieveVSMap={};
+        for(var i=0;i<retrieveVS.length;i++){
+            var thisItem = retrieveVS[i];
+            var physician_id = thisItem.physician_id;
+            var AgentList = thisItem.AgentList||[];
+            var bed_no = thisItem.bed_no;
+            var employee_name = thisItem.employee_name;
+            var gsm_brevity_code = thisItem.gsm_brevity_code;
+
+            var tmpList;
+            var tmpMap;
+            var nurseMap;
+            if(physician_id in retrieveVSMap){
+                tmpMap = retrieveVSMap[physician_id];
+                tmpList = tmpMap["palist"]||[];
+                nurseMap = tmpMap["nursemap"]||{};
+            }else{
+                tmpList = [];
+                tmpMap = {};
+                nurseMap = {};
+                tmpMap["palist"] = tmpList;
+                tmpMap["nursemap"] = nurseMap;
+                retrieveVSMap[physician_id] = tmpMap;
+            }
+
+            for(var j=0;j<AgentList.length;j++){
+                var C = AgentList[j].C;
+                var E = AgentList[j].E;
+                if(C=="PA") {
+                    if(!(nurseMap.hasOwnProperty(E))){
+                        var padata = {"E": E,"bed_no":bed_no,"employee_name":employee_name,"gsm_brevity_code":gsm_brevity_code};
+                        nurseMap[E] = E;
+                        tmpList.push(padata);
+                    }
+                }
+            }
+        }
+
+        var rtnResult={};
+        if (shiftCollectList) {
+            var ShiftCollect = shiftCollectList.ShiftCollect;
+            var ShiftCollectMap={};
+            for(var i=0;i<ShiftCollect.length;i++){
+                var thisItem = ShiftCollect[i];
+                if(!(thisItem.ShiftDataID in ShiftCollectMap)){
+                    ShiftCollectMap[thisItem.ShiftDataID] = thisItem.ShiftDataName;
+                }
+            }
+            var NusBoard = shiftCollectList.NusBoard;
+            for(var i=0;i<NusBoard.length;i++){
+                var ShiftDataID = NusBoard[i].ShiftDataID;
+                var ShiftDataName = ShiftCollectMap[ShiftDataID];
+                var Title = NusBoard[i].Title; //值班時段
+                var EmpType = NusBoard[i].EmpType;
+                var EmpName = NusBoard[i].EmpName;
+                var GSMBrevity = NusBoard[i].GSMBrevity;
+                var physician_id = NusBoard[i].physician_id;
+                var ShiftDataList;
+                var tmpObject = {};
+                var nurseList=[];
+
+                if (ShiftDataID in rtnResult) {
+                    tmpObject = rtnResult[ShiftDataID];
+                    ShiftDataList = tmpObject["dataList"];
+                }else{
+                    ShiftDataList = [];
+                    tmpObject = {};
+                    tmpObject["ShiftDataID"] = ShiftDataID;
+                    tmpObject["ShiftDataName"] = ShiftDataName;
+                    tmpObject["physician_id"] = physician_id;
+                    tmpObject["dataList"] = ShiftDataList;
+                    tmpObject["Title"] = Title;
+                    if(EmpType!=""){
+                        rtnResult[ShiftDataID] = tmpObject;
+                    }
+
+                    if(physician_id in retrieveVSMap){
+                        nurseList = retrieveVSMap[physician_id]["palist"]||[];
+                        if(nurseList && nurseList.length>0){
+                            var nurseList2 = nurseList.slice(1);
+                            tmpObject["nurseList"] = nurseList2;
+                            tmpObject["nurse1Name"] = nurseList[0].E;
+                            tmpObject["nurseNum"] = nurseList.length;
+                        }else{
+                            tmpObject["nurseNum"] = 0;
+                            tmpObject["nurse1Title"] = "";
+                            tmpObject["nurse1Name"] = "";
+                        }
+                    }else{
+                        tmpObject["nurseNum"] = 0;
+                        tmpObject["nurse1Title"] = "";
+                        tmpObject["nurse1Name"] = "";
+                    }
+                }
+
+
+                //資料整理
+                if("ＶＳ"==EmpType){ //主治醫師
+                    tmpObject["VS_NAME"] =EmpName;
+                    tmpObject["VS_GSMBrevity"] =GSMBrevity;
+                }else if("Ｒ"==EmpType){ //住院醫師
+                    tmpObject["R_NAME"] =EmpName;
+                    tmpObject["R_GSMBrevity"] =GSMBrevity;
+                }else if(""==EmpType){ //護理師
+                    for(var k=0;k<nurseList.length;k++){
+                        var thisnurse = nurseList[k];
+                        if(thisnurse.E==(EmpName+GSMBrevity)){
+                            if(k==0){
+                                tmpObject["nurse1Title"] = Title;
+                            }else{
+                                thisnurse["Title"] = Title;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        callback(err, rtnResult);
     })
 };
