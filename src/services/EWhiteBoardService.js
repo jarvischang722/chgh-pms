@@ -31,7 +31,7 @@ exports.handleSurgeryInfo = function (postData, callback) {
         if (err) {
             return callback(err, []);
         }
-        var surgeryInfo = alasql('SELECT si.*, pi.*  FROM ? si INNER JOIN ? pi USING patient_id', [results.surgeryInfo, results.patientInfo]);
+        var surgeryInfo = alasql('SELECT si.*, pi.*  FROM ? si left JOIN ? pi USING patient_id', [results.surgeryInfo, results.patientInfo]);
         callback(null, surgeryInfo);
     });
 
@@ -374,7 +374,6 @@ exports.processNurseSche = function (data, callback) {
             var fire_control_group_name = result[i].group_name;
             var group_name_array = result[i].group_name.split(",");
             var subgroup_name_array = group_name_array.slice(1);
-            subgroup_name_array = ["1", "2"];
             var class_id = result[i].schedule_type; //早班 中班 晚班
             var in_hospital_date = result[i].in_hospital_date; //入院日
             var call_number = result[i].call_number; //分機號碼
@@ -579,12 +578,12 @@ exports.processDoctorOnDuty = function (data, callback) {
                             tmpObject["nurse1Name"] = nurseList[0].E;
                             tmpObject["nurseNum"] = nurseList.length;
                         }else{
-                            tmpObject["nurseNum"] = 0;
+                            tmpObject["nurseNum"] = 1;
                             tmpObject["nurse1Title"] = "";
                             tmpObject["nurse1Name"] = "";
                         }
                     }else{
-                        tmpObject["nurseNum"] = 0;
+                        tmpObject["nurseNum"] = 1;
                         tmpObject["nurse1Title"] = "";
                         tmpObject["nurse1Name"] = "";
                     }
