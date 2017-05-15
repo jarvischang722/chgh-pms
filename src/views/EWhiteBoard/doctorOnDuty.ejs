@@ -63,10 +63,10 @@
             </tr>
             <template v-for="result in results">
             <tr>
-                <td class="table_hard_3" rowspan="{{result.nurseNum}}">{{result.ShiftDataName}}</td>
-                <td class="table_hard_4" rowspan="{{result.nurseNum}}">{{result.Title}}</td>
-                <td rowspan="{{result.nurseNum}}">{{result.R_NAME}} {{result.R_GSMBrevity}}</td>
-                <td rowspan="{{result.nurseNum}}">{{result.VS_NAME}} {{result.VS_GSMBrevity}}</td>
+                <td v-bind:rowspan="result.nurseNum" class="table_hard_3" >{{result.ShiftDataName}}</td>
+                <td v-bind:rowspan="result.nurseNum" class="table_hard_4">{{result.Title}}</td>
+                <td v-bind:rowspan="result.nurseNum" >{{result.R_NAME}} {{result.R_GSMBrevity}}</td>
+                <td v-bind:rowspan="result.nurseNum" >{{result.VS_NAME}} {{result.VS_GSMBrevity}}</td>
                 <td class="table_hard_1">{{result.nurse1Title}}</td>
                 <td>{{result.nurse1Name}}</td>
             </tr>
