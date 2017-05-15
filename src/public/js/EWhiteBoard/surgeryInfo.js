@@ -5,8 +5,7 @@ Vue.component('surgery-info-tmp', {
     template: '#surgeryInfoTmp',
     props: ["surgeryInfoList"],
     data: function () {
-        return {
-        }
+        return {}
     },
     methods: {}
 });
@@ -19,59 +18,56 @@ var vmMain = new Vue({
 
     },
     data: {
-        isReady:false,
-        queryDate :moment().format("YYYY-MM-DD"),
-        queryDateString :moment().format("YYYYMMDD"),
-        surgeryInfoList : [],
-        weekSurgeryInfoList : []
+        isReady: false,
+        queryDate: moment().format("YYYY-MM-DD"),
+        queryDateString: moment().format("YYYYMMDD"),
+        surgeryInfoList: [],
+        weekSurgeryInfoList: []
     },
-    watch:{
-
-    },
-    methods:{
+    watch: {},
+    methods: {
         //取得手術資訊
-        fetchSurgeryInfo:function(){
+        fetchSurgeryInfo: function () {
             var params = {
-                StratDate :this.queryDateString,
-                EndDate :this.queryDateString
+                StratDate: this.queryDateString,
+                EndDate: this.queryDateString
             };
-            this.getSurgeryInfo(params,function(surgeryInfoList){
+            this.getSurgeryInfo(params, function (surgeryInfoList) {
 
                 vmMain.isReady = true;
-                vmMain.surgeryInfoList  = surgeryInfoList ;
+                vmMain.surgeryInfoList = surgeryInfoList;
                 vmMain.fetchWeekSurgeryInfo();
             });
         },
-        fetchWeekSurgeryInfo:function(){
+        fetchWeekSurgeryInfo: function () {
             var params = {
-                StratDate :moment(this.queryDate).add(1,"day").format("YYYYMMDD"),
-                EndDate :moment(this.queryDate).add(8,"day").format("YYYYMMDD")
+                StratDate: moment(this.queryDate).add(1, "day").format("YYYYMMDD"),
+                EndDate: moment(this.queryDate).add(8, "day").format("YYYYMMDD")
             };
-            this.getSurgeryInfo(params,function(surgeryInfoList){
-                vmMain.weekSurgeryInfoList  = surgeryInfoList;
+            this.getSurgeryInfo(params, function (surgeryInfoList) {
+                vmMain.weekSurgeryInfoList = surgeryInfoList;
             });
         },
         //取得手術資訊
-        getSurgeryInfo:function(params,callback){
-
-            $.post('/eWhiteBoard/api/qrySurgeryInfo' ,params, function(data){
-                if(data.success){
+        getSurgeryInfo: function (params, callback) {
+            $.post('/eWhiteBoard/api/qrySurgeryInfo', params, function (data) {
+                if (data.success) {
                     callback(data.result.surgeryInfoList);
-                }else{
+                } else {
                     callback([]);
                 }
 
             });
 
         },
-        fetchPreDay :function(){
-            this.queryDate = moment(this.queryDate).subtract(1,"day").format("YYYY-MM-DD");
-            this.queryDateString = moment( this.queryDate).format("YYYYMMDD");
+        fetchPreDay: function () {
+            this.queryDate = moment(this.queryDate).subtract(1, "day").format("YYYY-MM-DD");
+            this.queryDateString = moment(this.queryDate).format("YYYYMMDD");
             this.fetchSurgeryInfo();
         },
-        fetchNextDay :function(){
-            this.queryDate = moment(this.queryDate).add(1,"day").format("YYYY-MM-DD");
-            this.queryDateString = moment( this.queryDate).format("YYYYMMDD");
+        fetchNextDay: function () {
+            this.queryDate = moment(this.queryDate).add(1, "day").format("YYYY-MM-DD");
+            this.queryDateString = moment(this.queryDate).format("YYYYMMDD");
             this.fetchSurgeryInfo();
         }
     }
