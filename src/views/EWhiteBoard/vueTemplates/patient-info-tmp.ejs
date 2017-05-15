@@ -3,7 +3,7 @@
     <div class="remodal" data-remodal-id="rooms_modal">
         <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
         <div class="remodal_header">
-            <div>{{patientInfo.bed_no | appendHyphenForBedNo}} </div>
+            <div>{{patientInfo.bed_no }} </div>
             <div><span :class="{male: patientInfo.sex == '男' , 'female':patientInfo.sex == '女'}">{{patientInfo.patient_name}}({{patientInfo.birthday | convBirthdayToAge}})</span></div>
         </div>
         <div class="remodal_body">

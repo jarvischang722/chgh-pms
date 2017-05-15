@@ -37,16 +37,11 @@ Vue.filter("convBirthdayToAge", function (birth_str) {
     }
 });
 
-//判斷是否為今日
-Vue.filter("chkIsTodayByString",function (date) {
-    var isToday = true;
-    if(_.isEqual(date,moment().format("YYYYMMDD"))){
-        isToday = true;
-    }
-    return isToday;
-})
 
-//病房病床中間格式加一槓
-Vue.filter("appendHyphenForBedNo",function (val) {
-    return val.replace(" ","-");
-})
+/**
+ * 病房病床中間格式加一槓
+ */
+Vue.filter("appendHyphenForBedNo",function (bedNo) {
+    bedNo = bedNo.replace(/\s/,"-");
+    return bedNo;
+});
