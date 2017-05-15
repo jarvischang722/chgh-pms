@@ -261,6 +261,19 @@ exports.fetchExamScheduleInfo = function (req, res) {
     })
 };
 
+/**
+ *  撈取醫師資訊
+ */
+exports.fetchDoctorInfo = function (req, res) {
+    EWhiteBoardService.handleDoctorInfo(req.body, function (err, doctorList) {
+        res.json({success: _.isNull(err), errorMsg: err, doctorList: doctorList});
+    })
+};
+
+
+/**
+ *  撈取醫師資訊
+ */
 exports.fetchDoctorInfo = function (req, res) {
     EWhiteBoardService.handleDoctorInfo(req.body, function (err, doctorList) {
         res.json({success: _.isNull(err), errorMsg: err, doctorList: doctorList});

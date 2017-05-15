@@ -9,7 +9,7 @@
 
 <%- include ../Common/eBoardMarquee.ejs %>
 
-<%- include ./vueTemplates/doctor-info-tmp.ejs %>
+<%- include ./vueTemplates/patient-info-tmp.ejs%>
 
 <div class="container container_higher" id="out">
     <div class="container_inner">
@@ -38,7 +38,9 @@
             </tbody>
         </table>
     </div>
-    <doctor-info-tmp :bed-info="bedInfo"></doctor-info-tmp>
+    <patient-info-tmp
+            :patient-info = 'patientInfo' >
+   </patient-info-tmp>
 
 </div>
 
