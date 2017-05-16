@@ -23,7 +23,7 @@ var moment = require("moment");
  */
 exports.getNurPatient = function (formData, callback) {
     request.post({
-        url: SystemConfig.web_service_url + "Get_nur_Patient",
+        url: SystemConfig.web_service_url + "Get_nur_Patient_new",
         form: formData
     }, function (error, response, apiResult) {
 
@@ -46,7 +46,7 @@ exports.getNurPatient = function (formData, callback) {
  */
 exports.getDayBeforeInfo = function (formData, callback) {
     request.post({
-        url: SystemConfig.web_service_url + "day_before_info",
+        url: SystemConfig.web_service_url + "day_before_info_new",
         form: formData
     }, function (error, response, apiResult) {
 
@@ -74,7 +74,7 @@ exports.getInTranInData = function (formData, callback) {
     }
 
     request.post({
-        url: SystemConfig.web_service_url + "In_TranIn_Data",
+        url: SystemConfig.web_service_url + "In_TranIn_Data_new",
         form: formData
     }, function (error, response, apiResult) {
 
@@ -102,7 +102,7 @@ exports.getOutTranOutData = function (formData, callback) {
     }
 
     request.post({
-        url: SystemConfig.web_service_url + "Out_TranOut_Data",
+        url: SystemConfig.web_service_url + "Out_TranOut_Data_new",
         form: formData
     }, function (error, response, apiResult) {
 
@@ -125,7 +125,7 @@ exports.getOutTranOutData = function (formData, callback) {
  */
 exports.getNurBedInfo = function (formData, callback) {
     request.post({
-        url: SystemConfig.web_service_url + "nur_bed_info",
+        url: SystemConfig.web_service_url + "nur_bed_info_new",
         form: formData
     }, function (error, response, apiResult) {
 
@@ -153,7 +153,7 @@ exports.getOpScheduleInfo = function (formData, callback) {
     }
 
     request.post({
-        url: SystemConfig.web_service_url + "op_schedule_info",
+        url: SystemConfig.web_service_url + "op_schedule_info_new",
         form: formData
     }, function (error, response, apiResult) {
 
@@ -216,7 +216,7 @@ exports.getNisDutySchedule = function (formData, callback) {
     }
 
     request.post({
-        url: SystemConfig.web_service_url + "nis_duty_schedule",
+        url: SystemConfig.web_service_url + "nis_duty_schedule_new",
         form: formData
     }, function (error, response, apiResult) {
 
@@ -396,12 +396,17 @@ exports.getAllergyData = function (formData, callback) {
 exports.getEmptyBedNo = function (formData, callback) {
 
     request.post({
-        url: SystemConfig.web_service_url + "Get_empty_bedno",
+        url: SystemConfig.web_service_url + "Get_empty_bedno_new",
         form: formData
     }, function (error, response, apiResult) {
 
         parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var EmptyBedNoList = JSON.parse(result.string);
+
+
+            _.each(EmptyBedNoList, function (item, idx) {
+                EmptyBedNoList[idx]["nur_id"] = item.nur_id.trim();
+            })
             callback(err, EmptyBedNoList);
         });
 

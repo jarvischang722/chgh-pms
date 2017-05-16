@@ -169,7 +169,7 @@ exports.handlePatientInfo = function (postData, callback) {
         var nur_id = results.patientInfo.length > 0 ? results.patientInfo[0].nur_id : '';
             //塞入空房
         _.each(emptyBedNoList , function(emptyBedInfo){
-            if(emptyBedInfo.nur_id == nur_id && _.findIndex(allpatientInfo,{bed_no:emptyBedInfo.bed_no}) == -1){
+            if(emptyBedInfo.nur_id == nur_id && _.findIndex(allpatientInfo,{bed_no:emptyBedInfo.bed_no, nur_id :nur_id}) == -1){
                 allpatientInfo.push(emptyBedInfo);
             }
         });
