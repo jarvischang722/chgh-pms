@@ -49,7 +49,7 @@ exports.getNurPatient = function (formData, callback) {
  *        }
  */
 exports.getDayBeforeInfo = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id','Query_date'], formData);
+    var checkValError = commonTools.checkParamsExist(['nurs_id', 'Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -76,7 +76,7 @@ exports.getDayBeforeInfo = function (formData, callback) {
  *        }
  */
 exports.getInTranInData = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id','Query_date'], formData);
+    var checkValError = commonTools.checkParamsExist(['nurs_id', 'Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -104,7 +104,7 @@ exports.getInTranInData = function (formData, callback) {
  *        }
  */
 exports.getOutTranOutData = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id','Query_date'], formData);
+    var checkValError = commonTools.checkParamsExist(['nurs_id', 'Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -159,7 +159,7 @@ exports.getNurBedInfo = function (formData, callback) {
  *        }
  */
 exports.getOpScheduleInfo = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate','nur_id'], formData);
+    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate', 'nur_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -187,7 +187,7 @@ exports.getOpScheduleInfo = function (formData, callback) {
  *        }
  */
 exports.getExamScheduleInfo = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate','nurs_id'], formData);
+    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate', 'nurs_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -217,7 +217,7 @@ exports.getExamScheduleInfo = function (formData, callback) {
  */
 exports.getNisDutySchedule = function (formData, callback) {
 
-    var checkValError = commonTools.checkParamsExist(['Query_date','nur_id'], formData);
+    var checkValError = commonTools.checkParamsExist(['Query_date', 'nur_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -251,6 +251,8 @@ exports.getAllergyData = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
+
+    formData["PatientID"] = formData['patient_id']
 
     request.post({
         url: SystemConfig.web_service_url + "Get_Allergy_Data",
@@ -305,14 +307,14 @@ exports.getEmptyBedNo = function (formData, callback) {
  */
 exports.getRetrieveVS = function (formData, callback) {
 
-    var checkValError = commonTools.checkParamsExist(['_nurid'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
 
     formData["_id"] = SystemConfig.auth_api._id;
     formData["_pwd"] = SystemConfig.auth_api._pwd;
-
+    formData["_nurid"] = formData["nur_id"];
     request.post({
         url: SystemConfig.hrweb_chgh_url + "RetrieveVS",
         form: formData,
@@ -342,7 +344,7 @@ exports.getRetrieveVS = function (formData, callback) {
  */
 exports.getShiftCollectList = function (formData, callback) {
     formData['_nurid'] = "93"; //TODO 暫時寫死93
-    var checkValError = commonTools.checkParamsExist(['_nurid','_ShiftDate'], formData);
+    var checkValError = commonTools.checkParamsExist(['_nurid', '_ShiftDate'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
