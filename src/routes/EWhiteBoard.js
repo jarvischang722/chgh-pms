@@ -4,8 +4,8 @@
 var express = require('express');
 var router = express.Router();
 var EWhiteBoard = require('../controllers/EWhiteBoardController');
-// var AuthMiddleware = require("../middlewares/AuthMiddleware");
-var middleWares = [  ];
+var AuthMiddleware = require("../middlewares/AuthMiddleware");
+var middleWares = [ AuthMiddleware ];
 
 
 /* Setting Routes */
