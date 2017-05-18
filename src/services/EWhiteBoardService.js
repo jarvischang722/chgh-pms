@@ -251,6 +251,7 @@ exports.handleInTranInfo = function (postData, callback) {
         var resResult = alasql('SELECT inTran.*, patient.major_assess_id,patient.icd_desc,patient.nurse_name  ' +
             'FROM ? inTran LEFT JOIN ? patient USING patient_id ',
             [results.inTranData, results.allPatient]);
+        resResult = _.sortBy(resResult,"bed_no");
         callback(err, resResult);
     })
 
@@ -280,6 +281,7 @@ exports.handleOutTranInfo = function (postData, callback) {
         var resResult = alasql('SELECT outTran.*, patient.major_assess_id,patient.icd_desc,patient.nurse_name  ' +
             'FROM ? outTran LEFT JOIN ? patient USING patient_id ',
             [results.outTranData, results.allPatient]);
+        resResult = _.sortBy(resResult,"bed_no");
         callback(err, resResult);
     })
 
