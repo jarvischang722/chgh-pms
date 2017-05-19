@@ -229,8 +229,13 @@ exports.handleSinglePatientInfo = function (postData, callback) {
         if (err) {
             return callback(err, []);
         }
-        var doctorData = _.findWhere(results.doctorList,function(doc){
-            return doc.bed_no.trim() == patientInfo.bed_no
+        // _.each(results.doctorList,function(doc){
+        //     if(doc.bed_no.trim() == patientInfo.bed_no.trim()){
+        //         console.(doc);
+        //     }
+        // })
+        var doctorData = _.find(results.doctorList,function(doc){
+            return doc.bed_no.trim() == patientInfo.bed_no.trim()
         });
         if(!_.isUndefined(doctorData)){
             patientInfo = _.extend(patientInfo,doctorData)
