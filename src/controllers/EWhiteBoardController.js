@@ -222,7 +222,7 @@ exports.fetchSinglePatientInfo = function (req, res) {
  */
 exports.fetchDayBeforeInfo = function (req, res) {
     req.body["nur_id"] = req.session.nur_id || "";
-    s
+
     EWhiteBoardService.handleDayBeforeInfo(req.body, function (err, DayBeforeInfo) {
         res.json({success: _.isNull(err), errorMsg: err, dayBeforeInfo: DayBeforeInfo});
     })

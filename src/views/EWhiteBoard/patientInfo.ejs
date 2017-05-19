@@ -59,7 +59,7 @@
                     <!--過敏-->
                     <span v-if="patient.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
                     <!--手術-->
-                    <span v-if="patient.operate_name != undefined && patient.operate_name != ''" class="cond_dot cond_yellow"></span>
+                    <span v-if="patient.operate_name != ''" class="cond_dot cond_yellow"></span>
                     <!--待辦事項-->
                     <span v-if="patient.xxx == 'Y'" class="cond_dot cond_green"></span>
                     <!--MDRO-->
