@@ -76,7 +76,7 @@ var vmMain = new Vue({
 
             $.post("/eWhiteBoard/api/fetchSinglePatientInfo/", formData, function (result) {
                 vmMain.patientInfo = result.patientInfo;
-                 console.log(vmMain.patientInfo);
+                 // console.log(vmMain.patientInfo);
                 $('[data-remodal-id=rooms_modal]').remodal().open();
             })
         },
