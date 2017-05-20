@@ -67,12 +67,12 @@
                 <td v-bind:rowspan="result.nurseNum" class="table_hard_4">{{result.Title}}</td>
                 <td v-bind:rowspan="result.nurseNum" >{{result.R_NAME}} {{result.R_GSMBrevity}}</td>
                 <td v-bind:rowspan="result.nurseNum" >{{result.VS_NAME}} {{result.VS_GSMBrevity}}</td>
-                <td class="table_hard_1">{{result.nurse1Title}}</td>
+                <td class="table_hard_1">{{result.nurseTitle}}</td>
                 <td>{{result.nurse1Name}}</td>
             </tr>
                 <template v-for="nurse in result.nurseList">
                     <tr>
-                        <td class="table_hard_1">{{nurse.Title}}</td>
+                        <td class="table_hard_1">{{nurse.nurseTitle}}</td>
                         <td>{{nurse.E}}</td>
                     </tr>
                 </template>

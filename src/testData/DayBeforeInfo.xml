@@ -1,4 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<string xmlns="http://tempuri.org/">
-    [{"nur_id":"93  ","inpatient_num":43,"in_hospital_num":1,"out_hospital_num":1,"trans_in_num":0,"trans_out_num":1,"operation_num":10,"death_num":0}]
-</string>
+<string xmlns="http://tempuri.org/">[{"nur_id":"101 ","inpatient_num":38,"in_hospital_num":6,"out_hospital_num":5,"trans_in_num":3,"trans_out_num":1,"operation_num":1,"death_num":0}]</string>

@@ -54,21 +54,41 @@
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x" :class="{'fa-mars-out': patient.sex == '男' , 'fa-venus-out': patient.sex == '女' }"></i>
                         <i class="fa fa-stack-1x"　:class="{'fa-mars': patient.sex == '男' , 'fa-venus': patient.sex == '女' }"></i>
-                    </span>{{patient.bed_no}}
+                    </span>{{patient.bed_no | appendHyphenForBedNo}}
                 <div class="cond_dots_list">
-                    <!-- <span class="cond_dot cond_blue"></span> -->
+                    <!--過敏-->
+                    <span v-if="patient.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
+                    <!--手術-->
+                    <span v-if="patient.operate_name != ''" class="cond_dot cond_yellow"></span>
+                    <!--待辦事項-->
+                    <span v-if="patient.xxx == 'Y'" class="cond_dot cond_green"></span>
+                    <!--MDRO-->
+                    <span v-if="patient.MDRO == 'Y'" class="cond_dot cond_star"></span>
+                    <!--器官捐贈-->
+                    <span v-if="patient.organ_flag == 'Y'" class="cond_dot cond_give"></span>
+                    <!--DNR-->
+                    <span v-if="patient.signDNRFlag == 'Y'" class="cond_dot cond_ban"></span>
+                    <!--Critical-->
+                    <span v-if="patient.critical != ''" class="cond_dot cond_critical"></span>
                 </div>
             </div>
-            <p><span class="label">姓名：</span><span>{{patient.patient_name}}({{patient.birthday | convBirthdayToAge}})</span></p>
+            <!--<p><span class="label">姓名：</span><span>{{patient.patient_name}}({{patient.birthday | convBirthdayToAge}})</span></p>-->
             <p><span class="label">主治：</span><span class="doctor">{{patient.employee_name}}</span></p>
-            <p><span class="label">專科護理師：</span><span>{{patient.nurse_name}}</span><small class="red">{{patient.nurse_id}}</small></p>
-            <p><span class="label">護理師：</span><span></span></p>
+            <p>
+                <span class="label">專科護理師：</span>
+                <span>{{patient.PA}}</span>
+                <!--<small class="red">{{patient.}}</small>
+                </p>-->
+            <p>
+                <span class="label">護理師：</span>
+                <span>{{patient.nurse_name}}</span>
+            </p>
         </a>
 
         <a v-else href="javascript:void(0)" class="rooms_inner empty">
             <div class="room_cond">
                         <span class="fa-stack fa-lg">
-                    </span>{{patient.bed_no}}
+                    </span>{{patient.bed_no | appendHyphenForBedNo}}
                 <div class="cond_dots_list">
                 </div>
             </div>

@@ -1435,6 +1435,8 @@ header {
     display: inline-block;
     float: left;
     font-size: 14px;
+    height: 160px;
+    /*overflow: hidden;*/
 }
 
 .rooms_inner {
@@ -1448,6 +1450,8 @@ header {
     -moz-transition: box-shadow ease-out .5s;
     -o-transition: box-shadow ease-out .5s;
     transition: box-shadow ease-out .5s;
+    height: 150px;
+    overflow: hidden;
 }
 
 .rooms_inner.empty {

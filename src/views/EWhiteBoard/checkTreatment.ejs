@@ -16,7 +16,7 @@
             <tr>
                 <th>病床</th>
                 <th>病患姓名</th>
-                <th>醫令名稱</th>
+                <th>檢查治療項目</th>
                 <th>預計執行日期</th>
                 <th>時段</th>
                 <th>主治醫師</th>
@@ -24,7 +24,7 @@
             </thead>
             <tbody>
             <tr v-for="data in checkTreatmentList">
-                <td>{{data.bed_no}}</td>
+                <td>{{data.bed_no | appendHyphenForBedNo}}</td>
                 <td>{{data.patient_name}}</td>
                 <td>{{data.examine_name}}</td>
                 <td>{{data.examine_date}}</td>
