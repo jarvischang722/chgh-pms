@@ -224,22 +224,31 @@ exports.handleSinglePatientInfo = function (postData, callback) {
                 patientInfo = _.findWhere(NurPatient, {nur_id: nur_id, patient_id: patient_id}) || {};
                 callback(err, patientInfo);
             })
+        },
+        allergyData: function (callback) {
+            DashBoardWebSvc.getAllergyData(postData, function (err, allergyData) {
+                if(err){
+                    console.error(err);
+                    allergyData = [];
+                }
+                callback(err, allergyData);
+            })
         }
     }, function (err, results) {
         if (err) {
             return callback(err, []);
         }
-        // _.each(results.doctorList,function(doc){
-        //     if(doc.bed_no.trim() == patientInfo.bed_no.trim()){
-        //         console.(doc);
-        //     }
-        // })
+
         var doctorData = _.find(results.doctorList,function(doc){
             return doc.bed_no.trim() == patientInfo.bed_no.trim()
         });
+
         if(!_.isUndefined(doctorData)){
             patientInfo = _.extend(patientInfo,doctorData)
         }
+
+        patientInfo["allergyData"] = results.allergyData;
+
         callback(null, patientInfo);
     });
 
@@ -488,7 +497,7 @@ exports.processNurseSche = function (data, callback) {
                 isNew = false;
             }
 
-            bed_name = bed_name.substr(0, bed_name.length - 1).replace(" ", "-"); //病房名稱格式化
+            bed_name = bed_name.replace(" ", "-"); //病房名稱格式化
             var tmpNurseObj = {
                 'wardbed': bed_name,
                 'in_hospital_date': in_hospital_date,
