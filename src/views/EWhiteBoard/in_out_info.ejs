@@ -16,18 +16,18 @@
             <table class="overflow-y">
                 <thead>
                 <tr>
-                    <th width: 200px;>病床</th>
-                    <th style="width: 200px;">病例號碼</th>
-                    <th style="width: 200px;">病患</th>
-                    <th style="width: 200px;">主治醫師</th>
-                    <th style="width: 200px;">護理師</th>
+                    <th style="width:200px;">病床</th>
+                    <th style="width:200px;">病例號碼</th>
+                    <th style="width:200px;">病患</th>
+                    <th style="width:200px;">主治醫師</th>
+                    <th style="width:200px;">護理師</th>
                     <th>診斷</th>
-                    <th style="width: 200px;">備註</th>
+                    <th style="width:200px;">備註</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-for="data in inTranList">
-                    <td class="date">{{data.bed_no}}</td>
+                    <td class="date">{{data.bed_no | appendHyphenForBedNo}}</td>
                     <td class="date">{{data.patient_id}}</td>
                     <td class="date">
                     <span :class="data.sex | convSexStringToParma">
@@ -48,18 +48,18 @@
             <table class="overflow-y">
                 <thead>
                 <tr>
-                    <th style="width: 200px;">病床</th>
-                    <th style="width: 200px;">病例號碼</th>
-                    <th style="width: 200px;">病患</th>
-                    <th style="width: 200px;">主治醫師</th>
-                    <th style="width: 200px;">護理師</th>
+                    <th style="width:200px;">病床</th>
+                    <th style="width:200px;">病例號碼</th>
+                    <th style="width:200px;">病患</th>
+                    <th style="width:200px;">主治醫師</th>
+                    <th style="width:200px;">護理師</th>
                     <th>狀態</th>
-                    <th style="width: 200px;">備註</th>
+                    <th style="width:200px;">備註</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-for="data in outTranList">
-                    <td class="date">{{data.bed_no}}</td>
+                    <td class="date">{{data.bed_no | appendHyphenForBedNo}}</td>
                     <td class="date">{{data.patient_id}}</td>
                     <td class="date">
                     <span :class="data.sex | convSexStringToParma">
@@ -78,7 +78,7 @@
 
         <div class="btn_group btn_group_bottom">
             <a @click="fetchPreDay" class="btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> 前一天</a>
-            <span  style="color: #000000;">{{queryDate}}</span>
+            <span style="color: #000000;">{{queryDate}}</span>
             <a @click="fetchNextDay" class="btn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 後一天</a>
         </div>
     </div>

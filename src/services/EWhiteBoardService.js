@@ -31,7 +31,7 @@ exports.handleSurgeryInfo = function (postData, callback) {
         if (err) {
             return callback(err, []);
         }
-        var surgeryInfo = alasql('SELECT si.*, pi.*  FROM ? si INNER JOIN ? pi USING patient_id', [results.surgeryInfo, results.patientInfo]);
+        var surgeryInfo = alasql('SELECT si.*, pi.*  FROM ? si left JOIN ? pi USING patient_id', [results.surgeryInfo, results.patientInfo]);
         callback(null, surgeryInfo);
     });
 

@@ -54,7 +54,7 @@
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-square fa-stack-2x" :class="{'fa-mars-out': patient.sex == '男' , 'fa-venus-out': patient.sex == '女' }"></i>
                         <i class="fa fa-stack-1x"　:class="{'fa-mars': patient.sex == '男' , 'fa-venus': patient.sex == '女' }"></i>
-                    </span>{{patient.bed_no}}
+                    </span>{{patient.bed_no | appendHyphenForBedNo}}
                 <div class="cond_dots_list">
                     <!--過敏-->
                     <span v-if="patient.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
@@ -81,7 +81,7 @@
         <a v-else href="javascript:void(0)" class="rooms_inner empty">
             <div class="room_cond">
                         <span class="fa-stack fa-lg">
-                    </span>{{patient.bed_no}}
+                    </span>{{patient.bed_no | appendHyphenForBedNo}}
                 <div class="cond_dots_list">
                 </div>
             </div>
