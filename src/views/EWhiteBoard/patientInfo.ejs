@@ -59,7 +59,7 @@
                     <!--過敏-->
                     <span v-if="patient.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
                     <!--手術-->
-                    <span v-if="patient.xxx == 'Y'" class="cond_dot cond_yellow"></span>
+                    <span v-if="patient.operate_name != ''" class="cond_dot cond_yellow"></span>
                     <!--待辦事項-->
                     <span v-if="patient.xxx == 'Y'" class="cond_dot cond_green"></span>
                     <!--MDRO-->
@@ -72,10 +72,17 @@
                     <span v-if="patient.critical != ''" class="cond_dot cond_critical"></span>
                 </div>
             </div>
-            <p><span class="label">姓名：</span><span>{{patient.patient_name}}({{patient.birthday | convBirthdayToAge}})</span></p>
+            <!--<p><span class="label">姓名：</span><span>{{patient.patient_name}}({{patient.birthday | convBirthdayToAge}})</span></p>-->
             <p><span class="label">主治：</span><span class="doctor">{{patient.employee_name}}</span></p>
-            <p><span class="label">專科護理師：</span><span>{{patient.nurse_name}}</span><small class="red">{{patient.nurse_id}}</small></p>
-            <p><span class="label">護理師：</span><span></span></p>
+            <p>
+                <span class="label">專科護理師：</span>
+                <span>{{patient.PA}}</span>
+                <!--<small class="red">{{patient.}}</small>
+                </p>-->
+            <p>
+                <span class="label">護理師：</span>
+                <span>{{patient.nurse_name}}</span>
+            </p>
         </a>
 
         <a v-else href="javascript:void(0)" class="rooms_inner empty">
