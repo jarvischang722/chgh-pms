@@ -150,58 +150,58 @@
     {
     "Title": "17:00~08:00",
     "ShiftDataID": "0002",
-    "physician_id": "9340",
-    "EmpName": "林弋筑",
+    "physician_id": "A105004",
+    "EmpName": "王耀鐸",
     "EmpType": "Ｒ",
-    "GSMBrevity": "(21505)"
-    },
-    {
-    "Title": "17:00~08:00",
-    "ShiftDataID": "0101",
-    "physician_id": "A105011",
-    "EmpName": "謝懷德",
-    "EmpType": "Ｒ",
-    "GSMBrevity": "(21516)"
+    "GSMBrevity": "(21278)"
     },
     {
     "Title": "08:00~08:00",
     "ShiftDataID": "0102",
-    "physician_id": "6152",
-    "EmpName": "許志學",
+    "physician_id": "9408",
+    "EmpName": "莊雅琳",
     "EmpType": "ＶＳ",
-    "GSMBrevity": "(21302)"
+    "GSMBrevity": "(21306)"
     },
     {
     "Title": "08:00~08:00",
     "ShiftDataID": "0103",
-    "physician_id": "9183",
-    "EmpName": "袁瑋",
+    "physician_id": "1126",
+    "EmpName": "游佩琳",
     "EmpType": "ＶＳ",
-    "GSMBrevity": "(21330)"
+    "GSMBrevity": "(21325)"
     },
     {
     "Title": "17:00~08:00",
     "ShiftDataID": "0104",
-    "physician_id": "9096",
-    "EmpName": "張鴻猷",
+    "physician_id": "9155",
+    "EmpName": "尤和平",
     "EmpType": "ＶＳ",
-    "GSMBrevity": "(21123)"
+    "GSMBrevity": "(21169)"
     },
     {
     "Title": "17:00~08:00",
     "ShiftDataID": "0105",
-    "physician_id": "A105020",
-    "EmpName": "林秉毅",
+    "physician_id": "B105012",
+    "EmpName": "齊修瑜",
     "EmpType": "Ｒ",
-    "GSMBrevity": "(21839)"
+    "GSMBrevity": "(21876)"
     },
     {
     "Title": "08:00~20:00",
     "ShiftDataID": "0106",
-    "physician_id": "2843",
-    "EmpName": "邱秀萍",
+    "physician_id": "F104154",
+    "EmpName": "龔怡婷",
     "EmpType": "",
-    "GSMBrevity": "(22234)"
+    "GSMBrevity": "(22267)"
+    },
+    {
+    "Title": "20:00~08:00",
+    "ShiftDataID": "0106",
+    "physician_id": "F104154",
+    "EmpName": "龔怡婷2",
+    "EmpType": "",
+    "GSMBrevity": "(22267)"
     },
     {
     "Title": "20:00~08:00",
@@ -220,52 +220,44 @@
     "GSMBrevity": "(22341)"
     },
     {
-    "Title": "08:00~08:00",
-    "ShiftDataID": "0112",
-    "physician_id": "A104018",
-    "EmpName": "李碧文",
-    "EmpType": "Ｒ",
-    "GSMBrevity": "(21515)"
-    },
-    {
     "Title": "17:00~20:00",
     "ShiftDataID": "0118",
-    "physician_id": "3884",
-    "EmpName": "黃秋樺",
+    "physician_id": "4007",
+    "EmpName": "林凊羽",
     "EmpType": "",
-    "GSMBrevity": "(22828)"
+    "GSMBrevity": "(22827)"
     },
     {
     "Title": "08:00~20:00",
     "ShiftDataID": "0119",
-    "physician_id": "2746",
-    "EmpName": "練婷",
+    "physician_id": "F104065",
+    "EmpName": "洪韻新",
     "EmpType": "",
-    "GSMBrevity": "(22858)"
+    "GSMBrevity": "(22851)"
     },
     {
     "Title": "17:00~08:00",
     "ShiftDataID": "0232",
-    "physician_id": "9081",
-    "EmpName": "薛智仁",
+    "physician_id": "9309",
+    "EmpName": "邱昱勳",
     "EmpType": "ＶＳ",
-    "GSMBrevity": "(21364)"
+    "GSMBrevity": "(21375)"
     },
     {
     "Title": "08:00~08:00",
     "ShiftDataID": "0235",
-    "physician_id": "6332",
-    "EmpName": "宋文鑫",
+    "physician_id": "A104008",
+    "EmpName": "吳孟庭",
     "EmpType": "ＶＳ",
-    "GSMBrevity": "(21206)"
+    "GSMBrevity": "(21279)"
     },
     {
     "Title": "08:00~17:00",
     "ShiftDataID": "0116",
-    "physician_id": "2847",
-    "EmpName": "楊安榆",
+    "physician_id": "7786",
+    "EmpName": "蔡淑子",
     "EmpType": "",
-    "GSMBrevity": "(22338)"
+    "GSMBrevity": "(22333)"
     },
     {
     "Title": "20:00~08:00",
@@ -294,13 +286,29 @@
     {
     "Title": "17:00~08:00",
     "ShiftDataID": "0100",
-    "physician_id": "9352",
-    "EmpName": "宋子茜",
+    "physician_id": "A105006",
+    "EmpName": "趙冠博",
     "EmpType": "Ｒ",
-    "GSMBrevity": "(21347)"
+    "GSMBrevity": "(21346)"
     },
     {
     "Title": "08:00~20:00",
+    "ShiftDataID": "0116",
+    "physician_id": "2180",
+    "EmpName": "陳韋",
+    "EmpType": "",
+    "GSMBrevity": "(22332)"
+    },
+    {
+    "Title": "08:00~08:00",
+    "ShiftDataID": "0099",
+    "physician_id": "1121",
+    "EmpName": "朱唯廉",
+    "EmpType": "ＶＳ",
+    "GSMBrevity": "(21217)"
+    },
+    {
+    "Title": "20:00~08:00",
     "ShiftDataID": "0116",
     "physician_id": "3801",
     "EmpName": "謝馨慧",
@@ -308,71 +316,55 @@
     "GSMBrevity": "(22334)"
     },
     {
-    "Title": "08:00~08:00",
-    "ShiftDataID": "0099",
-    "physician_id": "9102",
-    "EmpName": "崔祐荃",
-    "EmpType": "ＶＳ",
-    "GSMBrevity": "(21251)"
-    },
-    {
-    "Title": "20:00~08:00",
-    "ShiftDataID": "0116",
-    "physician_id": "7786",
-    "EmpName": "蔡淑子",
-    "EmpType": "",
-    "GSMBrevity": "(22333)"
-    },
-    {
     "Title": "17:00~08:00",
     "ShiftDataID": "0004",
-    "physician_id": "1404",
-    "EmpName": "李驊",
+    "physician_id": "9300",
+    "EmpName": "周清光",
     "EmpType": "ＶＳ",
-    "GSMBrevity": "(21390)"
+    "GSMBrevity": "(21392)"
     },
     {
     "Title": "17:00~08:00",
     "ShiftDataID": "0001",
-    "physician_id": "9216",
-    "EmpName": "伍偉華",
-    "EmpType": "ＶＳ",
-    "GSMBrevity": "(21160)"
+    "physician_id": "9346",
+    "EmpName": "陳鴻造",
+    "EmpType": "Ｒ",
+    "GSMBrevity": "(21189)"
     },
     {
     "Title": "16:00~20:00",
     "ShiftDataID": "0005",
-    "physician_id": "7640",
-    "EmpName": "黃雅萍",
+    "physician_id": "2799",
+    "EmpName": "陳郁鈞",
     "EmpType": "",
-    "GSMBrevity": "(22137)"
+    "GSMBrevity": "(22149)"
     },
     {
     "Title": "20:00~08:00",
     "ShiftDataID": "0006",
-    "physician_id": "3903",
-    "EmpName": "王韞涵",
+    "physician_id": "8134",
+    "EmpName": "游昭榕",
     "EmpType": "",
-    "GSMBrevity": "(22153)"
+    "GSMBrevity": "(22143)"
     },
     {
     "Title": "16:00~20:00",
     "ShiftDataID": "0007",
-    "physician_id": "3736",
-    "EmpName": "陳柏志",
+    "physician_id": "2853",
+    "EmpName": "林美蓮",
     "EmpType": "",
-    "GSMBrevity": "(22262)"
+    "GSMBrevity": "(22229)"
     },
     {
     "Title": "20:00~08:00",
     "ShiftDataID": "0008",
-    "physician_id": "4540",
-    "EmpName": "劉薇珺",
+    "physician_id": "6544",
+    "EmpName": "魏倩雯",
     "EmpType": "",
-    "GSMBrevity": "(22255)"
+    "GSMBrevity": "(22279)"
     }
     ],
-    "PrevDate": "2017/05/15",
-    "Today": "2017/05/16",
-    "NextDate": "2017/05/17"
+    "PrevDate": "2017/05/09",
+    "Today": "2017/05/10",
+    "NextDate": "2017/05/11"
     }</string>

@@ -1,3 +1,11 @@
+Vue.component('patient-info-tmp', {
+    template: '#patientInfoTmp',
+    props:['patientInfo'],
+    data: function () {
+        return {}
+    },
+    methods: {}
+});
 Vue.component('nurse-info-tmp', {
     template: '#nurseInfoTmp',
     props:['patientInfo'],
@@ -19,7 +27,7 @@ var vmMain = new Vue({
         nurseListA:[],
         nurseListB:[],
         nurseListC:[],
-        patientInfo :{},      //單一病患資訊
+        patientInfo :{},      //單一病患資訊1
     },
     watch: {
 
@@ -97,11 +105,38 @@ var vmMain = new Vue({
                 patient_id:patient_id
             };
 
-            $.post("/eWhiteBoard/api/fetchSinglePatientInfo/", formData , function(result){
-                vmMain.patientInfo = result.patientInfo;
-                console.log(vmMain.patientInfo);
-                $('[data-remodal-id=rooms_modal]').remodal().open();
-            })
+            if(!patient_id){
+                //$('.doctor').html("");
+                return;
+            }else{
+                console.log(formData);
+
+                $.post("/eWhiteBoard/api/fetchSinglePatientInfo/", formData , function(result){
+                    vmMain.patientInfo = result.patientInfo;
+                    console.log(vmMain.patientInfo);
+                    $('[data-remodal-id=rooms_modal]').remodal().open();
+                })
+            }
+        },
+        fetchSinglePatientInfo1 : function (nur_id,patient_id) { //取一筆病患
+
+            var formData ={
+                nur_id:nur_id,
+                patient_id:patient_id
+            };
+
+            if(!patient_id){
+                //$('.doctor').html("");
+                return;
+            }else{
+                console.log(formData);
+
+                $.post("/eWhiteBoard/api/fetchSinglePatientInfo/", formData , function(result){
+                    vmMain.patientInfo = result.patientInfo;
+                    console.log(vmMain.patientInfo);
+                    $('[data-remodal-id=rooms_modal1]').remodal().open();
+                })
+            }
         },
     }
 });

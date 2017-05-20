@@ -1,668 +1,833 @@
 [
   {
-    "nur_id": "101 ",
-    "bed_no": "10 05B",
-    "physician_id": "6860",
-    "employee_name": "楊永年",
+    "nur_id": "93  ",
+    "bed_no": "93 01A",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21808)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "陳靜宜(21808)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 07C",
-    "physician_id": "9175",
-    "employee_name": "陳怡誠",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21845)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "程秀菁(21845)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "謝靜嫻(21845)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "王蕾媞(21845)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "劉瑾瑜(21845)",
-        "T": "夜班"
-      },
-      {
-        "C": "PA",
-        "E": "林姵妏(21845)",
-        "T": "夜班"
-      },
-      {
-        "C": "PA",
-        "E": "洪韻新(21845)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 08D",
-    "physician_id": "9048",
-    "employee_name": "李永在",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21219)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "程秀菁(21219)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "謝靜嫻(21219)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "王蕾媞(21219)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "劉瑾瑜(21219)",
-        "T": "夜班"
-      },
-      {
-        "C": "PA",
-        "E": "林姵妏(21219)",
-        "T": "夜班"
-      },
-      {
-        "C": "PA",
-        "E": "洪韻新(21219)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 09D",
-    "physician_id": "9285",
-    "employee_name": "蕭卜源",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21811)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "盧艾潔(21811)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 10E",
-    "physician_id": "1272",
-    "employee_name": "黃文彬",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21806)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "黃秋樺(21806)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 15F",
-    "physician_id": "9285",
-    "employee_name": "蕭卜源",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21811)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "盧艾潔(21811)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 16G",
-    "physician_id": "6316",
-    "employee_name": "張忠毅",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21831)",
+    "gsm_brevity_code": "(21364)",
     "AgentList": [
       {
         "C": "Rx",
-        "E": "齊修瑜(21831)",
+        "E": "林柏毅(21364)",
         "T": " "
       },
       {
         "C": "PA",
-        "E": "練婷(21831)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "侯羿瑄(21831)",
+        "E": "蔣雨薇(21364)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 17G",
-    "physician_id": "6316",
-    "employee_name": "張忠毅",
+    "nur_id": "93  ",
+    "bed_no": "93 02A",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21831)",
+    "gsm_brevity_code": "(21364)",
     "AgentList": [
       {
         "C": "Rx",
-        "E": "齊修瑜(21831)",
+        "E": "林柏毅(21364)",
         "T": " "
       },
       {
         "C": "PA",
-        "E": "練婷(21831)",
+        "E": "蔣雨薇(21364)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 03A",
+    "physician_id": "6352",
+    "employee_name": "李鴻福",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21207)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "陳柏志(21207)",
         "T": " "
       },
       {
         "C": "PA",
-        "E": "侯羿瑄(21831)",
+        "E": "蕭淑萍(21207)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 19H",
-    "physician_id": "6822",
-    "employee_name": "任勗龍",
+    "nur_id": "93  ",
+    "bed_no": "93 05A",
+    "physician_id": "9142",
+    "employee_name": "力博宏",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21803)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "王真儀(21803)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 25K",
-    "physician_id": "9150",
-    "employee_name": "王耀章",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21167)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "洪月季(21167)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 27L",
-    "physician_id": "6315",
-    "employee_name": "魏崢",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21830)",
+    "gsm_brevity_code": "(21368)",
     "AgentList": [
       {
         "C": "Rx",
-        "E": "林秉毅(21830)",
+        "E": "張智惠(21368)",
         "T": " "
       },
       {
         "C": "PA",
-        "E": "龔簡飾褘(21830)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "張寧(21830)",
+        "E": "鄭顥君(21368)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 28L",
-    "physician_id": "9177",
-    "employee_name": "黃懷緒",
+    "nur_id": "93  ",
+    "bed_no": "93 06B",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21835)",
+    "gsm_brevity_code": "(21364)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "林柏毅(21364)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "蔣雨薇(21364)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 07B",
+    "physician_id": "6583",
+    "employee_name": "蔡信宏",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21107)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "曹圓圓(21107)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 08B",
+    "physician_id": "9296",
+    "employee_name": "許育弘",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21249)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "張仲偉(21249)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 09B",
+    "physician_id": "6632",
+    "employee_name": "陶啟偉",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21102)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "高晨育(21102)",
+        "T": "(Fix RT)"
+      },
+      {
+        "C": "PA",
+        "E": "錢盈臻(21102)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "吳筱筠(21102)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 10C",
+    "physician_id": "9119",
+    "employee_name": "王凱震",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21164)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "李珮毓(21164)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 11C",
+    "physician_id": "9232",
+    "employee_name": "楊明勳",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21212)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "何宜芯(21212)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 12C",
+    "physician_id": "9309",
+    "employee_name": "邱昱勳",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21375)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "楊淳惠(21375)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 15C",
+    "physician_id": "6352",
+    "employee_name": "李鴻福",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21207)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "陳柏志(21207)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "蕭淑萍(21207)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 16 ",
+    "physician_id": "6352",
+    "employee_name": "李鴻福",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21207)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "陳柏志(21207)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "蕭淑萍(21207)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 18 ",
+    "physician_id": "6507",
+    "employee_name": "陳昭富",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21111)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "林雅萍(21111)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 19D",
+    "physician_id": "6332",
+    "employee_name": "宋文鑫",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21206)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "黃淑禎(21206)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "吳淑蓉(21206)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 20D",
+    "physician_id": "9327",
+    "employee_name": "洪宏緒",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21112)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "張雨嵐(21112)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 21E",
+    "physician_id": "9396",
+    "employee_name": "楊景偉",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21227)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "方立仁(21227)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 22E",
+    "physician_id": "6398",
+    "employee_name": "陳思齊",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21239)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "余任浩(21239)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 23F",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21364)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "林柏毅(21364)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "蔣雨薇(21364)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 25F",
+    "physician_id": "6352",
+    "employee_name": "李鴻福",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21207)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "陳柏志(21207)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "蕭淑萍(21207)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 27G",
+    "physician_id": "9309",
+    "employee_name": "邱昱勳",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21375)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "楊淳惠(21375)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 28H",
+    "physician_id": "6332",
+    "employee_name": "宋文鑫",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21206)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "黃淑禎(21206)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "吳淑蓉(21206)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 29H",
+    "physician_id": "9142",
+    "employee_name": "力博宏",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21368)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "張智惠(21368)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "鄭顥君(21368)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 30I",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21364)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "林柏毅(21364)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "蔣雨薇(21364)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 31I",
+    "physician_id": "9142",
+    "employee_name": "力博宏",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21368)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "張智惠(21368)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "鄭顥君(21368)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 32J",
+    "physician_id": "9353",
+    "employee_name": "楊尚峰",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21140)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "曾家瑜(21140)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "詹謦如(21140)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 33J",
+    "physician_id": "9142",
+    "employee_name": "力博宏",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21368)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "張智惠(21368)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "鄭顥君(21368)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 35K",
+    "physician_id": "A105019",
+    "employee_name": "林孝義",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21188)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "陳美吟(21188)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 36K",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21364)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "林柏毅(21364)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "蔣雨薇(21364)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 37K",
+    "physician_id": "1121",
+    "employee_name": "朱唯廉",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21217)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "龔怡婷(21217)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 37K",
+    "physician_id": "1121",
+    "employee_name": "朱唯廉",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21217)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "龔怡婷2(21217)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 38K",
+    "physician_id": "6398",
+    "employee_name": "陳思齊",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21239)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "余任浩(21239)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 39L",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21364)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "林柏毅(21364)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "蔣雨薇(21364)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 40L",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21364)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "林柏毅(21364)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "蔣雨薇(21364)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 41L",
+    "physician_id": "B104009",
+    "employee_name": "陳綱華",
+    "official_gsm": " ",
+    "gsm_brevity_code": "",
     "AgentList": []
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 31N",
-    "physician_id": "6315",
-    "employee_name": "魏崢",
+    "nur_id": "93  ",
+    "bed_no": "93 42L",
+    "physician_id": "9282",
+    "employee_name": "胡皓淳",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21830)",
+    "gsm_brevity_code": "(21377)",
     "AgentList": [
       {
         "C": "Rx",
-        "E": "林秉毅(21830)",
+        "E": "張智惠(21377)",
         "T": " "
       },
       {
         "C": "PA",
-        "E": "龔簡飾褘(21830)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "張寧(21830)",
+        "E": "楊淳惠(21377)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 32N",
-    "physician_id": "1272",
-    "employee_name": "黃文彬",
+    "nur_id": "93  ",
+    "bed_no": "93 43M",
+    "physician_id": "9087",
+    "employee_name": "蔡佳臻",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21806)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "黃秋樺(21806)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 33O",
-    "physician_id": "9096",
-    "employee_name": "張鴻猷",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21123)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "黃莉玲(21123)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 36P",
-    "physician_id": "6315",
-    "employee_name": "魏崢",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21830)",
-    "AgentList": [
-      {
-        "C": "Rx",
-        "E": "林秉毅(21830)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "龔簡飾褘(21830)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "張寧(21830)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 37P",
-    "physician_id": "1272",
-    "employee_name": "黃文彬",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21806)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "黃秋樺(21806)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 38Q",
-    "physician_id": "9066",
-    "employee_name": "李國楨",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21847)",
+    "gsm_brevity_code": "",
     "AgentList": []
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 39Q",
-    "physician_id": "6315",
-    "employee_name": "魏崢",
+    "nur_id": "93  ",
+    "bed_no": "93 45M",
+    "physician_id": "6580",
+    "employee_name": "李信興",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21830)",
+    "gsm_brevity_code": "(21103)",
     "AgentList": [
       {
         "C": "Rx",
-        "E": "林秉毅(21830)",
+        "E": "林蜜珠(21103)",
         "T": " "
       },
       {
         "C": "PA",
-        "E": "龔簡飾褘(21830)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "張寧(21830)",
+        "E": "林芷嬅(21103)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 42S",
-    "physician_id": "9206",
-    "employee_name": "曹殿萍",
+    "nur_id": "93  ",
+    "bed_no": "93 46M",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21825)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "黃瑀茜(21825)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 45T",
-    "physician_id": "9048",
-    "employee_name": "李永在",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21219)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "程秀菁(21219)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "謝靜嫻(21219)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "王蕾媞(21219)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "劉瑾瑜(21219)",
-        "T": "夜班"
-      },
-      {
-        "C": "PA",
-        "E": "林姵妏(21219)",
-        "T": "夜班"
-      },
-      {
-        "C": "PA",
-        "E": "洪韻新(21219)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 46T",
-    "physician_id": "1565",
-    "employee_name": "馮安寧",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21820)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "洪月季(21820)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 47U",
-    "physician_id": "9096",
-    "employee_name": "張鴻猷",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21123)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "黃莉玲(21123)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 48U",
-    "physician_id": "A105008",
-    "employee_name": "陳仁浩",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21228)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "熊曼均(21228)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 71 ",
-    "physician_id": "6315",
-    "employee_name": "魏崢",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21830)",
+    "gsm_brevity_code": "(21364)",
     "AgentList": [
       {
         "C": "Rx",
-        "E": "林秉毅(21830)",
+        "E": "林柏毅(21364)",
         "T": " "
       },
       {
         "C": "PA",
-        "E": "龔簡飾褘(21830)",
-        "T": " "
-      },
-      {
-        "C": "PA",
-        "E": "張寧(21830)",
+        "E": "蔣雨薇(21364)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 77A",
-    "physician_id": "6315",
-    "employee_name": "魏崢",
+    "nur_id": "93  ",
+    "bed_no": "93 47M",
+    "physician_id": "9169",
+    "employee_name": "陳美音",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21830)",
+    "gsm_brevity_code": "(21176)",
+    "AgentList": [
+      {
+        "C": "PA",
+        "E": "陳郁方(21176)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 48N",
+    "physician_id": "9142",
+    "employee_name": "力博宏",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21368)",
     "AgentList": [
       {
         "C": "Rx",
-        "E": "林秉毅(21830)",
+        "E": "張智惠(21368)",
         "T": " "
       },
       {
         "C": "PA",
-        "E": "龔簡飾褘(21830)",
+        "E": "鄭顥君(21368)",
+        "T": " "
+      }
+    ]
+  },
+  {
+    "nur_id": "93  ",
+    "bed_no": "93 49N",
+    "physician_id": "9081",
+    "employee_name": "薛智仁",
+    "official_gsm": " ",
+    "gsm_brevity_code": "(21364)",
+    "AgentList": [
+      {
+        "C": "Rx",
+        "E": "林柏毅(21364)",
         "T": " "
       },
       {
         "C": "PA",
-        "E": "張寧(21830)",
+        "E": "蔣雨薇(21364)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 79J",
-    "physician_id": "9150",
-    "employee_name": "王耀章",
+    "nur_id": "93  ",
+    "bed_no": "93 50N",
+    "physician_id": "6332",
+    "employee_name": "宋文鑫",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21167)",
+    "gsm_brevity_code": "(21206)",
     "AgentList": [
       {
         "C": "PA",
-        "E": "洪月季(21167)",
+        "E": "黃淑禎(21206)",
+        "T": " "
+      },
+      {
+        "C": "PA",
+        "E": "吳淑蓉(21206)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 80J",
-    "physician_id": "1272",
-    "employee_name": "黃文彬",
+    "nur_id": "93  ",
+    "bed_no": "93 51N",
+    "physician_id": "9296",
+    "employee_name": "許育弘",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21806)",
+    "gsm_brevity_code": "(21249)",
     "AgentList": [
       {
         "C": "PA",
-        "E": "黃秋樺(21806)",
+        "E": "張仲偉(21249)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 81V",
-    "physician_id": "9285",
-    "employee_name": "蕭卜源",
+    "nur_id": "93  ",
+    "bed_no": "93 52O",
+    "physician_id": "9083",
+    "employee_name": "黃家倫",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21811)",
+    "gsm_brevity_code": "(21209)",
     "AgentList": [
       {
         "C": "PA",
-        "E": "盧艾潔(21811)",
+        "E": "高凱筠(21209)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 82V",
-    "physician_id": "9285",
-    "employee_name": "蕭卜源",
+    "nur_id": "93  ",
+    "bed_no": "93 53O",
+    "physician_id": "9142",
+    "employee_name": "力博宏",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21811)",
+    "gsm_brevity_code": "(21368)",
     "AgentList": [
       {
+        "C": "Rx",
+        "E": "張智惠(21368)",
+        "T": " "
+      },
+      {
         "C": "PA",
-        "E": "盧艾潔(21811)",
+        "E": "鄭顥君(21368)",
         "T": " "
       }
     ]
   },
   {
-    "nur_id": "101 ",
-    "bed_no": "10 85W",
-    "physician_id": "1272",
-    "employee_name": "黃文彬",
+    "nur_id": "93  ",
+    "bed_no": "93 AAA",
+    "physician_id": "9296",
+    "employee_name": "許育弘",
     "official_gsm": " ",
-    "gsm_brevity_code": "(21806)",
+    "gsm_brevity_code": "(21249)",
     "AgentList": [
       {
         "C": "PA",
-        "E": "黃秋樺(21806)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 86M",
-    "physician_id": "9106",
-    "employee_name": "林昌琦",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21807)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "陳靜宜(21807)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 87M",
-    "physician_id": "9150",
-    "employee_name": "王耀章",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21167)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "洪月季(21167)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 88X",
-    "physician_id": "9285",
-    "employee_name": "蕭卜源",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21811)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "盧艾潔(21811)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "101 ",
-    "bed_no": "10 90 ",
-    "physician_id": "9206",
-    "employee_name": "曹殿萍",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21825)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "黃瑀茜(21825)",
+        "E": "張仲偉(21249)",
         "T": " "
       }
     ]
