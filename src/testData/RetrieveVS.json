@@ -453,38 +453,10 @@
     ]
   },
   {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "nur_id": "93  ",
-    "bed_no": "93 37K",
-    "physician_id": "1121",
-    "employee_name": "朱唯廉",
-    "official_gsm": " ",
-    "gsm_brevity_code": "(21217)",
-    "AgentList": [
-      {
-        "C": "PA",
-        "E": "龔怡婷2(21217)",
-        "T": " "
-      }
-    ]
-  },
-  {
-    "nur_id": "93  ",
-    "bed_no": "93 38K",
-    "physician_id": "6398",
-    "employee_name": "陳思齊",
-=======
-=======
->>>>>>> origin/develop
     "nur_id": "101 ",
     "bed_no": "10 47U",
     "physician_id": "9096",
     "employee_name": "張鴻猷",
-<<<<<<< HEAD
->>>>>>> origin/develop
-=======
->>>>>>> origin/develop
     "official_gsm": " ",
     "gsm_brevity_code": "(21123)",
     "AgentList": [

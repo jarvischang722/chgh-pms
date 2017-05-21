@@ -662,22 +662,6 @@ exports.processDoctorOnDuty = function (data, callback) {
                     }
                 }
 
-<<<<<<< HEAD
-                    if (physician_id in retrieveVSMap) {
-                        nurseList = retrieveVSMap[physician_id]["palist"] || [];
-                        if (nurseList && nurseList.length > 0) {
-                            var nurseList2 = nurseList.slice(1);
-                            tmpObject["nurseList"] = nurseList2;
-                            tmpObject["nurse1Name"] = nurseList[0].E;
-                            tmpObject["nurseNum"] = nurseList.length;
-                        } else {
-                            tmpObject["nurseNum"] = 0;
-                            tmpObject["nurse1Title"] = "";
-                            tmpObject["nurse1Name"] = "";
-                        }
-                    } else {
-                        tmpObject["nurseNum"] = 0;
-=======
                 if (physician_id in retrieveVSMap) {
                     nurseList = retrieveVSMap[physician_id]["palist"] || [];
                     if (nurseList && nurseList.length > 0) {
@@ -697,7 +681,6 @@ exports.processDoctorOnDuty = function (data, callback) {
                         }
                     } else {
                         tmpObject["nurseNum"] = 1;
->>>>>>> origin/develop
                         tmpObject["nurse1Title"] = "";
                         tmpObject["nurse1Name"] = "";
                     }
