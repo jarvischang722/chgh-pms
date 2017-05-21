@@ -19,6 +19,33 @@ exports.index = function (req, res, next) {
     res.redirect('/eWhiteBoard/patientInfo');
 };
 
+/**
+ * 選擇護理區頁面
+ * **/
+exports.selectNurArea = function (req, res, next) {
+    if(!_.isUndefined(req.session.nur_id ) && !_.isEmpty(req.session.nur_id ) ){
+       return  res.redirect("/eWhiteBoard/patientInfo");
+    }
+
+    DashBoardWebService.getAllNurBedInfo({},function(err,AllNurBedInfo){
+        res.render('selectNurArea',{allNurBedInfo:AllNurBedInfo});
+    });
+
+};
+
+/**
+ * 存取使用者使用的nur_id
+ * **/
+exports.doSelectNurIDToSession = function (req, res, next) {
+    var success = true;
+    if(!_.isUndefined(req.body["nur_id"]) && !_.isEmpty(req.body["nur_id"])){
+        req.session.nur_id = req.body["nur_id"] ;
+    }else{
+        success = false;
+    }
+
+    res.json({success:success});
+};
 
 /**
  * 病患資訊

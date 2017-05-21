@@ -33,6 +33,7 @@ exports.getNurPatient = function (formData, callback) {
 
         parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var NurPatient = JSON.parse(result.string);
+            NurPatient = handleBedNo(NurPatient);
             callback(err, NurPatient);
         });
 
@@ -88,6 +89,7 @@ exports.getInTranInData = function (formData, callback) {
 
         parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var inTranInData = JSON.parse(result.string);
+            inTranInData = handleBedNo(inTranInData);
             callback(err, inTranInData);
         });
 
@@ -116,6 +118,7 @@ exports.getOutTranOutData = function (formData, callback) {
 
         parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var outTranOutData = JSON.parse(result.string);
+            outTranOutData = handleBedNo(outTranOutData);
             callback(err, outTranOutData);
         });
 
@@ -123,7 +126,31 @@ exports.getOutTranOutData = function (formData, callback) {
 };
 
 /**
- * 取得床位數資訊
+ * 取得全護理站床位數資訊
+ * @param formData{Object} : 搜尋條件
+ * @param callback{Function}:
+ *        {
+ *            err {String} : 錯誤
+ *            nurBedInfo{Array} : 床位數資訊
+ *        }
+ */
+exports.getAllNurBedInfo = function (formData, callback) {
+
+    request.post({
+        url: SystemConfig.web_service_url + "nur_bed_info",
+        form: formData
+    }, function (error, response, apiResult) {
+
+        parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
+            var nurBedInfo = JSON.parse(result.string);
+            callback(err, nurBedInfo);
+        });
+
+    });
+};
+
+/**
+ * 取得床位數資訊( 單一護理站)
  * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
@@ -171,6 +198,9 @@ exports.getOpScheduleInfo = function (formData, callback) {
 
         parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var opScheduleInfo = JSON.parse(result.string);
+            _.each(opScheduleInfo,function(data,i){
+                opScheduleInfo[i]["bed_num"] = data["bed_num"].substring(0,5);
+            })
             callback(err, opScheduleInfo);
         });
 
@@ -199,6 +229,7 @@ exports.getExamScheduleInfo = function (formData, callback) {
 
         parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var examScheduleInfo = JSON.parse(result.string);
+            examScheduleInfo　 = handleBedNo(examScheduleInfo);
             callback(err, examScheduleInfo);
         });
 
@@ -230,6 +261,7 @@ exports.getNisDutySchedule = function (formData, callback) {
 
         parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
             var nisDutySchedule = JSON.parse(result.string);
+            nisDutySchedule = handleBedNo(nisDutySchedule);
             callback(err, nisDutySchedule);
         });
 
@@ -293,6 +325,9 @@ exports.getEmptyBedNo = function (formData, callback) {
             _.each(EmptyBedNoList, function (item, idx) {
                 EmptyBedNoList[idx]["nur_id"] = item.nur_id.trim();
             })
+
+            EmptyBedNoList = handleBedNo(EmptyBedNoList);
+
             callback(err, EmptyBedNoList);
         });
 
@@ -328,6 +363,8 @@ exports.getRetrieveVS = function (formData, callback) {
                 })
             }
         })
+
+        RetrieveVS = handleBedNo(RetrieveVS);
         callback(error, RetrieveVS);
 
     });
@@ -343,7 +380,7 @@ exports.getRetrieveVS = function (formData, callback) {
  *        }
  */
 exports.getShiftCollectList = function (formData, callback) {
-    formData['_nurid'] = "93"; //TODO 暫時寫死93
+    formData['_nurid'] = "101"; //TODO 暫時寫死101
     var checkValError = commonTools.checkParamsExist(['_nurid', '_ShiftDate'], formData);
     if (checkValError) {
         return callback(checkValError, []);
@@ -363,3 +400,15 @@ exports.getShiftCollectList = function (formData, callback) {
 
     });
 };
+
+/**
+ * 去掉病床號的最後一個英文
+ */
+function handleBedNo(dataList) {
+    _.each(dataList,function(data,i){
+        if(!_.isUndefined(data.bed_no)){
+            dataList[i]["bed_no"] = data.bed_no.substring(0, 5);
+        }
+    });
+    return dataList;
+}

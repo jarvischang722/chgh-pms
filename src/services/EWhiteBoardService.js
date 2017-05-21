@@ -224,16 +224,21 @@ exports.handleSinglePatientInfo = function (postData, callback) {
                 patientInfo = _.findWhere(NurPatient, {nur_id: nur_id, patient_id: patient_id}) || {};
                 callback(err, patientInfo);
             })
+        },
+        allergyData: function (callback) {
+            DashBoardWebSvc.getAllergyData(postData, function (err, allergyData) {
+                if(err){
+                    console.error(err);
+                    allergyData = [];
+                }
+                callback(err, allergyData);
+            })
         }
     }, function (err, results) {
         if (err) {
             return callback(err, []);
         }
-        // _.each(results.doctorList,function(doc){
-        //     if(doc.bed_no.trim() == patientInfo.bed_no.trim()){
-        //         console.(doc);
-        //     }
-        // })
+
         var doctorData = _.find(results.doctorList,function(doc){
             try{
                 return doc.bed_no.trim() == patientInfo.bed_no.trim()
@@ -242,9 +247,13 @@ exports.handleSinglePatientInfo = function (postData, callback) {
             }
 
         });
+
         if(!_.isUndefined(doctorData)){
             patientInfo = _.extend(patientInfo,doctorData)
         }
+
+        patientInfo["allergyData"] = results.allergyData;
+
         callback(null, patientInfo);
     });
 
@@ -398,6 +407,29 @@ exports.processNurseSche = function (data, callback) {
             'FROM ? schedule LEFT JOIN ? patient USING bed_no ',
             [results.scheduleData, results.patientData]);
 
+        for (var i = 0; i < result.length; i++) {
+            var ward_id = result[i].bed_no; //病房
+            //依班別->病房顯示
+            var tmpchar = ward_id.slice(-1);
+            if (!Number.isInteger(tmpchar)) {
+                ward_id = ward_id.substr(0, ward_id.length - 1).split(" ")[1]; //病房名稱格式化
+            } else {
+                ward_id = ward_id.split(" ")[1]; //病房名稱格式化
+            }
+            result[i].ward_id = ward_id;
+        }
+
+        result.sort(function (a, b) {
+            if (a.ward_id > b.ward_id) {
+                return 1;
+            }
+            if (a.ward_id < b.ward_id) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        });
+
         var classBedObj = {};
         var today = moment().format("YYYYMMDD");
         for (var i = 0; i < result.length; i++) {
@@ -407,7 +439,6 @@ exports.processNurseSche = function (data, callback) {
             var nurse_name = result[i].employee_name;
             var ward_id = result[i].bed_no; //病房
             var bed_name = result[i].bed_no; //病床
-            var fire_control_group_name = result[i].group_name;
             var group_name_array = result[i].group_name.split(",");
             var subgroup_name_array = group_name_array.slice(1);
             subgroup_name_array = ["1", "2"];
@@ -448,6 +479,9 @@ exports.processNurseSche = function (data, callback) {
             } else {
                 ward_id = ward_id.split(" ")[1]; //病房名稱格式化
             }
+
+
+
             if (ward_id in wardObj) {
                 var thisWardObj = wardObj[ward_id];
                 var this_wardList = thisWardObj['this_wardList'];
@@ -493,7 +527,7 @@ exports.processNurseSche = function (data, callback) {
                 isNew = false;
             }
 
-            bed_name = bed_name.substr(0, bed_name.length - 1).replace(" ", "-"); //病房名稱格式化
+            bed_name = bed_name.replace(" ", "-"); //病房名稱格式化
             var tmpNurseObj = {
                 'wardbed': bed_name,
                 'in_hospital_date': in_hospital_date,
@@ -574,6 +608,8 @@ exports.processDoctorOnDuty = function (data, callback) {
             }
         }
 
+        var nurseMap = {};
+
         var rtnResult = {};
         if (shiftCollectList) {
             var ShiftCollect = shiftCollectList.ShiftCollect;
@@ -584,7 +620,19 @@ exports.processDoctorOnDuty = function (data, callback) {
                     ShiftCollectMap[thisItem.ShiftDataID] = thisItem.ShiftDataName;
                 }
             }
+
             var NusBoard = shiftCollectList.NusBoard;
+            for (var i = 0; i < NusBoard.length; i++) {
+                var tmpObject = NusBoard[i];
+                var EmpName = tmpObject.EmpName;
+                var GSMBrevity = tmpObject.GSMBrevity.replace("(", "").replace(")", "");
+                var EmpType = tmpObject.EmpType;
+                //資料整理
+                if ("" == EmpType) { //護理師
+                    nurseMap[EmpName] = tmpObject;
+                }
+            }
+
             for (var i = 0; i < NusBoard.length; i++) {
                 var ShiftDataID = NusBoard[i].ShiftDataID;
                 var ShiftDataName = ShiftCollectMap[ShiftDataID];
@@ -600,6 +648,7 @@ exports.processDoctorOnDuty = function (data, callback) {
                 if (ShiftDataID in rtnResult) {
                     tmpObject = rtnResult[ShiftDataID];
                     ShiftDataList = tmpObject["dataList"];
+                    //nurseList = tmpObject["nurseList"];
                 } else {
                     ShiftDataList = [];
                     tmpObject = {};
@@ -611,7 +660,9 @@ exports.processDoctorOnDuty = function (data, callback) {
                     if (EmpType != "") {
                         rtnResult[ShiftDataID] = tmpObject;
                     }
+                }
 
+<<<<<<< HEAD
                     if (physician_id in retrieveVSMap) {
                         nurseList = retrieveVSMap[physician_id]["palist"] || [];
                         if (nurseList && nurseList.length > 0) {
@@ -626,9 +677,34 @@ exports.processDoctorOnDuty = function (data, callback) {
                         }
                     } else {
                         tmpObject["nurseNum"] = 0;
+=======
+                if (physician_id in retrieveVSMap) {
+                    nurseList = retrieveVSMap[physician_id]["palist"] || [];
+                    if (nurseList && nurseList.length > 0) {
+                        var nurseList2 = nurseList.slice(1);
+                        tmpObject["nurseList"] = nurseList2;
+                        tmpObject["nurse1Name"] = nurseList[0].E;
+                        tmpObject["nurseNum"] = nurseList.length;
+                        var tmpkey = nurseList[0].E.substring(0,nurseList[0].E.indexOf("("));
+                        if(nurseMap[tmpkey]){
+                            tmpObject["nurseTitle"] = nurseMap[tmpkey].Title;
+                            for(var nur=0;nur<nurseList2.length;nur++){
+                                tmpkey = nurseList2[nur].E.substring(0,nurseList2[nur].E.indexOf("("));
+                                if(nurseMap[tmpkey]){
+                                    nurseList2[nur]["nurseTitle"] = nurseMap[tmpkey].Title;
+                                }
+                            }
+                        }
+                    } else {
+                        tmpObject["nurseNum"] = 1;
+>>>>>>> origin/develop
                         tmpObject["nurse1Title"] = "";
                         tmpObject["nurse1Name"] = "";
                     }
+                } else {
+                    tmpObject["nurseNum"] = 1;
+                    tmpObject["nurse1Title"] = "";
+                    tmpObject["nurse1Name"] = "";
                 }
 
 
@@ -639,22 +715,9 @@ exports.processDoctorOnDuty = function (data, callback) {
                 } else if ("Ｒ" == EmpType) { //住院醫師
                     tmpObject["R_NAME"] = EmpName;
                     tmpObject["R_GSMBrevity"] = GSMBrevity;
-                } else if ("" == EmpType) { //護理師
-                    for (var k = 0; k < nurseList.length; k++) {
-                        var thisnurse = nurseList[k];
-                        if (thisnurse.E == (EmpName + GSMBrevity)) {
-                            if (k == 0) {
-                                tmpObject["nurse1Title"] = Title;
-                            } else {
-                                thisnurse["Title"] = Title;
-                            }
-
-                        }
-                    }
                 }
             }
         }
-
         callback(err, rtnResult);
     })
 };

@@ -454,6 +454,7 @@
   },
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "nur_id": "93  ",
     "bed_no": "93 37K",
     "physician_id": "1121",
@@ -474,10 +475,15 @@
     "physician_id": "6398",
     "employee_name": "陳思齊",
 =======
+=======
+>>>>>>> origin/develop
     "nur_id": "101 ",
     "bed_no": "10 47U",
     "physician_id": "9096",
     "employee_name": "張鴻猷",
+<<<<<<< HEAD
+>>>>>>> origin/develop
+=======
 >>>>>>> origin/develop
     "official_gsm": " ",
     "gsm_brevity_code": "(21123)",

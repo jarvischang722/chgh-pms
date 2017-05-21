@@ -22,6 +22,9 @@ router.get('/doctorOnDuty', middleWares ,EWhiteBoard.doctorOnDuty);
 router.get('/announcement', middleWares ,EWhiteBoard.announcement);
 
 /* Setting api */
+//選擇護理區
+router.post('/api/doSelectNurIDToSession/', EWhiteBoard.doSelectNurIDToSession);
+
 //出院備註
 router.get('/api/getDischargeNote/', middleWares ,EWhiteBoard.getDischargeNote);
 

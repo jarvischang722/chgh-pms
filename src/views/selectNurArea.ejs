@@ -1,0 +1,23 @@
+<%- include ./Common/importCSSFiles.ejs %>
+<%- include ./Common/importJSFiles.ejs %>
+
+<% allNurBedInfo.forEach(function(nur){ %>
+<button onclick="selectNurArea('<%= nur.nur_id %>')"><%= nur.nur_id %></button>
+<% }) %>
+
+
+<script>
+
+    function selectNurArea(nur_id) {
+        $.post("/eWhiteBoard/api/doSelectNurIDToSession", {nur_id: nur_id}, function (result) {
+            if (result.success) {
+                location.href = "/eWhiteBoard/patientInfo"
+            } else {
+                alert("無效的護理區");
+            }
+        })
+    }
+
+</script>
+
+
