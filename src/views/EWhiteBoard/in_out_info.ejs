@@ -31,12 +31,12 @@
                     <td class="date">{{data.patient_id}}</td>
                     <td class="date">
                     <span :class="data.sex | convSexStringToParma">
-                        {{data.paitent_name}}({{data.birthday | convBirthdayToAge}})
+                        {{data.patient_name}}({{data.birthday | convBirthdayToAge}})
                     </span>
                     </td>
                     <td class="date">{{data.employee_name}}</td>
                     <td class="date">{{data.nurse_name}}</td>
-                    <td>({{data.major_assess_id}})<span style="opacity: 0">{{data.icd_desc}}</span></td>
+                    <td>({{data.major_assess_id}}){{data.icd_desc}}</td>
                     <td class="date">{{data.data_note}}</td>
                 </tr>
                 </tbody>
