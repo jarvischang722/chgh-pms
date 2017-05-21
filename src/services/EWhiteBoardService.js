@@ -253,6 +253,7 @@ exports.handleSinglePatientInfo = function (postData, callback) {
         }
 
         patientInfo["allergyData"] = results.allergyData;
+        patientInfo["bed_no"] = patientInfo["bed_no"].replace(" ","-");
 
         callback(null, patientInfo);
     });
@@ -473,14 +474,15 @@ exports.processNurseSche = function (data, callback) {
                 classBedObj[class_id] = {'ward': thisClassObjByWard, 'nurse': thisClassObjByNurse};
             }
             //依班別->病房顯示
+            /*
             var tmpchar = ward_id.slice(-1);
             if (!Number.isInteger(tmpchar)) {
                 ward_id = ward_id.substr(0, ward_id.length - 1).split(" ")[1]; //病房名稱格式化
             } else {
                 ward_id = ward_id.split(" ")[1]; //病房名稱格式化
             }
-
-
+            */
+            ward_id = ward_id.split(" ")[1]; //病房名稱格式化
 
             if (ward_id in wardObj) {
                 var thisWardObj = wardObj[ward_id];
