@@ -235,7 +235,12 @@ exports.handleSinglePatientInfo = function (postData, callback) {
         //     }
         // })
         var doctorData = _.find(results.doctorList,function(doc){
-            return doc.bed_no.trim() == patientInfo.bed_no.trim()
+            try{
+                return doc.bed_no.trim() == patientInfo.bed_no.trim()
+            }catch(e){
+                return false;
+            }
+
         });
         if(!_.isUndefined(doctorData)){
             patientInfo = _.extend(patientInfo,doctorData)
