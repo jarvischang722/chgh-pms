@@ -7,8 +7,10 @@ var tools = require("../utils/commonTools");
 
 
 module.exports = function(req,res,next){
-
-    req.session.nur_id = "101";  //TODO 因為還沒有護理站選擇界面 先寫死93
+    if(req.session.nur_id == undefined){
+        return res.redirect("/selectNurArea");
+    }
+    //req.session.nur_id = "101";  //TODO 因為還沒有護理站選擇界面 先寫死93
     next();
 
 };

@@ -126,7 +126,31 @@ exports.getOutTranOutData = function (formData, callback) {
 };
 
 /**
- * 取得床位數資訊
+ * 取得全護理站床位數資訊
+ * @param formData{Object} : 搜尋條件
+ * @param callback{Function}:
+ *        {
+ *            err {String} : 錯誤
+ *            nurBedInfo{Array} : 床位數資訊
+ *        }
+ */
+exports.getAllNurBedInfo = function (formData, callback) {
+
+    request.post({
+        url: SystemConfig.web_service_url + "nur_bed_info",
+        form: formData
+    }, function (error, response, apiResult) {
+
+        parseString(apiResult, {trim: true, ignoreAttrs: true}, function (err, result) {
+            var nurBedInfo = JSON.parse(result.string);
+            callback(err, nurBedInfo);
+        });
+
+    });
+};
+
+/**
+ * 取得床位數資訊( 單一護理站)
  * @param formData{Object} : 搜尋條件
  * @param callback{Function}:
  *        {
