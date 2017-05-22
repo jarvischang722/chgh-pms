@@ -164,6 +164,7 @@ exports.getNurBedInfo = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "nur_bed_info_new",
         form: formData
@@ -285,7 +286,7 @@ exports.getAllergyData = function (formData, callback) {
         return callback(checkValError, []);
     }
 
-    formData["PatientID"] = formData['patient_id']
+    formData["PatientID"] = formData['patient_id'];
 
     request.post({
         url: SystemConfig.web_service_url + "Get_Allergy_Data",
