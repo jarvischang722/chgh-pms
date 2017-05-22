@@ -26,6 +26,7 @@ exports.getNurPatient = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "Get_nur_Patient_new",
         form: formData
@@ -81,7 +82,7 @@ exports.getInTranInData = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "In_TranIn_Data_new",
         form: formData
@@ -110,7 +111,7 @@ exports.getOutTranOutData = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "Out_TranOut_Data_new",
         form: formData
@@ -190,7 +191,7 @@ exports.getOpScheduleInfo = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "op_schedule_info_new",
         form: formData
@@ -221,7 +222,7 @@ exports.getExamScheduleInfo = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "exam_schedule_info",
         form: formData
@@ -252,7 +253,7 @@ exports.getNisDutySchedule = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
 
     request.post({
         url: SystemConfig.web_service_url + "nis_duty_schedule_new",
