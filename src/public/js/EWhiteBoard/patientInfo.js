@@ -50,7 +50,6 @@ var vmMain = new Vue({
                 vmMain.CriticalCount = _.filter(vmMain.allPatientInfo, function (data) {
                     return data.critical != '' && data.patient_name
                 }).length;
-                vmMain.showPatient();
                 vmMain.filterPaitentInfo();
                 // console.table(JSON.parse(JSON.stringify(vmMain.allPatientInfo)));
 
