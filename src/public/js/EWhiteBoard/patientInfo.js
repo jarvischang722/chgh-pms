@@ -76,7 +76,6 @@ var vmMain = new Vue({
 
             $.post("/eWhiteBoard/api/fetchSinglePatientInfo/", formData, function (result) {
                 vmMain.patientInfo = result.patientInfo;
-                vmMain.getAllergyData();
                 $('[data-remodal-id=rooms_modal]').remodal().open();
             })
         },
@@ -105,26 +104,6 @@ var vmMain = new Vue({
                     });
                     break;
             }
-        },
-        getAllergyData: function(){
-            var allergyData = this.patientInfo["allergyData"];
-            vmMain.patientInfo.drugAllergy =  "";
-            vmMain.patientInfo.otherAllergy = "" ;
-            _.each(allergyData,function(allergy){
-                 if(_.isEqual(allergy.source, "藥物")){
-                     vmMain.patientInfo.drugAllergy = allergy.drug_name || "";  // 藥物過敏
-                 }else if(_.isEqual(allergy.source, "非藥物")){
-                     vmMain.patientInfo.otherAllergy = allergy.drug_name || "";  // 其他過敏
-                 }
-            });
-        },
-        //顯示病患資訊
-        showAllPatient: function () {
-
-        },
-        //更新單一病患資訊
-        showPatient: function () {
-
         }
     }
 });
