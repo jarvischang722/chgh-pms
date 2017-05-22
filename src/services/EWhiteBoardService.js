@@ -251,8 +251,13 @@ exports.handleSinglePatientInfo = function (postData, callback) {
         if(!_.isUndefined(doctorData)){
             patientInfo = _.extend(patientInfo,doctorData)
         }
-
-        patientInfo["allergyData"] = results.allergyData;
+        _.each(results.allergyData,function(allergy){
+            if(_.isEqual(allergy.source, "藥物")){
+                patientInfo.drugAllergy = allergy.drug_name || "";  // 藥物過敏
+            }else if(_.isEqual(allergy.source, "非藥物")){
+                patientInfo.otherAllergy = allergy.drug_name || "";  // 其他過敏
+            }
+        });
         patientInfo["bed_no"] = patientInfo["bed_no"].replace(" ","-");
 
         callback(null, patientInfo);
