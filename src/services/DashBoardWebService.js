@@ -22,7 +22,7 @@ var moment = require("moment");
  *        }
  */
 exports.getNurPatient = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -50,7 +50,7 @@ exports.getNurPatient = function (formData, callback) {
  *        }
  */
 exports.getDayBeforeInfo = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id', 'Query_date'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id', 'Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -77,7 +77,7 @@ exports.getDayBeforeInfo = function (formData, callback) {
  *        }
  */
 exports.getInTranInData = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id', 'Query_date'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id', 'Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -106,7 +106,7 @@ exports.getInTranInData = function (formData, callback) {
  *        }
  */
 exports.getOutTranOutData = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id', 'Query_date'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id', 'Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -159,7 +159,7 @@ exports.getAllNurBedInfo = function (formData, callback) {
  *        }
  */
 exports.getNurBedInfo = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -217,7 +217,7 @@ exports.getOpScheduleInfo = function (formData, callback) {
  *        }
  */
 exports.getExamScheduleInfo = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate', 'nurs_id'], formData);
+    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate', 'nur_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
