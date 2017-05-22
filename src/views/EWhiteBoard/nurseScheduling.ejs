@@ -9,6 +9,7 @@
 
 <%- include ../Common/eBoardMarquee.ejs %>
 
+<%- include ./vueTemplates/patient-info-tmp.ejs %>
 <%- include ./vueTemplates/nurse-info-tmp.ejs %>
 
 <div id="app" class="container container_higher has_nested_tabs">
@@ -30,8 +31,14 @@
                             <td class="date">{{ result.nurse_name}}<br><small class="red">{{ result.call_number}}</small></td>
                             <td>
                                 <template v-for="this_bed in result.this_bedList">
-                                    <a v-if="this_bed.isNew==true" @click="fetchSinglePatientInfo(this_bed.nur_id,this_bed.patient_id)" href="#rooms_modal" class="bed_label bed_label_bed new">{{ this_bed.wardbed}}</a>
-                                    <a v-if="this_bed.isNew==false" @click="fetchSinglePatientInfo(this_bed.nur_id,this_bed.patient_id)" href="#rooms_modal" class="bed_label bed_label_bed">{{ this_bed.wardbed}}</a>
+                                    <template v-if="this_bed.patient_id">
+                                        <a v-if="this_bed.isNew==true" @click="fetchSinglePatientInfo(this_bed.nur_id,this_bed.patient_id)" href="#rooms_modal" class="bed_label bed_label_bed new">{{ this_bed.wardbed}}</a>
+                                        <a v-if="this_bed.isNew==false" @click="fetchSinglePatientInfo(this_bed.nur_id,this_bed.patient_id)" href="#rooms_modal" class="bed_label bed_label_bed">{{ this_bed.wardbed}}</a>
+                                    </template>
+                                    <template v-else>
+                                        <a v-if="this_bed.isNew==true" @click="fetchSinglePatientInfo1(this_bed.nur_id,this_bed.patient_id)" href="#rooms_modal1" class="bed_label bed_label_bed new">{{ this_bed.wardbed}}</a>
+                                        <a v-if="this_bed.isNew==false" @click="fetchSinglePatientInfo1(this_bed.nur_id,this_bed.patient_id)" href="#rooms_modal1" class="bed_label bed_label_bed">{{ this_bed.wardbed}}</a>
+                                    </template>
                                 </template>
                             </td>
                             <td class="date">
@@ -212,6 +219,9 @@
         </div>
     </div>
     <div class="clearfix"></div>
+    <patient-info-tmp
+            :patient-info = 'patientInfo'
+    ></patient-info-tmp>
     <nurse-info-tmp
             :patient-info = 'patientInfo'
     ></nurse-info-tmp>

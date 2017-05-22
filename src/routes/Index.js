@@ -10,5 +10,6 @@ var middleWares = [  ];
 
 /* Setting Routes */
 router.get('/', middleWares ,EWhiteBoard.index);
+router.get('/selectNurArea', EWhiteBoard.selectNurArea);
 
 module.exports = router;

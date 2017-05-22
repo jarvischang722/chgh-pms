@@ -17,11 +17,11 @@
                         </tr>
                         <tr>
                             <td class="text-right date">住院醫師</td>
-                            <td><span class="doctor"></span></td>
+                            <td><span class="doctor">{{patientInfo.Rx}}</span></td>
                         </tr>
                         <tr>
                             <td class="text-right date">專科護理師</td>
-                            <td><span class="doctor"></span></td>
+                            <td><span class="doctor">{{patientInfo.PA}}</span></td>
                         </tr>
                         <tr>
                             <td class="text-right date">護理師</td>
@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <td class="text-right date">手術</td>
-                            <td><span class="doctor">{{patientInfo.surgery_name}}</span></td>
+                            <td><span class="doctor">{{patientInfo.operate_name}}</span></td>
                         </tr>
                         <tr>
                             <td class="text-right date">病歷號碼</td>
@@ -45,8 +45,8 @@
                                 <span v-if="patientInfo.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
                                 <span v-if="patientInfo.allergy_flag == 'Y'">過敏</span>
 
-                                <span v-if="patientInfo.xxx == 'Y'" class="cond_dot cond_yellow"></span>
-                                <span v-if="patientInfo.xxx == 'Y'">手術</span>
+                                <span v-if="patientInfo.operate_name != ''" class="cond_dot cond_yellow"></span>
+                                <span v-if="patientInfo.operate_name != ''">手術</span>
 
                                 <span v-if="patientInfo.xxx == 'Y'" class="cond_dot cond_green"></span>
                                 <span v-if="patientInfo.xxx == 'Y'">待辦事項</span>
@@ -72,11 +72,11 @@
                         <tbody>
                         <tr>
                             <td class="text-right">藥物</td>
-                            <td><span class="doctor">XXXXXXXXXXXXXX</span></td>
+                            <td><span class="doctor">{{patientInfo.drugAllergy}}</span></td>
                         </tr>
                         <tr>
                             <td class="text-right">其他過敏</td>
-                            <td><span class="doctor">Y</span></td>
+                            <td><span class="doctor">{{patientInfo.otherAllergy}}</span></td>
                         </tr>
                         </tbody>
                     </table>
@@ -88,7 +88,8 @@
                 </div>
                 <div data-pws-tab="rooms_tabs_4" data-pws-tab-name="待辦事項">
                     <p class="text-left">
-                        爭麗用表畫達子初第驚，一子的高來度可滿一先是實據無幾片原業多出。出的高至：課向居有己站本，眼裝四易熱回果車；定管生上決同過作了人創嚴分山。文克事傳王其升病被行重消病母資岸日印復型生高的一中麼然如二必神軍上要，友產酒長，造作理意成發這能苦的上沒臺？
+                        <!--尚未有資料-->
+                        {{patientInfo.todo}}
                     </p>
                 </div>
             </div>

@@ -56,6 +56,15 @@ exports.nur_bed_info = function(req, res){
 };
 
 /**
+ *取得床位數資訊
+ */
+exports.nur_bed_info_new = function(req, res){
+    fs.readFile(__dirname+'/../testData/NurBedInfo_new.xml', 'utf8', function(err, apiResult) {
+        res.header('Content-Type', 'text/xml').send(apiResult);
+    });
+};
+
+/**
  *手術排程資訊
  */
 exports.op_schedule_info = function(req, res){

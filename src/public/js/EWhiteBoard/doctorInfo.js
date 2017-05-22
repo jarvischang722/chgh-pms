@@ -27,7 +27,7 @@ var vmMain = new Vue({
     methods: {
         fetchDoctorInfo :function(){
 
-            $.post("/eWhiteBoard/api/fetchDoctorInfo/",{_nurid:"5A"},function(result){
+            $.post("/eWhiteBoard/api/fetchDoctorInfo/",function(result){
                 if(result.success){
                     vmMain.doctorList = result.doctorList;
                 }
@@ -45,7 +45,6 @@ var vmMain = new Vue({
 
             $.post("/eWhiteBoard/api/fetchSinglePatientInfo/", formData, function (result) {
                 vmMain.patientInfo = result.patientInfo;
-                 console.log(vmMain.patientInfo);
                 $('[data-remodal-id=rooms_modal]').remodal().open();
             })
 

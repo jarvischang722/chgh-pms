@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>生理醫護監測管理系統</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <%- include Common/importCSSFiles.ejs %>
+</head>
+
+<body id="login">
+<div class="container center container_room_stop">
+    <h1 class="text-center">請點選欲進入的護理站</h1>
+    <% allNurBedInfo.forEach(function(nur){ %>
+    <div class="grid_twenty room_stop">
+        <a href="javascript:void(0);" onclick="selectNurArea('<%= nur.nur_id %>')" class="room_stop_inner">
+            <%= nur.nur_id %>
+        </a>
+    </div>
+    <% }) %>
+
+    <div class="clearfix"></div>
+</div>
+<%- include Common/importJSFiles.ejs %>
+</body>
+
+
+<script>
+
+    function selectNurArea(nur_id) {
+        $.post("/eWhiteBoard/api/doSelectNurIDToSession", {nur_id: nur_id}, function (result) {
+            if (result.success) {
+                location.href = "/eWhiteBoard/patientInfo"
+            } else {
+                alert("無效的護理區");
+            }
+        })
+    }
+
+</script>
+</html>

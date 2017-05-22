@@ -4,8 +4,8 @@
 var express = require('express');
 var router = express.Router();
 var EWhiteBoard = require('../controllers/EWhiteBoardController');
-// var AuthMiddleware = require("../middlewares/AuthMiddleware");
-var middleWares = [  ];
+var AuthMiddleware = require("../middlewares/AuthMiddleware");
+var middleWares = [ AuthMiddleware ];
 
 
 /* Setting Routes */
@@ -22,6 +22,9 @@ router.get('/doctorOnDuty', middleWares ,EWhiteBoard.doctorOnDuty);
 router.get('/announcement', middleWares ,EWhiteBoard.announcement);
 
 /* Setting api */
+//選擇護理區
+router.post('/api/doSelectNurIDToSession/', EWhiteBoard.doSelectNurIDToSession);
+
 //出院備註
 router.get('/api/getDischargeNote/', middleWares ,EWhiteBoard.getDischargeNote);
 

@@ -50,7 +50,6 @@ var vmMain = new Vue({
                 vmMain.CriticalCount = _.filter(vmMain.allPatientInfo, function (data) {
                     return data.critical != '' && data.patient_name
                 }).length;
-                vmMain.showPatient();
                 vmMain.filterPaitentInfo();
                 // console.table(JSON.parse(JSON.stringify(vmMain.allPatientInfo)));
 
@@ -76,7 +75,6 @@ var vmMain = new Vue({
 
             $.post("/eWhiteBoard/api/fetchSinglePatientInfo/", formData, function (result) {
                 vmMain.patientInfo = result.patientInfo;
-                // console.log(vmMain.patientInfo);
                 $('[data-remodal-id=rooms_modal]').remodal().open();
             })
         },
@@ -105,14 +103,6 @@ var vmMain = new Vue({
                     });
                     break;
             }
-        },
-        //顯示病患資訊
-        showAllPatient: function () {
-
-        },
-        //更新單一病患資訊
-        showPatient: function () {
-
         }
     }
 });
