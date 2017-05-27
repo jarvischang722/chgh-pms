@@ -1,0 +1,15 @@
+<% include function.ejs%>
+<div id="left_vertical_navbar">
+    <ul>
+        <li><a href="/nurse/nurseInfoMaintain" class="<%= moduleName == 'nurse'? 'active' :  '' %>"><i class="fa fa-plus" aria-hidden="true"></i> 護理師</a></li>
+        <li><a href="/patient/patientTodoItem" class="<%= moduleName == 'patient'? 'active' :  '' %>"><i class="fa fa-male" aria-hidden="true"></i> 病患</a></li>
+        <li><a href="/doctor/doctorInfoMaintain" class="<%= moduleName == 'doctor'? 'active' :  '' %>"><i class="fa fa-user-md" aria-hidden="true"></i> 醫師</a></li>
+
+        <% if(checkWardZoneHasModulePrivilege("Bit")){%>
+        <li><a href="/monitor/bitParamSet" class="<%= moduleName == 'monitor'? 'active' :  '' %>"><i class="fa fa-laptop" aria-hidden="true"></i> 監測裝置</a></li>
+        <% } %>
+
+        <li><a href="/other/todoPhrase" class="<%= moduleName == 'other'? 'active' :  '' %>"><i class="fa fa-ellipsis-h" aria-hidden="true"></i> 其它</a></li>
+        <li><a href="/systemMaintain/employeeManage" class="<%= moduleName == 'system'? 'active' :  '' %>"><i class="fa fa-cogs" aria-hidden="true"></i> 系統設定</a></li>
+    </ul>
+</div>

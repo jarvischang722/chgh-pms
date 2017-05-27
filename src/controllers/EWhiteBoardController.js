@@ -51,7 +51,15 @@ exports.doSelectNurIDToSession = function (req, res, next) {
  * 病患資訊
  * **/
 exports.patientInfo = function (req, res, next) {
-    res.render('EWhiteBoard/patientInfo');
+
+    if(req.session.user==undefined){
+        //no user information found in session, go to EWhiteBoard
+        res.render('EWhiteBoard/patientInfo');
+    }else{
+        //found user information found in session, go to admin section
+        res.render("Admin/Nurse/nurse_index");
+    }
+
 };
 
 /**

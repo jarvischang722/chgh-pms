@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'nurse'}) %>
+<%- include('../Common/headerMenu',{moduleName:'nurse', func:'2' }) %>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="welcome">
+                <div id="month_select" class="datepicker-here" data-language='zh' data-min-view="months" data-view="months"></div>
+                <div class="month_des_list">
+                    <span class="room_des_square date_before"></span> 過去月份
+                    <span class="room_des_square date_now"></span> 目前月份
+                    <span class="room_des_square date_after"></span> 未來月份
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="month_select_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header" id="remodal_header">
+        </div>
+        <div class="remodal_body">
+            <div class="grid_twenty">
+                <div class="nurse_list" id="nurse_list">
+                    <a href="#" class="active">
+                        <i class="fa fa-address-card-o" aria-hidden="true"></i> <span class="doctor">張惠妹</span> 003188
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-address-card-o" aria-hidden="true"></i> <span class="doctor">張惠妹</span> 003188
+                    </a>
+                </div>
+            </div>
+            <div class="grid_eighty">
+                <table id="this_nurse_sche">
+                </table>
+                <div class="modal_pure_text">
+                    <a href="#work_setting" id="work_setting" class="btn"><i class="fa fa-table" aria-hidden="true"></i> 個人班表設定</a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="work_setting">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header" id="remodal_header2">
+        </div>
+        <div class="remodal_body">
+            <div class="modal_pure_text">請勾選病床</div>
+            <div class="grid_third">
+                <table class="overflow-y">
+                    <thead>
+                        <tr>
+                            <th colspan="2">白班預設 <span class="ban" id="ban01">0</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="class01_bed_tbody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="grid_third">
+                <table class="overflow-y">
+                    <thead>
+                        <tr>
+                            <th colspan="2">小夜預設 <span class="ban" id="ban02">0</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="class02_bed_tbody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="grid_third">
+                <table class="overflow-y">
+                    <thead>
+                        <tr>
+                            <th colspan="2">大夜預設 <span class="ban" id="ban03">0</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="class03_bed_tbody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+            <div class="modal_pure_text">請選擇日期
+                <br><small class="ban">(休假以及過去日期不可勾選，未出現之日期代表班表尚未排定)</small></div>
+            <div class="check_day_list" id="check_day_list">
+            </div>
+        </div>
+        <div class="remodal_footer">
+            <a href="#month_select_modal" class="btn" id="submit_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+            <a href="#month_select_modal" id="cancel_btn" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="../js/Nurse/batchBedAssign.js"></script>
+<script id="remodal_header_temp" type="text/x-handlebars-template">
+    {{#results}}
+    <div>護理師病房分派</div>
+    <div>{{year}}/{{month}}</div>
+    {{/results}}
+</script>
+<script id="nurse_temp" type="text/x-handlebars-template">
+    {{#nurses}}
+    <a href="#nurseitem_selected" class="c_nurse_item active" data-nurse_no="{{employee_no}}"
+       data-nurse_name="{{name}}" data-nurse_tel="{{tel}}">
+        <i class="fa fa-address-card-o" aria-hidden="true"></i> <span class="doctor">{{name}}</span> {{employee_no}}
+    </a>
+    {{/nurses}}
+</script>
+<script id="this_nurse_sche_temp" type="text/x-handlebars-template">
+    <tbody>
+    {{#sche}}
+    <tr>
+        <td class="table_date">01</td>
+        <td width="124">
+            {{#with date-01}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">12</td>
+        <td width="124">
+            {{#with date-12}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">23</td>
+        <td width="124">
+            {{#with date-23}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+    </tr>
+    <tr>
+        <td class="table_date">02</td>
+        <td>
+            {{#with date-02}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">13</td>
+        <td>
+            {{#with date-13}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">24</td>
+        <td>
+            {{#with date-24}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+    </tr>
+    <tr>
+        <td class="table_date">03</td>
+        <td>
+            {{#with date-03}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">14</td>
+        <td>
+            {{#with date-14}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">25</td>
+        <td>
+            {{#with date-25}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+    </tr>
+    <tr>
+        <td class="table_date">04</td>
+        <td>
+            {{#with date-04}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">15</td>
+        <td>
+            {{#with date-15}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">26</td>
+        <td>
+            {{#with date-26}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+    </tr>
+    <tr>
+        <td class="table_date">05</td>
+        <td>
+            {{#with date-05}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">16</td>
+        <td>
+            {{#with date-16}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">27</td>
+        <td>
+            {{#with date-27}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+    </tr>
+    <tr>
+        <td class="table_date">06</td>
+        <td>
+            {{#with date-06}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">17</td>
+        <td>
+            {{#with date-17}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">28</td>
+        <td>
+            {{#with date-28}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+    </tr>
+    <tr>
+        <td class="table_date">07</td>
+        <td>
+            {{#with date-07}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">18</td>
+        <td>
+            {{#with date-18}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">29</td>
+        <td>
+            {{#with date-29}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+    </tr>
+    <tr>
+        <td class="table_date">08</td>
+        <td>
+            {{#with date-08}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">19</td>
+        <td>
+            {{#with date-19}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">30</td>
+        <td>
+            {{#with date-30}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+    </tr>
+    <tr>
+        <td class="table_date">09</td>
+        <td>
+            {{#with date-09}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">20</td>
+        <td>
+            {{#with date-20}}
+                {{#with class-01}}
+                <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+                {{/with}}
+                {{#with class-02}}
+                <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+                {{/with}}
+                {{#with class-03}}
+                <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+                {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">31</td>
+        <td>
+            {{#with date-31}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+    </tr>
+    <tr>
+        <td class="table_date">10</td>
+        <td>
+            {{#with date-10}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">21</td>
+        <td>
+            {{#with date-21}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="table_date">11</td>
+        <td>
+            {{#with date-11}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date">22</td>
+        <td width="124">
+            {{#with date-22}}
+            {{#with class-01}}
+            <i class="fa fa-sun-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-02}}
+            <i class="fa fa-moon-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{#with class-03}}
+            <i class="fa fa-star-o" aria-hidden="true"></i> {{class_name}} <span class="doctor">{{num}}</span>
+            {{/with}}
+            {{/with}}
+        </td>
+        <td class="table_date"></td>
+        <td></td>
+    </tr>
+    {{/sche}}
+    </tbody>
+</script>
+<script id="remodal_header2_temp" type="text/x-handlebars-template">
+    {{#results}}
+    <div>護理師： <span class="doctor">{{nurse_name}}</span></div>
+    <div>行動分機： <span class="doctor">{{nurse_tel}}</span></div>
+    {{/results}}
+</script>
+
+<script id="beds_temp" type="text/x-handlebars-template">
+    {{#beds}}
+    <tr>
+        <td>
+            <input type="checkbox" name="classT{{../class_type}}[]" class="bed_selected" data-bed_id="{{bed_id}}" data-class_type="{{../class_type}}" id="bed-{{../class_type}}-{{bed_id}}" />
+        </td>
+        <td>{{district_name}}-{{ward_zone_name}}-{{ward_name}}-{{bed_name}}</td>
+    </tr>
+    {{/beds}}
+</script>
+
+<script id="days_temp" type="text/x-handlebars-template">
+    {{#days}}
+    <div>
+        {{day}}
+        <br>
+        <input type="checkbox" class="date_selected" data-thisdate="{{date}}"
+               {{#if disable}}
+               disabled
+               {{/if}}
+        />
+        <br>A
+    </div>
+    {{/days}}
+</script>

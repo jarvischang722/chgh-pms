@@ -56,6 +56,14 @@ app.use(function (req, res, next) {
 
 });
 
+
+var os =require("os"); console.log("os is :"+ os.platform());
+
+/** open sql pool **/
+require("./plugins/mysql/DB").create();
+
+
+
 /** routers **/
 app.use('/', require('./routes/Index'));  //電子白板
 app.use('/eWhiteBoard', require('./routes/EWhiteBoard'));  //電子白板

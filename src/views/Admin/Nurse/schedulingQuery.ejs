@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'nurse'}) %>
+<%- include('../Common/headerMenu',{moduleName:'nurse', func:'4' }) %>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="ope_list_search">
+                <div>
+                    <label>班別： </label>
+                    <select id="sche_class" name="sche_class">
+                        <option value="">--</option>
+                        <option value="01">白班</option>
+                        <option value="02">小夜</option>
+                        <option value="03">大夜</option>
+                    </select>
+                </div>
+                <div class="date_range">
+                    <label>時間區間： </label>
+                    <input id="ope_range" name="ope_range" type='text' class="datepicker-here" data-range="true" data-multiple-dates-separator=" ~ " data-language='zh' data-position="bottom right" />
+                </div>
+                <div>
+                    <label>員工編號(或姓名) </label>
+                    <input type="text" id="nurse_id_name" name="nurse_id_name">
+                </div>
+                <div class="btn_group">
+                    <a href="#" class="btn" id="query_btn"><i class="fa fa-search" aria-hidden="true"></i> 查詢</a>
+                </div>
+            </div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th>員工編號</th>
+                        <th>護理師姓名</th>
+                        <th>值班日期</th>
+                        <th>時段</th>
+                        <th>院區</th>
+                        <th>病房</th>
+                        <th>房間</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="nurses_div">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="list_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>新增護理師資料</div>
+        </div>
+        <div class="remodal_body">
+            <div class="modal_list_search" id="modal_list_search">
+            </div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th>床號</th>
+                        <th>病歷號碼</th>
+                        <th>病患姓名</th>
+                        <th>病患帳號</th>
+                        <th>時間</th>
+                        <th>狀態</th>
+                    </tr>
+                </thead>
+                <tbody id="record_tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="../js/Nurse/schedulingQuery.js"></script>
+<script id="nurse_temp" type="text/x-handlebars-template">
+    {{#nurses}}
+    <tr>
+        <td>{{nurse_no}}</td>
+        <td>{{nurse_name}}</td>
+        <td>{{formatTime assign_date "current"}}</td>
+        <td>{{class_name}}</td>
+        <td>{{ward_zone_name}}</td>
+        <td>{{ward_name}}</td>
+        <td>{{bed_name}}</td>
+        <td><a href="#list_modal" class="btn showdetail"
+               data-nurse_no="{{nurse_no}}" data-id="{{id}}" data-nurse_name="{{nurse_name}}" data-tel="{{tel}}" data-assign_date="{{assign_date}}"
+               data-ward_zone_name="{{ward_zone_name}}" data-ward_zone_id="{{ward_zone_id}}" data-ward_name="{{ward_name}}"
+               data-ward_id="{{ward_name}}" data-bed_name="{{bed_name}}" data-bed_id="{{bed_id}}" data-class_name="{{class_name}}"
+            ><i class="fa fa-eye" aria-hidden="true"></i> 檢視</a></td>
+    </tr>
+    {{/nurses}}
+</script>
+<script id="detail_temp" type="text/x-handlebars-template">
+    {{#results}}
+        <div><i class="fa fa-address-card-o" aria-hidden="true"></i> 護理師： <span class="doctor">{{nurse_name}} {{nurse_no}}</span></div>
+        <div><i class="fa fa-mobile" aria-hidden="true"></i> 手機： <span class="doctor">{{tel}}</span></div>
+        <div><i class="fa fa-calendar-o" aria-hidden="true"></i> 日期： <span class="doctor">{{formatTime assign_date "current"}}</span></div>
+        <div><i class="fa fa-clock-o" aria-hidden="true"></i> 時段： <span class="doctor">{{class_name}}</span></div>
+        <div><i class="fa fa-bed" aria-hidden="true"></i> 房間： <span class="doctor">{{ward_zone_name}}-{{ward_name}}-{{bed_name}}</span></div>
+    {{/results}}
+</script>
+<script id="record_temp" type="text/x-handlebars-template">
+    {{#records}}
+    <tr>
+        <td>{{bed_no}}</td>
+        <td>{{mr_number}}</td>
+        {{#ifCond sex '==' '1'}}
+            <td><span class="male">{{name}} ({{age}})</span></td>
+        {{else}}
+            <td><span class="female">{{name}} ({{age}})</span></td>
+        {{/ifCond}}
+        <td>{{record_no}}</td>
+        <td>{{formatTime in_out_datetime "current_time"}}</td>
+        <td>{{status_name}}</td>
+    </tr>
+    {{/records}}
+</script>

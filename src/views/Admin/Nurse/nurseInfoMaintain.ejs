@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'nurse'}) %>
+<%- include('../Common/headerMenu',{moduleName:'nurse', func:'1' }) %>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="ope_list_search">
+
+                <div class="btn_group">
+                    <a href="#add_modal" class="btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                    <a href="#" class="btn" id="delete_btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+                </div>
+            </div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>編輯</th>
+                        <th>員工編號</th>
+                        <th>姓名</th>
+                        <th>行動分機</th>
+                        <th>代理人1</th>
+                        <th>代理人2</th>
+                        <th>代理人3</th>
+                        <th>消防編組</th>
+                        <th>任務編組</th>
+                        <th>備註</th>
+                    </tr>
+                </thead>
+                <tbody id="nurses_table">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="add_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>新增護理師資料</div>
+        </div>
+        <div class="remodal_body">
+            <form id="insert_form">
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 員工編號</label>
+                    <input type="text" name="employee_no">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 姓名</label>
+                    <input type="text" name="name">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 行動分機</label>
+                    <input type="text" name="tel">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 代理人1</label>
+                    <select id="agent1_nurse_id" name="agent1_nurse_id">
+                    </select>
+                </div>
+                <div>
+                    <label>代理人2</label>
+                    <select id="agent2_nurse_id" name="agent2_nurse_id">
+                    </select>
+                </div>
+                <div>
+                    <label>代理人3</label>
+                    <select id="agent3_nurse_id" name="agent3_nurse_id">
+                    </select>
+                </div>
+                <div>
+                    <label>備註</label>
+                    <input type="text" name="remark">
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn" id="insert_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="edit_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>編輯護理師資料</div>
+        </div>
+        <div class="remodal_body" id="edit_nurse_div">
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn" id="update_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="../js/Nurse/nurseInfoMaintain.js"></script>
+<script id="nurse_agent_temp" type="text/x-handlebars-template">
+    <option value="">選擇一位代理人</option>
+    {{#nurses}}
+        <option value="{{id}}">{{name}}</option>
+    {{/nurses}}
+</script>
+<script id="nurse_temp" type="text/x-handlebars-template">
+    {{#nurses}}
+        <tr>
+            <td>
+                <input type="checkbox" value="{{id}}" />
+            </td>
+            <td>
+                <a href="#edit_modal" data-toggle="modal" class="btn edit_nurse"
+                   data-employee_no="{{employee_no}}" data-id="{{id}}" data-name="{{name}}" data-tel="{{tel}}"
+                   data-agent1_nurse_id="{{agent1_nurse_id}}" data-agent2_nurse_id="{{agent2_nurse_id}}" data-agent3_nurse_id="{{agent3_nurse_id}}"
+                   data-remark="{{remark}}"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+            </td>
+            {{#if employee_no}}
+            <td>{{employee_no}}</td>
+            {{else}}
+            <td class="err">系統錯誤</td>
+            {{/if}}
+
+            {{#if name}}
+            <td>{{name}}</td>
+            {{else}}
+            <td class="err">系統錯誤</td>
+            {{/if}}
+
+            {{#if tel}}
+            <td>{{tel}}</td>
+            {{else}}
+            <td class="err">系統錯誤</td>
+            {{/if}}
+
+            {{#if agent1_name}}
+            <td>{{agent1_name}}</td>
+            {{else}}
+            <td class="err">系統錯誤</td>
+            {{/if}}
+
+            {{#if agent2_name}}
+            <td>{{agent2_name}}</td>
+            {{else}}
+            <td></td>
+            {{/if}}
+
+            {{#if agent3_name}}
+            <td>{{agent3_name}}</td>
+            {{else}}
+            <td></td>
+            {{/if}}
+
+            {{#if fire_control_group_name}}
+            <td>{{fire_control_group_name}}</td>
+            {{else}}
+            <td></td>
+            {{/if}}
+
+            {{#if mission_group_name}}
+            <td>{{mission_group_name}}</td>
+            {{else}}
+            <td></td>
+            {{/if}}
+
+            {{#if remark}}
+            <td>{{remark}}</td>
+            {{else}}
+            <td></td>
+            {{/if}}
+        </tr>
+    {{/nurses}}
+</script>
+<script id="nurse_edit_temp" type="text/x-handlebars-template">
+    {{#nurses}}
+    <form id="update_form">
+        <input type="hidden" name="id" value="{{id}}">
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 員工編號</label>
+            <input type="text" name="employee_no" placeholder="{{employee_no}}" value="{{employee_no}}" readonly> <!--disabled-->
+        </div>
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 姓名</label>
+            <input type="text" name="name" placeholder="{{name}}" value="{{name}}" >
+        </div>
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 行動分機</label>
+            <input type="text" name="tel" placeholder="{{tel}}" value="{{tel}}">
+        </div>
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 代理人1</label>
+            <select name="agent1_nurse_id">
+                <option value="">選擇一位代理人</option>
+                {{#agents}}
+                {{#ifCond id '==' ../agent1_nurse_id}}
+                <option value="{{id}}" selected>{{name}}</option>
+                {{else}}
+                <option value="{{id}}">{{name}}</option>
+                {{/ifCond}}
+                {{/agents}}
+            </select>
+        </div>
+        <div>
+            <label>代理人2</label>
+            <select name="agent2_nurse_id">
+                <option value="">選擇一位代理人</option>
+                {{#agents}}
+                {{#ifCond id '==' ../agent2_nurse_id}}
+                <option value="{{id}}" selected>{{name}}</option>
+                {{else}}
+                <option value="{{id}}">{{name}}</option>
+                {{/ifCond}}
+                {{/agents}}
+            </select>
+        </div>
+        <div>
+            <label>代理人3</label>
+            <select name="agent3_nurse_id">
+                <option value="">選擇一位代理人</option>
+                {{#agents}}
+                {{#ifCond id '==' ../agent3_nurse_id}}
+                <option value="{{id}}" selected>{{name}}</option>
+                {{else}}
+                <option value="{{id}}">{{name}}</option>
+                {{/ifCond}}
+                {{/agents}}
+            </select>
+        </div>
+        <div>
+            <label>備註</label>
+            <input type="text" name="remark" value="{{remark}}">
+        </div>
+        <div class="clearfix"></div>
+    </form>
+    {{/nurses}}
+</script>
+
+

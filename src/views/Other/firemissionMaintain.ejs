@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<%- include ../Common/head.ejs %>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'other'}) %>
+<%- include('../Common/headerMenu',{moduleName:'other', func:'7' }) %>
+<div class="nurse_system">
+    <div class="container container_higher">
+        <div class="ope_list_search">
+            <div class="checkbox_list radio_list">
+                <label>
+                    <input type="radio" class="option-input checkbox" name="mission_types" value="M" checked /> 任務編組
+                </label>
+                <label>
+                    <input type="radio" class="option-input checkbox" name="mission_types" value="F" /> 消防編組
+                </label>
+            </div>
+            <div>
+                <label>名稱： </label>
+                <input type='text' id="group_name" />
+            </div>
+            <div>
+                <label>縮寫： </label>
+                <input type='text' id="group_sname" />
+            </div>
+            <div class="btn_group">
+                <a href="#add_modal" class="btn" id="insert_btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                <a href="#" class="btn" id="delete_btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+            </div>
+        </div>
+        <table class="overflow-y" id="group_table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>編輯</th>
+                <th>任務 / 消防名稱</th>
+                <th>縮寫</th>
+            </tr>
+            </thead>
+            <tbody id="all_group_body">
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="remodal" data-remodal-id="edit_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>編輯消防任務編組</div>
+    </div>
+    <div class="remodal_body" id="edit_group_div">
+    </div>
+    <div class="remodal_footer">
+        <a href="#" class="btn" id="update_btn"><i class="fa fa-check" aria-hidden="true"></i> 儲存</a>
+        <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../js/Other/firemissionMaintain.js"></script>
+<script id="groups_temp" type="text/x-handlebars-template">
+    {{#items}}
+    <tr>
+        <td>
+            <input type="checkbox" value="{{id}}" data-type="{{type}}"/>
+        </td>
+        <td>
+            <a href="#edit_modal" class="btn edit_group" data-id="{{id}}" data-group_name="{{group_name}}" data-group_sname="{{group_sname}}" data-type="{{type}}"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+        </td>
+        <td>{{group_name}}</td>
+        <td>{{group_sname}}</td>
+    </tr>
+    {{/items}}
+</script>
+<script id="edit_group_temp" type="text/x-handlebars-template">
+    {{#group}}
+    <form id="update_form">
+        <input type="hidden" name="id" value="{{id}}">
+        <input type="hidden" name="type" value="{{type}}">
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 任務 / 消防名稱</label>
+            <input type="text" name="group_name" value="{{group_name}}">
+        </div>
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 縮寫</label>
+            <input type="text" name="group_sname" value="{{group_sname}}">
+        </div>
+        <div class="clearfix"></div>
+    </form>
+    {{/group}}
+</script>
