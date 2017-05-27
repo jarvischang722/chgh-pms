@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<%- include ../Common/head.ejs %>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'other'}) %>
+<%- include('../Common/headerMenu',{moduleName:'other', func:'5' }) %>
+<%-include ../HandlebarTemplates/other/doctor_class_list_template.ejs %>
+<div class="nurse_system">
+    <div class="container container_higher">
+<!--        <div class="ope_list_search">
+
+
+            <div>
+                <label>醫師別名稱： </label>
+                <input type='text' id="dr_class_name"/>
+            </div>
+            <div class="btn_group">
+                <a href="#" class="btn addClass-btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                <a href="#" id="delClass-btn" class="btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+            </div>
+        </div>-->
+        <table id="drClassTable" class="overflow-y">
+            <thead>
+            <tr>
+                <th></th>
+                <th>編輯</th>
+                <th>醫師別名稱</th>
+            </tr>
+            </thead>
+            <tbody>
+                <!-- doctor_class_list_template -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include ../Common/marquee.ejs %>
+
+<div class="remodal" data-remodal-id="edit_dr_class_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div id="update_kind">編輯醫師別</div>
+    </div>
+    <div class="remodal_body">
+        <form>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 醫師別名稱</label>
+                <input type="text" id="update_dr_class_name">
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+    <div class="remodal_footer">
+        <a href="javascript:void(0);" onclick="updateDoctorClass()" class="btn" ><i class="fa fa-check" aria-hidden="true"></i> 儲存</a>
+        <a href="#" class="btn"><i class="fa fa-times" aria-hidden="true"></i> 取消</a>
+    </div>
+</div>
+
+
+</body>
+
+</html>
+<script type="text/javascript" src="/admin/js/Other/doctorClassMaintain.js"></script>

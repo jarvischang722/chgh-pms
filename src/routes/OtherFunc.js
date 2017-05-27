@@ -11,9 +11,9 @@ var announcementController   = require('../controllers/AnnouncementController');
 var marqueeController   = require('../controllers/MarqueeController');
 var middleWares = [ AuthMiddleware ,i18nMiddleware];
 
-var SIPDistributeController   = require('../controllers/SIPDistributeController');
-var timePeriodController   = require('../controllers/timePeriodController');
-var firemissionController   = require('../controllers/firemissionController');
+//var SIPDistributeController   = require('../controllers/SIPDistributeController');
+//var timePeriodController   = require('../controllers/timePeriodController');
+//var firemissionController   = require('../controllers/firemissionController');
 
 /*** 畫面 ***/
 //代辦事項片語管理
@@ -22,14 +22,7 @@ router.get('/todoPhrase', middleWares ,other_func.todoPhrase);
 router.get('/bedAnnounceMaintain', middleWares ,other_func.bedAnnounceMaintain);
 //跑馬燈訊息維護
 router.get('/marqueeMsgMaintain', middleWares ,other_func.marqueeMsgMaintain);
-//班別時段設定
-router.get('/shiftTimePeriodSet', middleWares ,other_func.shiftTimePeriodSet);
-//醫師別維護
-router.get('/doctorClassMaintain', middleWares ,other_func.doctorClassMaintain);
-//通聯記錄查詢
-router.get('/communiRecord', middleWares ,other_func.communiRecord);
-//消防任務維護
-router.get('/firemissionMaintain', middleWares ,other_func.firemissionMaintain);
+
 
 
 
@@ -63,24 +56,6 @@ router.post('/api/insertMarquee', middleWares ,marqueeController.insertMarquee);
 router.post('/api/deleteMarquee', middleWares ,marqueeController.deleteMarquee); //API SPEC DONE
 router.post('/api/updateMarquee', middleWares ,marqueeController.updateMarquee); //API SPEC DONE
 
-
-
-/*** 時段 ***/
-router.get('/api/getAllTimePeriod', middleWares ,timePeriodController.getAllTimePeriod); //API SPEC DONE
-router.post('/api/insertTimePeriod', middleWares ,timePeriodController.insertTimePeriod); //API SPEC DONE
-router.post('/api/deleteTimePeriod', middleWares ,timePeriodController.deleteTimePeriod); //API SPEC DONE
-router.post('/api/updateTimePeriod', middleWares ,timePeriodController.updateTimePeriod); //API SPEC DONE
-
-/*** 消防/任務分組***/
-router.post('/api/getAllFireMission', middleWares ,firemissionController.getAllFireMission); //API SPEC DONE
-router.post('/api/insertFireMission', middleWares ,firemissionController.insertFireMission); //API SPEC DONE
-router.post('/api/deleteFireMission', middleWares ,firemissionController.deleteFireMission); //API SPEC DONE
-router.post('/api/updateFireMission', middleWares ,firemissionController.updateFireMission); //API SPEC DONE
-
-
-
-/*** 通聯紀錄查詢 ***/
-router.get('/api/getAllSIPRecord', middleWares ,SIPDistributeController.getAllSIPRecord);
 
 
 

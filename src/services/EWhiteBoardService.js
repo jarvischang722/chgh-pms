@@ -9,6 +9,8 @@ var request = require('request');
 var parseString = require('xml2js').parseString;
 var alasql = require('alasql');
 
+var DBAgent = require("../plugins/mysql/DBAgent");
+var Logger = require("../plugins/Log4js").Logger();
 /**
  * 取得手術資料
  * @param postData
@@ -704,4 +706,29 @@ exports.processDoctorOnDuty = function (data, callback) {
         }
         callback(err, rtnResult);
     })
+};
+
+
+
+
+
+
+
+
+
+
+/**
+ * 取得病房公告
+ * */
+exports.getAnnouncement = function(ward_zone_id,callback){
+    DBAgent.query("QRY_ANNOUNCEMENT",{"ward_zone_id":ward_zone_id} , function(err , rows){
+
+        if(err){
+            Logger.error(error);
+            rows = [];
+        }
+
+        callback(rows);
+
+    });
 };

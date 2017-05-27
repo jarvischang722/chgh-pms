@@ -1,0 +1,81 @@
+<!-- 員工清單版模 -->
+<script id="employeeInfo_template" type="text/x-handlebars-template">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>新增人員基本資料</div>
+    </div>
+    <div class="remodal_body">
+        <form>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 員工編號</label>
+                <input type="text" id="employee_no">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 姓名</label>
+                <input type="text" id="employee_name">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 使用者帳號</label>
+                <input type="text" id="account">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 登入密碼</label>
+                <input type="password" id="password">
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 性別</label>
+                <div class="checkbox_list text-left radio_list">
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="gender"/> 男
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="gender"/> 女
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 使用者角色</label>
+                <select id="user_role">
+                    <option>--</option>
+                    {{#adminRoleList}}
+                    {{/adminRoleList}}
+                    <option>Admin</option>
+                    <option>角色一</option>
+                    <option>角色二</option>
+                    <option>角色三</option>
+                </select>
+            </div>
+            <div>
+                <label>主管角色</label>
+                <select id="admin_role">
+                    <option>--</option>
+                    <option>Admin</option>
+                    <option>角色一</option>
+                    <option>角色二</option>
+                    <option>角色三</option>
+                </select>
+            </div>
+            <div class="date_select">
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 到職日期</label>
+                <input id="date_select" type='text' id="expired_date" class="datepicker-here" data-range="false"
+                       data-language='zh'
+                       data-position="top right" placeholder=""/>
+            </div>
+            <div>
+                <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 是否啟用</label>
+                <div class="checkbox_list text-left radio_list">
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="is_enable"/> 是
+                    </label>
+                    <label>
+                        <input type="radio" class="option-input checkbox" name="is_enable"/> 否
+                    </label>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+    <div class="remodal_footer">
+        <a href="#" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+    </div>
+</script>

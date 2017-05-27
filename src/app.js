@@ -14,6 +14,7 @@ var port = 8889;
 var app = express();
 
 
+
 /** i18n configure **/
 i18n.configure({
     locales: ['zh_tw', 'zh_cn'],
@@ -68,6 +69,14 @@ require("./plugins/mysql/DB").create();
 app.use('/', require('./routes/Index'));  //電子白板
 app.use('/eWhiteBoard', require('./routes/EWhiteBoard'));  //電子白板
 app.use('/dashboardAPI', require('./routes/DashBoardAPI'));  //模擬API
+
+
+
+
+//for backend
+app.use('/systemMaintain', require('./routes/SystemMaintain'));
+
+app.use('/other', require('./routes/OtherFunc'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -93,9 +93,12 @@ function employeeClass() {
         $.post("/systemMaintain/userRoleQuery", function (data) {
             globalUserRoleList = data.user_role_list || [];
             var optionContent = "";
-            _.each(globalUserRoleList, function (role) {
-                optionContent += "<option value='" + role.id + "'>" + role.user_role_name + "</option>"
-            });
+            //temporarily for user role only
+            //_.each(globalUserRoleList, function (role) {
+            //    optionContent += "<option value='" + role.id + "'>" + role.user_role_name + "</option>"
+            //});
+
+            optionContent += "<option value='1'>系統管理員</option>";
             $("#user_role").append(optionContent)
         })
     };
@@ -160,6 +163,14 @@ function employeeClass() {
     this.doDeleteEmployee = function () {
         var self = this;
         var employee_no_list = [];
+
+
+        if($("input[name='employee_checkbox']").length == 1){
+
+            alert("無法刪除最後一個員工!");
+        }
+
+
         $("input[name='employee_checkbox']:checked").each(function () {
             employee_no_list.push($(this).val());
         })

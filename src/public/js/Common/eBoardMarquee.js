@@ -2,14 +2,14 @@ var G_intervalInst;
 
 $(function () {
     initializeMarquee(); //初始執行
-    SIPGetCheckInterval();
+    //SIPGetCheckInterval();
 });
 
 function initializeMarquee() {
 
     $.ajax({
         method: "GET",
-        url: "/api/getMarquee"
+        url: "api/getMarquee"
     })
         .done(function (result_obj) {
 

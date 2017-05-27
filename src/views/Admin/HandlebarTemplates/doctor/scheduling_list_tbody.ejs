@@ -1,0 +1,11 @@
+<!-- 排班清單版模 -->
+<script id="doctor_show_scheduling_list_tbody_template" type="text/x-handlebars-template">
+    {{#AllDoctorSchedulingList}}
+    <tr>
+        <td>{{formatTime schedule_date   "current" }}</td>
+        <td>{{doctor_class_name}} </td>
+        <td>{{doctor_name}} <span class="ban">{{doctor_no}}</span></td>
+        <td><a href="#day_room_select_modal" onclick="appendBedList('{{doctor_no}}','{{schedule_date }}' )" class="btn">{{bed_list.length}}</a></td>
+    </tr>
+    {{/AllDoctorSchedulingList}}
+</script>

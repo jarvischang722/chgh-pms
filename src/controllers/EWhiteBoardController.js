@@ -57,7 +57,7 @@ exports.patientInfo = function (req, res, next) {
         res.render('EWhiteBoard/patientInfo');
     }else{
         //found user information found in session, go to admin section
-        res.render("Admin/Nurse/nurse_index");
+        res.render("Admin/admin_index");
     }
 
 };
@@ -322,5 +322,22 @@ exports.fetchDoctorInfo = function (req, res) {
     req.body["nur_id"] = req.session.nur_id || "";
     EWhiteBoardService.handleDoctorInfo(req.body, function (err, doctorList) {
         res.json({success: _.isNull(err), errorMsg: err, doctorList: doctorList});
+    })
+};
+
+
+
+
+
+
+
+/**
+ * 電子白板模組->病房公告
+ * **/
+exports.getAnnouncement = function(req, res){
+    var ward_zone_id = req.session.user.ward_zone_id;
+    //res.render("Marquee/index");
+    EWhiteBoardService.getAnnouncement(ward_zone_id,function(result){
+        res.json({success:true , msg:'' , result:result});
     })
 };
