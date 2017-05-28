@@ -206,7 +206,43 @@ module.exports = {
             + "Group by patient_todo_record.medical_record_id",
 
 
-    "QRY_ALL_PATIENT_TODO_RECORD_COUNT_BY_DATE" :
+
+    "QRY_PATIENT_TODO_RECORD_BY_PATIENT" :
+    "SELECT *, patient_todo_record.id as patient_todo_record_id "
+    + "FROM   patient_todo_record "
+    + "       INNER JOIN todo "
+    + "               ON patient_todo_record.todo_id = todo.id "
+    + "WHERE  1=1"
+    + "       [AND nur_id = :ward_zone_id ]"
+    + "       [AND medical_record_id = :patient_id ]"
+    + "       [AND todo_date = :todo_date] ",
+
+    "QRY_PATIENT_TODO_RECORD_GORUP_BY_PATIENT" :
+    "SELECT *, "
+    + "sum(`is_finish`='Y')  AS finishCount, "
+    + "sum(`is_finish`='N')  AS notFinishCount "
+    + "FROM   patient_todo_record "
+    + "       INNER JOIN todo "
+    + "               ON patient_todo_record.todo_id = todo.id "
+    + "WHERE  1=1"
+    + "       [AND nur_id = :ward_zone_id ]"
+    + "       [AND medical_record_id = :patient_id ]"
+    + "       [AND todo_date = :todo_date] "
+    + "Group by medical_record_id",
+
+    "QRY_PATIENT_TODO_RECORD" :
+    "SELECT * "
+    + "FROM   patient_todo_record "
+    + "       INNER JOIN todo "
+    + "               ON patient_todo_record.todo_id = todo.id "
+    + "WHERE  1=1"
+    + "       [AND nur_id = :ward_zone_id ]"
+    + "       [AND medical_record_id = :patient_id ]"
+    + "       [AND todo_date = :todo_date]",
+
+
+
+    "QRY_ALL_PATIENT_TODO_RECORD_COUNT_BY_DATE_OLD" :
         "SELECT patient_todo_record.id        AS patient_todo_record_id, "
             + "       bed.name                      AS bed_name, "
             + "       patient.name                  AS patient_name, "
@@ -250,7 +286,7 @@ module.exports = {
 
     "UPDATE_PATIENT_TODO_RECORD_STATUS" : "UPDATE patient_todo_record SET is_finish= :is_finish, update_user=:update_user where id= :patient_todo_record_id",
 
-    "INS_PATIENT_TODO_RECORD" : "INSERT IGNORE INTO patient_todo_record (medical_record_id, todo_id, todo_date, is_finish,update_user)  VALUES ?",
+    "INS_PATIENT_TODO_RECORD" : "INSERT IGNORE INTO patient_todo_record (medical_record_id, todo_id, todo_date, patient_name, patient_sex, patient_birthday, nur_id, bed_no, is_finish,update_user)  VALUES ?",
 
     "DEL_PATIENT_TODO_RECORD" : "DELETE FROM patient_todo_record where id= :patient_todo_record_id",
 

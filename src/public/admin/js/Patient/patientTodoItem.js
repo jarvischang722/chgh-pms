@@ -60,11 +60,12 @@ var loadAllTodoItemByDate=function(patient_todo_record_date){
     $.ajax({
         url: "/Patient/allPatientTodoItemCount",
         type: "get",
-        data: {patient_todo_record_date:patient_todo_record_date, ward_zone_id:1},
+        data: {patient_todo_record_date:patient_todo_record_date},
         success: function (data) {
 
-            console.log(data);
             if(data.success){
+
+
 
 //                //render畫面
                 var source   = $("#patient-todoItems-count-template").html();
@@ -84,7 +85,8 @@ var loadAllTodoItemByDate=function(patient_todo_record_date){
             console.log("Error: " + JSON.stringify(err));
         }
     })
-}
+
+};
 
 
 

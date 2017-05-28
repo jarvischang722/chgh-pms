@@ -53,9 +53,8 @@ loadPatientsByBed=function(){
 
     //載入全部病人的資料
     $.ajax({
-        url: "/EWhiteBoard/api/BedWithPatientByWard",
-        type: "get",
-        data: {ward_zone_id:1, current_datetime:"2016-10-31 16:00:01"},
+        url: "/eWhiteBoard/api/fetchAllPatientInfo/",
+        type: "post",
         success: function (data) {
 
             console.log(data);
@@ -64,7 +63,7 @@ loadPatientsByBed=function(){
                 //render畫面
                 var source   = $("#patient-list-template").html();
                 var template = Handlebars.compile(source);
-                var context = {result: data.result};
+                var context = {result: data.allPatientInfo};
                 var html    = template(context);
 
                 $("#patient-list-container").html(html);
@@ -78,7 +77,7 @@ loadPatientsByBed=function(){
             console.log("Error: " + JSON.stringify(err));
         }
     })
-}
+};
 
 
 
@@ -179,10 +178,19 @@ addTodoRecord=function(){
 
             var medical_record_id=$(this).val();
 
+
+        var patient_name = $(this).siblings( ".patient_name").val();
+        var patient_sex = $(this).siblings( ".patient_sex" ).val();
+        var patient_birthday = $(this).siblings( ".patient_birthday" ).val();
+
+        var bed_no = $(this).siblings( ".bed_no" ).val();
+
         //尋遍所有被選擇的待辦事項
         $('.todoItemsIDs:checkbox:checked').each(function () {
 
             var todoItemsID=$(this).val();
+
+
 
             //尋遍所有日期
 
@@ -196,6 +204,13 @@ addTodoRecord=function(){
                 todoRecordObject['medical_record_id']=medical_record_id;
                 todoRecordObject['todo_id']=todoItemsID;
                 todoRecordObject['todo_date']=todo_date;
+
+                todoRecordObject['patient_name']=patient_name;
+                todoRecordObject['patient_sex']=patient_sex;
+                todoRecordObject['patient_birthday']=patient_birthday;
+                todoRecordObject['bed_no']=bed_no;
+
+
                 todoRecordObject['is_finish']="N";
 
 

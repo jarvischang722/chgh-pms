@@ -108,3 +108,51 @@ Handlebars.registerHelper("inc", function (value, value2) {
 Handlebars.registerHelper("divide", function (value, value2) {
     return Number(value) % Number(value2);
 });
+
+
+
+
+
+/**
+ * get age from birthday
+ * **/
+Handlebars.registerHelper("getAgeFromBirthday", function (dateString) {
+
+
+
+    var birth_year = dateString.substring(0, 4);
+
+    var birth_month = dateString.substring(4, 2);
+    var birth_day = dateString.substring(6, 2);
+
+
+
+    today_date = new Date();
+    today_year = today_date.getFullYear();
+    today_month = today_date.getMonth();
+    today_day = today_date.getDate();
+    age = today_year - birth_year;
+
+    if ( today_month < (birth_month - 1))
+    {
+        age--;
+    }
+    if (((birth_month - 1) == today_month) && (today_day < birth_day))
+    {
+        age--;
+    }
+    return age;
+
+
+
+});
+
+
+//replace
+Handlebars.registerHelper("replace", function (originStr, substr, replacement) {
+
+
+    return originStr.replace(substr,replacement);
+
+
+});

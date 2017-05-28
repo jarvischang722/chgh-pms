@@ -52,13 +52,18 @@ exports.doSelectNurIDToSession = function (req, res, next) {
  * **/
 exports.patientInfo = function (req, res, next) {
 
-    if(req.session.user==undefined){
-        //no user information found in session, go to EWhiteBoard
-        res.render('EWhiteBoard/patientInfo');
-    }else{
-        //found user information found in session, go to admin section
-        res.render("Admin/admin_index");
-    }
+
+
+    res.render('EWhiteBoard/patientInfo');
+
+    //
+    //if(req.session.user==undefined){
+    //    //no user information found in session, go to EWhiteBoard
+    //    res.render('EWhiteBoard/patientInfo');
+    //}else{
+    //    //found user information found in session, go to admin section
+    //    res.render("Admin/admin_index");
+    //}
 
 };
 
