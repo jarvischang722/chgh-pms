@@ -27,15 +27,47 @@ exports.index = function (req, res, next) {
  * 選擇護理區頁面
  * **/
 exports.selectNurArea = function (req, res, next) {
-    if(!_.isUndefined(req.session.nur_id ) && !_.isEmpty(req.session.nur_id ) ){
-       return  res.redirect("/eWhiteBoard/patientInfo");
-    }
+
+    //進來這一頁時就先清除NUR_ID，代表要重選
+    req.session.nur_id=null;
+    //
+    //if(!_.isUndefined(req.session.nur_id ) && !_.isEmpty(req.session.nur_id ) ){
+    //   return  res.redirect("/eWhiteBoard/patientInfo");
+    //}
 
     DashBoardWebService.getAllNurBedInfo({},function(err,AllNurBedInfo){
         res.render('selectNurArea',{allNurBedInfo:AllNurBedInfo});
     });
 
 };
+
+
+
+/**
+ * 登入後要導向哪個頁頁
+ * **/
+exports.enterAdminOrEWhiteBoard = function (req, res, next) {
+
+
+    if(_.isUndefined(req.session.nur_id ) || _.isEmpty(req.session.nur_id ) ){
+        //nur_id未定時
+        return  res.redirect("/selectNurArea");
+    }else if(
+        !(_.isUndefined(req.session.nur_id ) || _.isEmpty(req.session.nur_id ) )  &&
+        !(_.isUndefined(req.session.user.system_type ) || _.isEmpty(req.session.user.system_type) )
+
+    ){
+        //nur_id有訂，登入系統也有訂，導向後台
+
+        return  res.redirect("/admin/admin_index");
+    }else{
+        //nur_id有訂但登入系統沒訂
+        return  res.redirect("/eWhiteBoard/patientInfo");
+    }
+
+
+};
+
 
 /**
  * 存取使用者使用的nur_id
@@ -44,6 +76,27 @@ exports.doSelectNurIDToSession = function (req, res, next) {
     var success = true;
     if(!_.isUndefined(req.body["nur_id"]) && !_.isEmpty(req.body["nur_id"])){
         req.session.nur_id = req.body["nur_id"] ;
+
+
+        if(!_.isUndefined( req.session.user) && !_.isNull( req.session.user)){
+
+
+            //根原本PMS串接的兩個SESSION
+            req.session.user.ward_zone_id=req.body["nur_id"];
+
+            req.session.user.ward_zone_name=req.body["nur_id"];
+
+
+        }else{
+
+            //根原本PMS串接的兩個SESSION
+            req.session.user={ward_zone_id:req.body["nur_id"],ward_zone_name:req.body["nur_id"]};
+
+        }
+
+
+
+
     }else{
         success = false;
     }
@@ -375,6 +428,8 @@ exports.queryPatientTodoByWard = function(req, res){
         || "";
 
 
+    var nur_id =  req.session.user.ward_zone_id;
+
     EWhiteBoardService.PatientTodoByWard(
         ward_zone_id,patient_todo_record_date,is_finish,
         function(results,errorCode){
@@ -438,4 +493,4 @@ exports.queryPatientTodoByWard = function(req, res){
 
         });
 
-}
+};

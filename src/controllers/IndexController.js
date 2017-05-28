@@ -102,37 +102,46 @@ exports.logout = function(req, res, next){
     if(req.session.user != null){
 
 
-        //將登入的病房區資料存在session
-        var ward_zone_id = req.session.user.ward_zone_id;
 
-        var system_type=req.session.user.system_type || "pms";
-
-        var account=req.session.user.account;
-
-        var user_role_id=req.session.user.user_role_id;
+        try{
 
 
-        loginService.insertLeaveLog(
-            account,system_type,ward_zone_id,user_role_id,
-            function(result,errorCode){
+            //將登入的病房區資料存在session
+            var ward_zone_id = req.session.user.ward_zone_id;
+
+            var system_type=req.session.user.system_type || "pms";
+
+            var account=req.session.user.account;
+
+            var user_role_id=req.session.user.user_role_id;
 
 
-                //清掉session
-                req.session.user=null;
-
-                //清coockie
-                res.clearCookie("user");
-                cookieFuncs.updateReqCookie(req);
+            loginService.insertLeaveLog(
+                account,system_type,ward_zone_id,user_role_id,
+                function(result,errorCode){
 
 
-                res.redirect("/login");
+                    //清掉session
+                    req.session.user=null;
 
-            })
+                    //清coockie
+                    res.clearCookie("user");
+                    cookieFuncs.updateReqCookie(req);
 
+
+                    res.redirect("/loginAdmin");
+
+                })
+
+
+
+        }catch(e){
+            res.redirect("/loginAdmin");
+        }
 
     }else{
 
-        res.redirect("/login");
+        res.redirect("/loginAdmin");
 
     }
 
@@ -145,10 +154,10 @@ exports.logout = function(req, res, next){
 /**
  * 登入表單
  * **/
-exports.loginForm = function(req, res, next){
+exports.loginAdminForm = function(req, res, next){
 
     //clear session
-    req.session.nur_id=null;
+    req.session.user=null;
 
     res.render('login');
 
@@ -156,6 +165,14 @@ exports.loginForm = function(req, res, next){
 
 
 
+/**
+ * 管理首頁
+ * **/
+exports.adminIndex = function(req, res, next){
+
+    res.render("Admin/admin_index");
+
+};
 
 /**
  *

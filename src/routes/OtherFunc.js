@@ -4,6 +4,11 @@
 var express = require('express');
 var router = express.Router();
 var other_func   = require('../controllers/OtherFuncController');
+
+
+var AdminAuthMiddleware = require("../middlewares/AdminAuthMiddleware");
+
+
 var AuthMiddleware = require("../middlewares/AuthMiddleware");
 var i18nMiddleware = require("../middlewares/i18nMiddleware");
 var todoController  = require('../controllers/TodoController');
@@ -17,11 +22,11 @@ var middleWares = [ AuthMiddleware ,i18nMiddleware];
 
 /*** 畫面 ***/
 //代辦事項片語管理
-router.get('/todoPhrase', middleWares ,other_func.todoPhrase);
+router.get('/todoPhrase', [AdminAuthMiddleware] ,other_func.todoPhrase);
 //病房公告維護
-router.get('/bedAnnounceMaintain', middleWares ,other_func.bedAnnounceMaintain);
+router.get('/bedAnnounceMaintain', [AdminAuthMiddleware] ,other_func.bedAnnounceMaintain);
 //跑馬燈訊息維護
-router.get('/marqueeMsgMaintain', middleWares ,other_func.marqueeMsgMaintain);
+router.get('/marqueeMsgMaintain', [AdminAuthMiddleware] ,other_func.marqueeMsgMaintain);
 
 
 

@@ -75,11 +75,6 @@ router.post('/api/fetchDoctorInfo/', middleWares ,EWhiteBoard.fetchDoctorInfo);
 router.get('/api/getMarquee', middleWares ,MarqueeController.getMarquee);
 
 
-
-//取得跑馬燈
-router.get('/api/getMarquee', middleWares ,MarqueeController.getMarquee);
-
-
 //病房公告
 router.get('/api/getAnnouncement', middleWares ,EWhiteBoard.getAnnouncement);
 

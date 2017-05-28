@@ -1,10 +1,10 @@
 /**
  * Created by Jun on 2016/10/1.
- * 權限驗證中繼器，後台驗證用
+ * 權限驗證中繼器
  */
 var cookieFuncs = require("../utils/cookieFuncs");
 var tools = require("../utils/commonTools");
-
+var _ = require("underscore");
 
 module.exports = function(req,res,next){
     //
@@ -31,12 +31,13 @@ module.exports = function(req,res,next){
     //req.session.user.ward_zone_name = req.session.nur_id;
 
 
-    if(req.session.nur_id == undefined){
-        return res.redirect("/selectNurArea");
+
+    if(_.isUndefined(req.session.user) || _.isUndefined(req.session.user.account)) {
+
+        return res.redirect("/loginAdmin");
+
     }
-    
-    
-    //req.session.nur_id = "101";  //TODO 因為還沒有護理站選擇界面 先寫死93
+
     next();
 
 };

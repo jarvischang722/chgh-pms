@@ -29,7 +29,7 @@
     function selectNurArea(nur_id) {
         $.post("/eWhiteBoard/api/doSelectNurIDToSession", {nur_id: nur_id}, function (result) {
             if (result.success) {
-                location.href = "/eWhiteBoard/patientInfo"
+                location.href = "/enterAdminOrEWhiteBoard"
             } else {
                 alert("無效的護理區");
             }

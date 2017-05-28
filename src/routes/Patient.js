@@ -5,6 +5,10 @@
 var express = require('express');
 var router = express.Router();
 var Patient= require('../controllers/PatientController');
+
+var AdminAuthMiddleware = require("../middlewares/AdminAuthMiddleware");
+
+
 var AuthMiddleware = require("../middlewares/AuthMiddleware");
 var i18nMiddleware = require("../middlewares/i18nMiddleware");
 var middleWares = [ AuthMiddleware ,i18nMiddleware];
@@ -59,7 +63,7 @@ router.get('/patientTodoItemCount', middleWares ,Patient.queryPatientTodoCount);
 /**
  * Views
  */
-router.get('/patientTodoItem', middleWares ,Patient.patientTodoItem);
+router.get('/patientTodoItem', [AdminAuthMiddleware] ,Patient.patientTodoItem);
 
 
 /**

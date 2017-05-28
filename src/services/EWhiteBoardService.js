@@ -267,7 +267,14 @@ exports.handleSinglePatientInfo = function (postData, callback) {
         }
 
         var doctorData = _.find(results.doctorList,function(doc){
-            return doc.bed_no.trim() == patientInfo.bed_no.trim()
+
+            if(!_.isUndefined(doc.bed_no) && !_.isUndefined(patientInfo.bed_no) ){
+                return doc.bed_no.trim() == patientInfo.bed_no.trim()
+            }else{
+                return false;
+            }
+
+
         });
 
         if(!_.isUndefined(doctorData)){
@@ -280,7 +287,13 @@ exports.handleSinglePatientInfo = function (postData, callback) {
                 patientInfo.otherAllergy = allergy.drug_name || "";  // 其他過敏
             }
         });
-        patientInfo["bed_no"] = patientInfo["bed_no"].replace(" ","-");
+
+        if(!_.isUndefined(patientInfo["bed_no"])){
+            patientInfo["bed_no"] = patientInfo["bed_no"].replace(" ","-");
+        }else{
+            patientInfo["bed_no"] = "";
+        }
+
 
 
         //待辦事項字串產生
@@ -806,7 +819,7 @@ exports.PatientTodoByWard = function(ward_zone_id,
 
     if(is_finish!=""){
         //目前統一用bed撈
-        DBAgent.query("QRY_PATIENT_TODO_RECORD_COUNT_BY_DATE",{ward_zone_id:ward_zone_id, todo_date:patient_todo_record_date,is_finish:is_finish} , function(err , rows){
+        DBAgent.query("QRY_PATIENT_TODO_RECORD_COUNT_BY_DATE",{nur_id:ward_zone_id, todo_date:patient_todo_record_date,is_finish:is_finish} , function(err , rows){
 
             if(err){
                 Logger.error(err);

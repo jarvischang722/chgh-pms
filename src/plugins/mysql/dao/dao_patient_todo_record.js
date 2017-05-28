@@ -161,6 +161,7 @@ module.exports = {
             + "WHERE  1=1"
             + "       [ AND medical_record.patient_person_id = :patient_person_id]"
             + "       [ AND patient_todo_record.todo_date = :todo_date]"
+            + "       [ AND patient_todo_record.nur_id = :nur_id]"
             + "       [ AND patient_todo_record.is_finish = :is_finish]"
             + " "
             + "Group by patient_todo_record.medical_record_id",

@@ -8,6 +8,8 @@ var sys_maintain   = require('../controllers/SystemMaintainController');
 //var SIPDistributeController   = require('../controllers/SIPDistributeController');
 //var EmergencyExternalDeviceController   = require('../controllers/EmergencyExternalDeviceController');
 
+var AdminAuthMiddleware = require("../middlewares/AdminAuthMiddleware");
+
 var AuthMiddleware = require("../middlewares/AuthMiddleware");
 var i18nMiddleware = require("../middlewares/i18nMiddleware");
 var middleWares = [ AuthMiddleware ,i18nMiddleware];
@@ -34,7 +36,7 @@ router.post('/adminRoleQuery', middleWares ,sys_maintain.adminRoleQuery);
 
 /**--------頁面------------**/
 //人員管理頁面
-router.get('/employeeManage', middleWares ,sys_maintain.employeeManage);
+router.get('/employeeManage', [AdminAuthMiddleware] ,sys_maintain.employeeManage);
 
 
 module.exports = router;
