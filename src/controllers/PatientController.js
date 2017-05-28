@@ -550,8 +550,10 @@ exports.queryPatientTodoRecord = function(req, res){
     var patient_todo_record_date =
         req.query.patient_todo_record_date
         || req.body["patient_todo_record_date"]
-        || moment().format("YYYY/MM/DD");
+        || moment().format("YYYYMMDD");
 
+
+        patient_todo_record_date=patient_todo_record_date.replace(/-/g,"");
 
     //病人身份證字號，有傳的話才去搜資料
     var patient_person_id =

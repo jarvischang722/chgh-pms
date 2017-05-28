@@ -34,7 +34,7 @@ exports.getPatientTodoItem = function(todo_class_id, callback){
 /**
  * 取得所有待辦事項類別
  * */
-exports.getPatientTodoClass = function( callback){
+exports.getPatientTodoClass = function(callback){
 
     DBAgent.query("QRY_ALL_PATIENT_TODO_CLASS",
         {} , function(err , rows){
@@ -63,7 +63,7 @@ exports.getPatientTodoClass = function( callback){
  * */
 exports.getPatientTodoByPatientID = function(patient_person_id,patient_todo_record_date, ward_zone_id, callback){
 
-    DBAgent.query("QRY_PATIENT_TODO_RECORD_BY_PATIENT",
+    DBAgent.query("QRY_PATIENT_TODO_RECORD",
         {patient_id:patient_person_id,todo_date:patient_todo_record_date,ward_zone_id:ward_zone_id} , function(err , rows){
 
         if(err){
@@ -88,7 +88,7 @@ exports.getPatientTodoByPatientID = function(patient_person_id,patient_todo_reco
 exports.getPatientTodoByDateNotFinish = function(patient_todo_record_date, ward_zone_id,callback){
 
 
-    DBAgent.query("QRY_ALL_PATIENT_TODO_RECORD_BY_DATE_NOT_FINISH",{todo_date:patient_todo_record_date,ward_zone_id:ward_zone_id} , function(err , rows){
+    DBAgent.query("QRY_PATIENT_TODO_RECORD",{todo_date:patient_todo_record_date,ward_zone_id:ward_zone_id, is_finish:"N"} , function(err , rows){
 
         if(err){
             Logger.error(err);

@@ -83,4 +83,10 @@ router.get('/api/getMarquee', middleWares ,MarqueeController.getMarquee);
 //病房公告
 router.get('/api/getAnnouncement', middleWares ,EWhiteBoard.getAnnouncement);
 
+
+//待辦事項
+router.get('/api/PatientTodoByWard/', middleWares ,EWhiteBoard.queryPatientTodoByWard);
+
+
+
 module.exports = router;

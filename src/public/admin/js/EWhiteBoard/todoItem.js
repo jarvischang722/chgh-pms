@@ -112,7 +112,7 @@ loadTodoItemByBed=function(){
         url: "/EWhiteBoard/api/PatientTodoByWard",
         type: "get",
         cache: false,
-        data: {ward_zone_id:1, patient_todo_record_date:current_date, is_finish:"N"},
+        data: {patient_todo_record_date:current_date, is_finish:"N"},
         success: function (data) {
             //console.log(data);
 
@@ -143,7 +143,7 @@ loadTodoItemByBed=function(){
                     }
 
 
-                })
+                });
 
 
                 //暫存病患的資料
@@ -151,9 +151,9 @@ loadTodoItemByBed=function(){
 
                     var tempProfiles=data.result[i];
 
-                    if(tempProfiles.patient_id!=null){
+                    if(tempProfiles.medical_record_id!=null){
 
-                        patientTodoArrayByBed[tempProfiles.patient_id]=[tempProfiles];
+                        patientTodoArrayByBed[tempProfiles.medical_record_id]=[tempProfiles];
 
                     }
 

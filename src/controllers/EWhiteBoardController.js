@@ -12,6 +12,10 @@ var moment = require("moment");
 var EWhiteBoardService = require("../services/EWhiteBoardService");
 var DashBoardWebService = require("../services/DashBoardWebService");
 
+
+var patientTodoRecordService = require("../services/patientTodoRecordService");
+
+
 /**
  * 病患資訊
  * **/
@@ -346,3 +350,92 @@ exports.getAnnouncement = function(req, res){
         res.json({success:true , msg:'' , result:result});
     })
 };
+
+
+
+
+
+/**
+ * 電子白板模組->待辦事項API
+ * **/
+exports.queryPatientTodoByWard = function(req, res){
+
+    //用get
+    var ward_zone_id = req.session.user.ward_zone_id || 0;
+
+    var patient_todo_record_date =
+        req.query.patient_todo_record_date
+        || req.body["patient_todo_record_date"]
+        || moment().format("YYYY/MM/DD");
+
+
+    var is_finish =
+        req.query.is_finish
+        || req.body["is_finish"]
+        || "";
+
+
+    EWhiteBoardService.PatientTodoByWard(
+        ward_zone_id,patient_todo_record_date,is_finish,
+        function(results,errorCode){
+
+            if(results){
+
+
+                    //當前完成幾個項目了
+                    var finishCount=0;
+
+                    //再加入實際的事項
+                    _.each(results,function(value,index){
+
+                        var patient_id = value.medical_record_id;
+
+                        patient_todo_record_date=patient_todo_record_date.replace(/-/g,"");
+                        patientTodoRecordService.getPatientTodoByPatientID(patient_id,patient_todo_record_date,ward_zone_id,function(rows){
+
+                            if(rows){
+
+                                results[index]["todo_list"]="";
+                                _.each(rows,function(row){
+
+                                    if(row['is_finish']=='N'){
+                                        results[index]["todo_list"]+=row['todo_name']+',';
+                                    }
+
+
+                                });
+
+                                if(typeof results[index]["todo_list"] === 'string' || results[index]["todo_list"] instanceof String  ){
+
+                                    results[index]["todo_list"] = results[index]["todo_list"].replace(/,\s*$/, "");
+
+                                }
+
+                                finishCount++;
+
+
+                                if(finishCount==results.length){
+                                    //全部完成之後
+                                    res.json(tools.getReturnJSON(true,results));
+                                }
+                            }
+
+                        });
+
+
+                    });
+
+
+
+
+
+
+            }else{
+
+                res.json(tools.getReturnJSON(false,[],errorCode))
+            }
+
+
+        });
+
+}

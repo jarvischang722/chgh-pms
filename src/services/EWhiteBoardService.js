@@ -4,6 +4,9 @@
 var _ = require("underscore");
 var async = require("async");
 var DashBoardWebSvc = require("./DashBoardWebService");
+
+var patientTodoRecordService = require("./patientTodoRecordService");
+
 var moment = require("moment");
 var request = require('request');
 var parseString = require('xml2js').parseString;
@@ -235,6 +238,28 @@ exports.handleSinglePatientInfo = function (postData, callback) {
                 }
                 callback(err, allergyData);
             })
+        },
+        patientTodo: function (callback) {
+            //Ian add 0528
+
+
+            var patient_todo_record_date = moment().format("YYYYMMDD");
+
+            patientTodoRecordService.getPatientTodoByPatientID(patient_id, patient_todo_record_date, nur_id, function (todoData, errorCode) {
+                if(errorCode){
+                    console.error(errorCode);
+                    todoData = [];
+                }
+                callback(errorCode, todoData);
+            });
+
+            //DashBoardWebSvc.getAllergyData(postData, function (err, allergyData) {
+            //    if(err){
+            //        console.error(err);
+            //        allergyData = [];
+            //    }
+            //    callback(err, allergyData);
+            //})
         }
     }, function (err, results) {
         if (err) {
@@ -257,9 +282,43 @@ exports.handleSinglePatientInfo = function (postData, callback) {
         });
         patientInfo["bed_no"] = patientInfo["bed_no"].replace(" ","-");
 
+
+        //待辦事項字串產生
+        var todoString="";
+
+        if(!_.isUndefined(results.patientTodo)){
+
+            _.each(results.patientTodo,function(patientTodo){
+
+                var tempStr="";
+                if(_.isEqual(patientTodo.is_finish, "Y")){
+
+                    tempStr+=patientTodo.todo_name+"(已完成)";
+
+                }else if(_.isEqual(patientTodo.is_finish, "N")){
+
+                    tempStr+=patientTodo.todo_name+"(未完成)";
+
+                }
+
+                todoString+=tempStr+",";
+            });
+
+
+        }
+
+        //空值處理
+        if(todoString==""){
+            todoString="該病患無待辦事項";
+        }else{
+            //砍掉最後一個逗號
+            todoString=todoString.replace(/,\s*$/, "");
+        }
+
+        patientInfo["todo"]=todoString;
+
         callback(null, patientInfo);
     });
-
 };
 
 /**
@@ -731,4 +790,55 @@ exports.getAnnouncement = function(ward_zone_id,callback){
         callback(rows);
 
     });
+};
+
+
+
+
+
+/**
+ * 取得待辦事項資訊
+ * */
+exports.PatientTodoByWard = function(ward_zone_id,
+                                     patient_todo_record_date,
+                                     is_finish,
+                                     callback){
+
+    if(is_finish!=""){
+        //目前統一用bed撈
+        DBAgent.query("QRY_PATIENT_TODO_RECORD_COUNT_BY_DATE",{ward_zone_id:ward_zone_id, todo_date:patient_todo_record_date,is_finish:is_finish} , function(err , rows){
+
+            if(err){
+                Logger.error(err);
+                callback(false,-9999);
+
+            }else{
+
+                callback(rows);
+
+            }
+
+        });
+
+    }else{
+        //目前統一用bed撈
+        DBAgent.query("QRY_ALL_PATIENT_TODO_RECORD_GROUP_BY_BED",{ward_zone_id:ward_zone_id, patient_todo_record_date:patient_todo_record_date} , function(err , rows){
+
+            if(err){
+                Logger.error(err);
+                callback(false,-9999);
+
+            }else{
+
+                callback(rows);
+
+            }
+
+        });
+    }
+
+
+
+
+
 };
