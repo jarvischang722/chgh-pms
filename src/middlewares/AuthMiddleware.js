@@ -4,13 +4,18 @@
  */
 var cookieFuncs = require("../utils/cookieFuncs");
 var tools = require("../utils/commonTools");
+var _ = require("underscore");
 
+module.exports = function (req, res, next) {
 
-module.exports = function(req,res,next){
-    if(req.session.nur_id == undefined){
-        return res.redirect("/selectNurArea");
+    if (!_.isUndefined(req.query["nur_id"]) && !_.isEmpty(req.query["nur_id"])) {
+        req.session.nur_id = req.query["nur_id"];
+    } else {
+        if (_.isUndefined(req.session.nur_id) || _.isEmpty(req.session.nur_id)) {
+            return res.redirect("/selectNurArea");
+        }
     }
-    //req.session.nur_id = "101";  //TODO 因為還沒有護理站選擇界面 先寫死93
+
     next();
 
 };
