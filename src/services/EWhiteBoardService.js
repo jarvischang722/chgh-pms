@@ -240,7 +240,7 @@ exports.handleSinglePatientInfo = function (postData, callback) {
         }
 
         var doctorData = _.find(results.doctorList,function(doc){
-            return doc.bed_no.trim() == patientInfo.bed_no.trim()
+            return typeof  doc.bed_no === 'string' && doc.bed_no.trim() == patientInfo.bed_no.trim()
         });
 
         if(!_.isUndefined(doctorData)){
