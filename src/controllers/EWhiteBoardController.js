@@ -49,6 +49,7 @@ exports.selectNurArea = function (req, res, next) {
 exports.enterAdminOrEWhiteBoard = function (req, res, next) {
 
 
+
     if(_.isUndefined(req.session.nur_id ) || _.isEmpty(req.session.nur_id ) ){
         //nur_id未定時
         return  res.redirect("/selectNurArea");

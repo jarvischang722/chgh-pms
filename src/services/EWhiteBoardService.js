@@ -773,3 +773,72 @@ exports.processDoctorOnDuty = function (data, callback) {
         callback(err, rtnResult);
     })
 };
+
+
+
+
+
+
+/**
+ * 取得病房公告
+ * */
+exports.getAnnouncement = function(ward_zone_id,callback){
+    DBAgent.query("QRY_ANNOUNCEMENT",{"ward_zone_id":ward_zone_id} , function(err , rows){
+
+        if(err){
+            Logger.error(error);
+            rows = [];
+        }
+
+        callback(rows);
+
+    });
+};
+
+
+
+
+
+/**
+ * 取得待辦事項資訊
+ * */
+exports.PatientTodoByWard = function(ward_zone_id,
+                                     patient_todo_record_date,
+                                     is_finish,
+                                     callback){
+
+    if(is_finish!=""){
+        //目前統一用bed撈
+        DBAgent.query("QRY_PATIENT_TODO_RECORD_COUNT_BY_DATE",{nur_id:ward_zone_id, todo_date:patient_todo_record_date,is_finish:is_finish} , function(err , rows){
+
+            if(err){
+                Logger.error(err);
+                callback(false,-9999);
+
+            }else{
+
+                callback(rows);
+
+            }
+
+        });
+
+    }else{
+        //目前統一用bed撈
+        DBAgent.query("QRY_ALL_PATIENT_TODO_RECORD_GROUP_BY_BED",{ward_zone_id:ward_zone_id, patient_todo_record_date:patient_todo_record_date} , function(err , rows){
+
+            if(err){
+                Logger.error(err);
+                callback(false,-9999);
+
+            }else{
+
+                callback(rows);
+
+            }
+
+        });
+    }
+
+
+};

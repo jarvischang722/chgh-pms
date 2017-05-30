@@ -17,7 +17,7 @@ router.get('/', middleWares ,EWhiteBoard.index);
 router.get('/selectNurArea', EWhiteBoard.selectNurArea);
 
 
-router.get('/enterAdminOrEWhiteBoard', EWhiteBoard.enterAdminOrEWhiteBoard);
+router.get('/enterAdminOrEWhiteBoard',middleWares, EWhiteBoard.enterAdminOrEWhiteBoard);
 
 
 
