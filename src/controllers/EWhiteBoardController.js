@@ -12,6 +12,10 @@ var moment = require("moment");
 var EWhiteBoardService = require("../services/EWhiteBoardService");
 var DashBoardWebService = require("../services/DashBoardWebService");
 
+
+var patientTodoRecordService = require("../services/patientTodoRecordService");
+
+
 /**
  * 病患資訊
  * **/
@@ -23,15 +27,47 @@ exports.index = function (req, res, next) {
  * 選擇護理區頁面
  * **/
 exports.selectNurArea = function (req, res, next) {
-    if(!_.isUndefined(req.session.nur_id ) && !_.isEmpty(req.session.nur_id ) ){
-       return  res.redirect("/eWhiteBoard/patientInfo");
-    }
+
+    //進來這一頁時就先清除NUR_ID，代表要重選
+    req.session.nur_id=null;
+    //
+    //if(!_.isUndefined(req.session.nur_id ) && !_.isEmpty(req.session.nur_id ) ){
+    //   return  res.redirect("/eWhiteBoard/patientInfo");
+    //}
 
     DashBoardWebService.getAllNurBedInfo({},function(err,AllNurBedInfo){
         res.render('selectNurArea',{allNurBedInfo:AllNurBedInfo});
     });
 
 };
+
+
+
+/**
+ * 登入後要導向哪個頁頁
+ * **/
+exports.enterAdminOrEWhiteBoard = function (req, res, next) {
+
+
+    if(_.isUndefined(req.session.nur_id ) || _.isEmpty(req.session.nur_id ) ){
+        //nur_id未定時
+        return  res.redirect("/selectNurArea");
+    }else if(
+        !(_.isUndefined(req.session.nur_id ) || _.isEmpty(req.session.nur_id ) )  &&
+        !(_.isUndefined(req.session.user.system_type ) || _.isEmpty(req.session.user.system_type) )
+
+    ){
+        //nur_id有訂，登入系統也有訂，導向後台
+
+        return  res.redirect("/admin/admin_index");
+    }else{
+        //nur_id有訂但登入系統沒訂
+        return  res.redirect("/eWhiteBoard/patientInfo");
+    }
+
+
+};
+
 
 /**
  * 存取使用者使用的nur_id
@@ -40,6 +76,27 @@ exports.doSelectNurIDToSession = function (req, res, next) {
     var success = true;
     if(!_.isUndefined(req.body["nur_id"]) && !_.isEmpty(req.body["nur_id"])){
         req.session.nur_id = req.body["nur_id"] ;
+
+
+        if(!_.isUndefined( req.session.user) && !_.isNull( req.session.user)){
+
+
+            //根原本PMS串接的兩個SESSION
+            req.session.user.ward_zone_id=req.body["nur_id"];
+
+            req.session.user.ward_zone_name=req.body["nur_id"];
+
+
+        }else{
+
+            //根原本PMS串接的兩個SESSION
+            req.session.user={ward_zone_id:req.body["nur_id"],ward_zone_name:req.body["nur_id"]};
+
+        }
+
+
+
+
     }else{
         success = false;
     }
@@ -51,7 +108,20 @@ exports.doSelectNurIDToSession = function (req, res, next) {
  * 病患資訊
  * **/
 exports.patientInfo = function (req, res, next) {
+
+
+
     res.render('EWhiteBoard/patientInfo');
+
+    //
+    //if(req.session.user==undefined){
+    //    //no user information found in session, go to EWhiteBoard
+    //    res.render('EWhiteBoard/patientInfo');
+    //}else{
+    //    //found user information found in session, go to admin section
+    //    res.render("Admin/admin_index");
+    //}
+
 };
 
 /**
@@ -315,4 +385,112 @@ exports.fetchDoctorInfo = function (req, res) {
     EWhiteBoardService.handleDoctorInfo(req.body, function (err, doctorList) {
         res.json({success: _.isNull(err), errorMsg: err, doctorList: doctorList});
     })
+};
+
+
+
+
+
+
+
+/**
+ * 電子白板模組->病房公告
+ * **/
+exports.getAnnouncement = function(req, res){
+    var ward_zone_id = req.session.user.ward_zone_id;
+    //res.render("Marquee/index");
+    EWhiteBoardService.getAnnouncement(ward_zone_id,function(result){
+        res.json({success:true , msg:'' , result:result});
+    })
+};
+
+
+
+
+
+/**
+ * 電子白板模組->待辦事項API
+ * **/
+exports.queryPatientTodoByWard = function(req, res){
+
+    //用get
+    var ward_zone_id = req.session.user.ward_zone_id || 0;
+
+    var patient_todo_record_date =
+        req.query.patient_todo_record_date
+        || req.body["patient_todo_record_date"]
+        || moment().format("YYYY/MM/DD");
+
+
+    var is_finish =
+        req.query.is_finish
+        || req.body["is_finish"]
+        || "";
+
+
+    var nur_id =  req.session.user.ward_zone_id;
+
+    EWhiteBoardService.PatientTodoByWard(
+        ward_zone_id,patient_todo_record_date,is_finish,
+        function(results,errorCode){
+
+            if(results){
+
+
+                    //當前完成幾個項目了
+                    var finishCount=0;
+
+                    //再加入實際的事項
+                    _.each(results,function(value,index){
+
+                        var patient_id = value.medical_record_id;
+
+                        patient_todo_record_date=patient_todo_record_date.replace(/-/g,"");
+                        patientTodoRecordService.getPatientTodoByPatientID(patient_id,patient_todo_record_date,ward_zone_id,function(rows){
+
+                            if(rows){
+
+                                results[index]["todo_list"]="";
+                                _.each(rows,function(row){
+
+                                    if(row['is_finish']=='N'){
+                                        results[index]["todo_list"]+=row['todo_name']+',';
+                                    }
+
+
+                                });
+
+                                if(typeof results[index]["todo_list"] === 'string' || results[index]["todo_list"] instanceof String  ){
+
+                                    results[index]["todo_list"] = results[index]["todo_list"].replace(/,\s*$/, "");
+
+                                }
+
+                                finishCount++;
+
+
+                                if(finishCount==results.length){
+                                    //全部完成之後
+                                    res.json(tools.getReturnJSON(true,results));
+                                }
+                            }
+
+                        });
+
+
+                    });
+
+
+
+
+
+
+            }else{
+
+                res.json(tools.getReturnJSON(false,[],errorCode))
+            }
+
+
+        });
+
 };

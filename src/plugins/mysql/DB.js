@@ -8,6 +8,7 @@ var randomstring = require('randomstring');
 var pool, poolObj={};
 
 function DBAgent(){
+    console.log("====DBAgent function===");
     this.id = moment().format("YYYY/MM/DD HH:mm:ss") + randomstring.generate(4);
     this.data = {};
     this.connection = null;
@@ -15,6 +16,7 @@ function DBAgent(){
     this.queue = null;
     this.error = false;
 }
+
 
 DBAgent.prototype.create = function create(){
     Object.keys(DBConfig).forEach(function(key) {

@@ -1,0 +1,71 @@
+<!--------------------------
+===  view 需要共用掛入的檔案 ==
+---------------------------->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- css files -->
+<link rel="shortcut icon" href="">
+<link rel="stylesheet" href="/admin/css/jQuery/jquery-ui.min.css" >
+<link rel="stylesheet" href="/admin/css/jQuery/jquery.modal.css" >
+<link rel="stylesheet" type="text/css" href="/admin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="/admin/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="/admin/css/component.css" />
+<link rel="stylesheet" type="text/css" href="/admin/css/remodal.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/remodal-default-theme.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/datepicker.min.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/jQuery/jquery.minicolors.css" >
+<link rel="stylesheet" type="text/css" href="/admin/css/jQuery/jquery.pwstabs.min.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/jQuery/jquery.popSelect.min.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/style.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/eason_style.css">
+<!-- js files -->
+<script type="text/javascript" src="/admin/js/jQuery/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/admin/js/jQuery/jquery.modal.js"></script>
+<script type="text/javascript" src="/admin/js/underscore-min.js"></script>
+<script type="text/javascript" src="/admin/js/underscore.string.min.js"></script>
+<script type="text/javascript"> _.mixin(s.exports()); </script>
+<script type="text/javascript" src="/admin/js/moment.min.js"></script>
+<script type="text/javascript" src="/admin/js/vue/vue.js"></script>
+<script type="text/javascript" src="/admin/js/vue/vueFilter.js"></script>
+<script type="text/javascript" src="/admin/js/jQuery/jquery.ba-throttle-debounce.min.js"></script>
+<script type="text/javascript" src="/admin/js/jQuery/jquery.stickyheader.js"></script>
+
+<script>
+    window.REMODAL_GLOBALS = {
+        NAMESPACE: 'remodal',
+        DEFAULTS: {
+            closeOnOutsideClick: false
+        }
+    };
+
+</script>
+
+<script type="text/javascript" src="/admin/js/remodal.min.js"></script>
+
+
+<script type="text/javascript" src="/admin/js/datepicker.min.js"></script>
+<script type="text/javascript" src="/admin/js/datepicker.zh.js"></script>
+<script type="text/javascript" src="/admin/js/jQuery/jquery.minicolors.min.js"></script>
+<script type="text/javascript" src="/admin/js/jQuery/jquery.pwstabs.min.js"></script>
+<script type="text/javascript" src="/admin/js/jQuery/jquery.popSelect.min.js"></script>
+<script type="text/javascript" src="/admin/js/custom.js"></script>
+<script type="text/javascript" src="/admin/js/eason_custom.js"></script>
+
+<!--override confirmBox-->
+<script type="text/javascript" src="/admin/js/jQuery/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="/admin/css/jquery-ui.css">
+
+
+
+
+<!-- PMS  -->
+<script src="/admin/js/siteCommon.js"></script>
+<script type="text/javascript" src="/js/handlebars-v4.0.5.js"></script>
+<script type="text/javascript" src="/js/handlebars_function.js"></script>
+
+<div id="pmsModal" class="modal" style="display: none;">
+    <div align="center">
+        <img src="/admin/images/progress_bar.gif"  width="100" height="auto"/><br>
+        <span id="messageSpan">資料讀取中...</span>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<%- include ../Common/head.ejs %>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'system'}) %>
+<%- include('../Common/headerMenu',{moduleName:'system', func:'1' }) %>
+<%- include ../HandlebarTemplates/system/employee_list_tr_template.ejs %>
+<%- include ../HandlebarTemplates/system/employeeInfo_template.ejs %>
+<div class="nurse_system">
+    <div class="container container_higher">
+        <div class="ope_list_search">
+
+            <div class="btn_group">
+                <a href="#" id="employeeModal" class="btn" onclick=""><i class="fa fa-plus " aria-hidden="true"></i> 新增</a>
+                <a href="#" id="deleteEmployeeBtn" class="btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+            </div>
+        </div>
+        <table class="overflow-y" id="employeeTable">
+            <thead>
+            <tr>
+                <th>共 <span class="ban" id="employeeNumberSpan">0</span> 筆</th>
+                <th>編輯</th>
+                <th>員工編號</th>
+                <th>姓名</th>
+                <th>系統帳號</th>
+                <th>性別</th>
+                <th>系統群組</th>
+                <th>到職日期</th>
+                <th>是否啟用</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- employee_list_tr_template -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include ../Common/marquee.ejs %>
+<!--- 編輯人員 -->
+<div class="remodal" data-remodal-id="employee_modal">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div id="model_kind">新增人員基本資料</div>
+    </div>
+    <form id="employeeForm">
+        <div class="remodal_body">
+            <form>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 員工編號</label>
+                    <input type="text" id="employee_no">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 姓名</label>
+                    <input type="text" id="employee_name">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 使用者帳號</label>
+                    <input type="text" id="account">
+                </div>
+                <div id="passwdColumDiv">
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 登入密碼</label>
+                    <input type="password" id="password">
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 性別</label>
+                    <div class="checkbox_list text-left radio_list">
+                        <label>
+                            <input type="radio" class="option-input checkbox" name="gender" value="m"/> 男
+                        </label>
+                        <label>
+                            <input type="radio" class="option-input checkbox" name="gender" value="f"/> 女
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 使用者角色</label>
+                    <select id="user_role">
+                        <option value="-1">--</option>
+                    </select>
+                </div>
+                <div>
+                    <label>主管角色</label>
+                    <select id="admin_role">
+                        <option value="-1">--</option>
+                    </select>
+                </div>
+                <div class="date_select">
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 到職日期</label>
+                    <input type='text' id="expired_date" data-range="false" data-language='zh'
+                           data-position="top right" placeholder=""/>
+                </div>
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 是否啟用</label>
+                    <div class="checkbox_list text-left radio_list">
+                        <label>
+                            <input type="radio" class="option-input checkbox" value="Y" name="is_enable"/> 是
+                        </label>
+                        <label>
+                            <input type="radio" class="option-input checkbox" value="N" name="is_enable"/> 否
+                        </label>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" id="saveEmployeeBtn" data-kind="" class="btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+        </div>
+    </form>
+</div>
+
+</body>
+
+</html>
+<script src="/admin/js/SystemMaintain/employeeManage.js"></script>

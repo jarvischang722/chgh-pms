@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+
+<script type="text/javascript" src="../js/Patient/patientDischargedNoteSet.js"></script>
+
+<body>
+<%- include('../Common/left_navbar',{moduleName:'patient'}) %>
+<%- include('../Common/headerMenu',{moduleName:'patient', func:'2' }) %>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="ope_list_search">
+                <div class="btn_group">
+                    <a href="#create_modal" class="btn" onclick="loadPatientsByBed()"><i class="fa fa-plus" aria-hidden="true"></i> 建立出院備註</a>
+                    <a href="#" class="btn" onclick="batchDeletePatientDischargedNotes()"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+                </div>
+            </div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th>共 <span class="ban" id="data_count">23</span> 筆</th>
+                        <th>病床</th>
+                        <th>病患</th>
+                        <th>年齡</th>
+                        <th>病歷號碼</th>
+                        <th>出院備註</th>
+                    </tr>
+                </thead>
+                <tbody id="PatientDischargedRemark-list-container">
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <%-include ../Common/marquee.ejs%>
+    <div class="remodal remodal_1" data-remodal-id="edit_modal" id="PatientDischargedRemark-container">
+
+
+    </div>
+
+
+    <div class="remodal remodal_2" data-remodal-id="create_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>建立出院備註</div>
+        </div>
+        <div class="remodal_body">
+            <div class="ope_list_search">
+            </div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>病床</th>
+                        <th>病患</th>
+                        <th>病歷號碼</th>
+                    </tr>
+                </thead>
+                <tbody id="patient-list-container">
+
+                </tbody>
+            </table>
+            <div id="notes_2" class="text-left">
+                <div>出院備註：</div>
+
+                <div class="out_note_pool_2" id="patientDischargedNote_add"></div>
+
+                <div>
+
+                    <select id="note_type_2">
+
+                    </select>
+                    <select id="note_copy_2">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                    <label>份</label>
+                    <a class="btn" id="add_note_2"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn" onclick="batchAddPatientDischargedNotes()"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+        </div>
+    </div>
+
+<!-- 出院備註清單的格子-->
+<script id="PatientDischargedRemark-list-template" type="text/x-handlebars-template">
+
+    {{#each result}}
+
+    {{#ifCond patient_name '!=' NULL}}
+
+    <tr>
+        <td>
+            <input type="checkbox" class="medical_record_ids_delete" value="{{id}}" />
+        </td>
+        <td>{{ward_name}}-{{bed_name}}</td>
+        <td>
+
+
+            {{#ifCond patient_sex '==' 0}}
+            <span class="female">{{patient_name}}</span>
+            {{else}}
+            <span class="male">{{patient_name}}</span>
+            {{/ifCond}}
+
+
+        </td>
+        <td>
+
+            {{patient_age}} ({{subString patient_birthday_date 0 10}})
+
+        </td>
+        <td>
+
+            {{number}}
+
+        </td>
+        <td>
+
+            <a href="#edit_modal" class="btn" onclick="loadPatientDischargedNote({{id}})"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+
+            {{discharged_remark}}
+
+
+        </td>
+    </tr>
+
+    {{/ifCond}}
+
+    {{/each}}
+
+</script>
+
+
+
+<!-- 特定病患出院備註清單的格子-->
+<script id="PatientDischargedRemark-template" type="text/x-handlebars-template">
+
+    {{#each result}}
+
+    {{#ifCond patient_name '!=' NULL}}
+
+
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>編輯出院備註</div>
+    </div>
+
+    <div class="remodal_body">
+
+
+        <div class="modal_list_search">
+
+            <div><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+
+                {{#ifCond patient_sex '==' 0}}
+                <span class="female doctor">{{patient_name}} ({{patient_age}}) {{medical_record_number}}</span>
+                {{else}}
+                <span class="male doctor">{{patient_name}} ({{patient_age}}) {{medical_record_number}}</span>
+                {{/ifCond}}
+
+            </div>
+
+            <div><i class="fa fa-bed" aria-hidden="true"></i> <span class="doctor">{{ward_name}}-{{bed_name}}</span> 床</div>
+            <div><i class="fa fa-calendar-o" aria-hidden="true"></i> <span class="doctor">{{subString expect_discharged_date 0 10 }}</span></div>
+
+        </div>
+
+        <div id="notes" class="text-left">
+            <div>出院備註：</div>
+            <div class="out_note_pool" id="patientDischargedNote">
+
+                {{discharged_remark}}
+
+            </div>
+            <div>
+                <select id="note_type">
+
+
+                </select>
+                <select id="note_copy">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                <label>份</label>
+                <a class="btn" id="add_note"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="remodal_footer">
+        <a href="#" class="btn" onclick="updatePatientDischargedNote({{id}})" ><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+    </div>
+
+
+
+
+    {{/ifCond}}
+
+    {{/each}}
+
+</script>
+
+
+
+<!-- 建立出院備註 選擇病患的  病患資訊格子>-->
+<script id="patient-list-template" type="text/x-handlebars-template">
+
+    {{#each result}}
+
+    {{#ifCond medical_record_id '!=' NULL}}
+    {{#ifCond medical_record_discharged_remark '==' ""}}
+    <tr>
+        <td>
+            <input type="checkbox" class="medical_record_ids_add" value="{{medical_record_id}}" />
+        </td>
+        <td>{{ward_name}}-{{bed_name}}</td>
+        <td>
+
+
+            {{#ifCond patient_sex '==' 0}}
+            <span class="female">{{patient_name}} ({{patient_age}}) {{subString patient_birthday_date 0 10}}</span>
+            {{else}}
+            <span class="male">{{patient_name}} ({{patient_age}}) {{subString patient_birthday_date 0 10}}</span>
+            {{/ifCond}}
+
+
+        </td>
+        <td>{{medical_record_number}}</td>
+    </tr>
+    {{/ifCond}}
+    {{/ifCond}}
+
+    {{/each}}
+
+</script>
+
+
+</body>
+
+</html>

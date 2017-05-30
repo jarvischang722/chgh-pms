@@ -1,0 +1,27 @@
+<!-- 彈出視窗版模  -->
+<script id="doctor_bed_list_template" type="text/x-handlebars-template">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div class="remodal_header">
+        <div>排班床位</div>
+        <div>{{doctor_name}}</div>
+        <div><span class="ban">{{formatTime schedule_date  "current" }}</span></div>
+    </div>
+    <div class="remodal_body">
+        <table class="overflow-y">
+            <thead>
+            <tr>
+                <th>編號</th>
+                <th>床號</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each bed_list}}
+            <tr >
+                <td>{{incAddOne @index }}</td>
+                <td>{{this}}</td>
+            </tr>
+            {{/each }}
+            </tbody>
+        </table>
+    </div>
+</script>

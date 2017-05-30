@@ -4,6 +4,9 @@
 var express = require('express');
 var router = express.Router();
 var EWhiteBoard = require('../controllers/EWhiteBoardController');
+
+var MarqueeController = require('../controllers/MarqueeController');
+
 var AuthMiddleware = require("../middlewares/AuthMiddleware");
 var middleWares = [ AuthMiddleware ];
 
@@ -63,6 +66,21 @@ router.post('/api/fetchExamScheduleInfo/', middleWares ,EWhiteBoard.fetchExamSch
 
 //醫師收治
 router.post('/api/fetchDoctorInfo/', middleWares ,EWhiteBoard.fetchDoctorInfo);
+
+
+
+
+
+//取得跑馬燈
+router.get('/api/getMarquee', middleWares ,MarqueeController.getMarquee);
+
+
+//病房公告
+router.get('/api/getAnnouncement', middleWares ,EWhiteBoard.getAnnouncement);
+
+
+//待辦事項
+router.get('/api/PatientTodoByWard/', middleWares ,EWhiteBoard.queryPatientTodoByWard);
 
 
 

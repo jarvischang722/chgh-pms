@@ -1,0 +1,83 @@
+
+<header>
+    <div id="head">
+        <img id="logo" src="../images/logo.png">
+        <a href="/"><h4>生理醫護監測管理系統</h4></a>
+        <div class="head_right_nav">
+            <h4>
+
+                <% if(session.user !=null){%>
+
+                <span>護理站：<%= session.nur_id %></span>
+                <span>使用者：<%= session.user.account %><%= session.user.user_role_name%></span>
+                <% }else{ %>
+                <span>尚未登入</span>
+                <% }%>
+
+            </h4>
+        </div>
+
+        <div class="dropdown">
+            <div><i class="fa fa-cog" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+                <a href="/reSelectNurArea"><i class="fa fa-h-square" aria-hidden="true"></i> 選擇護理站</a>
+                <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 登出</a>
+            </div>
+        </div>
+
+
+
+
+        <!--<a href="#" id="setting"><i class="fa fa-cog" aria-hidden="true"></i></a>-->
+
+
+    </div>
+    <nav id="navbar" class="nurse_system">
+        <!-- 護理師模組,  not available for the client -->
+        <% if(moduleName == 'nurse'){%>
+        <!--<ul>-->
+            <!--<li><a href="/nurse/nurseInfoMaintain" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 護理師資料維護</a></li>-->
+            <!--<li><a href="/nurse/batchBedAssign" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 批次病房分派</a></li>-->
+            <!--<li><a href="/nurse/dailyBedAssign" class="<%= func == '3'? 'active' :  '' %>"><i class="fa fa-cubes" aria-hidden="true"></i> 每日病房分派</a></li>-->
+            <!--<li><a href="/nurse/schedulingQuery" class="<%= func == '4'? 'active' :  '' %>"><i class="fa fa-table" aria-hidden="true"></i> 班表資料査詢</a></li>-->
+        <!--</ul>-->
+        <% }else if(moduleName == 'patient'){ %>
+        <!-- 病患模組 -->
+        <ul>
+            <li><a href="/patient/patientTodoItem" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 待辦事項設定</a></li>
+        </ul>
+        <% }else if(moduleName == 'doctor'){ %>
+        <!-- 醫師模組 ,  not available for the client-->
+        <!--<ul>-->
+            <!--<li><a href="/doctor/doctorInfoMaintain" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-folder-open-o" aria-hidden="true"></i> 醫師資料維護</a></li>-->
+            <!--<li><a href="/doctor/doctorSchedulingSet" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 醫師排班資料設定</a></li>-->
+            <!--<li><a href="/doctor/doctorSchedulingQuery" class="<%= func == '3'? 'active' :  '' %>"><i class="fa fa-table" aria-hidden="true"></i> 醫師排班資料查詢</a></li>-->
+        <!--</ul>-->
+        <% }else if(moduleName == 'monitor'){ %>
+        <!-- 監控模組 ,  not available for the client-->
+        <!--<ul>-->
+            <!--<li><a href="/monitor/bitParamSet" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-eyedropper" aria-hidden="true"></i> 點滴參數設定</a></li>-->
+            <!--<li><a href="/monitor/bitDeviceAssign" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-share-alt" aria-hidden="true"></i> 點滴裝置分派</a></li>-->
+            <!--<li><a href="/monitor/immediateBitData" class="<%= func == '3'? 'active' :  '' %>"><i class="fa fa-search" aria-hidden="true"></i> 即時點滴數據查詢</a></li>-->
+            <!--<li><a href="/monitor/statisticalReport" class="<%= func == '4'? 'active' :  '' %>"><i class="fa fa-file-text-o" aria-hidden="true"></i> 統計報表查詢</a></li>-->
+        <!--</ul>-->
+        <% }else if(moduleName == 'other'){ %>
+        <!-- 其他模組 ,  not available for the client-->
+        <ul>
+            <li><a href="/other/todoPhrase" class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 代辦事項片語管理　</a></li>
+            <li><a href="/other/bedAnnounceMaintain" class="<%= func == '2'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 病房公告維護</a></li>
+            <li><a href="/other/marqueeMsgMaintain" class="<%= func == '3'? 'active' :  '' %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 跑馬燈訊息維護</a></li>
+
+
+        </ul>
+        <% }else if(moduleName == 'system'){ %>
+        <!-- 系統維護模組 -->
+        <ul class="navbar_longer">
+
+            <li><a href="/systemMaintain/employeeManage"  class="<%= func == '1'? 'active' :  '' %>"><i class="fa fa-address-card-o" aria-hidden="true"></i> 人員基本資料管理</a></li>
+
+        </ul>
+
+        <%}%>
+    </nav>
+</header>

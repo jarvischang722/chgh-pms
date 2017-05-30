@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>生理醫護監測管理系統</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/remodal.css">
+    <link rel="stylesheet" type="text/css" href="css/remodal-default-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.pwstabs.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.popSelect.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div id="head">
+            <h4><span class="room_number">5A</span></h4>
+            <h4 class="head_time">2016/11/11 PM 12:12:12</h4>
+            <div class="head_right_nav">
+                <img id="logo" src="images/logo.png">
+            </div>
+        </div>
+    </header>
+    <!-- 原來的header區塊改成這樣了 20161109 START -->
+    <div id="footer">
+        <div id="footer_inner">
+            <div class="footer_inner_text">
+                送裡形後呢車立位檢理國到養著，何沒東們文才先指選臺古南用資死者現名木畫。爸德未每校孩高法談路業切別，因出美強天建媽開問元地花流太不一，口寶或子花國城真環注孩。汽有外告門治提裡情夫，很一西通公實包叫試音前了內示列！球計談兒，著收一國完自。方出我力次是唱品到不理片！加候能院離全，常邊來入量價！
+            </div>
+        </div>
+    </div>
+    <!-- 原來的header區塊改成這樣了 20161109 END -->
+    <div class="container container_higher" id="out">
+        <div class="container_inner">
+            <div class="clearfix"></div>
+            <table class="overflow-y">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>病床</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>賴筱菁</td>
+                        <td>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">03-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">07-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-02</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-03</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">07-05</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed new">10-01</a>
+                            <a href="#rooms_modal" class="bed_label bed_label_bed">13-02</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <div class="nurse_tabs">
+            <div data-pws-tab="nurse_tabs_1" data-pws-tab-name="其他醫師">
+            </div>
+            <div data-pws-tab="nurse_tabs_2" data-pws-tab-name="值班醫師">
+                <table class="overflow-y">
+                    <thead>
+                        <tr>
+                            <th>醫師別</th>
+                            <th>姓名</th>
+                            <th>手機號碼</th>
+                            <th>院內電話</th>
+                            <th>病床</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>主治醫師</td>
+                            <td>賴筱菁</td>
+                            <td>0987654321</td>
+                            <td>51429</td>
+                            <td>
+                                <div class="bed_label bed_label_bed">03-01</div>
+                                <div class="bed_label bed_label_bed">07-01</div>
+                                <div class="bed_label bed_label_bed">07-02</div>
+                                <div class="bed_label bed_label_bed">07-03</div>
+                                <div class="bed_label bed_label_bed">07-05</div>
+                                <div class="bed_label bed_label_bed">10-01</div>
+                                <div class="bed_label bed_label_bed">13-02</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+        </div>
+    </div>
+    <!-- 原來的footer變這樣 20161109 START -->
+    <footer>
+        <nav id="navbar">
+            <ul>
+                <li><a href="board_2.html"><i class="fa fa-stethoscope" aria-hidden="true"></i> 病患資訊</a></li>
+                <li><a href="board_3.html"><i class="fa fa-clipboard" aria-hidden="true"></i> 手術資訊</a></li>
+                <li><a href="board_10.html"><i class="fa fa-eyedropper" aria-hidden="true"></i> 檢查治療</a></li>
+                <li><a href="board_4.html"><i class="fa fa-list-ul" aria-hidden="true"></i> 待辦事項</a></li>
+                <li><a href="board_5.html"><i class="fa fa-taxi" aria-hidden="true"></i> 入出院</a></li>
+                <li><a href="board_7.html"><i class="fa fa-table" aria-hidden="true"></i> 護理師排班</a></li>
+                <li><a href="board_8.html" class="active"><i class="fa fa-user-md" aria-hidden="true"></i> 醫師收治</a></li>
+                <li><a href="board_11.html"><i class="fa fa-list-alt" aria-hidden="true"></i> 醫師值班</a></li>
+                <li><a href="board_9.html"><i class="fa fa-volume-off" aria-hidden="true"></i> 病床公告</a></li>
+                <li><a href="#" id="nav_refresh"><i class="fa fa-refresh" aria-hidden="true"></i>重新整理</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <!-- 原來的footer變這樣 20161109 END -->
+    <div class="remodal" data-remodal-id="rooms_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>05-01</div>
+            <div><span class="female">鄭○文(36)</span></div>
+        </div>
+        <div class="remodal_body">
+            <div class="rooms_tabs">
+                <div data-pws-tab="rooms_tabs_1" data-pws-tab-name="基本資料">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="text-right">主治醫師</td>
+                                <td><span class="doctor">陳益祥</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">住院醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">實習醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">專科護理師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">見習醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">護理師</td>
+                                <td><span class="doctor">李靜宜</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">手術</td>
+                                <td><span class="doctor">XXXX手術</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">狀態</td>
+                                <td class="doctor_cond">
+                                    <span class="cond_dot cond_green"></span>跌倒
+                                    <span class="cond_dot cond_blue"></span>隔離
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-pws-tab="rooms_tabs_2" data-pws-tab-name="過敏資料">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="text-right">主治醫師</td>
+                                <td><span class="doctor">陳益祥</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">住院醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">實習醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">專科護理師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">見習醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">手術</td>
+                                <td><span class="doctor">XXXX手術</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">狀態</td>
+                                <td class="doctor_cond">
+                                    <span class="cond_dot cond_green"></span>跌倒
+                                    <span class="cond_dot cond_blue"></span>隔離
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-pws-tab="rooms_tabs_3" data-pws-tab-name="醫囑資料">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="text-right">主治醫師</td>
+                                <td><span class="doctor">陳益祥</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">住院醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">實習醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">專科護理師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">手術</td>
+                                <td><span class="doctor">XXXX手術</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">狀態</td>
+                                <td class="doctor_cond">
+                                    <span class="cond_dot cond_green"></span>跌倒
+                                    <span class="cond_dot cond_blue"></span>隔離
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-pws-tab="rooms_tabs_4" data-pws-tab-name="待辦資料">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="text-right">主治醫師</td>
+                                <td><span class="doctor">陳益祥</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">住院醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">實習醫師</td>
+                                <td><span class="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">手術</td>
+                                <td><span class="doctor">XXXX手術</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">狀態</td>
+                                <td class="doctor_cond">
+                                    <span class="cond_dot cond_green"></span>跌倒
+                                    <span class="cond_dot cond_blue"></span>隔離
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="js/jquery.stickyheader.js"></script>
+    <script type="text/javascript" src="js/remodal.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.zh.js"></script>
+    <script type="text/javascript" src="js/jquery.pwstabs.min.js"></script>
+    <script type="text/javascript" src="js/jquery.popSelect.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+</body>
+
+</html>

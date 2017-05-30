@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<%-include ../Common/head.ejs%>
+<body>
+<%- include('../Common/left_navbar',{moduleName:'other'}) %>
+<%- include('../Common/headerMenu',{moduleName:'other', func:'2' }) %>
+    <div class="nurse_system">
+        <div class="container container_higher">
+            <div class="ope_list_search">
+
+                <div class="btn_group">
+                    <a href="#add_modal" class="btn" id="new_btn"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+                    <a href="#" class="btn" id="delete_btn"><i class="fa fa-minus" aria-hidden="true"></i> 刪除</a>
+                </div>
+            </div>
+            <table class="overflow-y" id="ann_table">
+                <thead>
+                    <tr>
+                        <th>共 <span class="ban" id="ann_num"></span> 筆</th>
+                        <th>編輯</th>
+                        <th>護理站</th>
+                        <th>內容</th>
+                        <th>上架期間</th>
+                    </tr>
+                </thead>
+                <tbody id="all_ann_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="add_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>新增病房公告</div>
+        </div>
+        <div class="remodal_body">
+            <form id="insert_form">
+                <div>
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 內容</label>
+                    <textarea rows="3" name="content"></textarea>
+                </div>
+                <div>
+                    <label> 連結</label>
+                    <textarea rows="1" name="link"></textarea>
+                </div>
+                <div class="date_range">
+                    <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 時間區間</label>
+                    <input id="ope_range" name="ope_range" type='text' class="datepicker-here" data-range="true" data-multiple-dates-separator=" ~ " data-language='zh' data-position="bottom right" placeholder="2016-11-11 ~ 2016-11-11" />
+                </div>
+                <div class="text-left">
+                    <label></label>
+                    <small class="ban"> 下架日期為該日的00:00下架 </small>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn" id="insert_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="edit_modal">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div class="remodal_header">
+            <div>編輯病房公告</div>
+        </div>
+        <div class="remodal_body" id="edit_ann_div">
+        </div>
+        <div class="remodal_footer">
+            <a href="#" class="btn" id="update_btn"><i class="fa fa-check" aria-hidden="true"></i> 確定</a>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script type="text/javascript" src="../admin/js/Other/bedAnnounceMaintain.js"></script>
+<script id="ann_temp" type="text/x-handlebars-template">
+    {{#anns}}
+    <tr>
+        <td class="date">
+            <input type="checkbox" value="{{id}}" />
+        </td>
+        <td class="date">
+            <a href="#edit_modal" class="btn edit_ann"  data-id="{{id}}" data-content="{{content}}" data-end_datetime="{{end_datetime}}" data-start_datetime="{{start_datetime}}"
+               data-link="{{link}}"><i class="fa fa-edit" aria-hidden="true"></i> 編輯</a>
+        </td>
+        <td class="date">{{ward_zone_name}}</td>
+        <td>{{content}}</td>
+        <td class="date">{{formatTime start_datetime "current"}} ~ {{formatTime end_datetime "current"}}</td>
+    </tr>
+    {{/anns}}
+</script>
+<script id="edit_ann_temp" type="text/x-handlebars-template">
+    {{#anns}}
+    <form id="update_form">
+        <input type="hidden" name="id" value="{{id}}">
+        <div>
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 內容</label>
+            <textarea rows="3" id="content" name="content">{{content}}</textarea>
+        </div>
+        <div>
+            <label> 連結</label>
+            <textarea rows="1" id="link" name="link">{{link}}</textarea>
+        </div>
+        <div class="date_range">
+            <label><i class="fa fa-asterisk must" aria-hidden="true"></i> 時間區間</label>
+            <input id="ope_range" name="ope_range" type='text' class="datepicker-here" data-range="true" data-multiple-dates-separator=" ~ " data-language='zh' data-position="bottom right" value="{{formatTime start_datetime 'current2'}} ~ {{formatTime end_datetime 'current2'}}" />
+        </div>
+        <div class="text-left">
+            <label></label>
+            <small class="ban"> 下架日期為該日的00:00下架 </small>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+    {{/anns}}
+</script>

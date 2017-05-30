@@ -4,11 +4,16 @@
 var _ = require("underscore");
 var async = require("async");
 var DashBoardWebSvc = require("./DashBoardWebService");
+
+var patientTodoRecordService = require("./patientTodoRecordService");
+
 var moment = require("moment");
 var request = require('request');
 var parseString = require('xml2js').parseString;
 var alasql = require('alasql');
 
+var DBAgent = require("../plugins/mysql/DBAgent");
+var Logger = require("../plugins/Log4js").Logger();
 /**
  * 取得手術資料
  * @param postData
@@ -233,6 +238,28 @@ exports.handleSinglePatientInfo = function (postData, callback) {
                 }
                 callback(err, allergyData);
             })
+        },
+        patientTodo: function (callback) {
+            //Ian add 0528
+
+
+            var patient_todo_record_date = moment().format("YYYYMMDD");
+
+            patientTodoRecordService.getPatientTodoByPatientID(patient_id, patient_todo_record_date, nur_id, function (todoData, errorCode) {
+                if(errorCode){
+                    console.error(errorCode);
+                    todoData = [];
+                }
+                callback(errorCode, todoData);
+            });
+
+            //DashBoardWebSvc.getAllergyData(postData, function (err, allergyData) {
+            //    if(err){
+            //        console.error(err);
+            //        allergyData = [];
+            //    }
+            //    callback(err, allergyData);
+            //})
         }
     }, function (err, results) {
         if (err) {
@@ -253,7 +280,48 @@ exports.handleSinglePatientInfo = function (postData, callback) {
                 patientInfo.otherAllergy = allergy.drug_name || "";  // 其他過敏
             }
         });
-        patientInfo["bed_no"] = patientInfo["bed_no"].replace(" ","-");
+        
+        if(!_.isUndefined(patientInfo["bed_no"])){
+            patientInfo["bed_no"] = patientInfo["bed_no"].replace(" ","-");
+        }else{
+            patientInfo["bed_no"] = "";
+        }
+
+
+
+        //待辦事項字串產生
+        var todoString="";
+
+        if(!_.isUndefined(results.patientTodo)){
+
+            _.each(results.patientTodo,function(patientTodo){
+
+                var tempStr="";
+                if(_.isEqual(patientTodo.is_finish, "Y")){
+
+                    tempStr+=patientTodo.todo_name+"(已完成)";
+
+                }else if(_.isEqual(patientTodo.is_finish, "N")){
+
+                    tempStr+=patientTodo.todo_name+"(未完成)";
+
+                }
+
+                todoString+=tempStr+",";
+            });
+
+
+        }
+
+        //空值處理
+        if(todoString==""){
+            todoString="該病患無待辦事項";
+        }else{
+            //砍掉最後一個逗號
+            todoString=todoString.replace(/,\s*$/, "");
+        }
+
+        patientInfo["todo"]=todoString;
 
         callback(null, patientInfo);
     });

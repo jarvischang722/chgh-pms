@@ -104,50 +104,8 @@ module.exports = {
             "where patient.person_id=:patient_person_id and " +
             "patient_todo_record.todo_date=:patient_todo_record_date",
 
-    "QRY_ALL_PATIENT_TODO_RECORD_BY_DATE_NOT_FINISH" :
-        "SELECT "+
-            "patient_todo_record.id as patient_todo_record_id,"+
-            "bed.name as bed_name,"+
-            "patient.name as patient_name,"+
-            "patient.sex as patient_sex,"+
-            "patient.age as patient_age,"+
-            "patient.person_id as patient_person_id,"+
-            "patient.birthday_date as patient_birthday_date,"+
-            "patient_todo_record.medical_record_id as medical_record_id,"+
-            "medical_record.number as medical_record_number,"+
-            "todo.id as todo_id,"+
-            "todo.todo_name as todo_name,"+
-            "patient_todo_record.todo_date as patient_todo_record_date,"+
-            "patient_todo_record.is_finish as patient_todo_record_is_finish,"+
-
-            "ward.ward_name AS ward_name, " +
-            "ward.id AS ward_id, " +
-            "ward_zone.ward_zone_name AS ward_zone_name, " +
-            "ward_zone.id AS ward_zone_id " +
-
-            "FROM patient_todo_record "+
 
 
-            "INNER JOIN todo "+
-            "ON patient_todo_record.todo_id = todo.id "+
-            "INNER JOIN medical_record "+
-            "ON patient_todo_record.medical_record_id = medical_record.id "+
-            "INNER JOIN patient "+
-            "ON medical_record.patient_person_id = patient.person_id "+
-            "INNER JOIN bed_record "+
-            "ON bed_record.patient_person_id = patient.person_id "+
-            "INNER JOIN bed "+
-            "ON bed_record.bed_id = bed.id "+
-
-            "LEFT join ward on ward.id = bed.ward_id " +
-
-            "LEFT join ward_zone ON ward.ward_zone_id = ward_zone.id " +
-
-            "where ward.ward_zone_id=:ward_zone_id " +
-
-            "AND medical_record.status='in' " +
-
-            "AND patient_todo_record.todo_date=:todo_date and is_finish='N'",
 
     "QRY_ALL_PATIENT_TODO_RECORD_BY_DATE" :
         "SELECT "+
@@ -200,13 +158,45 @@ module.exports = {
             + "FROM   patient_todo_record "
             + "   LEFT JOIN medical_record "
             + "   ON patient_todo_record.medical_record_id = medical_record.id "
-            + "WHERE  medical_record.patient_person_id = :patient_person_id "
-            + "       AND patient_todo_record.todo_date = :todo_date "
+            + "WHERE  1=1"
+            + "       [ AND medical_record.patient_person_id = :patient_person_id]"
+            + "       [ AND patient_todo_record.todo_date = :todo_date]"
+            + "       [ AND patient_todo_record.nur_id = :nur_id]"
+            + "       [ AND patient_todo_record.is_finish = :is_finish]"
             + " "
             + "Group by patient_todo_record.medical_record_id",
 
 
-    "QRY_ALL_PATIENT_TODO_RECORD_COUNT_BY_DATE" :
+
+    "QRY_PATIENT_TODO_RECORD" :
+    "SELECT *, patient_todo_record.id as patient_todo_record_id "
+    + "FROM   patient_todo_record "
+    + "       INNER JOIN todo "
+    + "               ON patient_todo_record.todo_id = todo.id "
+    + "WHERE  1=1"
+    + "       [AND nur_id = :ward_zone_id ]"
+    + "       [AND medical_record_id = :patient_id ]"
+    + "       [AND is_finish = :is_finish ]"
+    + "       [AND todo_date = :todo_date] ",
+
+    "QRY_PATIENT_TODO_RECORD_GORUP_BY_PATIENT" :
+    "SELECT *, "
+    + "sum(`is_finish`='Y')  AS finishCount, "
+    + "sum(`is_finish`='N')  AS notFinishCount "
+    + "FROM   patient_todo_record "
+    + "       INNER JOIN todo "
+    + "               ON patient_todo_record.todo_id = todo.id "
+    + "WHERE  1=1"
+    + "       [AND nur_id = :ward_zone_id ]"
+    + "       [AND medical_record_id = :patient_id ]"
+    + "       [AND todo_date = :todo_date] "
+    + "Group by medical_record_id",
+
+
+
+
+
+    "QRY_ALL_PATIENT_TODO_RECORD_COUNT_BY_DATE_OLD" :
         "SELECT patient_todo_record.id        AS patient_todo_record_id, "
             + "       bed.name                      AS bed_name, "
             + "       patient.name                  AS patient_name, "
@@ -250,7 +240,7 @@ module.exports = {
 
     "UPDATE_PATIENT_TODO_RECORD_STATUS" : "UPDATE patient_todo_record SET is_finish= :is_finish, update_user=:update_user where id= :patient_todo_record_id",
 
-    "INS_PATIENT_TODO_RECORD" : "INSERT IGNORE INTO patient_todo_record (medical_record_id, todo_id, todo_date, is_finish,update_user)  VALUES ?",
+    "INS_PATIENT_TODO_RECORD" : "INSERT IGNORE INTO patient_todo_record (medical_record_id, todo_id, todo_date, patient_name, patient_sex, patient_birthday, nur_id, bed_no, is_finish,update_user)  VALUES ?",
 
     "DEL_PATIENT_TODO_RECORD" : "DELETE FROM patient_todo_record where id= :patient_todo_record_id",
 
