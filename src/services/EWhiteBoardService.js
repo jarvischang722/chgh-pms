@@ -240,12 +240,7 @@ exports.handleSinglePatientInfo = function (postData, callback) {
         }
 
         var doctorData = _.find(results.doctorList,function(doc){
-            try{
-                return doc.bed_no.trim() == patientInfo.bed_no.trim()
-            }catch(e){
-                return false;
-            }
-
+            return typeof  doc.bed_no === 'string' && doc.bed_no.trim() == patientInfo.bed_no.trim()
         });
 
         if(!_.isUndefined(doctorData)){
@@ -447,7 +442,6 @@ exports.processNurseSche = function (data, callback) {
             var bed_name = result[i].bed_no; //病床
             var group_name_array = result[i].group_name.split(",");
             var subgroup_name_array = group_name_array.slice(1);
-            subgroup_name_array = ["1", "2"];
             var class_id = result[i].schedule_type; //早班 中班 晚班
             var in_hospital_date = result[i].in_hospital_date; //入院日
             var call_number = result[i].call_number; //分機號碼

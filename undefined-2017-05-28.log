@@ -1,0 +1,260 @@
+[2017-05-28 02:18:40.706] [ERROR] access - { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at async.waterfall.DBAgent.error (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:190:49)
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:163:21
+    at Query._callback (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:87:13)
+    at Query.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:137:8)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-05-28 02:26:32.267] [ERROR] access - { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at async.waterfall.DBAgent.error (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:190:49)
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:163:21
+    at Query._callback (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:87:13)
+    at Query.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:137:8)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-05-28 02:40:04.729] [ERROR] access - { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at async.waterfall.DBAgent.error (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:190:49)
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:163:21
+    at Query._callback (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:87:13)
+    at Query.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:137:8)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-05-28 11:16:39.188] [ERROR] access - { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at async.waterfall.DBAgent.error (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:190:49)
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:163:21
+    at Query._callback (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:87:13)
+    at Query.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:137:8)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-05-28 12:28:34.180] [ERROR] access - { Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at async.waterfall.DBAgent.error (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:190:49)
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:163:21
+    at Query._callback (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:87:13)
+    at Query.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:137:8)
+  code: 'ER_WRONG_VALUE_COUNT_ON_ROW',
+  errno: 1136,
+  sqlState: '21S01',
+  index: 0 }
+[2017-05-28 12:59:26.876] [ERROR] access - { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sum(`is_finish`='Y')  AS finishCount, sum(`is_finish`='N')  AS notFinishCount FR' at line 1
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:122:40
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:85:21
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:73:9
+    at Handshake.onConnect (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-05-28 13:16:45.091] [ERROR] access - { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM   patient_todo_record WHERE  1=1       AND nur_id = '101'        AND medica' at line 1
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:122:40
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:85:21
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:73:9
+    at Handshake.onConnect (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-05-28 13:27:35.814] [ERROR] access - { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'patient_todo_record        INNER JOIN todo                ON patient_todo_record' at line 1
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:122:40
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:85:21
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:73:9
+    at Handshake.onConnect (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-05-28 13:31:04.028] [ERROR] access - { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at async.waterfall.DBAgent.error (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:190:49)
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:163:21
+    at Query._callback (/Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:87:13)
+    at Query.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:137:8)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-05-28 23:34:02.121] [ERROR] access - { Error: ER_BAD_NULL_ERROR: Column 'account' cannot be null
+    at Query.Sequence._packetToError (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Connection.js:208:25)
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:122:40
+    at nextTask (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5274:14)
+    at next (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:5281:9)
+    at /Users/Ian/Documents/work/chgh-PMS/src/node_modules/async/dist/async.js:906:16
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DBAgent.js:85:21
+    at /Users/Ian/Documents/work/chgh-PMS/src/plugins/mysql/DB.js:73:9
+    at Handshake.onConnect (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.Sequence.end (/Users/Ian/Documents/work/chgh-PMS/src/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)
+  code: 'ER_BAD_NULL_ERROR',
+  errno: 1048,
+  sqlState: '23000',
+  index: 0 }

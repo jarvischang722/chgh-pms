@@ -22,10 +22,11 @@ var moment = require("moment");
  *        }
  */
 exports.getNurPatient = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "Get_nur_Patient_new",
         form: formData
@@ -50,7 +51,7 @@ exports.getNurPatient = function (formData, callback) {
  *        }
  */
 exports.getDayBeforeInfo = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id', 'Query_date'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id', 'Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
@@ -77,11 +78,11 @@ exports.getDayBeforeInfo = function (formData, callback) {
  *        }
  */
 exports.getInTranInData = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id', 'Query_date'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id', 'Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "In_TranIn_Data_new",
         form: formData
@@ -106,11 +107,11 @@ exports.getInTranInData = function (formData, callback) {
  *        }
  */
 exports.getOutTranOutData = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id', 'Query_date'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id', 'Query_date'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "Out_TranOut_Data_new",
         form: formData
@@ -159,10 +160,11 @@ exports.getAllNurBedInfo = function (formData, callback) {
  *        }
  */
 exports.getNurBedInfo = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['nurs_id'], formData);
+    var checkValError = commonTools.checkParamsExist(['nur_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "nur_bed_info_new",
         form: formData
@@ -190,7 +192,7 @@ exports.getOpScheduleInfo = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "op_schedule_info_new",
         form: formData
@@ -217,11 +219,11 @@ exports.getOpScheduleInfo = function (formData, callback) {
  *        }
  */
 exports.getExamScheduleInfo = function (formData, callback) {
-    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate', 'nurs_id'], formData);
+    var checkValError = commonTools.checkParamsExist(['StratDate', 'EndDate', 'nur_id'], formData);
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
     request.post({
         url: SystemConfig.web_service_url + "exam_schedule_info",
         form: formData
@@ -252,7 +254,7 @@ exports.getNisDutySchedule = function (formData, callback) {
     if (checkValError) {
         return callback(checkValError, []);
     }
-
+    formData["nurs_id"] = formData["nur_id"];
 
     request.post({
         url: SystemConfig.web_service_url + "nis_duty_schedule_new",
@@ -284,7 +286,7 @@ exports.getAllergyData = function (formData, callback) {
         return callback(checkValError, []);
     }
 
-    formData["PatientID"] = formData['patient_id']
+    formData["PatientID"] = formData['patient_id'];
 
     request.post({
         url: SystemConfig.web_service_url + "Get_Allergy_Data",
