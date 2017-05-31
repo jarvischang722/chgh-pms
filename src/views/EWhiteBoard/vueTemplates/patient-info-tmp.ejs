@@ -45,8 +45,8 @@
                                 <span v-if="patientInfo.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
                                 <span v-if="patientInfo.allergy_flag == 'Y'">過敏</span>
 
-                                <span v-if="patientInfo.operate_name != ''" class="cond_dot cond_yellow"></span>
-                                <span v-if="patientInfo.operate_name != ''">手術</span>
+                                <span v-if="patientInfo.operate_name != '' && patientInfo.operate_name != null"  class="cond_dot cond_yellow"></span>
+                                <span v-if="patientInfo.operate_name != '' && patientInfo.operate_name != null">手術</span>
 
                                 <span v-if="patientInfo.xxx == 'Y'" class="cond_dot cond_green"></span>
                                 <span v-if="patientInfo.xxx == 'Y'">待辦事項</span>

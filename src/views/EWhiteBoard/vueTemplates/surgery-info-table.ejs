@@ -23,7 +23,15 @@
         table_hard_4 :準備中
         table_hard_5 :觀察中
     -->
-    <tr  v-for="surgery in surgeryInfoList" class="table_hard_white">
+    <tr  v-for="surgery in surgeryInfoList"
+         :class="{
+             table_hard_white: surgery.patient_status == '' || surgery.patient_status == '恢復中' ,
+             table_hard_1: surgery.patient_status == '手術中',
+             table_hard_2: surgery.patient_status == '開刀前',
+             table_hard_3: surgery.patient_status == '已返室',
+             table_hard_4: surgery.patient_status == '準備中',
+             table_hard_5: surgery.patient_status == '觀察中'
+         }">
         <td class="date">{{surgery.operate_date | fmtDateMMDD }}</td>
         <td class="date">{{surgery.op_room}}</td>
         <td class="date">{{surgery.operate_time}}</td>

@@ -12,93 +12,109 @@
 
 
 <div id="app" class="container">
-    <div class="room_des">
-        <div class="room_des_inner">
-            <div class="room_des_left">
-                <span class="doctor">前一日病人動態：</span>
-                在院：<span class="red">{{dayBeforeInfo.inpatient_num}}</span>
-                入院：<span class="red">{{dayBeforeInfo.in_hospital_num}}</span>
-                出院：<span class="red">{{dayBeforeInfo.out_hospital_num}}</span>
-                轉入：<span class="red">{{dayBeforeInfo.trans_in_num}}</span>
-                轉出：<span class="red">{{dayBeforeInfo.trans_out_num}}</span>
-                手術：<span class="red">{{dayBeforeInfo.operation_num}}</span>
-                死亡：<span class="red">{{dayBeforeInfo.death_num}}</span>
-                <div class="room_des_right_2">
-                    全部<a href="#" @click="filterPaitentInfo()" class="btn" style="background-color: #404040; color: #ffffff !important;"><small>{{bedInfo.bed_num}}</small></a>
-                   空床<a href="#"  @click="filterPaitentInfo('emptyBed')" class="btn empty" style="background: none; box-sizing: border-box;"><small style="height: 21px; line-height: 21px;">{{bedInfo.empty_bed_num}}</small></a>
+    <div class="container_inner">
+        <div class="room_des">
+            <div class="room_des_inner">
+                <div class="room_des_left">
+                    <span class="doctor">前一日病人動態：</span>
+                    在院：<span class="red">{{dayBeforeInfo.inpatient_num}}</span>
+                    入院：<span class="red">{{dayBeforeInfo.in_hospital_num}}</span>
+                    出院：<span class="red">{{dayBeforeInfo.out_hospital_num}}</span>
+                    轉入：<span class="red">{{dayBeforeInfo.trans_in_num}}</span>
+                    轉出：<span class="red">{{dayBeforeInfo.trans_out_num}}</span>
+                    手術：<span class="red">{{dayBeforeInfo.operation_num}}</span>
+                    死亡：<span class="red">{{dayBeforeInfo.death_num}}</span>
+                    <div class="room_des_right_2">
+                        全部<a href="#" @click="filterPaitentInfo()" class="btn"
+                             style="background-color: #404040; color: #ffffff !important;">
+                            <small>{{bedInfo.bed_num}}</small>
+                        </a>
+                        空床<a href="#" @click="filterPaitentInfo('emptyBed')" class="btn empty"
+                             style="background: none; box-sizing: border-box;">
+                            <small style="height: 21px; line-height: 21px;">{{bedInfo.empty_bed_num}}</small>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="room_des_right">
-              DNR<a href="#" @click="filterPaitentInfo('DNR')" class="btn medium"><small>{{DNRCount}}</small></a>
-              Critical<a href="#" @click="filterPaitentInfo('Critical')" class="btn hard"><small>{{CriticalCount}}</small></a>
-                <div class="room_des_right_2">
-                    <span class="cond_dot cond_red"></span>過敏
-                    <span class="cond_dot cond_yellow"></span>手術
-                    <span class="cond_dot cond_green"></span>待辦事項
-                    <span class="cond_dot cond_star"></span>MDRO
-                    <span class="cond_dot cond_give"></span>器官捐贈
-                    <!-- <span class="cond_dot cond_blue"></span>隔離 -->
+                <div class="room_des_right">
+                    DNR<a href="#" @click="filterPaitentInfo('DNR')" class="btn medium">
+                        <small>{{DNRCount}}</small>
+                    </a>
+                    Critical<a href="#" @click="filterPaitentInfo('Critical')" class="btn hard">
+                        <small>{{CriticalCount}}</small>
+                    </a>
+                    <div class="room_des_right_2">
+                        <span class="cond_dot cond_red"></span>過敏
+                        <span class="cond_dot cond_yellow"></span>手術
+                        <span class="cond_dot cond_green"></span>待辦事項
+                        <span class="cond_dot cond_star"></span>MDRO
+                        <span class="cond_dot cond_give"></span>器官捐贈
+                        <!-- <span class="cond_dot cond_blue"></span>隔離 -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="rooms" v-for="patient in showPatientInfo">
-        <a v-if="patient.patient_name" href="javascript:void(0)" @click="fetchSinglePatientInfo(patient.nur_id,patient.patient_id)" class="rooms_inner">
-            <div class="room_cond "
-                  :class="{medium : patient.signDNRFlag == 'Y' ,
+        <div class="clearfix"></div>
+        <div class="rooms" v-for="patient in showPatientInfo">
+            <a v-if="patient.patient_name" href="javascript:void(0)"
+               @click="fetchSinglePatientInfo(patient.nur_id,patient.patient_id)" class="rooms_inner">
+                <div class="room_cond "
+                     :class="{medium : patient.signDNRFlag == 'Y' ,
                   hard : patient.critical != '' && patient.signDNRFlag != 'Y' ,
                   both : patient.critical != '' && patient.signDNRFlag == 'Y' ,
-                  light :  patient.critical == '' && patient.signDNRFlag != 'Y' }"  >
+                  light :  patient.critical == '' && patient.signDNRFlag != 'Y' }">
 
                     <span class="fa-stack fa-lg">
-                        <i class="fa fa-square fa-stack-2x" :class="{'fa-mars-out': patient.sex == '男' , 'fa-venus-out': patient.sex == '女' }"></i>
-                        <i class="fa fa-stack-1x"　:class="{'fa-mars': patient.sex == '男' , 'fa-venus': patient.sex == '女' }"></i>
+                        <i class="fa fa-square fa-stack-2x"
+                           :class="{'fa-mars-out': patient.sex == '男' , 'fa-venus-out': patient.sex == '女' }"></i>
+                        <i class="fa fa-stack-1x"
+                           　:class="{'fa-mars': patient.sex == '男' , 'fa-venus': patient.sex == '女' }"></i>
                     </span>{{patient.bed_no | appendHyphenForBedNo}}
-                <div class="cond_dots_list">
-                    <!--過敏-->
-                    <span v-if="patient.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
-                    <!--手術-->
-                    <span v-if="patient.operate_name != ''" class="cond_dot cond_yellow"></span>
-                    <!--待辦事項-->
-                    <span v-if="patient.xxx == 'Y'" class="cond_dot cond_green"></span>
-                    <!--MDRO-->
-                    <span v-if="patient.MDRO == 'Y'" class="cond_dot cond_star"></span>
-                    <!--器官捐贈-->
-                    <span v-if="patient.organ_flag == 'Y'" class="cond_dot cond_give"></span>
-                    <!--DNR-->
-                    <span v-if="patient.signDNRFlag == 'Y'" class="cond_dot cond_ban"></span>
-                    <!--Critical-->
-                    <span v-if="patient.critical != ''" class="cond_dot cond_critical"></span>
+                    <div class="cond_dots_list">
+                        <!--過敏-->
+                        <span v-if="patient.allergy_flag == 'Y'" class="cond_dot cond_red"></span>
+                        <!--手術-->
+                        <span v-if="patient.operate_name != '' && patient.operate_name != null"
+                              class="cond_dot cond_yellow"></span>
+                        <!--待辦事項-->
+                        <span v-if="patient.xxx == 'Y'" class="cond_dot cond_green"></span>
+                        <!--MDRO-->
+                        <span v-if="patient.MDRO == 'Y'" class="cond_dot cond_star"></span>
+                        <!--器官捐贈-->
+                        <span v-if="patient.organ_flag == 'Y'" class="cond_dot cond_give"></span>
+                        <!--DNR-->
+                        <span v-if="patient.signDNRFlag == 'Y'" class="cond_dot cond_ban"></span>
+                        <!--Critical-->
+                        <span v-if="patient.critical != ''" class="cond_dot cond_critical"></span>
+                    </div>
                 </div>
-            </div>
-            <!--<p><span class="label">姓名：</span><span>{{patient.patient_name}}({{patient.birthday | convBirthdayToAge}})</span></p>-->
-            <p><span class="label">主治：</span><span class="doctor">{{patient.employee_name}}</span></p>
-            <p>
-                <span class="label">專科護理師：</span>
-                <span>{{patient.PA}}</span>
-                <!--<small class="red">{{patient.}}</small>
-                </p>-->
-            <p>
-                <span class="label">護理師：</span>
-                <span>{{patient.nurse_name}}</span>
-            </p>
-        </a>
+                <!--<p><span class="label">姓名：</span><span>{{patient.patient_name}}({{patient.birthday | convBirthdayToAge}})</span></p>-->
+                <p><span class="label">主治：</span><span class="doctor">{{patient.employee_name}}</span></p>
+                <p>
+                    <span class="label">專科護理師：</span>
+                    <span>{{patient.PA}}</span>
+                    <!--<small class="red">{{patient.}}</small>
+                    </p>-->
+                <p>
+                    <span class="label">護理師：</span>
+                    <span>{{patient.nurse_name}}</span>
+                </p>
+            </a>
 
-        <a v-else href="javascript:void(0)" class="rooms_inner empty">
-            <div class="room_cond">
+            <a v-else href="javascript:void(0)" class="rooms_inner empty">
+                <div class="room_cond">
                         <span class="fa-stack fa-lg">
                     </span>{{patient.bed_no | appendHyphenForBedNo}}
-                <div class="cond_dots_list">
+                    <div class="cond_dots_list">
+                    </div>
                 </div>
-            </div>
-            <h3 class="empty_bed">空床</h3>
-        </a>
+                <h3 class="empty_bed">空床</h3>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+        <patient-info-tmp
+                :patient-info='patientInfo'
+        ></patient-info-tmp>
     </div>
-    <div class="clearfix"></div>
-    <patient-info-tmp
-            :patient-info = 'patientInfo'
-    ></patient-info-tmp>
 </div>
 
 <%- include('../Common/eBoardFooter', {func: 'patientInfo'}) %>
