@@ -232,7 +232,7 @@ exports.handleSinglePatientInfo = function (postData, callback) {
         },
         allergyData: function (callback) {
             DashBoardWebSvc.getAllergyData(postData, function (err, allergyData) {
-                if(err){
+                if (err) {
                     console.error(err);
                     allergyData = [];
                 }
@@ -246,7 +246,7 @@ exports.handleSinglePatientInfo = function (postData, callback) {
             var patient_todo_record_date = moment().format("YYYYMMDD");
 
             patientTodoRecordService.getPatientTodoByPatientID(patient_id, patient_todo_record_date, nur_id, function (todoData, errorCode) {
-                if(errorCode){
+                if (errorCode) {
                     console.error(errorCode);
                     todoData = [];
                 }
@@ -262,66 +262,65 @@ exports.handleSinglePatientInfo = function (postData, callback) {
             //})
         }
     }, function (err, results) {
-        if (err) {
-            return callback(err, []);
+        if (err || _.size(patientInfo) == 0) {
+            return callback(err, {});
         }
 
-        var doctorData = _.find(results.doctorList,function(doc){
-            return typeof  doc.bed_no === 'string' && doc.bed_no.trim() == patientInfo.bed_no.trim()
+        var doctorData = _.find(results.doctorList, function (doc) {
+            return doc.bed_no.trim() == patientInfo.bed_no.trim()
         });
 
-        if(!_.isUndefined(doctorData)){
-            patientInfo = _.extend(patientInfo,doctorData)
+        if (!_.isUndefined(doctorData)) {
+            patientInfo = _.extend(patientInfo, doctorData)
         }
-        _.each(results.allergyData,function(allergy){
-            if(_.isEqual(allergy.source, "藥物")){
+        _.each(results.allergyData, function (allergy) {
+            if (_.isEqual(allergy.source, "藥物")) {
                 patientInfo.drugAllergy = allergy.drug_name || "";  // 藥物過敏
-            }else if(_.isEqual(allergy.source, "非藥物")){
+            } else if (_.isEqual(allergy.source, "非藥物")) {
                 patientInfo.otherAllergy = allergy.drug_name || "";  // 其他過敏
             }
         });
-        
-        if(!_.isUndefined(patientInfo["bed_no"])){
-            patientInfo["bed_no"] = patientInfo["bed_no"].replace(" ","-");
-        }else{
+
+        if (!_.isUndefined(patientInfo["bed_no"])) {
+            patientInfo["bed_no"] = patientInfo["bed_no"].replace(" ", "-");
+        } else {
             patientInfo["bed_no"] = "";
         }
 
 
-
         //待辦事項字串產生
-        var todoString="";
+        var todoString = "";
 
-        if(!_.isUndefined(results.patientTodo)){
+        if (!_.isUndefined(results.patientTodo)) {
 
-            _.each(results.patientTodo,function(patientTodo){
+            _.each(results.patientTodo, function (patientTodo) {
 
-                var tempStr="";
-                if(_.isEqual(patientTodo.is_finish, "Y")){
+                var tempStr = "";
+                if (_.isEqual(patientTodo.is_finish, "Y")) {
 
-                    tempStr+=patientTodo.todo_name+"(已完成)";
+                    tempStr += patientTodo.todo_name + "(已完成)";
 
-                }else if(_.isEqual(patientTodo.is_finish, "N")){
+                } else if (_.isEqual(patientTodo.is_finish, "N")) {
 
-                    tempStr+=patientTodo.todo_name+"(未完成)";
+                    tempStr += patientTodo.todo_name + "(未完成)";
 
                 }
 
-                todoString+=tempStr+",";
+                todoString += tempStr + ",";
             });
 
 
         }
 
         //空值處理
-        if(todoString==""){
-            todoString="該病患無待辦事項";
-        }else{
+        if (todoString == "") {
+            todoString = "該病患無待辦事項";
+        } else {
             //砍掉最後一個逗號
-            todoString=todoString.replace(/,\s*$/, "");
+            todoString = todoString.replace(/,\s*$/, "");
         }
 
-        patientInfo["todo"]=todoString;
+        patientInfo["todo"] = todoString;
 
         callback(null, patientInfo);
     });
@@ -542,13 +541,13 @@ exports.processNurseSche = function (data, callback) {
             }
             //依班別->病房顯示
             /*
-            var tmpchar = ward_id.slice(-1);
-            if (!Number.isInteger(tmpchar)) {
-                ward_id = ward_id.substr(0, ward_id.length - 1).split(" ")[1]; //病房名稱格式化
-            } else {
-                ward_id = ward_id.split(" ")[1]; //病房名稱格式化
-            }
-            */
+             var tmpchar = ward_id.slice(-1);
+             if (!Number.isInteger(tmpchar)) {
+             ward_id = ward_id.substr(0, ward_id.length - 1).split(" ")[1]; //病房名稱格式化
+             } else {
+             ward_id = ward_id.split(" ")[1]; //病房名稱格式化
+             }
+             */
             ward_id = ward_id.split(" ")[1]; //病房名稱格式化
 
             if (ward_id in wardObj) {
@@ -738,12 +737,12 @@ exports.processDoctorOnDuty = function (data, callback) {
                         tmpObject["nurseList"] = nurseList2;
                         tmpObject["nurse1Name"] = nurseList[0].E;
                         tmpObject["nurseNum"] = nurseList.length;
-                        var tmpkey = nurseList[0].E.substring(0,nurseList[0].E.indexOf("("));
-                        if(nurseMap[tmpkey]){
+                        var tmpkey = nurseList[0].E.substring(0, nurseList[0].E.indexOf("("));
+                        if (nurseMap[tmpkey]) {
                             tmpObject["nurseTitle"] = nurseMap[tmpkey].Title;
-                            for(var nur=0;nur<nurseList2.length;nur++){
-                                tmpkey = nurseList2[nur].E.substring(0,nurseList2[nur].E.indexOf("("));
-                                if(nurseMap[tmpkey]){
+                            for (var nur = 0; nur < nurseList2.length; nur++) {
+                                tmpkey = nurseList2[nur].E.substring(0, nurseList2[nur].E.indexOf("("));
+                                if (nurseMap[tmpkey]) {
                                     nurseList2[nur]["nurseTitle"] = nurseMap[tmpkey].Title;
                                 }
                             }
@@ -775,17 +774,13 @@ exports.processDoctorOnDuty = function (data, callback) {
 };
 
 
-
-
-
-
 /**
  * 取得病房公告
  * */
-exports.getAnnouncement = function(ward_zone_id,callback){
-    DBAgent.query("QRY_ANNOUNCEMENT",{"ward_zone_id":ward_zone_id} , function(err , rows){
+exports.getAnnouncement = function (ward_zone_id, callback) {
+    DBAgent.query("QRY_ANNOUNCEMENT", {"ward_zone_id": ward_zone_id}, function (err, rows) {
 
-        if(err){
+        if (err) {
             Logger.error(error);
             rows = [];
         }
@@ -796,26 +791,27 @@ exports.getAnnouncement = function(ward_zone_id,callback){
 };
 
 
-
-
-
 /**
  * 取得待辦事項資訊
  * */
-exports.PatientTodoByWard = function(ward_zone_id,
-                                     patient_todo_record_date,
-                                     is_finish,
-                                     callback){
+exports.PatientTodoByWard = function (ward_zone_id,
+                                      patient_todo_record_date,
+                                      is_finish,
+                                      callback) {
 
-    if(is_finish!=""){
+    if (is_finish != "") {
         //目前統一用bed撈
-        DBAgent.query("QRY_PATIENT_TODO_RECORD_COUNT_BY_DATE",{nur_id:ward_zone_id, todo_date:patient_todo_record_date,is_finish:is_finish} , function(err , rows){
+        DBAgent.query("QRY_PATIENT_TODO_RECORD_COUNT_BY_DATE", {
+            nur_id: ward_zone_id,
+            todo_date: patient_todo_record_date,
+            is_finish: is_finish
+        }, function (err, rows) {
 
-            if(err){
+            if (err) {
                 Logger.error(err);
-                callback(false,-9999);
+                callback(false, -9999);
 
-            }else{
+            } else {
 
                 callback(rows);
 
@@ -823,15 +819,18 @@ exports.PatientTodoByWard = function(ward_zone_id,
 
         });
 
-    }else{
+    } else {
         //目前統一用bed撈
-        DBAgent.query("QRY_ALL_PATIENT_TODO_RECORD_GROUP_BY_BED",{ward_zone_id:ward_zone_id, patient_todo_record_date:patient_todo_record_date} , function(err , rows){
+        DBAgent.query("QRY_ALL_PATIENT_TODO_RECORD_GROUP_BY_BED", {
+            ward_zone_id: ward_zone_id,
+            patient_todo_record_date: patient_todo_record_date
+        }, function (err, rows) {
 
-            if(err){
+            if (err) {
                 Logger.error(err);
-                callback(false,-9999);
+                callback(false, -9999);
 
-            }else{
+            } else {
 
                 callback(rows);
 
