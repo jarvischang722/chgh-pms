@@ -14,7 +14,7 @@
     {
       "category":"error",
       "type": "dateFile",
-      "filename": "/Users/Ian/Documents/work/chgh-PMS/log/pms_error",
+      "filename": "C:/log/pms_error",
       "pattern": "-yyyy-MM-dd.log",
       "alwaysIncludePattern": true
     }
