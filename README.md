@@ -1,15 +1,11 @@
-#  振興醫院，電子白板公版修正案
+#  內容管理系統 & 電子白板
 
-gitlab 資訊
-url: https://[gitlab帳號]@gitlab.com/i29686112/chgh-PMS.git
-
-
-下載完專案後，套件下載
+Install package
 ```sh
 $ npm install
 ```
 
-執行專案
+Execute app
 ```sh
 $ node app.js
 ```
